@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Track;
 use App\Models\User\Van;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VanController extends Controller
 {
@@ -15,7 +17,7 @@ class VanController extends Controller
      */
     public function index()
     {
-        $vans = Van::all();
+        $vans = Van::where('user_id', '=', Auth::id())->get();
         return view('user.van.home', compact('vans'));
     }
 
@@ -37,7 +39,15 @@ class VanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "model" => "required",
+            "plate" => "required",
+            "seats" => "required",
+        ]);
+
+        Van::create($request->all());
+
+        return view('user.van');
     }
 
     /**
@@ -48,7 +58,13 @@ class VanController extends Controller
      */
     public function show($id)
     {
-        //
+        $van = Van::find($id);
+        $track = Track::all();
+        $trackSelected = array();
+        foreach ($van->track as $eachTrack) {
+            $trackSelected[] = $eachTrack->id;
+        }
+        return view('user.van.show', compact('van', 'track', 'trackSelected'));
     }
 
     /**
@@ -71,7 +87,19 @@ class VanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            "model" => "required",
+            "plate" => "required",
+            "seats" => "required",
+        ]);
+
+        $van = Van::find($id);
+        $van->model = $request->model;
+        $van->plate = $request->plate;
+        $van->seats = $request->seats;
+        $van->save();
+
+        // return redirect('user.van');
     }
 
     /**

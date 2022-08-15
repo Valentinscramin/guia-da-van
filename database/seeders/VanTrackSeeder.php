@@ -18,5 +18,6 @@ class VanTrackSeeder extends Seeder
         DB::table('van_track')->insert(['track_id' => '2', 'van_id' => '2']);
         DB::table('van_track')->insert(['track_id' => '3', 'van_id' => '3']);
         DB::table('van_track')->insert(['track_id' => '4', 'van_id' => '4']);
+        DB::table('van_track')->insert(['track_id' => '4', 'van_id' => '2']);
     }
 }

@@ -13,6 +13,6 @@ class Track extends Model
 
     public function van()
     {
-        return $this->belongsToMany('App\Models\User\Van');
+        return $this->belongsToMany('App\Models\User\Van', 'van_track', 'van_id', 'track_id');
     }
 }

@@ -22,11 +22,16 @@ Route::get('/', function () {
 Auth::routes();
 
 //USER
-Route::get('/user', [App\Http\Controllers\User\HomeController::class, 'index'])->name('user_home')->middleware('auth');
-Route::resource('/user/profile', App\Http\Controllers\User\ProfileController::class)->middleware('auth');
-Route::resource('/user/van', App\Http\Controllers\User\VanController::class)->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::get('/user', [App\Http\Controllers\User\HomeController::class, 'index'])->name('user_home');
+    Route::resource('/user/profile', App\Http\Controllers\User\ProfileController::class);
+    Route::resource('/user/van', App\Http\Controllers\User\VanController::class);
+});
 
 //ADMIN
-Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home')->middleware('auth:admin');
+Route::middleware('auth:admin')->group(function () {
+    Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
+});
+
 Route::get('/admin/login', [App\Http\Controllers\Auth\LoginAdminController::class, 'index'])->name('admin_login');
 Route::post('/admin/login', [App\Http\Controllers\Auth\LoginAdminController::class, 'login'])->name('admin_login_submit');
