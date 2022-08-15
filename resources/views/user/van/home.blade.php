@@ -17,7 +17,11 @@
                         <td>{{ $eachVan->model }}</td>
                         <td>{{ $eachVan->plate }}</td>
                         <td>{{ $eachVan->seats }}</td>
-                        <td>{{ $eachVan->track }}</td>
+                        <td>
+                            @foreach ($eachVan->track as $eachTrack)
+                                {{ $eachTrack->name.', ' }}
+                            @endforeach
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

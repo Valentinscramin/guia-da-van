@@ -99,7 +99,7 @@ class VanController extends Controller
         $van->seats = $request->seats;
         $van->save();
 
-        // return redirect('user.van');
+        return redirect('user/van');
     }
 
     /**

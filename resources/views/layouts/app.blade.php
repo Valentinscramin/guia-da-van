@@ -65,6 +65,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                     <a class="dropdown-item" href="{{ route('van.index') }}" role="button"> Van </a>
+                                    <a class="dropdown-item" href="{{ route('profile.index') }}" role="button"> Profile </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
