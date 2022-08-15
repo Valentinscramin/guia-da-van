@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\User\Van;
 use Illuminate\Http\Request;
 
 class VanController extends Controller
@@ -14,7 +15,8 @@ class VanController extends Controller
      */
     public function index()
     {
-        return view('user.van.home');
+        $vans = Van::all();
+        return view('user.van.home', compact('vans'));
     }
 
     /**
