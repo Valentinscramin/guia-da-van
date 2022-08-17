@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class LoginAdminController extends Controller
 {
@@ -21,18 +21,30 @@ class LoginAdminController extends Controller
 
     public function login(Request $request)
     {
-        $this->validator::make($request, ['email' => 'required|string', 'password' => 'required']);
 
-        $credentials = ['email' => $request->email, 'password' => $request->password];
+        $validator = $this->getValidationFactory()
+            ->make(
+                $request->all(),
+                [
+                    'email' => 'required|email',
+                    'password' => 'required'
+                ]
+            );
 
-        $authOK = Auth::guard()->attempt($credentials, $request->remember);
+        if ($validator->fails()) {
+            $this->throwValidationException($request, $validator);
+        } else {
 
-        if($authOK)
-        {
-            return redirect()->intended(route('admin_home'));
+            $credentials = ['email' => $request->input('email'), 'password' => $request->input('password')];
+
+            $authOK = Auth::guard('admin')->attempt($credentials, $request->remember);
+
+            if ($authOK) {
+                return redirect()->intended(route('admin_home'));
+            }
+
+            return redirect()->back()->withInput($request->only('email'));
         }
-
-        return redirect()->back()->withInput($request->only('email'));
     }
 
     public function index()
