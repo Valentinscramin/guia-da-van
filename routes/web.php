@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 //ADMIN
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
+    Route::get('/admin/track', [App\Http\Controllers\Admin\TrackController::class, 'index'])->name('track_home');
 });
 
 Route::get('/admin/login', [App\Http\Controllers\Auth\LoginAdminController::class, 'index'])->name('admin_login');
