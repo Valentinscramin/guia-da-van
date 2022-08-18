@@ -20,7 +20,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('cpf_cnpj')->nullable();
+            $table->string('celular')->nullable();
+            $table->string('telefone')->nullable();
             $table->date('data_nascimento')->nullable();
+            $table->boolean('active')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

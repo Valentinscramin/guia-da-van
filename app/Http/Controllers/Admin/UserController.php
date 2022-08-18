@@ -59,7 +59,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -71,7 +72,17 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->input('name');
+        // $user->email = "";
+        $user->cpf_cnpj = $request->input('cpf_cnpj');
+        $user->data_nascimento = $request->input('data_nascimento');
+        $user->celular = $request->input('celular');
+        $user->telefone = $request->input('telefone');
+        $user->active = $request->input('active') ? 1 : 0;
+        $user->save();
+
+        return redirect('/admin/user');
     }
 
     /**
