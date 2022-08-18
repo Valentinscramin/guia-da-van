@@ -32,6 +32,11 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth:admin')->group(function () {
     Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
     Route::get('/admin/track', [App\Http\Controllers\Admin\TrackController::class, 'index'])->name('track_home');
+    Route::get('/admin/user', [App\Http\Controllers\Admin\UserController::class, 'index'])->name('user_home_admin');
+    
+    //PHOTOS ALBUM
+    Route::resource('/admin/photos', App\Http\Controllers\Admin\AdminPhotosController::class);
+    Route::get('/admin/photos/download/{id}', [App\Http\Controllers\Admin\AdminPhotosController::class, 'download'])->name('photo_download');
 });
 
 Route::get('/admin/login', [App\Http\Controllers\Auth\LoginAdminController::class, 'index'])->name('admin_login');

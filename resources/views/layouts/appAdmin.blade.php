@@ -65,7 +65,9 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                     <a class="dropdown-item" href="{{ route('track_home') }}" role="button"> Track </a>
-
+                                    <a class="dropdown-item" href="{{ route('user_home_admin') }}" role="button"> Users </a>
+                                    <a class="dropdown-item" href="{{ route('photos.index') }}" role="button"> Photos </a>
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

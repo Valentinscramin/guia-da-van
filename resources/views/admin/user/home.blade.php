@@ -10,11 +10,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($tracks as $eachTrack)
+                @foreach ($users as $eachUser)
                     <tr>
-                        <td>{{ $eachTrack->name }}</td>
+                        <td>{{ $eachUser->name }}</td>
                         <td>
-                            @if ($eachTrack->active == 1)
+                            @if ($eachUser->active == 1)
                                 {{ 'Active' }}
                             @else
                                 {{ 'Inactive' }}
