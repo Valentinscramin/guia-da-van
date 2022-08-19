@@ -45,4 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function avaliation()
+    {
+        return $this->belongsToMany('App\Models\User\UserComment', 'van_track', 'track_id', 'van_id');
+    }
 }

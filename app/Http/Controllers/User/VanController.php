@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Track;
+use App\Models\User;
 use App\Models\User\Van;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -60,6 +61,9 @@ class VanController extends Controller
     {
         $van = Van::find($id);
         $track = Track::all();
+
+        $user = User::find($van->user_id);
+
         $trackSelected = array();
         foreach ($van->track as $eachTrack) {
             $trackSelected[] = $eachTrack->id;
