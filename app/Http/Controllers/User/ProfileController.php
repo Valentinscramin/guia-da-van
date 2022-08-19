@@ -20,7 +20,9 @@ class ProfileController extends Controller
         $user = User::find(Auth::id());
         $photos = UserPhotos::where("user_id", "=", Auth::id())->get();
         $profile_photo = UserPhotos::find($user->user_photos_id);
-        $profile_photo = $profile_photo->arquivo;
+        if (isset($profile_photo)) {
+            $profile_photo = @$profile_photo->arquivo;
+        }
         return view('user.profile.home', compact('user', 'photos', 'profile_photo'));
     }
 
