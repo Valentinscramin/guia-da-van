@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/user', [App\Http\Controllers\User\HomeController::class, 'index'])->name('user_home');
     Route::resource('/user/profile', App\Http\Controllers\User\ProfileController::class);
     Route::resource('/user/van', App\Http\Controllers\User\VanController::class);
+    Route::resource('/user/photos', App\Http\Controllers\User\UserPhotosController::class, ['names' => 'user.photos']);
 });
 
 //ADMIN
@@ -37,7 +38,7 @@ Route::middleware('auth:admin')->group(function () {
     Route::resource('/admin/user', App\Http\Controllers\Admin\UserController::class);
     
     //PHOTOS ALBUM
-    Route::resource('/admin/photos', App\Http\Controllers\Admin\AdminPhotosController::class);
+    Route::resource('/admin/photos', App\Http\Controllers\Admin\AdminPhotosController::class, ['names' => 'admin.photos']);
     Route::get('/admin/photos/download/{id}', [App\Http\Controllers\Admin\AdminPhotosController::class, 'download'])->name('photo_download');
 });
 

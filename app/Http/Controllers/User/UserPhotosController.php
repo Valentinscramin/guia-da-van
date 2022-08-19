@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\User\UserPhotos;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
-class ProfileController extends Controller
+class UserPhotosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +18,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $user = User::find(Auth::id());
-        $photos = UserPhotos::where("user_id", "=", Auth::id())->get();
-        $profile_photo = UserPhotos::find($user->user_photos_id);
-        $profile_photo = $profile_photo->arquivo;
-        return view('user.profile.home', compact('user', 'photos', 'profile_photo'));
+        $photos = UserPhotos::where('user_id', '=', Auth::id())->get();
+        return view('user.photos.home', compact('photos'));
     }
 
     /**
@@ -42,7 +40,11 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_photos = new UserPhotos();
+        $user_photos->arquivo = $request->file('arquivo')->store('user_photos', 'public');
+        $user_photos->user_id = Auth::id();
+        $user_photos->save();
+        return redirect('user/photos');
     }
 
     /**
@@ -53,8 +55,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-        return view('user.profile.home', compact('user'));
+        //
     }
 
     /**
@@ -65,8 +66,7 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('user.profile.home', compact('user'));
+        //
     }
 
     /**
@@ -78,15 +78,7 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->cpf_cnpj = $request->cpf_cnpj;
-        $user->data_nascimento = $request->data_nascimento;
-        $user->postcode = $request->postcode;
-        $user->user_photos_id = $request->user_profile_photo;
-        $user->save();
-
-        return redirect('user');
+        //
     }
 
     /**
@@ -97,6 +89,22 @@ class ProfileController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user_photos = UserPhotos::find($id);
+
+        if (isset($user_photos)) {
+            Storage::disk('public')->delete($user_photos->arquivo);
+            $user_photos->delete();
+        }
+        return redirect('user/photos');
+    }
+
+    public function download($id)
+    {
+        $user_photos = UserPhotos::find($id);
+        if (isset($user_photos)) {
+            $path = Storage::disk('public')->getDriver()->getAdapter()->applyPathPrefix($user_photos->arquivo);
+            return response()->download($path);
+        }
+        return redirect('user/photos');
     }
 }

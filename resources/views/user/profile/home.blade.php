@@ -2,9 +2,20 @@
 
 @section('content')
     <div class="container">
+        <img class="card-img-top" style="width:100px;" src="/storage/{{ $profile_photo }}" alt="Profile Image">
         <form action="{{ route('profile.update', $user->id) }}" method="POST">
             @csrf
             @method('PUT')
+
+            <div class="mb-3">
+                @foreach ($photos as $eachPhoto)
+                    <input type="radio" name="user_profile_photo" value="{{ $eachPhoto->id }}">
+                    <div class="card text-start" style="width:100px;">
+                        <img class="card-img-top" src="/storage/{{ $eachPhoto->arquivo }}" alt="Title">
+                    </div>
+                @endforeach
+            </div>
+
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
                 <input type="text" name="name" id="name" class="form-control" placeholder=""
@@ -46,6 +57,14 @@
                     aria-describedby="helpId" value="{{ $user->telefone }}">
                 <small id="helpId" class="text-muted">Telefone</small>
             </div>
+
+            <div class="mb-3">
+                <label for="postcode" class="form-label">CEP</label>
+                <input type="text" name="postcode" id="postcode" class="form-control" placeholder=""
+                    aria-describedby="helpId" value="{{ $user->postcode }}">
+                <small id="helpId" class="text-muted">Cep</small>
+            </div>
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

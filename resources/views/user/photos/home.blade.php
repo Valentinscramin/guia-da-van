@@ -1,11 +1,11 @@
-@extends('layouts.appAdmin')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
         <section class="jumbotron text-center">
             <div class="container">
                 <h1 class="jumbotron-heading">Escolha as fotos para Upload</h1>
-                <form method="POST" action="{{ route('admin.photos.store') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('user.photos.store') }}" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <div class="custom-file">

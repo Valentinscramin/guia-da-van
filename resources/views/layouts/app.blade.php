@@ -66,6 +66,7 @@
 
                                     <a class="dropdown-item" href="{{ route('van.index') }}" role="button"> Van </a>
                                     <a class="dropdown-item" href="{{ route('profile.index') }}" role="button"> Profile </a>
+                                    <a class="dropdown-item" href="{{ route('user.photos.index') }}" role="button"> Photos </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
