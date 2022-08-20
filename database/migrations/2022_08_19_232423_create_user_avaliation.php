@@ -13,7 +13,7 @@ class CreateUserAvaliation extends Migration
      */
     public function up()
     {
-        Schema::create('user_avaliation', function (Blueprint $table) {
+        Schema::create('user_avaliations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('avaliation_id')->unsigned();
             $table->foreign('avaliation_id')->references('id')->on('avaliation')

@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('site.home');
 });
 
+Route::get('/profile/{id}', [App\Http\Controllers\User\ProfileController::class, 'show']);
+
 Auth::routes();
 
 //USER
@@ -36,7 +38,7 @@ Route::middleware('auth:admin')->group(function () {
 
     //USER
     Route::resource('/admin/user', App\Http\Controllers\Admin\UserController::class);
-    
+
     //PHOTOS ALBUM
     Route::resource('/admin/photos', App\Http\Controllers\Admin\AdminPhotosController::class, ['names' => 'admin.photos']);
     Route::get('/admin/photos/download/{id}', [App\Http\Controllers\Admin\AdminPhotosController::class, 'download'])->name('photo_download');

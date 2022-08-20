@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->date('data_nascimento')->nullable();
             $table->string('postcode')->nullable();
             $table->boolean('active')->default(1);
-            $table->integer('user_photos_id')->unsigned()->nullable();
+            $table->integer('user_photo_id')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

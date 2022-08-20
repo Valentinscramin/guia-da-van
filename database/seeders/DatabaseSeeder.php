@@ -19,5 +19,9 @@ class DatabaseSeeder extends Seeder
         $this->call(TrackSeeder::class);
         $this->call(VanSeeder::class);
         $this->call(VanTrackSeeder::class);
+        $this->call(CommentSeeder::class);
+        $this->call(AvaliationSeeder::class);
+        $this->call(UserAvaliationSeeder::class);
+        $this->call(UserCommentSeeder::class);
     }
 }

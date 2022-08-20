@@ -13,7 +13,7 @@ class CreateUserComment extends Migration
      */
     public function up()
     {
-        Schema::create('user_comment', function (Blueprint $table) {
+        Schema::create('user_comments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('comment_id')->unsigned();
             $table->foreign('comment_id')->references('id')->on('comment')

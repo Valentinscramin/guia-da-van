@@ -9,7 +9,11 @@
 
             <div class="mb-3">
                 @foreach ($photos as $eachPhoto)
-                    <input type="radio" name="user_profile_photo" value="{{ $eachPhoto->id }}">
+                    @if ($profile_photo_checked == $eachPhoto->id)
+                        <input type="radio" name="user_profile_photo" value="{{ $eachPhoto->id }}" checked="checked">
+                    @else
+                        <input type="radio" name="user_profile_photo" value="{{ $eachPhoto->id }}">
+                    @endif
                     <div class="card text-start" style="width:100px;">
                         <img class="card-img-top" src="/storage/{{ $eachPhoto->arquivo }}" alt="Title">
                     </div>

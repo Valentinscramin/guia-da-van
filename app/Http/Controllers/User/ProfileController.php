@@ -19,11 +19,12 @@ class ProfileController extends Controller
     {
         $user = User::find(Auth::id());
         $photos = UserPhotos::where("user_id", "=", Auth::id())->get();
-        $profile_photo = UserPhotos::find($user->user_photos_id);
+        $profile_photo_checked = $user->user_photo_id;
+        $profile_photo = UserPhotos::find($user->user_photo_id);
         if (isset($profile_photo)) {
             $profile_photo = @$profile_photo->arquivo;
         }
-        return view('user.profile.home', compact('user', 'photos', 'profile_photo'));
+        return view('user.profile.home', compact('user', 'photos', 'profile_photo', 'profile_photo_checked'));
     }
 
     /**
@@ -56,7 +57,7 @@ class ProfileController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        return view('user.profile.home', compact('user'));
+        return view('site.profile', compact('user'));
     }
 
     /**
@@ -85,10 +86,10 @@ class ProfileController extends Controller
         $user->cpf_cnpj = $request->cpf_cnpj;
         $user->data_nascimento = $request->data_nascimento;
         $user->postcode = $request->postcode;
-        $user->user_photos_id = $request->user_profile_photo;
+        $user->user_photo_id = $request->user_profile_photo;
         $user->save();
 
-        return redirect('user');
+        return redirect('user/profile');
     }
 
     /**
