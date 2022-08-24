@@ -11,7 +11,7 @@
         <p>{{ $user->cpf_cnpj }}</p>
         <p>{{ $user->celular }}</p>
         <p>{{ $user->telefone }}</p>
-        <p>{{ $user->everage }}</p>
+        <p>{{ $everage }}</p>
         @foreach ($user->comment as $eachComment)
             {{ $eachComment->comment }}
         @endforeach

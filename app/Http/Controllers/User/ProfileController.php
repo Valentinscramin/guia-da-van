@@ -56,20 +56,23 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
 
-        $sum = 0;
-        $count = 0;
-        foreach ($user->avaliation as $eachAvaliation) {
-            $count++;
-            $sum += $eachAvaliation->avaliation;
+        try {
+
+            $user = User::find($id);
+
+            $sum = 0;
+            $count = 0;
+            foreach ($user->avaliation as $eachAvaliation) {
+                $count++;
+                $sum += $eachAvaliation->avaliation;
+            }
+
+            $everage = $count / $sum;
+
+        } catch (\Throwable $th) {
+            return view('site.error', compact('th'));
         }
-
-        $everage = $count/$sum;
-
-        // foreach ($user->comment as $eachComment) {
-        //     dump($eachComment->comment);
-        // }
 
         return view('site.profile', compact('user', 'everage'));
     }
