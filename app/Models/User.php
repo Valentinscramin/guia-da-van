@@ -48,6 +48,11 @@ class User extends Authenticatable
 
     public function avaliation()
     {
-        return $this->hasMany('App\Models\User\Avaliation', 'user_avaliations', 'avaliation_id', 'user_id');
+        return $this->belongsToMany('App\Models\User\Avaliation', 'user_avaliations', 'avaliation_id', 'user_id');
+    }
+
+    public function comment()
+    {
+        return $this->belongsToMany('App\Models\User\Comment', 'user_comments', 'comment_id', 'user_id');
     }
 }
