@@ -59,16 +59,7 @@ class VanController extends Controller
      */
     public function show($id)
     {
-        $van = Van::find($id);
-        $track = Track::all();
-
-        $user = User::find($van->user_id);
-
-        $trackSelected = array();
-        foreach ($van->track as $eachTrack) {
-            $trackSelected[] = $eachTrack->id;
-        }
-        return view('user.van.show', compact('van', 'track', 'trackSelected'));
+        //
     }
 
     /**
@@ -79,7 +70,16 @@ class VanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $van = Van::find($id);
+        $track = Track::all();
+
+        $user = User::find($van->user_id);
+
+        $trackSelected = array();
+        foreach ($van->track as $eachTrack) {
+            $trackSelected[] = $eachTrack->id;
+        }
+        return view('user.van.edit', compact('van', 'track', 'trackSelected'));
     }
 
     /**

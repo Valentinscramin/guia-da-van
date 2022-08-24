@@ -60,6 +60,7 @@ class ProfileController extends Controller
         try {
 
             $user = User::find($id);
+            $profile_photo = @User::photo($id)->arquivo;
 
             $sum = 0;
             $count = 0;
@@ -74,7 +75,7 @@ class ProfileController extends Controller
             return view('site.error', compact('th'));
         }
 
-        return view('site.profile', compact('user', 'everage'));
+        return view('site.profile', compact('user', 'everage', 'profile_photo'));
     }
 
     /**

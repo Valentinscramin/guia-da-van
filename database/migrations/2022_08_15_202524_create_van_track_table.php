@@ -16,6 +16,11 @@ class CreateVanTrackTable extends Migration
         Schema::create('van_track', function (Blueprint $table) {
             $table->integer('track_id')->unsigned();
             $table->integer('van_id')->unsigned();
+            $table->string('cidade_saida')->nullable();
+            $table->string('cidade_chegada')->nullable();
+            $table->string('escola')->nullable();
+            $table->string('periodo')->nullable();
+            $table->string('evento')->nullable();
             $table->unique(['track_id', 'van_id']);
             $table->foreign('track_id')->references('id')->on('track')
                 ->onDelete('cascade')->onUpdate('cascade');

@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\User\UserPhotos;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use PhpParser\Node\Stmt\TryCatch;
 
 class User extends Authenticatable
 {
@@ -45,6 +47,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function photo($id)
+    {
+        try {
+            $user = User::find($id);
+            return UserPhotos::find($user->user_photo_id);
+        } catch (\Throwable $th) {
+            return null;
+        }
+        
+    }
 
     public function avaliation()
     {
