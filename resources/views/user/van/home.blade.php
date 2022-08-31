@@ -9,6 +9,7 @@
                     <th>Plate</th>
                     <th>Seats</th>
                     <th>Tracks</th>
+                    <th>&nbsp;</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,8 +20,11 @@
                         <td>{{ $eachVan->seats }}</td>
                         <td>
                             @foreach ($eachVan->track as $eachTrack)
-                                {{ $eachTrack->name.', ' }}
+                                {{ $eachTrack->name . ', ' }}
                             @endforeach
+                        </td>
+                        <td>
+                            <a type="button" class="btn btn-primary" href="{{ route('van.edit', $eachVan->id) }}">edit</a>
                         </td>
                     </tr>
                 @endforeach

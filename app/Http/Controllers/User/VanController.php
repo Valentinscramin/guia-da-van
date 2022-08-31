@@ -77,6 +77,7 @@ class VanController extends Controller
 
         $trackSelected = array();
         foreach ($van->track as $eachTrack) {
+            dump($van->track);
             $trackSelected[] = $eachTrack->id;
         }
         return view('user.van.edit', compact('van', 'track', 'trackSelected'));
