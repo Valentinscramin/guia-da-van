@@ -18,7 +18,6 @@ class CreateVanTable extends Migration
             $table->string('model');
             $table->string('plate');
             $table->integer('seats')->nullable();
-            $table->string('description')->nullable();
             $table->boolean('active')->default(1);
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')

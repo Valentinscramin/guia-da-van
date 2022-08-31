@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Van extends Model
 {
-    protected $table = "van";
     use HasFactory;
+    protected $table = "van";
 
     public function track()
     {
-        return $this->belongsToMany('App\Models\Admin\Track', 'van_track', 'track_id', 'van_id');
+        return $this->belongsToMany('App\Models\Admin\Track', 'van_track', 'van_id', 'track_id');
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\User;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Avaliation extends Model
+class VanTrack extends Model
 {
     use HasFactory;
-    protected $table = "avaliation";
+    protected $table = 'van_track';
 }

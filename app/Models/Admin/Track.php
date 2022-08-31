@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Track extends Model
 {
 
-    protected $table = "track";
     use HasFactory;
+    protected $table = "track";
 
     public function van()
     {
-        return $this->belongsToMany('App\Models\User\Van', 'van_track', 'van_id', 'track_id');
+        return $this->belongsToMany('App\Models\User\Van', 'van_track', 'track_id', 'van_id');
     }
 }
