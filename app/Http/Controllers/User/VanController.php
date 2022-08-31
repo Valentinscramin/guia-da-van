@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Track;
 use App\Models\User;
 use App\Models\User\Van;
+use App\Models\VanTrack;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -100,6 +101,17 @@ class VanController extends Controller
         $van->model = $request->model;
         $van->plate = $request->plate;
         $van->seats = $request->seats;
+
+        foreach($request->track as $eachTrack)
+        {
+            dump($van->track);
+            $van_track = VanTrack::where("van_id", "=", $id)->where("track_id", "=", $eachTrack)->get();
+            dump($van_track);
+
+        }
+
+        die();
+
         $van->save();
 
         return redirect('user/van');
