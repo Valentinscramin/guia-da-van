@@ -19,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Seats</label>
-                <input type="text" name="seats" id="" class="form-control" placeholder=""
+                <input type="number" name="seats" id="" class="form-control" placeholder=""
                     aria-describedby="helpId" value="{{ $van->seats }}">
                 <small id="helpId" class="text-muted">Seats</small>
             </div>
