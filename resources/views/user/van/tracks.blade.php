@@ -4,6 +4,7 @@
             {{ $eachTrack->name }}
         </label>
         @if (!is_null($trackSelected))
+        @dd($trackSelected)
             @if (is_numeric(array_search($eachTrack->id, $trackSelected)))
                 <input class="form-check-input" type="checkbox" name="track[]" value="{{ $eachTrack->id }}" id=""
                     onclick="collapseShow({{ $eachTrack->id }})" checked>

@@ -49,7 +49,47 @@ class VanController extends Controller
             "seats" => "required",
         ]);
 
-        Van::create($request->all());
+        $van = new Van();
+        $van->model = $request->model;
+        $van->plate = $request->plate;
+        $van->seats = $request->seats;
+
+        $van->save();
+
+        foreach ($request->track as $eachTrack) {
+
+            $van_track = new VanTrack();
+            $van_track->van_id = $van->id;
+            $van_track->track_id = $eachTrack;
+            $van_track->save();
+
+            $vanTrackInfo = new VanTrackInfo();
+
+            switch ($eachTrack) {
+                case 1:
+                    $vanTrackInfo->cidade_saida = $request->cidade_saida_escola;
+                    $vanTrackInfo->cidade_chegada = $request->cidade_chegada_escola;
+                    $vanTrackInfo->escola = $request->escola;
+                    $vanTrackInfo->periodo = $request->periodo;
+                    break;
+
+                case 2:
+                    $vanTrackInfo->cidade_saida = $request->cidade_saida_evento;
+                    $vanTrackInfo->evento = $request->evento;
+                    break;
+
+                case 3:
+                    $vanTrackInfo->cidade_saida = $request->cidade_saida_executivo;
+                    break;
+
+                case 4:
+                    $vanTrackInfo->cidade_saida = $request->cidade_saida_frete;
+                    break;
+            }
+
+            $vanTrackInfo->van_track_id = $van_track->id;
+            $vanTrackInfo->save();
+        }
 
         return view('user.van');
     }
@@ -78,7 +118,16 @@ class VanController extends Controller
 
         $trackSelected = array();
         foreach ($van->track as $eachTrack) {
-            array_push($trackSelected, $eachTrack->id);
+
+            $van_track = VanTrack::where("van_id", "=", $id)->where("track_id", "=", $eachTrack->id)->get();
+            $info = VanTrackInfo::where("van_track_id", "=", $van_track[0]->id);
+            $arrayInsert = array();
+            // $arrayInsert[$eachTrack->id]['cidade_saida'] = $info->cidade_saida;
+            // $arrayInsert[$eachTrack->id]['cidade_chegada'] = $info;
+            // $arrayInsert[$eachTrack->id]['escola'] = $info;
+            // $arrayInsert[$eachTrack->id]['periodo'] = $info;
+            // $arrayInsert[$eachTrack->id]['evento'] = $info;
+            array_push($trackSelected, $arrayInsert);
         }
 
         return view('user.van.edit', compact('van', 'track', 'trackSelected'));
@@ -106,11 +155,11 @@ class VanController extends Controller
 
         $van->save();
 
-        foreach ($request->track as $eachTrack) {
+        if (!empty($request->track)) {
 
-            $van_track_select = VanTrack::where("van_id", "=", $id)->get();
+            VanTrack::where("van_id", "=", $van->id)->delete();
 
-            if (count($van_track_select) == 0) {
+            foreach ($request->track as $eachTrack) {
 
                 $van_track = new VanTrack();
                 $van_track->van_id = $id;
@@ -144,8 +193,9 @@ class VanController extends Controller
                 $vanTrackInfo->van_track_id = $van_track->id;
                 $vanTrackInfo->save();
             }
+        } else {
+            VanTrack::where("van_id", "=", $id)->delete();
         }
-
 
         return redirect('user/van');
     }
