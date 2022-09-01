@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //ROTAS SITE
-Route::get('/', function () {
-    return view('site.home');
-});
+Route::get('/', [App\Http\Controllers\SiteController::class, 'index']);
 
 Route::get('/profile/{id}', [App\Http\Controllers\User\ProfileController::class, 'show']);
 

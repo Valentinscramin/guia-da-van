@@ -4,11 +4,9 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Track;
-use App\Models\User;
 use App\Models\User\Van;
 use App\Models\User\VanTrack;
 use App\Models\User\VanTrackInfo;
-use CreateVanTrackInfoTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -120,14 +118,13 @@ class VanController extends Controller
         foreach ($van->track as $eachTrack) {
 
             $van_track = VanTrack::where("van_id", "=", $id)->where("track_id", "=", $eachTrack->id)->get();
-            $info = VanTrackInfo::where("van_track_id", "=", $van_track[0]->id);
-            $arrayInsert = array();
-            // $arrayInsert[$eachTrack->id]['cidade_saida'] = $info->cidade_saida;
-            // $arrayInsert[$eachTrack->id]['cidade_chegada'] = $info;
-            // $arrayInsert[$eachTrack->id]['escola'] = $info;
-            // $arrayInsert[$eachTrack->id]['periodo'] = $info;
-            // $arrayInsert[$eachTrack->id]['evento'] = $info;
-            array_push($trackSelected, $arrayInsert);
+            $info = VanTrackInfo::where("van_track_id", "=", $van_track[0]->id)->get();
+            
+            $trackSelected[$eachTrack->id]['cidade_saida'] = $info[0]->cidade_saida;
+            $trackSelected[$eachTrack->id]['cidade_chegada'] = $info[0]->cidade_chegada;
+            $trackSelected[$eachTrack->id]['escola'] = $info[0]->escola;
+            $trackSelected[$eachTrack->id]['periodo'] = $info[0]->periodo;
+            $trackSelected[$eachTrack->id]['evento'] = $info[0]->evento;
         }
 
         return view('user.van.edit', compact('van', 'track', 'trackSelected'));
