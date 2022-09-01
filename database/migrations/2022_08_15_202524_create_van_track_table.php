@@ -22,6 +22,7 @@ class CreateVanTrackTable extends Migration
                 ->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('van_id')->references('id')->on('van')
                 ->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 

@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Track;
 use App\Models\User;
 use App\Models\User\Van;
-use App\Models\VanTrack;
+use App\Models\User\VanTrack;
+use App\Models\User\VanTrackInfo;
+use CreateVanTrackInfoTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -102,17 +104,48 @@ class VanController extends Controller
         $van->plate = $request->plate;
         $van->seats = $request->seats;
 
-        foreach($request->track as $eachTrack)
-        {
-            dump($van->track);
-            $van_track = VanTrack::where("van_id", "=", $id)->where("track_id", "=", $eachTrack)->get();
-            dump($van_track);
+        $van->save();
 
+        foreach ($request->track as $eachTrack) {
+
+            $van_track_select = VanTrack::where("van_id", "=", $id)->get();
+
+            if (count($van_track_select) == 0) {
+
+                $van_track = new VanTrack();
+                $van_track->van_id = $id;
+                $van_track->track_id = $eachTrack;
+                $van_track->save();
+
+                $vanTrackInfo = new VanTrackInfo();
+
+                switch ($eachTrack) {
+                    case 1:
+                        $vanTrackInfo->cidade_saida = $request->cidade_saida_escola;
+                        $vanTrackInfo->cidade_chegada = $request->cidade_chegada_escola;
+                        $vanTrackInfo->escola = $request->escola;
+                        $vanTrackInfo->periodo = $request->periodo;
+                        break;
+
+                    case 2:
+                        $vanTrackInfo->cidade_saida = $request->cidade_saida_evento;
+                        $vanTrackInfo->evento = $request->evento;
+                        break;
+
+                    case 3:
+                        $vanTrackInfo->cidade_saida = $request->cidade_saida_executivo;
+                        break;
+
+                    case 4:
+                        $vanTrackInfo->cidade_saida = $request->cidade_saida_frete;
+                        break;
+                }
+
+                $vanTrackInfo->van_track_id = $van_track->id;
+                $vanTrackInfo->save();
+            }
         }
 
-        die();
-
-        $van->save();
 
         return redirect('user/van');
     }

@@ -16,6 +16,7 @@ class CreateTrackTable extends Migration
         Schema::create('track', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('description')->nullable();
             $table->boolean('active')->default(1);
             $table->softDeletes();
             $table->rememberToken();

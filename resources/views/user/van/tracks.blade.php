@@ -56,7 +56,6 @@
 @endforeach
 <script>
     function collapseShow(id) {
-        console.log(id)
         var x = document.getElementById("collapse-" + id);
         if (x.style.display === "none") {
             x.style.display = "block";
