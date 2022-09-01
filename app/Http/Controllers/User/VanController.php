@@ -4,11 +4,14 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Track;
+use App\Models\Cities;
+use App\Models\States;
 use App\Models\User\Van;
 use App\Models\User\VanTrack;
 use App\Models\User\VanTrackInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use NunoMaduro\Collision\Adapters\Phpunit\State;
 
 class VanController extends Controller
 {
@@ -113,21 +116,25 @@ class VanController extends Controller
     {
         $van = Van::find($id);
         $track = Track::all();
+        $cities = Cities::orderBy('name')->get();
+        $states = States::orderBy('name')->get();
 
         $trackSelected = array();
         foreach ($van->track as $eachTrack) {
 
             $van_track = VanTrack::where("van_id", "=", $id)->where("track_id", "=", $eachTrack->id)->get();
             $info = VanTrackInfo::where("van_track_id", "=", $van_track[0]->id)->get();
-            
-            $trackSelected[$eachTrack->id]['cidade_saida'] = $info[0]->cidade_saida;
-            $trackSelected[$eachTrack->id]['cidade_chegada'] = $info[0]->cidade_chegada;
-            $trackSelected[$eachTrack->id]['escola'] = $info[0]->escola;
-            $trackSelected[$eachTrack->id]['periodo'] = $info[0]->periodo;
-            $trackSelected[$eachTrack->id]['evento'] = $info[0]->evento;
+
+            if (!empty($info[0])) {
+                $trackSelected[$eachTrack->id]['cidade_saida'] = $info[0]->cidade_saida;
+                $trackSelected[$eachTrack->id]['cidade_chegada'] = $info[0]->cidade_chegada;
+                $trackSelected[$eachTrack->id]['escola'] = $info[0]->escola;
+                $trackSelected[$eachTrack->id]['periodo'] = $info[0]->periodo;
+                $trackSelected[$eachTrack->id]['evento'] = $info[0]->evento;
+            }
         }
 
-        return view('user.van.edit', compact('van', 'track', 'trackSelected'));
+        return view('user.van.edit', compact('van', 'track', 'trackSelected', 'cities', 'states'));
     }
 
     /**

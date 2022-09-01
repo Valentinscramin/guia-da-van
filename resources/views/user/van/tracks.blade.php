@@ -21,33 +21,73 @@
         <div class="card card-body">
             @switch($eachTrack->id)
                 @case(1)
-                    <input type="text" name="cidade_saida_escola" class="form-control" placeholder="Cidade de saida"
-                        value="{{ @$trackSelected[1]['cidade_saida'] }}">
+                    <select name="cidade_saida_escola" id="" class="form-control">
+                        @foreach ($cities as $citie)
+                            @if ($citie->id == @$trackSelected[1]['cidade_saida'])
+                                <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
+                            @else
+                                <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                     <br>
-                    <input type="text" name="cidade_chegada_escola" class="form-control" placeholder="Cidade de chegada"
-                        value="{{ @$trackSelected[1]['cidade_chegada'] }}">
+                    <select name="cidade_chegada_escola" id="" class="form-control">
+                        {{-- {{ @$trackSelected[1]['cidade_chegada'] }} --}}
+                        @foreach ($cities as $citie)
+                            @if ($citie->id == @$trackSelected[1]['cidade_chegada'])
+                                <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
+                            @else
+                                <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                     <br>
-                    <input type="text" name="escola" class="form-control" placeholder="Escola" value="{{ @$trackSelected[1]['escola'] }}">
+                    <input type="text" name="escola" class="form-control" placeholder="Escola"
+                        value="{{ @$trackSelected[1]['escola'] }}">
                     <br>
-                    <input type="text" name="periodo" class="form-control" placeholder="Periodo" value="{{ @$trackSelected[1]['periodo'] }}">
+                    <input type="text" name="periodo" class="form-control" placeholder="Periodo"
+                        value="{{ @$trackSelected[1]['periodo'] }}">
                 @break
 
                 @case(2)
-                    <input type="text" name="cidade_saida_evento" class="form-control" placeholder="Cidade de saida"
-                        value="{{ @$trackSelected[2]['cidade_saida'] }}">
+                    <select name="cidade_saida_evento" id="" class="form-control">
+
+                        @foreach ($cities as $citie)
+                            @if ($citie->id == @$trackSelected[2]['cidade_saida'])
+                                <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
+                            @else
+                                <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                     <br>
                     <input type="text" name="evento" class="form-control" placeholder="Evento caso necessario"
                         value="{{ @$trackSelected[2]['evento'] }}">
                 @break
 
                 @case(3)
-                    <input type="text" name="cidade_saida_executivo" class="form-control" placeholder="Cidade de atuação"
-                        value="{{ @$trackSelected[3]['cidade_saida'] }}">
+                    <select name="cidade_saida_executivo" id="" class="form-control">
+                        @foreach ($cities as $citie)
+                            @if ($citie->id == @$trackSelected[3]['cidade_saida'])
+                                <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
+                            @else
+                                <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 @break
 
                 @case(4)
-                    <input type="text" name="cidade_saida_frete" class="form-control" placeholder="Cidade de atuação"
-                        value="{{ @$trackSelected[4]['cidade_saida'] }}">
+                    <select name="cidade_saida_frete" id="" class="form-control">
+                        @foreach ($cities as $citie)
+                            @if ($citie->id == @$trackSelected[4]['cidade_saida'])
+                                <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
+                            @else
+                                <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                            @endif
+                            <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                        @endforeach
+                    </select>
                 @break
 
                 @default
