@@ -1,5 +1,7 @@
 <div class="container">
-    <form action="">
+    <form action="{{ route('busca_resultado') }}">
+        @csrf
+        @method('GET')
         <div style="display: flex;">
             @foreach ($track as $eachTrack)
                 <div class="form-check">
@@ -12,11 +14,17 @@
                         <div class="card card-body">
                             @switch($eachTrack->id)
                                 @case(1)
-                                    <input type="text" name="cidade_saida_escola" class="form-control"
-                                        placeholder="Cidade de saida" value="">
+                                    <select name="cidade_saida_escola" id="" class="form-control">
+                                        @foreach ($cities as $citie)
+                                            <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                                        @endforeach
+                                    </select>
                                     <br>
-                                    <input type="text" name="cidade_chegada_escola" class="form-control"
-                                        placeholder="Cidade de chegada" value="">
+                                    <select name="cidade_chegada_escola" id="" class="form-control">
+                                        @foreach ($cities as $citie)
+                                            <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                                        @endforeach
+                                    </select>
                                     <br>
                                     <input type="text" name="escola" class="form-control" placeholder="Escola"
                                         value="">
@@ -26,21 +34,30 @@
                                 @break
 
                                 @case(2)
-                                    <input type="text" name="cidade_saida_evento" class="form-control"
-                                        placeholder="Cidade de saida" value="">
+                                    <select name="cidade_saida_evento" id="" class="form-control">
+                                        @foreach ($cities as $citie)
+                                            <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                                        @endforeach
+                                    </select>
                                     <br>
                                     <input type="text" name="evento" class="form-control"
                                         placeholder="Evento caso necessario" value="">
                                 @break
 
                                 @case(3)
-                                    <input type="text" name="cidade_saida_executivo" class="form-control"
-                                        placeholder="Cidade de atuação" value="">
+                                    <select name="cidade_saida_executivo" id="" class="form-control">
+                                        @foreach ($cities as $citie)
+                                            <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                                        @endforeach
+                                    </select>
                                 @break
 
                                 @case(4)
-                                    <input type="text" name="cidade_saida_frete" class="form-control"
-                                        placeholder="Cidade de atuação" value="">
+                                    <select name="cidade_saida_frete" id="" class="form-control">
+                                        @foreach ($cities as $citie)
+                                            <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                                        @endforeach
+                                    </select>
                                 @break
 
                                 @default
@@ -50,6 +67,8 @@
                 </div>
             @endforeach
         </div>
+        <br>
+        <button type="button" class="btn btn-primary">BUSCAR</button>
     </form>
 </div>
 

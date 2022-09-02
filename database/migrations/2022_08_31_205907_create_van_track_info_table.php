@@ -15,8 +15,10 @@ class CreateVanTrackInfoTable extends Migration
     {
         Schema::create('van_track_info', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cidade_saida');
-            $table->integer('cidade_chegada')->nullable();
+            $table->integer('cidade_saida')->unsigned();
+            $table->foreign('cidade_saida')->references('id')->on('cities');
+            $table->integer('cidade_chegada')->unsigned()->nullable();
+            $table->foreign('cidade_chegada')->references('id')->on('cities');
             $table->string('escola')->nullable();
             $table->string('periodo')->nullable();
             $table->string('evento')->nullable();
