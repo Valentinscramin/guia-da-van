@@ -1,5 +1,5 @@
 <div class="container">
-    <form action="{{ route('busca_resultado') }}">
+    <form action="{{ route('busca_resultado') }}" method="POST">
         @csrf
         @method('GET')
         <div style="display: flex;">
@@ -29,8 +29,11 @@
                                     <input type="text" name="escola" class="form-control" placeholder="Escola"
                                         value="">
                                     <br>
-                                    <input type="text" name="periodo" class="form-control" placeholder="Periodo"
-                                        value="">
+                                    <select name="periodo" id="" class="form-control">
+                                        <option value="diurno">Diurno</option>
+                                        <option value="vespertino">Vespertino</option>
+                                        <option value="noturno">Noturno</option>
+                                    </select>
                                 @break
 
                                 @case(2)
@@ -68,7 +71,7 @@
             @endforeach
         </div>
         <br>
-        <button type="button" class="btn btn-primary">BUSCAR</button>
+        <button type="submit" class="btn btn-primary">BUSCAR</button>
     </form>
 </div>
 

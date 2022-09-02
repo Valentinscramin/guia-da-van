@@ -20,7 +20,7 @@ class SiteController extends Controller
 
     public function busca(Request $request)
     {
-        $vans = "";
+        //dump($request->cidade_chegada_escola);
         return view('site.resultado', compact('vans'));
     }
 
