@@ -22,7 +22,7 @@ Route::get('/', [App\Http\Controllers\SiteController::class, 'index']);
 //FILTRO
 Route::get('/busca/resultado', [App\Http\Controllers\SiteController::class, 'busca'])->name('busca_resultado');
 
-Route::get('/profile/{id}', [App\Http\Controllers\User\ProfileController::class, 'show']);
+Route::get('/profile/{id}', [App\Http\Controllers\User\ProfileController::class, 'show'])->name('profile_show');
 
 Auth::routes();
 

@@ -32,7 +32,6 @@
                     </select>
                     <br>
                     <select name="cidade_chegada_escola" id="" class="form-control" required>
-                        {{-- {{ @$trackSelected[1]['cidade_chegada'] }} --}}
                         @foreach ($cities as $citie)
                             @if ($citie->id == @$trackSelected[1]['cidade_chegada'])
                                 <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
