@@ -37,7 +37,7 @@
             <div class="mb-3">
                 <label for="cpf_cnpj" class="form-label">CPF/CNPJ</label>
                 <input type="text" name="cpf_cnpj" id="cpf_cnpj" class="form-control" placeholder=""
-                    aria-describedby="helpId" value="{{ $user->cpf_cnpj }}" readonly>
+                    aria-describedby="helpId" value="{{ $user->cpf_cnpj }}">
                 <small id="helpId" class="text-muted">CPF/CNPJ</small>
             </div>
 
@@ -72,4 +72,30 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+    <script>
+        $("#cpf_cnpj").keydown(function() {
+            try {
+                $("#cpf_cnpj").unmask();
+            } catch (e) {}
+
+            var tamanho = $("#cpf_cnpj").val().length;
+
+            if (tamanho < 11) {
+                $("#cpf_cnpj").mask("999.999.999-99");
+            } else {
+                $("#cpf_cnpj").mask("99.999.999/9999-99");
+            }
+
+            // ajustando foco
+            var elem = this;
+            setTimeout(function() {
+                // mudo a posição do seletor
+                elem.selectionStart = elem.selectionEnd = 10000;
+            }, 0);
+            // reaplico o valor para mudar o foco
+            var currentValue = $(this).val();
+            $(this).val('');
+            $(this).val(currentValue);
+        });
+    </script>
 @endsection

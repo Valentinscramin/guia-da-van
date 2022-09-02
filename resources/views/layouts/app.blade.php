@@ -12,7 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -65,8 +66,10 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                     <a class="dropdown-item" href="{{ route('van.index') }}" role="button"> Van </a>
-                                    <a class="dropdown-item" href="{{ route('profile.index') }}" role="button"> Profile </a>
-                                    <a class="dropdown-item" href="{{ route('user.photos.index') }}" role="button"> Photos </a>
+                                    <a class="dropdown-item" href="{{ route('profile.index') }}" role="button"> Profile
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('user.photos.index') }}" role="button"> Photos
+                                    </a>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
