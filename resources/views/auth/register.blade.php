@@ -27,7 +27,7 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
+                            {{-- <div class="row mb-3">
                                 <label for="cpf_cnpj"
                                     class="col-md-4 col-form-label text-md-end">{{ __('CPF/CNPJ') }}</label>
 
@@ -42,9 +42,9 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="row mb-3">
+                            {{-- <div class="row mb-3">
                                 <label for="data_nascimento"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Data nascimento') }}</label>
 
@@ -60,7 +60,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="row mb-3">
                                 <label for="celular"
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
+                            {{-- <div class="row mb-3">
                                 <label for="telefone"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Telefone') }}</label>
 
@@ -94,7 +94,7 @@
                                         </span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="row mb-3">
                                 <label for="email"
