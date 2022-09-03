@@ -104,6 +104,8 @@ class ProfileController extends Controller
         $user->cpf_cnpj = $request->cpf_cnpj;
         $user->data_nascimento = $request->data_nascimento;
         $user->postcode = $request->postcode;
+        $user->celular = $request->celular;
+        $user->telefone = $request->telefone;
         $user->user_photo_id = $request->user_profile_photo;
         $user->save();
 

@@ -22,6 +22,9 @@ class CreateVanTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('cascade');
+            $table->integer('van_image')->unsigned()->nullable();
+            $table->foreign('van_image')->references('id')->on('user_photos')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

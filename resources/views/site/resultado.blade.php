@@ -14,7 +14,9 @@
                             target="_blank">{{ $eachVan->usuario_nome }}</a></p>
                     <p class="card-text">Celular: {{ $eachVan->usuario_celular }}</p>
                     <p class="card-text">Trajeto: {{ $eachVan->trajeto }}</p>
-                    <p class="card-text">Periodo: {{ $eachVan->periodo }}</p>
+                    @if (!is_null($eachVan->periodo))
+                        <p class="card-text">Periodo: {{ $eachVan->periodo }}</p>
+                    @endif
                 </div>
             </div>
         @endforeach
