@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Track;
 use App\Models\Cities;
 use App\Models\States;
+use App\Models\User\UserPhotos;
 use App\Models\User\Van;
 use App\Models\User\VanTrack;
 use App\Models\User\VanTrackInfo;
+use App\Models\User\VanUserPhoto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use NunoMaduro\Collision\Adapters\Phpunit\State;
@@ -92,6 +94,15 @@ class VanController extends Controller
             $vanTrackInfo->save();
         }
 
+
+        foreach($request->van_user_photo as $eachPhoto)
+        {
+            $van_user_photo = new VanUserPhoto();
+            $van_user_photo->van_id = $van->id;
+            $van_user_photo->user_photo_id = $eachPhoto;
+            $van_user_photo->save();
+        }
+
         return view('user.van');
     }
 
@@ -119,6 +130,8 @@ class VanController extends Controller
         $cities = Cities::orderBy('name')->get();
         $states = States::orderBy('name')->get();
 
+        $photos = UserPhotos::where("user_id", "=", Auth::id())->get();
+
         $trackSelected = array();
         foreach ($van->track as $eachTrack) {
 
@@ -134,7 +147,7 @@ class VanController extends Controller
             }
         }
 
-        return view('user.van.edit', compact('van', 'track', 'trackSelected', 'cities', 'states'));
+        return view('user.van.edit', compact('van', 'track', 'trackSelected', 'cities', 'states', 'photos'));
     }
 
     /**
@@ -199,6 +212,14 @@ class VanController extends Controller
             }
         } else {
             VanTrack::where("van_id", "=", $id)->delete();
+        }
+        
+        foreach($request->van_user_photo as $eachPhoto)
+        {
+            $van_user_photo = new VanUserPhoto();
+            $van_user_photo->van_id = $van->id;
+            $van_user_photo->user_photo_id = $eachPhoto;
+            $van_user_photo->save();
         }
 
         return redirect('user/van');

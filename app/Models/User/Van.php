@@ -14,4 +14,9 @@ class Van extends Model
     {
         return $this->belongsToMany('App\Models\Admin\Track', 'van_track', 'van_id', 'track_id');
     }
+
+    public function van_photos()
+    {
+        return $this->belongsToMany('App\Models\User\UserPhotos', 'van_user_photo', 'van_id', 'user_photo_id');
+    }
 }

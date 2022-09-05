@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVanTable extends Migration
+class CreateVanUserPhotoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateVanTable extends Migration
      */
     public function up()
     {
-        Schema::create('van', function (Blueprint $table) {
+        Schema::create('van_user_photo', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('model');
-            $table->string('plate');
-            $table->integer('seats')->nullable();
-            $table->boolean('active')->default(1);
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->integer('van_id')->unsigned();
+            $table->foreign('van_id')->references('id')->on('van')
+                ->onDelete('cascade');
+            $table->integer('user_photo_id')->unsigned();
+            $table->foreign('user_photo_id')->references('id')->on('user_photos')
                 ->onDelete('cascade');
             $table->timestamps();
         });
@@ -33,6 +32,6 @@ class CreateVanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('van');
+        Schema::dropIfExists('van_user_photo');
     }
 }

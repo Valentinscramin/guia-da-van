@@ -5,6 +5,18 @@
         <form action="{{ route('van.update', $van->id) }}" method="POST">
             @csrf
             @method('PUT')
+
+
+            <div class="mb-3">
+                @foreach ($photos as $eachPhoto)
+                    <input type="checkbox" name="van_user_photo[]" value="{{ $eachPhoto->id }}">
+                    <div class="card text-start" style="width:100px;">
+                        <img class="card-img-top" src="/storage/{{ $eachPhoto->arquivo }}" alt="Title">
+                    </div>
+                @endforeach
+            </div>
+
+
             <div class="mb-3">
                 <label for="" class="form-label">Model</label>
                 <input type="text" name="model" id="" class="form-control" placeholder=""
