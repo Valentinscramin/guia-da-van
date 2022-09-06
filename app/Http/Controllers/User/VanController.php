@@ -95,8 +95,7 @@ class VanController extends Controller
         }
 
 
-        foreach($request->van_user_photo as $eachPhoto)
-        {
+        foreach ($request->van_user_photo as $eachPhoto) {
             $van_user_photo = new VanUserPhoto();
             $van_user_photo->van_id = $van->id;
             $van_user_photo->user_photo_id = $eachPhoto;
@@ -131,23 +130,24 @@ class VanController extends Controller
         $states = States::orderBy('name')->get();
 
         $photos = UserPhotos::where("user_id", "=", Auth::id())->get();
+        $photos_selected = $van->van_photos();
 
-        $trackSelected = array();
+        $track_selected = array();
         foreach ($van->track as $eachTrack) {
 
             $van_track = VanTrack::where("van_id", "=", $id)->where("track_id", "=", $eachTrack->id)->get();
             $info = VanTrackInfo::where("van_track_id", "=", $van_track[0]->id)->get();
 
             if (!empty($info[0])) {
-                $trackSelected[$eachTrack->id]['cidade_saida'] = $info[0]->cidade_saida;
-                $trackSelected[$eachTrack->id]['cidade_chegada'] = $info[0]->cidade_chegada;
-                $trackSelected[$eachTrack->id]['escola'] = $info[0]->escola;
-                $trackSelected[$eachTrack->id]['periodo'] = $info[0]->periodo;
-                $trackSelected[$eachTrack->id]['evento'] = $info[0]->evento;
+                $track_selected[$eachTrack->id]['cidade_saida'] = $info[0]->cidade_saida;
+                $track_selected[$eachTrack->id]['cidade_chegada'] = $info[0]->cidade_chegada;
+                $track_selected[$eachTrack->id]['escola'] = $info[0]->escola;
+                $track_selected[$eachTrack->id]['periodo'] = $info[0]->periodo;
+                $track_selected[$eachTrack->id]['evento'] = $info[0]->evento;
             }
         }
 
-        return view('user.van.edit', compact('van', 'track', 'trackSelected', 'cities', 'states', 'photos'));
+        return view('user.van.edit', compact('van', 'track', 'track_selected', 'cities', 'states', 'photos', 'photos_selected'));
     }
 
     /**
@@ -213,9 +213,10 @@ class VanController extends Controller
         } else {
             VanTrack::where("van_id", "=", $id)->delete();
         }
-        
-        foreach($request->van_user_photo as $eachPhoto)
-        {
+
+
+        VanUserPhoto::where("van_id", "=", $van->id)->delete();
+        foreach ($request->van_user_photo as $eachPhoto) {
             $van_user_photo = new VanUserPhoto();
             $van_user_photo->van_id = $van->id;
             $van_user_photo->user_photo_id = $eachPhoto;

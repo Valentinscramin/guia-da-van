@@ -3,8 +3,8 @@
         <label class="form-check-label" for="">
             {{ $eachTrack->name }}
         </label>
-        @if (!is_null($trackSelected))
-            @if (array_key_exists($eachTrack->id, $trackSelected))
+        @if (!is_null($track_selected))
+            @if (array_key_exists($eachTrack->id, $track_selected))
                 <input class="form-check-input" type="checkbox" name="track[]" value="{{ $eachTrack->id }}" id=""
                     onclick="collapseShow({{ $eachTrack->id }})" checked>
                 <div class="collapse" id="collapse-{{ $eachTrack->id }}" style="display:block;">
@@ -23,7 +23,7 @@
                 @case(1)
                     <select name="cidade_saida_escola" id="" class="form-control">
                         @foreach ($cities as $citie)
-                            @if ($citie->id == @$trackSelected[1]['cidade_saida'])
+                            @if ($citie->id == @$track_selected[1]['cidade_saida'])
                                 <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
                             @else
                                 <option value="{{ $citie->id }}">{{ $citie->name }}</option>
@@ -33,7 +33,7 @@
                     <br>
                     <select name="cidade_chegada_escola" id="" class="form-control">
                         @foreach ($cities as $citie)
-                            @if ($citie->id == @$trackSelected[1]['cidade_chegada'])
+                            @if ($citie->id == @$track_selected[1]['cidade_chegada'])
                                 <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
                             @else
                                 <option value="{{ $citie->id }}">{{ $citie->name }}</option>
@@ -42,13 +42,13 @@
                     </select>
                     <br>
                     <input type="text" name="escola" class="form-control" placeholder="Escola"
-                        value="{{ @$trackSelected[1]['escola'] }}">
+                        value="{{ @$track_selected[1]['escola'] }}">
                     <br>
 
                     <select name="periodo" id="" class="form-control">
-                        <option value="diurno" @if (@$trackSelected[1]['periodo'] == 'diurno') selected @endif>Diurno</option>
-                        <option value="vespertino" @if (@$trackSelected[1]['periodo'] == 'vespertino') selected @endif>Vespertino</option>
-                        <option value="noturno" @if (@$trackSelected[1]['periodo'] == 'noturno') selected @endif>Noturno</option>
+                        <option value="diurno" @if (@$track_selected[1]['periodo'] == 'diurno') selected @endif>Diurno</option>
+                        <option value="vespertino" @if (@$track_selected[1]['periodo'] == 'vespertino') selected @endif>Vespertino</option>
+                        <option value="noturno" @if (@$track_selected[1]['periodo'] == 'noturno') selected @endif>Noturno</option>
                     </select>
                 @break
 
@@ -56,7 +56,7 @@
                     <select name="cidade_saida_evento" id="" class="form-control">
 
                         @foreach ($cities as $citie)
-                            @if ($citie->id == @$trackSelected[2]['cidade_saida'])
+                            @if ($citie->id == @$track_selected[2]['cidade_saida'])
                                 <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
                             @else
                                 <option value="{{ $citie->id }}">{{ $citie->name }}</option>
@@ -65,13 +65,13 @@
                     </select>
                     <br>
                     <input type="text" name="evento" class="form-control" placeholder="Evento caso necessario"
-                        value="{{ @$trackSelected[2]['evento'] }}">
+                        value="{{ @$track_selected[2]['evento'] }}">
                 @break
 
                 @case(3)
                     <select name="cidade_saida_executivo" id="" class="form-control">
                         @foreach ($cities as $citie)
-                            @if ($citie->id == @$trackSelected[3]['cidade_saida'])
+                            @if ($citie->id == @$track_selected[3]['cidade_saida'])
                                 <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
                             @else
                                 <option value="{{ $citie->id }}">{{ $citie->name }}</option>
@@ -83,7 +83,7 @@
                 @case(4)
                     <select name="cidade_saida_frete" id="" class="form-control">
                         @foreach ($cities as $citie)
-                            @if ($citie->id == @$trackSelected[4]['cidade_saida'])
+                            @if ($citie->id == @$track_selected[4]['cidade_saida'])
                                 <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
                             @else
                                 <option value="{{ $citie->id }}">{{ $citie->name }}</option>
