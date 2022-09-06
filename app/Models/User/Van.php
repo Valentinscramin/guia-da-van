@@ -17,6 +17,6 @@ class Van extends Model
 
     public function van_photos()
     {
-        return $this->belongsToMany('App\Models\User\UserPhotos', 'van_user_photos', 'van_id', 'user_photo_id');
+        return $this->belongsToMany('App\Models\User\UserPhotos', 'van_user_photo', 'van_id', 'user_photo_id');
     }
 }

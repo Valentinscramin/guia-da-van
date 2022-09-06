@@ -7,6 +7,7 @@
             @method('PUT')
 
 
+            @dd($photos_selected)
             {{-- <div class="mb-3">
                 @foreach ($photos_selected as $eachPhoto)
                     <input type="checkbox" name="van_user_photo[]" value="{{ $eachPhoto->id }}">
