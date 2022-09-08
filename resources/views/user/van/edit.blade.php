@@ -6,16 +6,15 @@
             @csrf
             @method('PUT')
 
-
-            @dd($photos_selected)
-            {{-- <div class="mb-3">
-                @foreach ($photos_selected as $eachPhoto)
-                    <input type="checkbox" name="van_user_photo[]" value="{{ $eachPhoto->id }}">
-                    <div class="card text-start" style="width:100px;">
-                        <img class="card-img-top" src="/storage/{{ $eachPhoto->arquivo }}" alt="Title">
-                    </div>
+            <div class="mb-3">
+                @foreach ($photos as $eachPhoto)
+                    @if (in_array($eachPhoto->id, $array_photos_selected))
+                        <div class="card text-start" style="width:100px;">
+                            <img class="card-img-top" src="/storage/{{ $eachPhoto->arquivo }}" alt="Title">
+                        </div>
+                    @endif
                 @endforeach
-            </div> --}}
+            </div>
 
 
             <div class="mb-3">

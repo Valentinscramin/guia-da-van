@@ -4,6 +4,7 @@ namespace App\Models\User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Van extends Model
 {
@@ -15,8 +16,8 @@ class Van extends Model
         return $this->belongsToMany('App\Models\Admin\Track', 'van_track', 'van_id', 'track_id');
     }
 
-    public function van_photos()
+    public function van_photos($id)
     {
-        return $this->belongsToMany('App\Models\User\UserPhotos', 'van_user_photo', 'van_id', 'user_photo_id');
+        return DB::table('van_user_photo')->where("van_id", $id)->get();
     }
 }

@@ -130,7 +130,13 @@ class VanController extends Controller
         $states = States::orderBy('name')->get();
 
         $photos = UserPhotos::where("user_id", "=", Auth::id())->get();
-        $photos_selected = $van->van_photos();
+        $photos_selected = $van->van_photos($id);
+
+        $array_photos_selected = array();
+        foreach($photos_selected as $eachPhotoSelected)
+        {
+            $array_photos_selected[] = $eachPhotoSelected->user_photo_id;
+        }
 
         $track_selected = array();
         foreach ($van->track as $eachTrack) {
@@ -147,7 +153,7 @@ class VanController extends Controller
             }
         }
 
-        return view('user.van.edit', compact('van', 'track', 'track_selected', 'cities', 'states', 'photos', 'photos_selected'));
+        return view('user.van.edit', compact('van', 'track', 'track_selected', 'cities', 'states', 'photos', 'array_photos_selected'));
     }
 
     /**
