@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\User\Avaliation;
 use App\Models\User\UserPhotos;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,26 +57,15 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-
         try {
-
             $user = User::find($id);
             $profile_photo = @User::photo($id)->arquivo;
-
-            $sum = 0;
-            $count = 0;
-            foreach ($user->avaliation as $eachAvaliation) {
-                $count++;
-                $sum += $eachAvaliation->avaliation;
-            }
-
-            $everage = $count / $sum;
-
+            $stars = Avaliation::getAvaliationStarsAvg($user->avaliation);
         } catch (\Throwable $th) {
             return view('site.error', compact('th'));
         }
 
-        return view('site.profile', compact('user', 'everage', 'profile_photo'));
+        return view('site.profile', compact('user', 'stars', 'profile_photo'));
     }
 
     /**

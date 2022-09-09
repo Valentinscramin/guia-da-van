@@ -19,7 +19,11 @@
 
             <div class="mb-3">
                 @foreach ($photos as $eachPhoto)
-                    <input type="checkbox" name="van_user_photo[]" value="{{ $eachPhoto->id }}">
+                    @if (in_array($eachPhoto->id, $array_photos_selected))
+                        <input type="checkbox" name="van_user_photo[]" value="{{ $eachPhoto->id }}" checked>
+                    @else
+                        <input type="checkbox" name="van_user_photo[]" value="{{ $eachPhoto->id }}">
+                    @endif
                     <div class="card text-start" style="width:100px;">
                         <img class="card-img-top" src="/storage/{{ $eachPhoto->arquivo }}" alt="Title">
                     </div>

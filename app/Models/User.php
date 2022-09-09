@@ -56,12 +56,11 @@ class User extends Authenticatable
         } catch (\Throwable $th) {
             return null;
         }
-        
     }
 
     public function avaliation()
     {
-        return $this->belongsToMany('App\Models\User\Avaliation', 'user_avaliations', 'user_id', 'avaliation_id');
+        return $this->hasMany('App\Models\User\Avaliation');
     }
 
     public function comment()
