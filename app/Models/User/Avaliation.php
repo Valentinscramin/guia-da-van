@@ -15,22 +15,32 @@ class Avaliation extends Model
         $stars = array();
         if ($percent >= 1) {
             $stars['one'] = TRUE;
-        }
-
-        if ($percent >= 2) {
-            $stars['two'] = TRUE;
+        }else{
+            $stars['one'] = FALSE;
         }
 
         if ($percent >= 3) {
-            $stars['three'] = TRUE;
-        }
-
-        if ($percent >= 4) {
-            $stars['four'] = TRUE;
+            $stars['two'] = TRUE;
+        }else{
+            $stars['two'] = FALSE;
         }
 
         if ($percent >= 5) {
+            $stars['three'] = TRUE;
+        }else{
+            $stars['three'] = FALSE;
+        }
+
+        if ($percent >= 7) {
+            $stars['four'] = TRUE;
+        }else{
+            $stars['four'] = FALSE;
+        }
+
+        if ($percent >= 9) {
             $stars['five'] = TRUE;
+        }else{
+            $stars['five'] = FALSE;
         }
 
         return $stars;

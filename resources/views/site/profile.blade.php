@@ -8,11 +8,11 @@
         <p>{{ $user->celular }}</p>
         <p>{{ $user->telefone }}</p>
         <form action="">
-            <span class="fa fa-star @if($stars['one'] == true){{ "checked" }}@endif"></span>
-            <span class="fa fa-star @if($stars['one'] == true){{ "checked" }}@endif"></span>
-            <span class="fa fa-star @if($stars['one'] == true){{ "checked" }}@endif"></span>
-            <span class="fa fa-star @if($stars['one'] == true){{ "checked" }}@endif"></span>
-            <span class="fa fa-star @if($stars['one'] == true){{ "checked" }}@endif"></span>
+            <span class="fa fa-star @if ($stars['one']) {{ 'checked' }} @endif"></span>
+            <span class="fa fa-star @if ($stars['two']) {{ 'checked' }} @endif"></span>
+            <span class="fa fa-star @if ($stars['three']) {{ 'checked' }} @endif"></span>
+            <span class="fa fa-star @if ($stars['four']) {{ 'checked' }} @endif"></span>
+            <span class="fa fa-star @if ($stars['five']) {{ 'checked' }} @endif"></span>
         </form>
         @foreach ($user->comment as $eachComment)
             {{ $eachComment->comment }}
