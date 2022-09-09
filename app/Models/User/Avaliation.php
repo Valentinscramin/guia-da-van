@@ -32,6 +32,8 @@ class Avaliation extends Model
         if ($percent >= 5) {
             $stars['five'] = TRUE;
         }
+
+        return $stars;
     }
 
     public static function getAvaliationStarsAvg($avaliations)
@@ -45,7 +47,7 @@ class Avaliation extends Model
         }
 
         $avg = $count / $sum;
-        $percent = $avg * 100 / 5;
+        $percent = $avg * 100 / 10;
 
         return Avaliation::stars($percent);
     }

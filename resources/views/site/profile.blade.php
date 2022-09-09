@@ -7,14 +7,13 @@
         <p>{{ $user->cpf_cnpj }}</p>
         <p>{{ $user->celular }}</p>
         <p>{{ $user->telefone }}</p>
-        @dd($stars)
-        {{-- <form action="">
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-        </form> --}}
+        <form action="">
+            <span class="fa fa-star @if($stars['one'] == true){{ "checked" }}@endif"></span>
+            <span class="fa fa-star @if($stars['one'] == true){{ "checked" }}@endif"></span>
+            <span class="fa fa-star @if($stars['one'] == true){{ "checked" }}@endif"></span>
+            <span class="fa fa-star @if($stars['one'] == true){{ "checked" }}@endif"></span>
+            <span class="fa fa-star @if($stars['one'] == true){{ "checked" }}@endif"></span>
+        </form>
         @foreach ($user->comment as $eachComment)
             {{ $eachComment->comment }}
         @endforeach
