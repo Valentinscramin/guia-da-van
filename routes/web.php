@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 //ROTAS SITE
 
 //HOME
@@ -23,6 +22,8 @@ Route::get('/', [App\Http\Controllers\SiteController::class, 'index']);
 Route::get('/busca/resultado', [App\Http\Controllers\SiteController::class, 'busca'])->name('busca_resultado');
 
 Route::get('/profile/{id}', [App\Http\Controllers\User\ProfileController::class, 'show'])->name('profile_show');
+
+Route::resource('/avaliation', App\Http\Controllers\User\AvaliationController::class);
 
 Auth::routes();
 

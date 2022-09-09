@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-@include('site.filtro');
+@include('site.filtro')
 @endsection
