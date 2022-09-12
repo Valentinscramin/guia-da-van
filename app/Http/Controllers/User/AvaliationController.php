@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\User\Avaliation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AvaliationController extends Controller
 {
@@ -37,7 +38,7 @@ class AvaliationController extends Controller
     {
         $avaliation = new Avaliation();
         $avaliation->avaliation = $request->avaliation;
-        $avaliation->create_user_id = $request->user_create;
+        $avaliation->create_user_id = Auth::user()->id;
         $avaliation->user_id = $request->user_id;
         $avaliation->save();
 

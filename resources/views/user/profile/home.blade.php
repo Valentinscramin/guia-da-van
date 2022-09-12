@@ -37,14 +37,14 @@
             <div class="mb-3">
                 <label for="cpf_cnpj" class="form-label">CPF/CNPJ</label>
                 <input type="text" name="cpf_cnpj" id="cpf_cnpj" class="form-control" placeholder=""
-                    aria-describedby="helpId" value="{{ $user->cpf_cnpj }}" onkeyup="validar(this);">
-                <small id="helpId" class="text-muted">CPF/CNPJ</small>
+                    aria-describedby="helpId_cpf_cnpj" value="{{ $user->cpf_cnpj }}" onkeyup="validar(this);">
+                <small id="helpId_cpf_cnpj" class="text-muted">CPF/CNPJ</small>
             </div>
 
             <div class="mb-3">
                 <label for="data_nascimento" class="form-label">Data Nascimento</label>
                 <input type="date" name="data_nascimento" id="data_nascimento" class="form-control" placeholder=""
-                    aria-describedby="helpId" value="{{ $user->data_nascimento }}" readonly>
+                    aria-describedby="helpId" value="{{ $user->data_nascimento }}">
                 <small id="helpId" class="text-muted">Data Nascimento</small>
             </div>
 
@@ -69,10 +69,14 @@
                 <small id="helpId" class="text-muted">Cep</small>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" id="botao-salvar" class="btn btn-primary">Submit</button>
         </form>
     </div>
     <script>
+        $("#postcode").mask("99.999-999");
+        $("#telefone").mask("(99)9999-9999");
+        $("#celular").mask("(99)99999-9999");
+
         function validar(obj) {
             // recebe um objeto
             var s = (obj.value).replace(/\D/g, '');
@@ -85,11 +89,16 @@
             // se for CPF
             if (tam == 11) {
                 if (!validaCPF(s)) { // chama a função que valida o CPF
-                    alert("'" + s + "' Não é um CPF Válido!"); // se quiser mostrar o erro
+                    obj.style.color = "red";
+                    document.getElementById('helpId_cpf_cnpj').innerHTML = "CPF digitado não esta correto";
+                    document.getElementById('botao-salvar').disabled = true;
                     obj.select(); // se quiser selecionar o campo em questão
                     obj.focus();
                     return false;
                 }
+                obj.style.color = "";
+                document.getElementById('helpId_cpf_cnpj').innerHTML = "CPF/CNPJ";
+                document.getElementById('botao-salvar').disabled = false;
                 obj.value = maskCPF(s); // se validou o CPF mascaramos corretamente
                 return true;
             }
@@ -97,10 +106,16 @@
             // se for CNPJ
             if (tam == 14) {
                 if (!validaCNPJ(s)) { // chama a função que valida o CNPJ
-                    alert("'" + s + "' Não é um CNPJ Válido!"); // se quiser mostrar o erro
+                    obj.style.color = "red";
+                    document.getElementById('helpId_cpf_cnpj').innerHTML = "CNPJ digitado não esta correto";
+                    document.getElementById('botao-salvar').disabled = true;
                     obj.select(); // se quiser selecionar o campo enviado
+                    obj.focus();
                     return false;
                 }
+                obj.style.color = "";
+                document.getElementById('helpId_cpf_cnpj').innerHTML = "CPF/CNPJ";
+                document.getElementById('botao-salvar').disabled = false;
                 obj.value = maskCNPJ(s); // se validou o CNPJ mascaramos corretamente
                 return true;
             }

@@ -67,12 +67,32 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if (is_null(Auth::user()->cpf_cnpj) || is_null(Auth::user()->data_nascimento))
+                                        <a class="dropdown-item" role="button"
+                                            title="Necessário o cadastro do cpf/cnpj e data de nascimento" role="link"
+                                            aria-disabled="true">
+                                            Van </a>
+                                    @else
+                                        <a class="dropdown-item" href="{{ route('van.index') }}" role="button">
+                                            Van </a>
+                                    @endif
 
-                                    <a class="dropdown-item" href="{{ route('van.index') }}" role="button"> Van </a>
-                                    <a class="dropdown-item" href="{{ route('profile.index') }}" role="button"> Profile
+                                    <a class="dropdown-item" href="{{ route('profile.index') }}" role="button">
+                                        Profile
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('user.photos.index') }}" role="button"> Photos
-                                    </a>
+
+                                    @if (is_null(Auth::user()->cpf_cnpj) || is_null(Auth::user()->data_nascimento))
+                                        <a class="dropdown-item" role="button"
+                                            title="Necessário o cadastro do cpf/cnpj e data de nascimento" role="link"
+                                            aria-disabled="true">
+                                            Photos
+                                        </a>
+                                    @else
+                                        <a class="dropdown-item" href="{{ route('user.photos.index') }}" role="button">
+                                            Photos
+                                        </a>
+                                    @endif
+
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();

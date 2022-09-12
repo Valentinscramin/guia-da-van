@@ -13,7 +13,6 @@
                     @csrf
                     @method('POST')
                     <input type="hidden" name="avaliation" value="1">
-                    <input type="hidden" name="user_create" value="{{ Auth::user()->id }}">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <button type="submit" class="btn btn-primary">
                         <span class="fa fa-star @if ($stars['one']) {{ 'checked' }} @endif"></span>
@@ -23,7 +22,6 @@
                     @csrf
                     @method('POST')
                     <input type="hidden" name="avaliation" value="2">
-                    <input type="hidden" name="user_create" value="{{ Auth::user()->id }}">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <button type="submit" class="btn btn-primary">
                         <span class="fa fa-star @if ($stars['two']) {{ 'checked' }} @endif"></span>
@@ -33,7 +31,6 @@
                     @csrf
                     @method('POST')
                     <input type="hidden" name="avaliation" value="3">
-                    <input type="hidden" name="user_create" value="{{ Auth::user()->id }}">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <button type="submit" class="btn btn-primary">
                         <span class="fa fa-star @if ($stars['three']) {{ 'checked' }} @endif"></span>
@@ -43,7 +40,6 @@
                     @csrf
                     @method('POST')
                     <input type="hidden" name="avaliation" value="4">
-                    <input type="hidden" name="user_create" value="{{ Auth::user()->id }}">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <button type="submit" class="btn btn-primary">
                         <span class="fa fa-star @if ($stars['four']) {{ 'checked' }} @endif"></span>
@@ -53,7 +49,6 @@
                     @csrf
                     @method('POST')
                     <input type="hidden" name="avaliation" value="5">
-                    <input type="hidden" name="user_create" value="{{ Auth::user()->id }}">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <button type="submit" class="btn btn-primary">
                         <span class="fa fa-star @if ($stars['five']) {{ 'checked' }} @endif"></span>
@@ -68,6 +63,19 @@
             <span class="fa fa-star @if ($stars['five']) {{ 'checked' }} @endif"></span>
         @endif
         <br>
+        @if (isset(Auth::user()->id))
+            <form method="POST" action="{{ route('comment_push') }}">
+                @csrf
+                @method('POST')
+                <input type="hidden" name="user_id" value="{{ $user->id }}">
+                <div class="mb-3">
+                    <label for="comment" class="form-label">Deseja fazer seu comentario ?</label>
+                    <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Comentar</button>
+            </form>
+            <br>
+        @endif
         @foreach ($user->comment as $eachComment)
             {{ $eachComment->comment }}
         @endforeach

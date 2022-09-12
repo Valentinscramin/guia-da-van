@@ -25,6 +25,8 @@ Route::get('/profile/{id}', [App\Http\Controllers\User\ProfileController::class,
 
 Route::resource('/avaliation', App\Http\Controllers\User\AvaliationController::class);
 
+Route::post('/comment/push', [App\Http\Controllers\User\CommentController::class, 'store'])->name('comment_push');
+
 Auth::routes();
 
 //USER

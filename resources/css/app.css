@@ -1,3 +1,7 @@
 .checked {
-    color: orange;
+color: orange;
+}
+
+a.disabled {
+pointer-events: none;
 }
