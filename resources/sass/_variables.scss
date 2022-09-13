@@ -2,6 +2,57 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Raleway', sans-serif;
 $font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$line-height-base: 1.6; 
+
+$black: #030303;
+$anotherBlack: #363636;
+$gray: #858585;
+$anotherGray: #4E4E4E;
+$purple: #5837e7;
+$lightPurple: #b06eff;
+$bgButtonTag: #F4EEFF;
+$colorButtonTag: #AF9EFC;
+
+// RESPONSIVE
+@mixin responsivo($rl, $rl2: 1) {
+    @if ($rl2  !=1) {
+        @media only screen and (min-width: $rl+"px") and (max-width: $rl2+"px") {
+            @content;
+        }
+    } 
+
+    @else {
+        @media only screen and (max-width: $rl+"px") {
+            @content;
+        }
+    }
+}
+
+@mixin anima-slow {
+    -o-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear; 
+    -khtml-transition: all 0.3s linear;
+    -webkit-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+@mixin anima-normal {
+    -o-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -khtml-transition: all 0.2s linear;
+    -webkit-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+@mixin anima-fast {
+    -o-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -khtml-transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
+    -ms-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}

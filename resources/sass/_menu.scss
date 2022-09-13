@@ -1,0 +1,38 @@
+.menu_desktop {
+    display: none;
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        li {
+            a {
+                font-weight: 900;
+                color: $anotherGray;
+                @include anima-slow;
+                &:hover {
+                    @include anima-slow;
+                    color: $purple;
+                }
+            }
+        }
+
+        .button_account {
+            a {
+                @include anima-slow;
+                font-size: 0.875rem;
+                color: #fff;
+                &:hover {
+                    @include anima-slow;
+                    color: $lightPurple;
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    .menu_desktop {
+        display: block;
+    }
+}
