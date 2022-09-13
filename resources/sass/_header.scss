@@ -1,0 +1,43 @@
+.top_header {
+    background: url('/images/bg_top_header_purple.png')no-repeat top center;
+    background-size: cover;
+    padding: 8px 0 36px 0;
+
+    h2 {
+        text-align: center;
+        font-size: 0.675rem;
+        color: #fff;
+
+        a {
+            color: #fff; 
+            font-weight: bold; 
+            
+            text-decoration: underline; 
+            @include anima-slow;
+
+            &:hover {
+                @include anima-slow;
+                color: $lightPurple;
+            }
+        }
+    }
+}
+
+@media (min-width: map-get($grid-breakpoints, sm)) {
+    .top_header {
+        h2 {
+            font-size: 0.875rem;
+        }
+    }
+}
+
+.header {
+    background: #ffff;
+    border-radius: 30px;
+    margin-top: -28px;
+    padding: 15px 0;
+
+    .row {
+        align-items: center;
+    }
+}
