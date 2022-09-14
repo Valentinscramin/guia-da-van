@@ -70,7 +70,9 @@
                                     <div class="titleSearch">
                                         <h2>Busca Personalizada</h2>
                                     </div>
-                                    @yield('content')
+                                    <div class="formulario col-12 col-md-10">
+                                        @yield('content')
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +83,7 @@
                 </div>
             </div>
         </section>
-       
+
     </main>
 
 </body>

@@ -7,17 +7,20 @@
     justify-content: space-between;
     color: #fff;
     font-weight: 900;
+
     img {
         width: 20px;
         height: 20px;
         margin-right: 3px;
     }
+
     a {
-       
+
         font-size: 0.875rem;
         color: #fff;
         margin: 0 5px;
         @include anima-slow;
+
         &:hover {
             @include anima-slow;
             color: $lightPurple;
@@ -31,4 +34,32 @@
     font-weight: 550;
     padding: 10px 20px;
     width: fit-content;
+}
+
+.btnSubmit {
+    text-align: center;
+    button {
+        background-color: $purple;
+        font-weight: 700;
+        font-size: 0.875rem;
+        border-radius: 30px;
+        padding: 6px 25px 6px 15px;
+        margin: 20px auto 20px auto;
+        border: 0;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+        opacity: .6;
+        @include anima-slow;
+        .line {
+            margin: 0 10px;
+        }
+
+        &:hover {
+            background-color: $lightPurple;
+            @include anima-slow;
+        }
+    }
 }

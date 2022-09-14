@@ -1,7 +1,11 @@
+.formulario {
+    margin: 0 auto;
+}
+
 form {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
 
     input,
     select {
@@ -9,8 +13,61 @@ form {
         border-radius: 10px;
         border: 1px solid #BCBCBC;
         padding: 10px 12px;
+        color: $anotherGray;
         outline-color: $purple;
         @include anima-slow;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $gray;
+        opacity: 1; /* Firefox */
+      }
+      
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $gray;
+      }
+      
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: $gray;
+      }
+
+    input[type=radio] {
+        cursor: pointer;
+        border-radius: 5px;
+        margin-right: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        border: 1px solid #BCBCBC;
+        padding: 10px;
+        width: 5px;
+        height: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include anima-slow;
+
+        &:checked {
+            border: 1px solid $purple;
+            background-color: $purple;
+            @include anima-slow;
+
+            &:before {
+                content: '\2713';
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: #fff;
+                @include anima-slow;
+            }
+        }
+
+        &:active {
+            @include anima-slow;
+            background-color: $purple;
+        }
     }
 
     label {
@@ -21,40 +78,38 @@ form {
         font-weight: 550;
         color: $gray;
         cursor: pointer;
+    }
 
-        input[type=radio] {
-            cursor: pointer;
-            border-radius: 5px;
-            margin-right: 5px;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            -o-appearance: none;
-            appearance: none;
-            border: 1px solid #BCBCBC;
-            width: 18px;
-            height: 18px;
-            @include anima-slow;
+    .item_input {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-            &:checked {
-                border: 1px solid $purple;
-                background-color: $purple;
-                @include anima-slow;
+    .collapse_filter {
+        .content_filter {
+            display: none;
+            margin-top: 15px;
 
-                &:before {
-                    content: '\2713';
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    text-align: center;
-                    color: #fff;
-                    @include anima-slow;
-                }
+            .itemInput {
+                margin: 10px auto;
             }
+        }
 
-            &:active {
-                @include anima-slow;
-                background-color: $purple;
-            }
+        .activeFilter {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+    }
+}
+
+@include responsivo(0, 407) {
+    form {
+        .item {
+            margin-bottom: 10px;
         }
     }
 }

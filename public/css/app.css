@@ -11127,6 +11127,33 @@ table {
   width: fit-content;
 }
 
+.btnSubmit {
+  text-align: center;
+}
+.btnSubmit button {
+  background-color: #5837e7;
+  font-weight: 700;
+  font-size: 0.875rem;
+  border-radius: 30px;
+  padding: 6px 25px 6px 15px;
+  margin: 20px auto 20px auto;
+  border: 0;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  opacity: 0.6;
+  transition: all 0.3s linear;
+}
+.btnSubmit button .line {
+  margin: 0 10px;
+}
+.btnSubmit button:hover {
+  background-color: #b06eff;
+  transition: all 0.3s linear;
+}
+
 .bannerTop {
   padding: 60px 0 20px 0;
 }
@@ -11158,6 +11185,7 @@ table {
   text-align: center;
   font-size: 1.65rem;
   font-weight: 900;
+  margin-bottom: 20px;
 }
 
 @media only screen and (min-width: 0px) and (max-width: 374px) {
@@ -11190,10 +11218,14 @@ table {
     font-size: 4.5rem;
   }
 }
+.formulario {
+  margin: 0 auto;
+}
+
 form {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 form input,
 form select {
@@ -11201,8 +11233,58 @@ form select {
   border-radius: 10px;
   border: 1px solid #BCBCBC;
   padding: 10px 12px;
+  color: #4E4E4E;
   outline-color: #5837e7;
   transition: all 0.3s linear;
+}
+form ::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #858585;
+  opacity: 1; /* Firefox */
+}
+form ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #858585;
+  opacity: 1; /* Firefox */
+}
+form :-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #858585;
+}
+form ::-ms-input-placeholder { /* Microsoft Edge */
+  color: #858585;
+}
+form input[type=radio] {
+  cursor: pointer;
+  border-radius: 5px;
+  margin-right: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 1px solid #BCBCBC;
+  padding: 10px;
+  width: 5px;
+  height: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s linear;
+}
+form input[type=radio]:checked {
+  border: 1px solid #5837e7;
+  background-color: #5837e7;
+  transition: all 0.3s linear;
+}
+form input[type=radio]:checked:before {
+  content: "✓";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  transition: all 0.3s linear;
+}
+form input[type=radio]:active {
+  transition: all 0.3s linear;
+  background-color: #5837e7;
 }
 form label {
   display: flex;
@@ -11213,38 +11295,30 @@ form label {
   color: #858585;
   cursor: pointer;
 }
-form label input[type=radio] {
-  cursor: pointer;
-  border-radius: 5px;
-  margin-right: 5px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  border: 1px solid #BCBCBC;
-  width: 18px;
-  height: 18px;
-  transition: all 0.3s linear;
-}
-form label input[type=radio]:checked {
-  border: 1px solid #5837e7;
-  background-color: #5837e7;
-  transition: all 0.3s linear;
-}
-form label input[type=radio]:checked:before {
-  content: "✓";
+form .item_input {
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  transition: all 0.3s linear;
+  justify-content: space-between;
 }
-form label input[type=radio]:active {
-  transition: all 0.3s linear;
-  background-color: #5837e7;
+form .collapse_filter .content_filter {
+  display: none;
+  margin-top: 15px;
+}
+form .collapse_filter .content_filter .itemInput {
+  margin: 10px auto;
+}
+form .collapse_filter .activeFilter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
+@media only screen and (min-width: 0px) and (max-width: 407px) {
+  form .item {
+    margin-bottom: 10px;
+  }
+}
 @media (min-width: 768px) {
   form label {
     font-size: 0.875rem;
