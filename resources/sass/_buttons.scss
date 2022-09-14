@@ -36,6 +36,10 @@
     width: fit-content;
 }
 
+.button_tag_white {
+    background-color: #fff;
+}
+
 .btnSubmit {
     text-align: center;
     button {
@@ -60,6 +64,25 @@
         &:hover {
             background-color: $lightPurple;
             @include anima-slow;
+        }
+    }
+}
+
+.btn_cadastre {
+    
+    a {
+        background-color: $purple;
+        font-size: 0.875rem;
+        font-weight: 700;
+        border-radius: 30px;
+        font-size: 0.875rem;
+        color: #fff;
+        padding: 12px 25px;
+        @include anima-slow;
+
+        &:hover {
+            @include anima-slow;
+            background-color: $lightPurple;
         }
     }
 }

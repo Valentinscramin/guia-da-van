@@ -84,6 +84,35 @@
             </div>
         </section>
 
+        <section>
+            <div class="cadastre_se">
+                <div class="takeCadastrese">
+                    <div class="container">
+                        <div class="row no-gutters">
+                            <div class="col-12 col-lg-6 col-xl-5">
+                                <div class="button_tag button_tag_white">
+                                    <h2>Cadastre-se</h2>
+                                </div>
+                                <div class="title">
+                                    <h3>Porque cadastrar a <span>sua van?</span></h3>
+                                </div>
+                                <div class="text">Existem muitos benefícios em ter sua van cadastrada em nosso
+                                    sistema de busca, mas o principal deles é aumentar a sua cartela
+                                    de clientes! Com a nossa ajuda, você vai ter mais pessoas
+                                    solicitando os seus serviços.</div>
+
+                                <div class="btn_cadastre"><a href="#">Cadastre-se agora!</a></div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-7">
+                                <img src="{{URL('/images/van_3d.png')}}" alt="" class="img-fluid">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
 </body>
