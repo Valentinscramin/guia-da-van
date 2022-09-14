@@ -1,6 +1,30 @@
 .bannerTop {
     padding: 60px 0 20px 0;
 
+    &:before {
+        content: '';
+        display: block;
+        width: 13px;
+        height: 13px;
+        background-color: #20319D;
+        border-radius: 50%;
+        position: absolute;
+        margin-top: 7rem;
+        left: 0;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        background-color: #E73795;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        border-radius: 50%;
+        margin-top: -16rem;
+        left: -10px;
+    }
+
     .title {
         color: $black;
         font-size: 2.5rem;
@@ -24,6 +48,7 @@
     }
 
     .search {
+        background-color: #fff;
         box-shadow: 0 3px 19px 10px rgba(0, 0, 0, .1);
         margin-top: 40px;
         padding: 20px 10px;
@@ -48,6 +73,19 @@
 
 @media (min-width: map-get($grid-breakpoints, md)) {
     .bannerTop {
+        &:before {
+            width: 23px;
+            height: 23px;
+            left: percentage(.2/12);
+        }
+
+        &:after {
+            width: 44px;
+            height: 44px;
+            margin-top: -15rem;
+            left: -20px;
+        }
+
         .title {
             font-size: 3.8rem;
         }
@@ -58,7 +96,7 @@
 
             .titleSearch {
                 font-size: 2rem;
-            }                            
+            }
         }
     }
 }
@@ -68,6 +106,7 @@
         .imagem {
             display: block;
             position: absolute;
+            z-index: -1;
             width: 45%;
             right: 0;
             margin-top: -7rem;
@@ -78,6 +117,9 @@
 
 @media (min-width: map-get($grid-breakpoints, xl)) {
     .bannerTop {
+        &:before {
+            left: percentage(.5/12);
+        }
         .title {
             font-size: 4.5rem;
         }
