@@ -1,0 +1,113 @@
+.depoiments {
+    .row {
+        align-items: center;
+    }
+
+    .column_first {
+        display: none;
+    }
+
+    .column_second {
+        padding: 80px 0 0 0;
+    }
+
+    .title {
+        padding-left: 10px;
+
+        h3 {
+            color: $black;
+            font-size: 1.45rem;
+            font-weight: 900;
+            margin-top: 20px;
+
+            span {
+                color: $lightPurple;
+            }
+        }
+    }
+
+    .takeComments {
+        box-shadow: 0 3px 19px 10px rgba(0, 0, 0, .1);
+        margin-top: 30px;
+        border-radius: 10px;
+        padding: 0px 30px 30px 30px;
+
+        .itemComments {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            .text {
+                font-weight: 550;
+                color: $gray;
+                font-size: 0.875rem;
+                line-height: 1.7;
+                margin-bottom: 20px;
+
+                &:before {
+                    content: '';
+                    display: block;
+                    background: url('/images/aspas.svg')no-repeat top left;
+                    background-size: contain;
+                    width: 60px;
+                    height: 60px;
+                    position: relative;
+                    left: -25px;
+                    top: 25px;
+                }
+            }
+
+            .name {
+                font-size: 1.55rem;
+                color: $black;
+                font-weight: 800;
+            }
+
+            .function {
+                font-size: 0.845rem;
+                font-weight: 800;
+                color: $gray;
+                margin: 5px 0 10px;
+            }
+        }
+    }
+
+    .anuncio {
+        margin: 50px 0;
+    }
+}
+
+@media (min-width: map-get($grid-breakpoints, md)) {
+    .depoiments {
+        .title {
+            h3 {
+                font-size: 2.2rem;
+            }
+        }
+
+
+        .takeComments {
+            padding: 0 50px 30px 50px;
+            .itemComments {
+                .function {
+                    margin: 5px 0;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    .depoiments {
+        .column_first {
+            display: block;
+        }
+
+        
+        .column_second {
+            padding: 0;
+        }
+    
+
+    }
+}

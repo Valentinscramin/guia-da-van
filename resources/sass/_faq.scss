@@ -1,0 +1,47 @@
+.faq {
+    .row {
+        justify-content: center;
+    }
+
+    .title {
+        text-align: center;
+
+        h3 {
+            color: $black;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-top: 15px;
+            span {
+                color: $lightPurple;
+            }
+        }
+    }
+
+    .duvidas {
+        margin: 50px auto;
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            li {
+                margin: 20px 0;
+                .title {
+                    color: $black;
+                    font-weight: 800;
+                    font-size: 1.125rem;
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: map-get($grid-breakpoints, md)) {
+    .faq {
+        .title {
+            h3 {
+                font-size: 2.8rem;
+            }
+        }
+    }
+}
