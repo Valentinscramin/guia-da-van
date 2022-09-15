@@ -11392,6 +11392,18 @@ form .collapse_filter .activeFilter {
   position: absolute;
   z-index: -1;
 }
+.cadastre_se::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  display: block;
+  height: 50px;
+  background-size: 50px 100%;
+  background-image: linear-gradient(135deg, #f0eff4 25%, transparent 25%), linear-gradient(225deg, #f0eff4 25%, transparent 25%);
+  background-position: 0 0;
+}
 .cadastre_se .takeCadastrese {
   background-color: #F0EFF4;
   padding: 30px 0;
@@ -11437,5 +11449,150 @@ form .collapse_filter .activeFilter {
 @media (min-width: 1200px) {
   .cadastre_se .takeCadastrese .title h3, .cadastre_se .takeCadastrese .title .h3 {
     font-size: 3.2rem;
+  }
+}
+.depoiments .row {
+  align-items: center;
+}
+.depoiments .column_first {
+  display: none;
+}
+.depoiments .column_second {
+  padding: 80px 0 0 0;
+}
+.depoiments .title {
+  padding-left: 10px;
+}
+.depoiments .title h3, .depoiments .title .h3 {
+  color: #030303;
+  font-size: 1.45rem;
+  font-weight: 900;
+  margin-top: 20px;
+}
+.depoiments .title h3 span, .depoiments .title .h3 span {
+  color: #b06eff;
+}
+.depoiments .takeComments {
+  box-shadow: 0 3px 19px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  border-radius: 10px;
+  padding: 0px 30px 30px 30px;
+}
+.depoiments .takeComments .itemComments {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.depoiments .takeComments .itemComments .text {
+  font-weight: 550;
+  color: #858585;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.depoiments .takeComments .itemComments .text:before {
+  content: "";
+  display: block;
+  background: url("/images/aspas.svg") no-repeat top left;
+  background-size: contain;
+  width: 60px;
+  height: 60px;
+  position: relative;
+  left: -25px;
+  top: 25px;
+}
+.depoiments .takeComments .itemComments .name {
+  font-size: 1.55rem;
+  color: #030303;
+  font-weight: 800;
+}
+.depoiments .takeComments .itemComments .function {
+  font-size: 0.845rem;
+  font-weight: 800;
+  color: #858585;
+  margin: 5px 0 10px;
+}
+.depoiments .anuncio {
+  margin: 50px 0;
+}
+
+@media (min-width: 768px) {
+  .depoiments .title h3, .depoiments .title .h3 {
+    font-size: 2.2rem;
+  }
+  .depoiments .takeComments {
+    padding: 0 50px 30px 50px;
+  }
+  .depoiments .takeComments .itemComments .function {
+    margin: 5px 0;
+  }
+}
+@media (min-width: 992px) {
+  .depoiments .column_first {
+    display: block;
+  }
+  .depoiments .column_second {
+    padding: 0;
+  }
+}
+.faq .row {
+  justify-content: center;
+}
+.faq .title {
+  text-align: center;
+}
+.faq .title h3, .faq .title .h3 {
+  color: #030303;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-top: 15px;
+}
+.faq .title h3 span, .faq .title .h3 span {
+  color: #b06eff;
+}
+.faq .duvidas {
+  margin: 50px auto;
+}
+.faq .duvidas ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.faq .duvidas ul li {
+  margin: 20px 0;
+}
+.faq .duvidas ul li .title {
+  color: #030303;
+  font-weight: 800;
+  font-size: 1.125rem;
+}
+
+@media (min-width: 768px) {
+  .faq .title h3, .faq .title .h3 {
+    font-size: 2.8rem;
+  }
+}
+.social_media {
+  padding: 30px 0;
+}
+.social_media .row {
+  justify-content: center;
+}
+.social_media .title {
+  text-align: center;
+}
+.social_media .title h3, .social_media .title .h3 {
+  color: #030303;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-top: 15px;
+}
+.social_media .title h3 span, .social_media .title .h3 span {
+  color: #b06eff;
+}
+
+@media (min-width: 768px) {
+  .social_media .title h3, .social_media .title .h3 {
+    font-size: 3rem;
   }
 }
