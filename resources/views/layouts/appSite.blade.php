@@ -222,12 +222,38 @@
                             <h3>Junte-se a <span>nós</span></h3>
                         </div>
 
+                        <div class="all_media col-12">
+                            <div class="itemSocial">
+                                <div class="col-12 col-sm-4"><img src="{{URL('/images/facebook.svg')}}" alt="" class="img-fluid"></div>
+                                <div class="col-12 col-sm-8">
+                                    <div class="title">
+                                        <h2>Facebook</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itemSocial">
+                                <div class="col-12 col-sm-4"><img src="{{URL('/images/instagram.svg')}}" alt="" class="img-fluid"></div>
+                                <div class="col-12 col-sm-8">
+                                    <div class="title">
+                                        <h2>Instagram</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="itemSocial">
+                                <div class="col-12 col-sm-4"><img src="{{URL('/images/whatsapp.svg')}}" alt="" class="img-fluid"></div>
+                                <div class="col-12 col-sm-8">
+                                    <div class="title">
+                                        <h2>Whatsapp</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
 </body>
 
 </html>

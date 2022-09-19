@@ -11590,6 +11590,22 @@ form .collapse_filter .activeFilter {
 .social_media .title h3 span, .social_media .title .h3 span {
   color: #b06eff;
 }
+.social_media .all_media {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+.social_media .all_media .itemSocial {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.social_media .all_media .itemSocial .title h2, .social_media .all_media .itemSocial .title .h2 {
+  color: #030303;
+  font-weight: 900;
+  font-size: 1.65rem;
+}
 
 @media (min-width: 768px) {
   .social_media .title h3, .social_media .title .h3 {
