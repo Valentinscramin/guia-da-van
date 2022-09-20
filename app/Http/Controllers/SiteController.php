@@ -47,6 +47,7 @@ class SiteController extends Controller
                         "van.plate as placa",
                         "van.seats as acentos",
                         "van.id as van_id",
+                        "van.comment as comment",
                         "track.name as trajeto",
                         "van_track_info.periodo as periodo"
                     )

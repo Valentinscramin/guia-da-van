@@ -49,6 +49,12 @@
                     aria-describedby="helpId" value="{{ $van->seats }}">
                 <small id="helpId" class="text-muted">Seats</small>
             </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Comentario</label>
+                <textarea name="comment" id="" cols="30" rows="10">
+                    {{ $van->comment }}
+                </textarea>
+            </div>
             @include('user.van.tracks')
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
