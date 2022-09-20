@@ -222,29 +222,38 @@
                             <h3>Junte-se a <span>nós</span></h3>
                         </div>
 
-                        <div class="all_media col-12">
-                            <div class="itemSocial">
-                                <div class="col-12 col-sm-4"><img src="{{URL('/images/facebook.svg')}}" alt="" class="img-fluid"></div>
+                        <div class="all_media col-10 col-md-7 col-lg-10">
+                            <div class="itemSocial col-12 col-lg-4">
+                                <div class="col-12 col-sm-4"><div class="icon"><a href="#" target="_blank"><img src="{{URL('/images/facebook.svg')}}" alt="" class="img-fluid"></a></div></div>
                                 <div class="col-12 col-sm-8">
                                     <div class="title">
-                                        <h2>Facebook</h2>
+                                        <a href="#" target="_blank">
+                                            <h2>Facebook</h2>
+                                        </a>
                                     </div>
+                                    <div class="description"><a href="#" target="_blank">Veja nossas últimas atualizações.</a></div>
                                 </div>
                             </div>
-                            <div class="itemSocial">
-                                <div class="col-12 col-sm-4"><img src="{{URL('/images/instagram.svg')}}" alt="" class="img-fluid"></div>
+                            <div class="itemSocial col-12 col-lg-4">
+                                <div class="col-12 col-sm-4"><div class="icon"><a href="#" target="_blank"><img src="{{URL('/images/instagram.svg')}}" alt="" class="img-fluid"></a></div></div>
                                 <div class="col-12 col-sm-8">
                                     <div class="title">
-                                        <h2>Instagram</h2>
+                                        <a href="#" target="_blank">
+                                            <h2>Instagram</h2>
+                                        </a>
                                     </div>
+                                    <div class="description"><a href="#" target="_blank">Veja nossas últimas atualizações.</a></div>
                                 </div>
                             </div>
-                            <div class="itemSocial">
-                                <div class="col-12 col-sm-4"><img src="{{URL('/images/whatsapp.svg')}}" alt="" class="img-fluid"></div>
+                            <div class="itemSocial col-12 col-lg-4">
+                                <div class="col-12 col-sm-4"><div class="icon"><a href="#" target="_blank"><img src="{{URL('/images/whatsapp.svg')}}" alt="" class="img-fluid"></a></div></div>
                                 <div class="col-12 col-sm-8">
                                     <div class="title">
-                                        <h2>Whatsapp</h2>
+                                        <a href="#" target="_blank">
+                                            <h2>Whatsapp</h2>
+                                        </a>
                                     </div>
+                                    <div class="description"><a href="#" target="_blank">Entre em contato conosco.</a></div>
                                 </div>
                             </div>
                         </div>
@@ -254,6 +263,42 @@
             </div>
         </section>
     </main>
+
+    <footer>
+        <div class="footer">
+            <div class="takeFooter">
+                <div class="container">
+                    <div class="row no-gutters">
+
+                        <div class="title">
+                            <h2>Assine nossa <span>Newsletter</span></h2>
+                        </div>
+                        <div class="subtitle">
+                            No coding required to make customizations. The kive custinnuzerhas everything you need.
+                        </div>
+
+
+                        <div class="col-12 endFooter">
+                            <div class="logo col-8 col-md-4 col-lg-3"><img src="{{URL('/images/logo-guia-da-van.png')}}" alt="" class="img-fluid"></div>
+                            <div class="menu_footer col-md-8 col-lg-9">
+                                <ul>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Quem somos</a></li>
+                                    <li><a href="#">Anuncie aqui</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Contato</a></li>
+                                    <li class="button_account"><img src="{{URL('/images/account.svg')}}" width=""> <a href="#">Acessar conta</a> | <a href="#">Criar conta</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="allRights">© 2022 <b>Guia da Van</b> copyrights. Todos os direitos reservados.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -11573,7 +11573,7 @@ form .collapse_filter .activeFilter {
   }
 }
 .social_media {
-  padding: 30px 0;
+  padding: 30px 0 80px 0;
 }
 .social_media .row {
   justify-content: center;
@@ -11594,21 +11594,195 @@ form .collapse_filter .activeFilter {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 auto;
   margin-top: 30px;
+  border: 1px solid #DEDEDE;
+  border-radius: 20px;
+  padding: 20px 10px;
 }
 .social_media .all_media .itemSocial {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
+  padding: 20px 30px;
+  border-bottom: 2px solid #E3E3E3;
+}
+.social_media .all_media .itemSocial:last-child {
+  border-bottom: 0;
+}
+.social_media .all_media .itemSocial .title {
+  text-align: center;
+}
+.social_media .all_media .itemSocial .title a {
+  transition: all 0.3s linear;
+  color: #4E4E4E;
 }
 .social_media .all_media .itemSocial .title h2, .social_media .all_media .itemSocial .title .h2 {
   color: #030303;
   font-weight: 900;
   font-size: 1.65rem;
 }
+.social_media .all_media .itemSocial .title:hover h2, .social_media .all_media .itemSocial .title:hover .h2 {
+  transition: all 0.3s linear;
+  color: #5837e7;
+}
+.social_media .all_media .itemSocial .description {
+  margin-top: 5px;
+  font-weight: 550;
+  line-height: 1.4;
+}
+.social_media .all_media .itemSocial .description a {
+  transition: all 0.3s linear;
+  color: #4E4E4E;
+}
+.social_media .all_media .itemSocial .description a:hover {
+  transition: all 0.3s linear;
+  color: #5837e7;
+}
 
-@media (min-width: 768px) {
+@media (min-width: 576px) {
   .social_media .title h3, .social_media .title .h3 {
     font-size: 3rem;
+  }
+  .social_media .all_media .itemSocial {
+    text-align: left;
+  }
+  .social_media .all_media .itemSocial .title {
+    text-align: left;
+  }
+}
+@media (min-width: 992px) {
+  .social_media {
+    padding: 30px 0 50px 0;
+  }
+  .social_media .all_media .itemSocial {
+    border-right: 2px solid #E3E3E3;
+    border-bottom: 0;
+  }
+  .social_media .all_media .itemSocial .icon {
+    padding: 0 5px;
+  }
+  .social_media .all_media .itemSocial .description {
+    font-size: 0.875rem;
+  }
+  .social_media .all_media .itemSocial:last-child {
+    border-right: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .social_media .all_media .itemSocial .icon {
+    padding: 0 8px;
+  }
+  .social_media .all_media .itemSocial .description {
+    font-size: 1rem;
+  }
+}
+.footer:before {
+  content: "";
+  display: block;
+  background: url("/images/bg_registre_van.png") no-repeat top center;
+  background-size: cover;
+  width: 100%;
+  height: 15vh;
+  position: relative;
+  z-index: 1;
+}
+.footer .takeFooter {
+  background-color: #f1eff5;
+}
+.footer .title {
+  text-align: center;
+}
+.footer .title h2, .footer .title .h2 {
+  color: #030303;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-top: 15px;
+}
+.footer .title h2 span, .footer .title .h2 span {
+  color: #b06eff;
+}
+.footer .subtitle {
+  margin-top: 15px;
+  font-weight: 550;
+  line-height: 1.5;
+  color: #858585;
+  text-align: center;
+}
+.footer .endFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.footer .endFooter:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #B4B4B4;
+  margin: 20px 0 15px 0;
+}
+.footer .allRights {
+  text-align: center;
+  color: #858585;
+  font-weight: 550;
+  font-size: 0.875rem;
+  margin-bottom: 10px;
+}
+.footer .allRights b {
+  font-weight: 800;
+}
+.footer .logo {
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.footer .menu_footer {
+  display: none;
+}
+.footer .menu_footer ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .menu_footer ul li a {
+  font-weight: 900;
+  color: #4E4E4E;
+  transition: all 0.3s linear;
+}
+.footer .menu_footer ul li a:hover {
+  transition: all 0.3s linear;
+  color: #5837e7;
+}
+.footer .menu_footer ul .button_account a {
+  transition: all 0.3s linear;
+  font-size: 0.875rem;
+  color: #fff;
+}
+.footer .menu_footer ul .button_account a:hover {
+  transition: all 0.3s linear;
+  color: #b06eff;
+}
+
+@media (min-width: 768px) {
+  .footer:before {
+    height: 30vh;
+  }
+  .footer .title h2, .footer .title .h2 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .footer:before {
+    height: 40vh;
+  }
+  .footer .menu_footer {
+    display: block;
+  }
+}
+@media (min-width: 1200px) {
+  .footer:before {
+    height: 45vh;
   }
 }

@@ -1,8 +1,10 @@
 .social_media {
-    padding: 30px 0;
+    padding: 30px 0 80px 0;
+
     .row {
         justify-content: center;
     }
+
     .title {
         text-align: center;
 
@@ -11,6 +13,7 @@
             font-size: 2rem;
             font-weight: 900;
             margin-top: 15px;
+
             span {
                 color: $lightPurple;
             }
@@ -21,16 +24,106 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        margin: 0 auto;
         margin-top: 30px;
+        border: 1px solid #DEDEDE;
+        border-radius: 20px;
+        padding: 20px 10px;
+
         .itemSocial {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            text-align: center;
+            padding: 20px 30px;
+            border-bottom: 2px solid #E3E3E3;
+
+            &:last-child {
+                border-bottom: 0;
+            }
+
             .title {
+                text-align: center;
+
+                a {
+                    @include anima-slow;
+                    color: $anotherGray;
+
+                }
+
                 h2 {
                     color: $black;
                     font-weight: 900;
                     font-size: 1.65rem;
+                }
+
+                &:hover {
+                    h2 {
+                        @include anima-slow;
+                        color: $purple;
+                    }
+                }
+            }
+
+            .description {
+                margin-top: 5px;
+                font-weight: 550;
+                line-height: 1.4;
+
+                a {
+                    @include anima-slow;
+                    color: $anotherGray;
+
+                    &:hover {
+                        @include anima-slow;
+                        color: $purple;
+                    }
+                }
+            }
+
+
+        }
+    }
+}
+
+
+
+@media (min-width: map-get($grid-breakpoints, sm)) {
+    .social_media {
+        .title {
+            h3 {
+                font-size: 3rem;
+            }
+        }
+
+        .all_media {
+            .itemSocial {
+                text-align: left;
+
+                .title {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    .social_media {
+        padding: 30px 0 50px 0;
+        .all_media {
+            .itemSocial {
+                border-right: 2px solid #E3E3E3;
+                border-bottom: 0;   
+                .icon {
+                    padding: 0 5px;
+                }
+                .description {
+                    font-size: 0.875rem;
+                }
+               
+                &:last-child {
+                    border-right: 0;
                 }
             }
         }
@@ -38,12 +131,16 @@
 }
 
 
-
-@media (min-width: map-get($grid-breakpoints, md)) {
+@media (min-width: map-get($grid-breakpoints, xl)) {
     .social_media {
-        .title {
-            h3 {
-                font-size: 3rem;
+        .all_media {
+            .itemSocial {
+                .icon {
+                    padding: 0 8px;
+                }
+                .description {
+                    font-size:1rem;
+                }
             }
         }
     }
