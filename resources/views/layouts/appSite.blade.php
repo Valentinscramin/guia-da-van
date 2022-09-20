@@ -34,15 +34,25 @@
         <div class="header">
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="logo col-6 col-lg-3"><a href="#"><img src="{{URL('/images/logo-guia-da-van.png')}}" alt="" class="img-fluid"></a></div>
+                    <div class="logo col-6 col-lg-3"><a href="{{ route('user_home') }}"><img
+                                src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid"></a>
+                    </div>
                     <div class="menu_desktop col-9">
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Quem somos</a></li>
-                            <li><a href="#">Anuncie aqui</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Contato</a></li>
-                            <li class="button_account"><img src="{{URL('/images/account.svg')}}" width=""> <a href="#">Acessar conta</a> | <a href="#">Criar conta</a></li>
+                            <li><a href="{{ route('user_home') }}">Home</a></li>
+                            <li><a href="">Quem somos</a></li>
+                            <li><a href="">Anuncie aqui</a></li>
+                            <li><a href="">FAQ</a></li>
+                            <li><a href="">Contato</a></li>
+                            @guest
+                                <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a
+                                        href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>
+                                </li>
+                            @else
+                                <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a
+                                        href="/user"> Olá {{ Auth::user()->name }} </a>
+                                </li>
+                            @endguest
                         </ul>
                     </div>
                 </div>
@@ -65,7 +75,8 @@
                                     <h2>Dê match em sua <span>carona aqui</span></h2>
                                 </div>
 
-                                <div class="description col-12 col-md-10 col-lg-9">No coding required to make customizations. The kive custinnuzer has everything you need.</div>
+                                <div class="description col-12 col-md-10 col-lg-9">No coding required to make
+                                    customizations. The kive custinnuzer has everything you need.</div>
 
                                 <div class="search">
                                     <div class="titleSearch">
@@ -78,7 +89,8 @@
                             </div>
                         </div>
                         <div class="col-12 col-lg-4">
-                            <div class="imagem"><img src="{{URL('/images/imagem_hand_mobile.png')}}" alt="" class="img-fluid"></div>
+                            <div class="imagem"><img src="{{ URL('/images/imagem_hand_mobile.png') }}" alt=""
+                                    class="img-fluid"></div>
                         </div>
                     </div>
                 </div>
@@ -102,10 +114,10 @@
                                     de clientes! Com a nossa ajuda, você vai ter mais pessoas
                                     solicitando os seus serviços.</div>
 
-                                <div class="btn_cadastre"><a href="#">Cadastre-se agora!</a></div>
+                                <div class="btn_cadastre"><a href="/register">Cadastre-se agora!</a></div>
                             </div>
                             <div class="col-12 col-lg-6 col-xl-7">
-                                <img src="{{URL('/images/van_3d.png')}}" alt="" class="img-fluid">
+                                <img src="{{ URL('/images/van_3d.png') }}" alt="" class="img-fluid">
                             </div>
 
                         </div>
@@ -119,7 +131,7 @@
                 <div class="container">
                     <div class="row no-gutters">
                         <div class="col-12 col-lg-5 column_first">
-                            <img src="{{URL('/images/mobile_image.png')}}" alt="" class="img-fluid">
+                            <img src="{{ URL('/images/mobile_image.png') }}" alt="" class="img-fluid">
                         </div>
                         <div class="col-12 col-lg-7 column_second">
                             <div class="button_tag">
@@ -141,14 +153,15 @@
                                         <div class="name">Jhon Doe</div>
                                         <div class="function">Estudante</div>
                                     </div>
-                                    <div class="col-12 col-md-4"><img src="{{URL('/images/stars.png')}}" alt="" class="img-fluid"></div>
+                                    <div class="col-12 col-md-4"><img src="{{ URL('/images/stars.png') }}"
+                                            alt="" class="img-fluid"></div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12">
                             <div class="anuncio">
-                                <img src="{{URL('/images/anuncio.png')}}" alt="" class="img-fluid">
+                                <img src="{{ URL('/images/anuncio.png') }}" alt="" class="img-fluid">
                             </div>
                         </div>
                     </div>

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 //ROTAS SITE
 
 //HOME
-Route::get('/', [App\Http\Controllers\SiteController::class, 'index']);
+Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])->name("home");
 
 //FILTRO
 Route::get('/busca/resultado', [App\Http\Controllers\SiteController::class, 'busca'])->name('busca_resultado');
