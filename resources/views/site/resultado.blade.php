@@ -17,6 +17,7 @@
                     @if (!is_null($eachVan->periodo))
                         <p class="card-text">Periodo: {{ $eachVan->periodo }}</p>
                     @endif
+                    <p class="card-text">observacoes: {{ $eachVan->comment }}</p>
                 </div>
             </div>
         @endforeach

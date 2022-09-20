@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\User\Avaliation;
 use App\Models\User\UserPhotos;
+use App\Models\User\Van;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
@@ -60,12 +61,13 @@ class ProfileController extends Controller
         try {
             $user = User::find($id);
             $profile_photo = @User::photo($id)->arquivo;
+            $vans = Van::where('user_id', '=', $id)->get();
             $stars = Avaliation::getAvaliationStarsAvg($user->avaliation);
         } catch (\Throwable $th) {
             return view('site.error', compact('th'));
         }
 
-        return view('site.profile', compact('user', 'stars', 'profile_photo'));
+        return view('site.profile', compact('user', 'stars', 'profile_photo', 'vans'));
     }
 
     /**
