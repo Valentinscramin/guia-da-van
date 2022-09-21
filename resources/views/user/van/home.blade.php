@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        <a href="{{ route('van.create') }}">Nova van</a>
         <table class="table">
             <thead>
                 <tr>

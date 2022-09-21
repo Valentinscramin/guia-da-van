@@ -38,6 +38,9 @@ class AdminPhotosController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            "arquivo" => "required",
+        ]);
         $admin_photo = new AdminPhotos();
         $admin_photo->arquivo = $request->file('arquivo')->store('admin_photos', 'public');
         $admin_photo->save();

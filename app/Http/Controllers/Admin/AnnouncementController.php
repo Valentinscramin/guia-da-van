@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Announcement;
+use App\Models\Admin\Announcement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\AdminPhotos;
 
 class AnnouncementController extends Controller
 {
@@ -15,7 +16,8 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        //
+        $announcement = Announcement::all();
+        return view("admin.announcement.home", compact("announcement"));
     }
 
     /**
@@ -25,7 +27,8 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        //
+        $photos = AdminPhotos::all();
+        return view('admin.announcement.new', compact('photos'));
     }
 
     /**
@@ -36,7 +39,21 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            "name" => "required",
+            "url" => "required",
+            "admin_photo_id" => "required",
+        ]);
+
+        $announcement = new Announcement();
+        $announcement->name = $request->input('name');
+        $announcement->url = $request->input('url');
+        $announcement->active = $request->input('active') ? 1 : 0;
+        $announcement->admin_photo_id = $request->admin_announcement_photo;
+        $announcement->save();
+
+        return redirect('/admin/announcement');
     }
 
     /**
@@ -56,9 +73,12 @@ class AnnouncementController extends Controller
      * @param  \App\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
-    public function edit(Announcement $announcement)
+    public function edit($id)
     {
-        //
+        $announcement = Announcement::find($id);
+        $photos = AdminPhotos::all();
+        $announcement_photo_checked = $announcement->admin_photo_id;
+        return view('admin.announcement.edit', compact('announcement', 'photos', 'announcement_photo_checked'));
     }
 
     /**
@@ -68,9 +88,17 @@ class AnnouncementController extends Controller
      * @param  \App\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Announcement $announcement)
+    public function update(Request $request, $id)
     {
-        //
+        $announcement = Announcement::find($id);
+
+        $announcement->name = $request->input('name');
+        $announcement->url = $request->input('url');
+        $announcement->active = $request->input('active') ? 1 : 0;
+        $announcement->admin_photo_id = $request->admin_announcement_photo;
+        $announcement->save();
+
+        return redirect('/admin/announcement');
     }
 
     /**
@@ -79,7 +107,7 @@ class AnnouncementController extends Controller
      * @param  \App\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Announcement $announcement)
+    public function destroy($id)
     {
         //
     }

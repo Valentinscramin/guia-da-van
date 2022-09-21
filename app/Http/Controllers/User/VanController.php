@@ -35,7 +35,11 @@ class VanController extends Controller
      */
     public function create()
     {
-        //
+        $photos = UserPhotos::where("user_id", "=", Auth::id())->get();
+        $cities = Cities::orderBy('name')->get();
+        $states = States::orderBy('name')->get();
+        $track = Track::all();
+        return view('user.van.new', compact('photos', 'track', 'photos', 'cities', 'states'));
     }
 
     /**
@@ -57,6 +61,7 @@ class VanController extends Controller
         $van->plate = $request->plate;
         $van->seats = $request->seats;
         $van->comment = $request->comment;
+        $van->user_id = Auth::id();
 
         $van->save();
 
@@ -105,7 +110,7 @@ class VanController extends Controller
             }
         }
 
-        return view('user.van');
+        return redirect('user/van');
     }
 
     /**
