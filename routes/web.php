@@ -27,6 +27,9 @@ Route::get('/anuncie-aqui', [App\Http\Controllers\SiteController::class, 'anunci
 //FAQ
 Route::get('/faq', [App\Http\Controllers\SiteController::class, 'faq'])->name("faq");
 
+// CONTATO
+Route::get('/contato', [App\Http\Controllers\SiteController::class, 'contato'])->name("contato");
+
 //FILTRO
 Route::get('/busca/resultado', [App\Http\Controllers\SiteController::class, 'busca'])->name('busca_resultado');
 

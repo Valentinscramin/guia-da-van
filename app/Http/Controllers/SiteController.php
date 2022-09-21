@@ -137,11 +137,16 @@ class SiteController extends Controller
 
     public function anuncie()
     {
-        return view("site.quemsomos");
+        return view("site.anuncie");
     }
 
     public function faq()
     {
         return view("site.faq");
+    }
+
+    public function contato()
+    {
+        return view("site.contato");
     }
 }

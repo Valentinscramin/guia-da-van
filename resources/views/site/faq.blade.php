@@ -1,5 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.appSite')
 
 @section('content')
-HELLO WORLD
+HELLO WORLD FAQ
 @endsection

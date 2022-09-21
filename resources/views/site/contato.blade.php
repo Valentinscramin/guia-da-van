@@ -1,5 +1,5 @@
 @extends('layouts.appSite')
 
 @section('content')
-HELLO WORLD ANUNCIE AQUI
+HELLO WORLD CONTATO
 @endsection
