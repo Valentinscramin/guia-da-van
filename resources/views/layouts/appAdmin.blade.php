@@ -25,7 +25,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('admin_home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -66,8 +66,11 @@
 
                                     <a class="dropdown-item" href="{{ route('track_home') }}" role="button"> Track </a>
                                     <a class="dropdown-item" href="{{ route('user.index') }}" role="button"> Users </a>
-                                    <a class="dropdown-item" href="{{ route('admin.photos.index') }}" role="button"> Photos </a>
-                                    
+                                    <a class="dropdown-item" href="{{ route('admin.photos.index') }}" role="button">
+                                        Photos </a>
+                                    <a class="dropdown-item" href="{{ route('announcement.index') }}" role="button">
+                                        Anuncios </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

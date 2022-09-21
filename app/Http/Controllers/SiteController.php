@@ -47,6 +47,7 @@ class SiteController extends Controller
                         "van.plate as placa",
                         "van.seats as acentos",
                         "van.id as van_id",
+                        "van.comment as comment",
                         "track.name as trajeto",
                         "van_track_info.periodo as periodo"
                     )
@@ -76,7 +77,7 @@ class SiteController extends Controller
                         "van_track_info.periodo as periodo"
                     )
                     ->get();
-                    
+
                 break;
 
             case 3:
@@ -127,5 +128,25 @@ class SiteController extends Controller
         }
 
         return view('site.resultado', compact('vans'));
+    }
+
+    public function quemsomos()
+    {
+        return view("site.quemsomos");
+    }
+
+    public function anuncie()
+    {
+        return view("site.anuncie");
+    }
+
+    public function faq()
+    {
+        return view("site.faq");
+    }
+
+    public function contato()
+    {
+        return view("site.contato");
     }
 }

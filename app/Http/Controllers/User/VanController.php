@@ -35,7 +35,11 @@ class VanController extends Controller
      */
     public function create()
     {
-        //
+        $photos = UserPhotos::where("user_id", "=", Auth::id())->get();
+        $cities = Cities::orderBy('name')->get();
+        $states = States::orderBy('name')->get();
+        $track = Track::all();
+        return view('user.van.new', compact('photos', 'track', 'photos', 'cities', 'states'));
     }
 
     /**
@@ -56,6 +60,8 @@ class VanController extends Controller
         $van->model = $request->model;
         $van->plate = $request->plate;
         $van->seats = $request->seats;
+        $van->comment = $request->comment;
+        $van->user_id = Auth::id();
 
         $van->save();
 
@@ -95,14 +101,16 @@ class VanController extends Controller
         }
 
 
-        foreach ($request->van_user_photo as $eachPhoto) {
-            $van_user_photo = new VanUserPhoto();
-            $van_user_photo->van_id = $van->id;
-            $van_user_photo->user_photo_id = $eachPhoto;
-            $van_user_photo->save();
+        if (isset($request->van_user_photo)) {
+            foreach ($request->van_user_photo as $eachPhoto) {
+                $van_user_photo = new VanUserPhoto();
+                $van_user_photo->van_id = $van->id;
+                $van_user_photo->user_photo_id = $eachPhoto;
+                $van_user_photo->save();
+            }
         }
 
-        return view('user.van');
+        return redirect('user/van');
     }
 
     /**
@@ -133,8 +141,7 @@ class VanController extends Controller
         $photos_selected = $van->van_photos($id);
 
         $array_photos_selected = array();
-        foreach($photos_selected as $eachPhotoSelected)
-        {
+        foreach ($photos_selected as $eachPhotoSelected) {
             $array_photos_selected[] = $eachPhotoSelected->user_photo_id;
         }
 
@@ -175,6 +182,7 @@ class VanController extends Controller
         $van->model = $request->model;
         $van->plate = $request->plate;
         $van->seats = $request->seats;
+        $van->comment = $request->comment;
 
         $van->save();
 
@@ -220,13 +228,14 @@ class VanController extends Controller
             VanTrack::where("van_id", "=", $id)->delete();
         }
 
-
-        VanUserPhoto::where("van_id", "=", $van->id)->delete();
-        foreach ($request->van_user_photo as $eachPhoto) {
-            $van_user_photo = new VanUserPhoto();
-            $van_user_photo->van_id = $van->id;
-            $van_user_photo->user_photo_id = $eachPhoto;
-            $van_user_photo->save();
+        if (isset($request->van_user_photo)) {
+            VanUserPhoto::where("van_id", "=", $van->id)->delete();
+            foreach ($request->van_user_photo as $eachPhoto) {
+                $van_user_photo = new VanUserPhoto();
+                $van_user_photo->van_id = $van->id;
+                $van_user_photo->user_photo_id = $eachPhoto;
+                $van_user_photo->save();
+            }
         }
 
         return redirect('user/van');

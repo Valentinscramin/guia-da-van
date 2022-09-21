@@ -8,7 +8,7 @@
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
                 <input type="text" name="name" id="name" class="form-control" aria-describedby="helpId"
-                    value="{{ $user->name }}">
+                    value="{{ $user->name }}" readonly>
                 <small id="helpId" class="text-muted">Nome</small>
             </div>
 
