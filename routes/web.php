@@ -18,14 +18,27 @@ use Illuminate\Support\Facades\Route;
 //HOME
 Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])->name("home");
 
+//QUEM SOMOS
+Route::get('/quem-somos', [App\Http\Controllers\SiteController::class, 'quemsomos'])->name("quem_somos");
+
+//ANUNCIE AQUI
+Route::get('/anuncie-aqui', [App\Http\Controllers\SiteController::class, 'anuncie'])->name("anuncie_aqui");
+
+//FAQ
+Route::get('/faq', [App\Http\Controllers\SiteController::class, 'faq'])->name("faq");
+
 //FILTRO
 Route::get('/busca/resultado', [App\Http\Controllers\SiteController::class, 'busca'])->name('busca_resultado');
 
+//PROFILE
 Route::get('/profile/{id}', [App\Http\Controllers\User\ProfileController::class, 'show'])->name('profile_show');
 
+//AVALIATION
 Route::resource('/avaliation', App\Http\Controllers\User\AvaliationController::class);
 
+//COMMENT
 Route::post('/comment/push', [App\Http\Controllers\User\CommentController::class, 'store'])->name('comment_push');
+
 
 Auth::routes();
 

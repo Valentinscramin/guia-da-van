@@ -40,10 +40,10 @@
                     <div class="menu_desktop col-9">
                         <ul>
                             <li><a href="{{ route('user_home') }}">Home</a></li>
-                            <li><a href="">Quem somos</a></li>
-                            <li><a href="">Anuncie aqui</a></li>
-                            <li><a href="">FAQ</a></li>
-                            <li><a href="">Contato</a></li>
+                            <li><a href="{{ route('quem_somos') }}">Quem somos</a></li>
+                            <li><a href="{{ route('anuncie_aqui') }}">Anuncie aqui</a></li>
+                            <li><a href="{{ route('user_home') }}">FAQ</a></li>
+                            <li><a href="{{ route('user_home') }}">Contato</a></li>
                             @guest
                                 <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a
                                         href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>

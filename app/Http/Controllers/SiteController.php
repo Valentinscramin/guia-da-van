@@ -77,7 +77,7 @@ class SiteController extends Controller
                         "van_track_info.periodo as periodo"
                     )
                     ->get();
-                    
+
                 break;
 
             case 3:
@@ -128,5 +128,20 @@ class SiteController extends Controller
         }
 
         return view('site.resultado', compact('vans'));
+    }
+
+    public function quemsomos()
+    {
+        return view("site.quemsomos");
+    }
+
+    public function anuncie()
+    {
+        return view("site.quemsomos");
+    }
+
+    public function faq()
+    {
+        return view("site.faq");
     }
 }
