@@ -29,7 +29,7 @@
     <header>
         <h1 class="ocultar">Guia da Van</h1>
         <div class="top_header">
-            <h2>Quer fazer parte da nossa comunidade? Clique aqui e <a href="#">Cadastre sua van</a></h2>
+            <h2>Quer fazer parte da nossa comunidade? Clique aqui e <a href="/register">Cadastre sua van</a></h2>
         </div>
         <div class="header">
             <div class="container">
@@ -62,6 +62,54 @@
     <main class="py-4">
         @yield('content')
     </main>
+    <footer>
+        <div class="footer">
+            <div class="takeFooter">
+                <div class="container">
+                    <div class="row no-gutters">
+
+                        <div class="title">
+                            <h2>Assine nossa <span>Newsletter</span></h2>
+                        </div>
+                        <div class="subtitle">
+                            No coding required to make customizations. The kive custinnuzerhas everything you need.
+                        </div>
+
+
+                        <div class="col-12 endFooter">
+                            <div class="logo col-8 col-md-4 col-lg-3"><img
+                                    src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid">
+                            </div>
+                            <div class="menu_footer col-md-8 col-lg-9">
+                                <ul>
+                                    <li><a href="{{ route('home') }}">Home</a></li>
+                                    <li><a href="{{ route('quem_somos') }}">Quem somos</a></li>
+                                    <li><a href="{{ route('anuncie_aqui') }}">Anuncie aqui</a></li>
+                                    <li><a href="{{ route('faq') }}">FAQ</a></li>
+                                    <li><a href="{{ route('contato') }}">Contato</a></li>
+
+                                    @guest
+                                        <li class="button_account"><img src="{{ URL('/images/account.svg') }}"
+                                                width=""> <a href="/login">Acessar conta</a> | <a
+                                                href="/register">Criar conta</a>
+                                        </li>
+                                    @else
+                                        <li class="button_account"><img src="{{ URL('/images/account.svg') }}"
+                                                width=""> <a href="/user"> Olá {{ Auth::user()->name }} </a>
+                                        </li>
+                                    @endguest
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="allRights">© 2022 <b>Guia da Van</b> copyrights. Todos os direitos reservados.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
