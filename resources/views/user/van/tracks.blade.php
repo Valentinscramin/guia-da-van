@@ -3,7 +3,7 @@
         <label class="form-check-label" for="">
             {{ $eachTrack->name }}
         </label>
-        @if (!is_null($track_selected))
+        @if (isset($track_selected))
             @if (array_key_exists($eachTrack->id, $track_selected))
                 <input class="form-check-input" type="checkbox" name="track[]" value="{{ $eachTrack->id }}" id=""
                     onclick="collapseShow({{ $eachTrack->id }})" checked>

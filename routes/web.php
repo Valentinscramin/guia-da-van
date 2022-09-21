@@ -48,6 +48,9 @@ Route::middleware('auth:admin')->group(function () {
     //PHOTOS ALBUM
     Route::resource('/admin/photos', App\Http\Controllers\Admin\AdminPhotosController::class, ['names' => 'admin.photos']);
     Route::get('/admin/photos/download/{id}', [App\Http\Controllers\Admin\AdminPhotosController::class, 'download'])->name('photo_download');
+
+    //ANUNCIO
+    Route::resource('/admin/announcement', App\Http\Controllers\Admin\AnnouncementController::class);
 });
 
 Route::get('/admin/login', [App\Http\Controllers\Auth\LoginAdminController::class, 'index'])->name('admin_login');

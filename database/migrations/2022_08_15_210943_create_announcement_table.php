@@ -17,7 +17,8 @@ class CreateAnnouncementTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('url');
-            $table->string('site_web_route');
+            $table->string('site_web_route')->nullable();
+            $table->integer('admin_photo_id')->unsigned()->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
         });

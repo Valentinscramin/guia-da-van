@@ -40,6 +40,12 @@ class UserPhotosController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            "arquivo" => "required",
+            "user_id" => "required",
+        ]);
+
         $user_photos = new UserPhotos();
         $user_photos->arquivo = $request->file('arquivo')->store('user_photos', 'public');
         $user_photos->user_id = Auth::id();
