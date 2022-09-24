@@ -71,6 +71,9 @@
                                     <a class="dropdown-item" href="{{ route('announcement.index') }}" role="button">
                                         Anuncios </a>
 
+                                    <a class="dropdown-item" href="{{ route('web_site_comment_approve') }}" role="button">
+                                        Web Site Comments </a>
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
