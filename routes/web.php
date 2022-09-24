@@ -42,6 +42,9 @@ Route::resource('/avaliation', App\Http\Controllers\User\AvaliationController::c
 //COMMENT
 Route::post('/comment/push', [App\Http\Controllers\User\CommentController::class, 'store'])->name('comment_push');
 
+//COMMENT WEB SITE
+Route::get('/web-site-comment', [App\Http\Controllers\User\WebSiteCommentController::class, 'index'])->name('web_site_comment');
+Route::post('/web-site-comment/push', [App\Http\Controllers\User\WebSiteCommentController::class, 'store'])->name('web_site_comment_push');
 
 Auth::routes();
 
