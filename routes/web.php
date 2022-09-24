@@ -70,6 +70,9 @@ Route::middleware('auth:admin')->group(function () {
 
     //ANUNCIO
     Route::resource('/admin/announcement', App\Http\Controllers\Admin\AnnouncementController::class);
+
+    //FAQ
+    Route::resource('/admin/faq', App\Http\Controllers\Admin\FaqController::class);
 });
 
 Route::get('/admin/login', [App\Http\Controllers\Auth\LoginAdminController::class, 'index'])->name('admin_login');
