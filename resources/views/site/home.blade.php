@@ -98,10 +98,12 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-12">
                         <div class="anuncio">
-                            <img src="{{ URL('/images/anuncio.png') }}" alt="" class="img-fluid">
+                            @foreach ($announcement as $eachAnnuncement)
+                                <img src="{{ URL('/storage/' . $eachAnnuncement->announcement_photos[0]->arquivo) }}"
+                                    alt="" class="img-fluid">
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -179,12 +181,13 @@
                         <div class="itemSocial col-12 col-lg-4">
                             <div class="col-12 col-sm-4">
                                 <div class="icon"><a href="#" target="_blank"><img
-                                            src="{{ URL('/images/facebook.svg') }}" alt=""
-                                            class="img-fluid"></a></div>
+                                            src="{{ URL('/images/facebook.svg') }}" alt="" class="img-fluid"></a>
+                                </div>
                             </div>
                             <div class="col-12 col-sm-8">
                                 <div class="title">
-                                    <a href="#" target="_blank">
+                                    <a href="#
+                                    " target="_blank">
                                         <h2>Facebook</h2>
                                     </a>
                                 </div>
@@ -211,8 +214,8 @@
                         <div class="itemSocial col-12 col-lg-4">
                             <div class="col-12 col-sm-4">
                                 <div class="icon"><a href="#" target="_blank"><img
-                                            src="{{ URL('/images/whatsapp.svg') }}" alt=""
-                                            class="img-fluid"></a></div>
+                                            src="{{ URL('/images/whatsapp.svg') }}" alt="" class="img-fluid"></a>
+                                </div>
                             </div>
                             <div class="col-12 col-sm-8">
                                 <div class="title">
