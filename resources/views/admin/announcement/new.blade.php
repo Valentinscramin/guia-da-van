@@ -23,9 +23,15 @@
             </div>
 
             <div>
-                <label for="name" class="form-label">Url</label>
-                <input type="text" name="url" id="name" class="form-control" aria-describedby="helpId">
+                <label for="url" class="form-label">Url</label>
+                <input type="text" name="url" id="url" class="form-control" aria-describedby="helpId">
                 <small id="helpId" class="text-muted">Url</small>
+            </div>
+
+            <div class="mb-3">
+                <label for="site_web_route" class="form-label">Rota do site</label>
+                <input type="text" name="site_web_route" id="site_web_route" class="form-control" aria-describedby="helpId">
+                <small id="helpId" class="text-muted">Rota do site</small>
             </div>
 
             <div>
