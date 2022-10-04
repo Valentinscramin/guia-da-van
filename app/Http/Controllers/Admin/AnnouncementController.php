@@ -43,14 +43,17 @@ class AnnouncementController extends Controller
         $request->validate([
             "name" => "required",
             "url" => "required",
-            "admin_photo_id" => "required",
+            "site_web_route" => "required",
+            "admin_announcement_photo" => "required",
         ]);
 
         $announcement = new Announcement();
         $announcement->name = $request->input('name');
         $announcement->url = $request->input('url');
+        $announcement->site_web_route = $request->input('site_web_route');
         $announcement->active = $request->input('active') ? 1 : 0;
-        $announcement->admin_photo_id = $request->admin_announcement_photo;
+        $announcement->admin_photo_id = $request->input('admin_announcement_photo');
+
         $announcement->save();
 
         return redirect('/admin/announcement');
@@ -90,10 +93,21 @@ class AnnouncementController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
+        $request->validate([
+            "name" => "required",
+            "url" => "required",
+            "site_web_route" => "required",
+            "admin_announcement_photo" => "required",
+        ]);
+
+
         $announcement = Announcement::find($id);
 
         $announcement->name = $request->input('name');
         $announcement->url = $request->input('url');
+        $announcement->site_web_route = $request->input('site_web_route');
         $announcement->active = $request->input('active') ? 1 : 0;
         $announcement->admin_photo_id = $request->admin_announcement_photo;
         $announcement->save();

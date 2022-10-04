@@ -34,6 +34,13 @@
             </div>
 
             <div class="mb-3">
+                <label for="name" class="form-label">Rota do site</label>
+                <input type="text" name="site_web_route" id="name" class="form-control" aria-describedby="helpId"
+                    value="{{ $announcement->site_web_route }}">
+                <small id="helpId" class="text-muted">Rota do site</small>
+            </div>
+            
+            <div class="mb-3">
                 <label for="active" class="form-label">Ativar/Desativar</label>
                 <input type="checkbox" name="active" id="active" aria-describedby="helpId" value="1" @if ($announcement->active == 1) {{ "checked" }} @endif>
             </div>

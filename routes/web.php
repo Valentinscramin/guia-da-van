@@ -43,7 +43,7 @@ Route::resource('/avaliation', App\Http\Controllers\User\AvaliationController::c
 Route::post('/comment/push', [App\Http\Controllers\User\CommentController::class, 'store'])->name('comment_push');
 
 //COMMENT WEB SITE
-Route::get('/web-site-comment', [App\Http\Controllers\User\WebSiteCommentController::class, 'index'])->name('web_site_comment');
+Route::get('/web-site-comment', [App\Http\Controllers\User\WebSiteCommentController::class, 'create'])->name('web_site_comment');
 Route::post('/web-site-comment/push', [App\Http\Controllers\User\WebSiteCommentController::class, 'store'])->name('web_site_comment_push');
 
 Auth::routes();
@@ -73,6 +73,11 @@ Route::middleware('auth:admin')->group(function () {
 
     //FAQ
     Route::resource('/admin/faq', App\Http\Controllers\Admin\FaqController::class);
+
+    //COMMENT WEB SITE
+    Route::get('/admin/web-site-comment-approve', [App\Http\Controllers\User\WebSiteCommentController::class, 'index'])->name('web_site_comment_approve');
+    Route::get('/admin/web-site-comment-approve/{id}/edit', [App\Http\Controllers\User\WebSiteCommentController::class, 'edit'])->name('web_site_comment_approve_edit');
+    Route::post('/admin/web-site-comment-approve/{id}', [App\Http\Controllers\User\WebSiteCommentController::class, 'update'])->name('web_site_comment_approve_update');
 });
 
 Route::get('/admin/login', [App\Http\Controllers\Auth\LoginAdminController::class, 'index'])->name('admin_login');

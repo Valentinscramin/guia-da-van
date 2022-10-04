@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\Announcement;
 use App\Models\Admin\Track;
 use App\Models\Cities;
 use App\Models\States;
-use App\Models\User\VanTrack;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,8 +16,9 @@ class SiteController extends Controller
         $track = Track::all();
         $cities = Cities::orderBy('name')->get();
         $states = States::orderBy('name')->get();
+        $announcement = Announcement::where("active", "=", "1")->where("site_web_route", "=", "/home")->get();
 
-        return view('site.home', compact('track', 'cities', 'states'));
+        return view('site.home', compact('track', 'cities', 'states', 'announcement'));
     }
 
     public function busca(Request $request)
