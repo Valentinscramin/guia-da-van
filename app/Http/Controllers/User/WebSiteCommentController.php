@@ -16,7 +16,8 @@ class WebSiteCommentController extends Controller
      */
     public function index()
     {
-        return view('site.websitecomentario');
+        $websitecomment = WebSiteComment::all();
+        return view('admin.websitecomment.home', compact('websitecomment'));
     }
 
     /**
@@ -26,7 +27,7 @@ class WebSiteCommentController extends Controller
      */
     public function create()
     {
-        //
+        return view('site.websitecomentario');
     }
 
     /**
@@ -37,6 +38,11 @@ class WebSiteCommentController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            "comment" => "required",
+        ]);
+
         $webSiteComment = new WebSiteComment();
         $webSiteComment->comment = $request->comment;
         $webSiteComment->active = 0;
@@ -61,9 +67,11 @@ class WebSiteCommentController extends Controller
      * @param  \App\Models\WebSiteComment  $webSiteComment
      * @return \Illuminate\Http\Response
      */
-    public function edit(WebSiteComment $webSiteComment)
+    public function edit(WebSiteComment $webSiteComment, $id)
     {
-        //
+        $webSiteCommentSelected = $webSiteComment->find($id);
+        $user = $webSiteComment->user($webSiteCommentSelected->user_id);
+        return view('admin.websitecomment.edit', compact('webSiteCommentSelected', 'user'));
     }
 
     /**
@@ -73,9 +81,14 @@ class WebSiteCommentController extends Controller
      * @param  \App\Models\WebSiteComment  $webSiteComment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, WebSiteComment $webSiteComment)
+    public function update(Request $request, $id)
     {
-        //
+        $webSiteComment = WebSiteComment::find($id);
+        $webSiteComment->comment = $request->comment;
+        $webSiteComment->active = $request->active ? 1 : 0;
+        $webSiteComment->save();
+
+        return redirect('admin/web-site-comment-approve');
     }
 
     /**
