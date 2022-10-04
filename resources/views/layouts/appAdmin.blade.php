@@ -70,6 +70,8 @@
                                         Photos </a>
                                     <a class="dropdown-item" href="{{ route('announcement.index') }}" role="button">
                                         Anuncios </a>
+                                    <a class="dropdown-item" href="{{ route('faq.index') }}" role="button">
+                                        Cadastro Faq </a>
 
                                     <a class="dropdown-item" href="{{ route('web_site_comment_approve') }}" role="button">
                                         Web Site Comments </a>

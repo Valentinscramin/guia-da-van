@@ -71,6 +71,9 @@ Route::middleware('auth:admin')->group(function () {
     //ANUNCIO
     Route::resource('/admin/announcement', App\Http\Controllers\Admin\AnnouncementController::class);
 
+    //FAQ
+    Route::resource('/admin/faq', App\Http\Controllers\Admin\FaqController::class);
+
     //COMMENT WEB SITE
     Route::get('/admin/web-site-comment-approve', [App\Http\Controllers\User\WebSiteCommentController::class, 'index'])->name('web_site_comment_approve');
     Route::get('/admin/web-site-comment-approve/{id}/edit', [App\Http\Controllers\User\WebSiteCommentController::class, 'edit'])->name('web_site_comment_approve_edit');
