@@ -8,13 +8,15 @@ form {
     justify-content: space-around;
 
     input,
-    select {
+    select,
+    textarea {
         width: 95%;
         border-radius: 10px;
         border: 1px solid #BCBCBC;
         padding: 10px 12px;
         color: $anotherGray;
         outline-color: $purple;
+        resize: none;
         @include anima-slow;
     }
 

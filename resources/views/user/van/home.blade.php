@@ -1,8 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <a href="{{ route('van.create') }}">Nova van</a>
+<div class="content_middle_dashboard">
+    <div class="col-12 take__header__middle">
+        <div class="col-6">
+            <h2>Minha Frota</h2>
+        </div>
+        <div class="btn_register col-6"><a href="{{ route('van.create') }}">Cadastrar nova van</a></div>
+    </div>
+    <div class="table_dashboard">
         <table class="table">
             <thead>
                 <tr>
@@ -15,21 +21,25 @@
             </thead>
             <tbody>
                 @foreach ($vans as $eachVan)
-                    <tr>
-                        <td>{{ $eachVan->model }}</td>
-                        <td>{{ $eachVan->plate }}</td>
-                        <td>{{ $eachVan->seats }}</td>
-                        <td>
-                            @foreach ($eachVan->track as $eachTrack)
-                                {{ $eachTrack->name . ', ' }}
-                            @endforeach
-                        </td>
-                        <td>
-                            <a type="button" class="btn btn-primary" href="{{ route('van.edit', $eachVan->id) }}">edit</a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{ $eachVan->model }}</td>
+                    <td>{{ $eachVan->plate }}</td>
+                    <td>{{ $eachVan->seats }}</td>
+                    <td>
+                        @foreach ($eachVan->track as $eachTrack)
+                        {{ $eachTrack->name . ', ' }}
+                        @endforeach
+                    </td>
+                    <td>
+                    <div class="btn_edit"><a type="button" href="{{ route('van.edit', $eachVan->id) }}">editar</a></div> 
+                    </td>
+                </tr>
                 @endforeach
             </tbody>
         </table>
     </div>
+</div>
+<script>
+    jQuery("#frota").addClass("active_dashboard");
+</script>
 @endsection

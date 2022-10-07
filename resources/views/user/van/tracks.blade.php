@@ -108,4 +108,6 @@
             x.style.display = "none";
         }
     }
+      jQuery("#frota").addClass("active_dashboard");
 </script>
+
