@@ -95,3 +95,12 @@
         }
     }
 }
+
+
+@include responsivo(1600,4600) {
+    .cadastre_se {
+        &:before {
+            margin-top: -17rem;
+        }
+    }
+}

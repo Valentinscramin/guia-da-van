@@ -4,7 +4,7 @@
 <div class="content_middle_dashboard">
     <div class="col-12 take__header__middle">
         <div class="col-6">
-            <h2>Minha Frota</h2>
+            <h2>Minha <span>Frota</span></h2>
         </div>
         <div class="btn_register col-6"><a href="{{ route('van.create') }}">Cadastrar nova van</a></div>
     </div>

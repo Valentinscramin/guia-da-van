@@ -4,7 +4,7 @@
 <div class="content_middle_dashboard">
     <div class="col-12 take__header__middle">
         <div class="col-12">
-            <h2>Nova van</h2>
+            <h2>Nova <span>Van</span></h2>
         </div>
     </div>
     <div class="formulario">

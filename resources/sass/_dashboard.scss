@@ -3,13 +3,13 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-
+    background: #f2f2f2;
     .sidebar {
         z-index: 2;
         min-height: 100vh;
         height: 100%;
         box-shadow: 0 0px 15px -3px rgba(0, 0, 0, .2);
-
+        background-color: #fff;
         .logo {
             padding: 10px 5px 5px 5px;
             text-align: left;
@@ -163,17 +163,20 @@
 
 .content_middle_dashboard {
     padding: 50px 0px;
-
     .take__header__middle {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
 
         h2 {
+            letter-spacing: 2px;
             padding: 0 10px;
             font-size: 1.65rem;
-            font-weight: bold;
-            color: $gray;
+            font-weight: 900;
+            color: $black;
+            span {
+                color: $purple;
+            }
         }
     }
 
@@ -185,10 +188,15 @@
         padding: 0 10px;
 
         table {
+            background-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #dedede;
             color: $gray;
+
             thead {
                 font-weight: bold;
             }
+
             tr {
                 border-bottom: 1px solid #f3f3f3;
                 padding: 10px 0;

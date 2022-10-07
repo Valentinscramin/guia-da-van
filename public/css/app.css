@@ -11483,6 +11483,11 @@ form .collapse_filter .activeFilter {
     font-size: 3.2rem;
   }
 }
+@media only screen and (min-width: 1600px) and (max-width: 4600px) {
+  .cadastre_se:before {
+    margin-top: -17rem;
+  }
+}
 .depoiments .row {
   align-items: center;
 }
@@ -11715,12 +11720,14 @@ form .collapse_filter .activeFilter {
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
+  background: #f2f2f2;
 }
 .content__dashboard .sidebar {
   z-index: 2;
   min-height: 100vh;
   height: 100%;
   box-shadow: 0 0px 15px -3px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 }
 .content__dashboard .sidebar .logo {
   padding: 10px 5px 5px 5px;
@@ -11832,10 +11839,14 @@ form .collapse_filter .activeFilter {
   justify-content: center;
 }
 .content_middle_dashboard .take__header__middle h2, .content_middle_dashboard .take__header__middle .h2 {
+  letter-spacing: 2px;
   padding: 0 10px;
   font-size: 1.65rem;
-  font-weight: bold;
-  color: #858585;
+  font-weight: 900;
+  color: #030303;
+}
+.content_middle_dashboard .take__header__middle h2 span, .content_middle_dashboard .take__header__middle .h2 span {
+  color: #5837e7;
 }
 .content_middle_dashboard .btn_register {
   text-align: center;
@@ -11844,6 +11855,9 @@ form .collapse_filter .activeFilter {
   padding: 0 10px;
 }
 .content_middle_dashboard .table_dashboard table {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #dedede;
   color: #858585;
 }
 .content_middle_dashboard .table_dashboard table thead {
