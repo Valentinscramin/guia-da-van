@@ -41,7 +41,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ route('photo_download', $eachPhoto->id) }}">Download</a>
-                                <form method="POST" action="/admin/photos/{{ $eachPhoto->id }}">
+                                <form method="POST" action="/user/photos/{{ $eachPhoto->id }}">
                                     @csrf
                                     <input type="hidden" name="_method" value="delete">
                                     <button type="submit" class="btn btn-sm btn-outline-danger">Apagar</button>
