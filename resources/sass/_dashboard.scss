@@ -4,12 +4,14 @@
     align-items: flex-start;
     justify-content: space-between;
     background: #f2f2f2;
+
     .sidebar {
         z-index: 2;
         min-height: 100vh;
         height: 100%;
         box-shadow: 0 0px 15px -3px rgba(0, 0, 0, .2);
         background-color: #fff;
+
         .logo {
             padding: 10px 5px 5px 5px;
             text-align: left;
@@ -163,10 +165,13 @@
 
 .content_middle_dashboard {
     padding: 50px 0px;
+
     .take__header__middle {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        margin: 0 auto;
+        margin-bottom: 60px;
 
         h2 {
             letter-spacing: 2px;
@@ -174,6 +179,7 @@
             font-size: 1.65rem;
             font-weight: 900;
             color: $black;
+
             span {
                 color: $purple;
             }
@@ -184,24 +190,120 @@
         text-align: center;
     }
 
+    .formulario {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px 10px;
+
+        form {
+            .itemInput {
+                margin-bottom: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                small {
+                    color: $gray;
+                    margin-top: 15px;
+                }
+
+                .upload_take_input {
+                    @extend .col-11;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: center;
+
+                    &:after {
+                        content: '';
+                        display: block;
+                        background-color: #eee;
+                        border: 1px solid #dedede;
+                        border-radius: 30px;
+                        padding: 10px;
+                        width: 100%;
+                        height: 200px;
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    .label_upload {
+                        margin-top: 5px;
+                    }
+
+                    .image_upload {
+                        position: absolute;
+                        margin-top: 2rem;
+                        z-index: 2;
+                    }
+
+                    .upload_file_input {
+                        opacity: 0;
+                        cursor: pointer;
+                        position: absolute;
+                        width: 65%;
+                        height: 200px;
+                        z-index: 3;
+                    }
+                }
+
+            }
+
+            textarea {
+                width: 98%;
+            }
+
+            label {
+                @extend .col-12;
+                justify-content: flex-start;
+                margin-bottom: 5px;
+                padding: 0 18px;
+            }
+        }
+    }
+
     .table_dashboard {
-        padding: 0 10px;
+        padding: 0;
+        margin: 0 auto;
 
         table {
             background-color: #fff;
-            border-radius: 5px;
             border: 1px solid #dedede;
+            border-radius: 5px;
             color: $gray;
 
             thead {
                 font-weight: bold;
+                border-bottom: 2px solid #f3f3f3;
+
+                th {
+                    padding: 10px 10px !important;
+                }
             }
 
-            tr {
-                border-bottom: 1px solid #f3f3f3;
-                padding: 10px 0;
+            tbody {
+                tr {
+                    border-bottom: 1px solid #f3f3f3;
+                }
+
+                td {
+                    padding: 10px 10px !important;
+                }
             }
         }
+    }
+
+    .heading_text {
+        color: $anotherBlack;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.65rem;
+        margin: 30px 0;
+    }
+
+    .album {
+        margin-top: 5rem;
+        background-color: #fff;
+
     }
 }
 
@@ -211,11 +313,6 @@
 
         .take__header__middle {
             justify-content: space-between;
-            padding: 0px 40px;
-        }
-
-        .table_dashboard {
-            padding: 0px 40px;
         }
 
         .btn_register {

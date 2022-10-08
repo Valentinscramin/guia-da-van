@@ -2,25 +2,36 @@
 
 @section('content')
 
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">Escolha as fotos para Upload</h1>
+<div class="content_middle_dashboard">
+    <div class="col-11 take__header__middle">
+        <div class="col-12">
+            <h2>Album de <span>Fotos</span></h2>
+        </div>
+    </div>
+    <div class="formulario col-11">
+        <h1 class="heading_text">Escolha as fotos para Upload</h1>
         <form method="POST" action="{{ route('user.photos.store') }}" enctype="multipart/form-data">
             @csrf
             @method('POST')
-            <div class="custom-file">
-                <input type="file" class="custom-file-input" id="arquivo" name="arquivo">
-                <label class="custom-file-label" for="arquivo">Escolha um arquivo</label>
+            <div class="itemInput col-12">
+                <div class="upload_take_input">
+                    <div class="image_upload"> <img src="{{ URL('/images/upload.svg') }}" alt="" class="img-fluid"></div>
+                    <input type="file" id="arquivo" name="arquivo" class="upload_file_input">
+                    <!-- <label class="label_upload" for="arquivo">Escolha um arquivo</label> -->
+                </div>
             </div>
-            <p>
-                <button type="submit" class="btn btn-primary my-2">Enviar</button>
-                <button type="reset" class="btn btn-secondary my-2">Cancelar</button>
-            </p>
+            <div class="col-12 col-md-10 col-lg-8 col-xl-6 btns">
+                <div class="col-12 col-md-6 btn_submit">
+                    <button type="submit">Enviar</button>
+                </div>
+                <div class="col-12 col-md-6 btn_cancel">
+                    <button type="reset">Cancelar</button>
+                </div>
+            </div>
         </form>
     </div>
-</section>
-<section>
-    <div class="album py-5 bg-light">
+
+    <div class="album col-11">
         <div class="row">
             @foreach ($photos as $eachPhoto)
             <div class="col-md-4">
@@ -43,7 +54,7 @@
             @endforeach
         </div>
     </div>
-</section>
+</div>
 <script>
     jQuery("#midia").addClass("active_dashboard");
 </script>

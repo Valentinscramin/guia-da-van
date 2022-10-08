@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="content_middle_dashboard">
-    <div class="col-12 take__header__middle">
+    <div class="col-11 take__header__middle">
         <div class="col-12">
             <h2>Nova <span>Van</span></h2>
         </div>
     </div>
-    <div class="formulario">
+    <div class="formulario col-11">
         <form action="{{ route('van.store') }}" method="POST">
             @csrf
             @method('POST')
@@ -43,8 +43,8 @@
                 </textarea>
             </div>
             @include('user.van.tracks')
-            <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            
+            <div class="col-12 btn_submit"><button type="submit">Cadastrar</button></div>
         </form>
     </div>
 </div>

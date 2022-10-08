@@ -773,12 +773,12 @@ progress {
   width: 83.33333333%;
 }
 
-.col-11 {
+.col-11, .content_middle_dashboard .formulario form .itemInput .upload_take_input {
   flex: 0 0 auto;
   width: 91.66666667%;
 }
 
-.col-12 {
+.col-12, .content_middle_dashboard .formulario form label {
   flex: 0 0 auto;
   width: 100%;
 }
@@ -11173,9 +11173,6 @@ table {
   background-color: #b06eff;
 }
 
-.btn_register {
-  margin-bottom: 60px;
-}
 .btn_register a {
   background-color: #5837e7;
   font-size: 0.875rem;
@@ -11201,6 +11198,53 @@ table {
 .btn_edit a:hover {
   transition: all 0.3s linear;
   color: #b06eff;
+}
+
+.btn_submit button {
+  background-color: #5837e7;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 30px;
+  padding: 15px 55px;
+  margin: 20px auto 20px auto;
+  border: 0;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  transition: all 0.3s linear;
+}
+.btn_submit button:hover {
+  transition: all 0.3s linear;
+  background-color: #b06eff;
+}
+
+.btn_cancel button {
+  background-color: #e73782;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 30px;
+  padding: 15px 55px;
+  margin: 20px auto 20px auto;
+  border: 0;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  transition: all 0.3s linear;
+}
+.btn_cancel button:hover {
+  transition: all 0.3s linear;
+  background-color: #b06eff;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .bannerTop {
@@ -11837,6 +11881,8 @@ form .collapse_filter .activeFilter {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 60px;
 }
 .content_middle_dashboard .take__header__middle h2, .content_middle_dashboard .take__header__middle .h2 {
   letter-spacing: 2px;
@@ -11851,21 +11897,95 @@ form .collapse_filter .activeFilter {
 .content_middle_dashboard .btn_register {
   text-align: center;
 }
+.content_middle_dashboard .formulario {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px 10px;
+}
+.content_middle_dashboard .formulario form .itemInput {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.content_middle_dashboard .formulario form .itemInput small, .content_middle_dashboard .formulario form .itemInput .small {
+  color: #858585;
+  margin-top: 15px;
+}
+.content_middle_dashboard .formulario form .itemInput .upload_take_input {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.content_middle_dashboard .formulario form .itemInput .upload_take_input:after {
+  content: "";
+  display: block;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  border-radius: 30px;
+  padding: 10px;
+  width: 100%;
+  height: 200px;
+  position: relative;
+  z-index: 1;
+}
+.content_middle_dashboard .formulario form .itemInput .upload_take_input .label_upload {
+  margin-top: 5px;
+}
+.content_middle_dashboard .formulario form .itemInput .upload_take_input .image_upload {
+  position: absolute;
+  margin-top: 2rem;
+  z-index: 2;
+}
+.content_middle_dashboard .formulario form .itemInput .upload_take_input .upload_file_input {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  width: 65%;
+  height: 200px;
+  z-index: 3;
+}
+.content_middle_dashboard .formulario form textarea {
+  width: 98%;
+}
+.content_middle_dashboard .formulario form label {
+  justify-content: flex-start;
+  margin-bottom: 5px;
+  padding: 0 18px;
+}
 .content_middle_dashboard .table_dashboard {
-  padding: 0 10px;
+  padding: 0;
+  margin: 0 auto;
 }
 .content_middle_dashboard .table_dashboard table {
   background-color: #fff;
-  border-radius: 5px;
   border: 1px solid #dedede;
+  border-radius: 5px;
   color: #858585;
 }
 .content_middle_dashboard .table_dashboard table thead {
   font-weight: bold;
+  border-bottom: 2px solid #f3f3f3;
 }
-.content_middle_dashboard .table_dashboard table tr {
+.content_middle_dashboard .table_dashboard table thead th {
+  padding: 10px 10px !important;
+}
+.content_middle_dashboard .table_dashboard table tbody tr {
   border-bottom: 1px solid #f3f3f3;
-  padding: 10px 0;
+}
+.content_middle_dashboard .table_dashboard table tbody td {
+  padding: 10px 10px !important;
+}
+.content_middle_dashboard .heading_text {
+  color: #363636;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.65rem;
+  margin: 30px 0;
+}
+.content_middle_dashboard .album {
+  margin-top: 5rem;
+  background-color: #fff;
 }
 
 @media (min-width: 992px) {
@@ -11874,10 +11994,6 @@ form .collapse_filter .activeFilter {
   }
   .content_middle_dashboard .take__header__middle {
     justify-content: space-between;
-    padding: 0px 40px;
-  }
-  .content_middle_dashboard .table_dashboard {
-    padding: 0px 40px;
   }
   .content_middle_dashboard .btn_register {
     text-align: right;
