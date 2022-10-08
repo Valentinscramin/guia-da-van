@@ -22,17 +22,17 @@
             </div>
 
 
-            <div class="itemInput col-12 col-sm-6">
+            <div class="itemInput col-12 col-sm-4">
                 <label>Model</label>
                 <input type="text" name="model">
                 <small>Model</small>
             </div>
-            <div class="itemInput col-12 col-sm-6">
+            <div class="itemInput col-12 col-sm-4">
                 <label>Plate</label>
                 <input type="text" name="plate">
                 <small>Plate</small>
             </div>
-            <div class="itemInput col-12 col-sm-6">
+            <div class="itemInput col-12 col-sm-4">
                 <label>Seats</label>
                 <input type="number" name="seats">
                 <small>Seats</small>
@@ -42,7 +42,8 @@
                 <textarea name="comment">
                 </textarea>
             </div>
-            @include('user.van.tracks')
+            <!-- @include('user.van.tracks')-->
+            <div class="add_tracking col-12"><button>+ Adicionar Trajeto</button></div>
             
             <div class="col-12 btn_submit"><button type="submit">Cadastrar</button></div>
         </form>

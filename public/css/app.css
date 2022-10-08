@@ -11247,6 +11247,17 @@ table {
   justify-content: space-between;
 }
 
+.add_tracking {
+  text-align: center;
+  margin: 30px 0;
+}
+.add_tracking button {
+  background: transparent;
+  font-weight: bold;
+  border: 0;
+  color: #5837e7;
+}
+
 .bannerTop {
   padding: 60px 0 20px 0;
 }
@@ -11994,6 +12005,9 @@ form .collapse_filter .activeFilter {
   }
   .content_middle_dashboard .take__header__middle {
     justify-content: space-between;
+  }
+  .content_middle_dashboard .formulario form .itemInput .upload_take_input:after {
+    width: 95%;
   }
   .content_middle_dashboard .btn_register {
     text-align: right;

@@ -315,6 +315,18 @@
             justify-content: space-between;
         }
 
+        .formulario {
+            form {
+                .itemInput {
+                    .upload_take_input {
+                        &:after {
+                            width: 95%;
+                        }
+                    }
+                }
+            }
+        }
+        
         .btn_register {
             text-align: right;
         }

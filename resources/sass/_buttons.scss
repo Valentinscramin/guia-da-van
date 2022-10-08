@@ -174,3 +174,14 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.add_tracking {
+    text-align: center;
+    margin: 30px 0;
+    button {
+        background: transparent;
+        font-weight: bold;
+        border: 0;
+        color: $purple;
+    }
+}

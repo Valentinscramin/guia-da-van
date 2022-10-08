@@ -57,7 +57,10 @@
                 {{ $van->comment }}
                 </textarea>
             </div>
-            @include('user.van.tracks')
+            <!-- @include('user.van.tracks') -->
+            <div class="add_tracking col-12"><button>+ Adicionar Trajeto</button></div>
+
+
             <div class="col-12 btn_submit"><button type="submit">Editar</button></div>
         </form>
     </div>
