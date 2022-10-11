@@ -773,12 +773,12 @@ progress {
   width: 83.33333333%;
 }
 
-.col-11 {
+.col-11, .content_middle_dashboard .formulario form .itemInput .upload_take_input {
   flex: 0 0 auto;
   width: 91.66666667%;
 }
 
-.col-12 {
+.col-12, .content_middle_dashboard .formulario form label {
   flex: 0 0 auto;
   width: 100%;
 }
@@ -2230,9 +2230,7 @@ textarea.form-control-lg {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  -webkit-print-color-adjust: exact;
-     color-adjust: exact;
-          print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 .form-check-input[type=checkbox] {
   border-radius: 0.25em;
@@ -10974,6 +10972,7 @@ section {
 
 body {
   line-height: 1;
+  background-color: #f2f2f2;
   font-family: "Raleway", sans-serif;
 }
 
@@ -11175,6 +11174,112 @@ table {
   background-color: #b06eff;
 }
 
+.btn_register a {
+  background-color: #5837e7;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 30px;
+  font-size: 0.875rem;
+  color: #fff;
+  padding: 12px 25px;
+  transition: all 0.3s linear;
+}
+.btn_register a:hover {
+  transition: all 0.3s linear;
+  background-color: #b06eff;
+}
+
+.btn_edit a {
+  font-size: 0.875rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: #5837e7;
+  transition: all 0.3s linear;
+}
+.btn_edit a:hover {
+  transition: all 0.3s linear;
+  color: #b06eff;
+}
+
+.btn_submit button {
+  background-color: #5837e7;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 30px;
+  padding: 15px 55px;
+  margin: 20px auto 20px auto;
+  border: 0;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  transition: all 0.3s linear;
+}
+.btn_submit button:hover {
+  transition: all 0.3s linear;
+  background-color: #b06eff;
+}
+
+.btn_cancel button {
+  background-color: #e73782;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 30px;
+  padding: 15px 55px;
+  margin: 20px auto 20px auto;
+  border: 0;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  transition: all 0.3s linear;
+}
+.btn_cancel button:hover {
+  transition: all 0.3s linear;
+  background-color: #b06eff;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.add_tracking {
+  text-align: center;
+  margin: 30px 0;
+}
+.add_tracking button {
+  background: transparent;
+  font-weight: bold;
+  border: 0;
+  color: #5837e7;
+}
+
+.btn_selecionar {
+  text-align: center;
+  margin: 10px auto 60px auto;
+}
+.btn_selecionar a {
+  background-color: transparent;
+  border: 2px solid #5837e7;
+  color: #5837e7;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 30px;
+  font-size: 0.875rem;
+  padding: 12px 25px;
+  transition: all 0.3s linear;
+}
+.btn_selecionar a:hover {
+  transition: all 0.3s linear;
+  color: #fff;
+  background-color: #5837e7;
+}
+
 .bannerTop {
   padding: 60px 0 20px 0;
 }
@@ -11287,13 +11392,15 @@ form {
   justify-content: space-around;
 }
 form input,
-form select {
+form select,
+form textarea {
   width: 95%;
   border-radius: 10px;
   border: 1px solid #BCBCBC;
   padding: 10px 12px;
   color: #4E4E4E;
   outline-color: #5837e7;
+  resize: none;
   transition: all 0.3s linear;
 }
 form ::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -11451,6 +11558,11 @@ form .collapse_filter .activeFilter {
 @media (min-width: 1200px) {
   .cadastre_se .takeCadastrese .title h3, .cadastre_se .takeCadastrese .title .h3 {
     font-size: 3.2rem;
+  }
+}
+@media only screen and (min-width: 1600px) and (max-width: 4600px) {
+  .cadastre_se:before {
+    margin-top: -17rem;
   }
 }
 .depoiments .row {
@@ -11678,6 +11790,283 @@ form .collapse_filter .activeFilter {
   }
   .social_media .all_media .itemSocial .description {
     font-size: 1rem;
+  }
+}
+.content__dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  background: #f2f2f2;
+}
+.content__dashboard .sidebar {
+  z-index: 2;
+  min-height: 100vh;
+  height: 100%;
+  box-shadow: 0 0px 15px -3px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+.content__dashboard .sidebar .logo {
+  padding: 10px 5px 5px 5px;
+  text-align: left;
+}
+.content__dashboard .sidebar nav {
+  padding: 30px 20px;
+}
+.content__dashboard .sidebar nav ul li {
+  margin-bottom: 30px;
+}
+.content__dashboard .sidebar nav ul li a {
+  font-size: 1.125rem;
+  color: #4E4E4E;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s linear;
+}
+.content__dashboard .sidebar nav ul li a span {
+  display: none;
+}
+.content__dashboard .sidebar nav ul li a img {
+  transition: all 0.1s linear;
+}
+.content__dashboard .sidebar nav ul li a:hover {
+  transition: all 0.3s linear;
+  color: #5837e7;
+}
+.content__dashboard .sidebar nav ul li a:hover img {
+  transition: all 0.1s linear;
+  filter: invert(5%) sepia(88%) saturate(6887%) hue-rotate(251deg) brightness(81%) contrast(93%);
+}
+.content__dashboard .sidebar nav ul li .disable {
+  cursor: context-menu;
+  color: #a9a9a9;
+}
+.content__dashboard .sidebar nav ul li .disable img {
+  filter: none !important;
+  opacity: 0.6;
+}
+.content__dashboard .sidebar nav ul li .disable:hover {
+  color: #a9a9a9;
+}
+.content__dashboard .sidebar nav ul .active_dashboard {
+  padding: 3px;
+}
+.content__dashboard .sidebar nav ul .active_dashboard a {
+  color: #5837e7;
+  transition: all 0.3s linear;
+}
+.content__dashboard .sidebar nav ul .active_dashboard a img {
+  margin: 0 auto;
+  transition: all 0.1s linear;
+  filter: invert(5%) sepia(88%) saturate(6887%) hue-rotate(251deg) brightness(81%) contrast(93%);
+}
+.content__dashboard .sidebar .more_options {
+  padding: 0;
+}
+.content__dashboard .sidebar .more_options:before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 5px;
+  background: #F8F8F8;
+  margin: -30px 0 10px 0;
+}
+.content__dashboard .sidebar .more_options ul {
+  padding: 10px 20px;
+}
+.content__dashboard .nav_top_dashboard {
+  background-color: #fff !important;
+  box-shadow: 0 24px -9px -41px rgba(0, 0, 0, 0.2) !important;
+}
+.content__dashboard .nav_top_dashboard .search_dashboard input {
+  width: 100%;
+  outline: 0;
+  border: 0;
+}
+
+@media (min-width: 1200px) {
+  .content__dashboard .sidebar .logo {
+    padding: 26px 45px 10px 25px;
+  }
+  .content__dashboard .sidebar nav ul li a span {
+    display: block;
+  }
+  .content__dashboard .sidebar nav ul li a img {
+    position: relative;
+    top: -2px;
+    margin-right: 10px;
+  }
+  .content__dashboard .sidebar nav ul .active_dashboard {
+    background: #F6F4FF;
+    border-left: 6px solid #5837e7;
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .content__dashboard .sidebar nav ul .active_dashboard a img {
+    margin: 0 10px 0 0;
+  }
+}
+.content_middle_dashboard {
+  padding: 50px 0px;
+}
+.content_middle_dashboard .take__header__middle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+.content_middle_dashboard .take__header__middle h2, .content_middle_dashboard .take__header__middle .h2 {
+  letter-spacing: 2px;
+  padding: 0 10px;
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #030303;
+}
+.content_middle_dashboard .take__header__middle h2 span, .content_middle_dashboard .take__header__middle .h2 span {
+  color: #5837e7;
+}
+.content_middle_dashboard .btn_register {
+  text-align: center;
+}
+.content_middle_dashboard .formulario {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px 10px;
+}
+.content_middle_dashboard .formulario form .itemInput {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.content_middle_dashboard .formulario form .itemInput small, .content_middle_dashboard .formulario form .itemInput .small {
+  color: #858585;
+  margin-top: 15px;
+}
+.content_middle_dashboard .formulario form .itemInput .upload_take_input {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.content_middle_dashboard .formulario form .itemInput .upload_take_input:after {
+  content: "";
+  display: block;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  border-radius: 30px;
+  padding: 10px;
+  width: 100%;
+  height: 200px;
+  position: relative;
+  z-index: 1;
+}
+.content_middle_dashboard .formulario form .itemInput .upload_take_input .label_upload {
+  margin-top: 5px;
+}
+.content_middle_dashboard .formulario form .itemInput .upload_take_input .image_upload {
+  position: absolute;
+  margin-top: 2rem;
+  z-index: 2;
+}
+.content_middle_dashboard .formulario form .itemInput .upload_take_input .upload_file_input {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  width: 65%;
+  height: 200px;
+  z-index: 3;
+}
+.content_middle_dashboard .formulario form textarea {
+  width: 98%;
+}
+.content_middle_dashboard .formulario form label {
+  justify-content: flex-start;
+  margin-bottom: 5px;
+  padding: 0 18px;
+}
+.content_middle_dashboard .table_dashboard {
+  padding: 0;
+  margin: 0 auto;
+}
+.content_middle_dashboard .table_dashboard table {
+  background-color: #fff;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  color: #858585;
+}
+.content_middle_dashboard .table_dashboard table thead {
+  font-weight: bold;
+  border-bottom: 2px solid #f3f3f3;
+}
+.content_middle_dashboard .table_dashboard table thead th {
+  padding: 10px 10px !important;
+}
+.content_middle_dashboard .table_dashboard table tbody tr {
+  border-bottom: 1px solid #f3f3f3;
+}
+.content_middle_dashboard .table_dashboard table tbody td {
+  padding: 10px 10px !important;
+}
+.content_middle_dashboard .heading_text {
+  color: #363636;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.65rem;
+  margin: 30px 0;
+}
+.content_middle_dashboard .album {
+  margin-top: 5rem;
+  background-color: #fff;
+}
+
+@media (min-width: 992px) {
+  .content_middle_dashboard .take__header__middle {
+    justify-content: space-between;
+  }
+  .content_middle_dashboard .formulario form .itemInput .upload_take_input:after {
+    width: 95%;
+  }
+  .content_middle_dashboard .btn_register {
+    text-align: right;
+  }
+}
+.modal_album {
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+.modal_album .content {
+  background: #fff;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 0;
+}
+.modal_album .content .itemPhoto {
+  padding: 0;
+}
+.modal_album .content .salvar_modal_album {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.active_modal_album {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 576px) {
+  .modal_album .content {
+    justify-content: flex-start;
   }
 }
 .footer:before {

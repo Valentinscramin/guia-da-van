@@ -42,6 +42,7 @@
 
 .btnSubmit {
     text-align: center;
+
     button {
         background-color: $purple;
         font-weight: 700;
@@ -57,6 +58,7 @@
         color: #fff;
         opacity: .6;
         @include anima-slow;
+
         .line {
             margin: 0 10px;
         }
@@ -69,7 +71,7 @@
 }
 
 .btn_cadastre {
-    
+
     a {
         background-color: $purple;
         font-size: 0.875rem;
@@ -83,6 +85,125 @@
         &:hover {
             @include anima-slow;
             background-color: $lightPurple;
+        }
+    }
+}
+
+.btn_register {
+    a {
+        background-color: $purple;
+        font-size: 0.875rem;
+        font-weight: 700;
+        border-radius: 30px;
+        font-size: 0.875rem;
+        color: #fff;
+        padding: 12px 25px;
+        @include anima-slow;
+
+        &:hover {
+            @include anima-slow;
+            background-color: $lightPurple;
+        }
+    }
+}
+
+.btn_edit {
+    a {
+        font-size: 0.875rem;
+        font-weight: 700;
+        font-size: 0.875rem;
+        color: $purple;
+        @include anima-slow;
+
+        &:hover {
+            @include anima-slow;
+            color: $lightPurple;
+        }
+    }
+}
+
+.btn_submit {
+    button {
+        background-color: $purple;
+        font-weight: 700;
+        font-size: 1rem;
+        border-radius: 30px;
+        padding: 15px 55px;
+        margin: 20px auto 20px auto;
+        border: 0;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+        @include anima-slow;
+
+        &:hover {
+            @include anima-slow;
+            background-color: $lightPurple;
+        }
+    }
+}
+
+.btn_cancel {
+    button {
+        background-color: $pink;
+        font-weight: 700;
+        font-size: 1rem;
+        border-radius: 30px;
+        padding: 15px 55px;
+        margin: 20px auto 20px auto;
+        border: 0;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+        @include anima-slow;
+
+        &:hover {
+            @include anima-slow;
+            background-color: $lightPurple;
+        }
+    }
+}
+
+.btns {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add_tracking {
+    text-align: center;
+    margin: 30px 0;
+    button {
+        background: transparent;
+        font-weight: bold;
+        border: 0;
+        color: $purple;
+    }
+}
+
+.btn_selecionar {
+    text-align: center;
+    margin: 10px auto 60px auto;
+    a {
+        background-color: transparent;
+        border:  2px solid $purple;
+        color: $purple; 
+        font-size: 0.875rem;
+        font-weight: 700;
+        border-radius: 30px;
+        font-size: 0.875rem;
+        padding: 12px 25px;
+        @include anima-slow;
+
+        &:hover {
+            @include anima-slow;
+            color: #fff;
+            background-color: $purple;
         }
     }
 }

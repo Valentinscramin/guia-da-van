@@ -1,0 +1,334 @@
+.content__dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    background: #f2f2f2;
+
+    .sidebar {
+        z-index: 2;
+        min-height: 100vh;
+        height: 100%;
+        box-shadow: 0 0px 15px -3px rgba(0, 0, 0, .2);
+        background-color: #fff;
+
+        .logo {
+            padding: 10px 5px 5px 5px;
+            text-align: left;
+        }
+
+        nav {
+            padding: 30px 20px;
+
+            ul {
+                li {
+                    margin-bottom: 30px;
+
+                    a {
+                        font-size: 1.125rem;
+                        color: $anotherGray;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                        @include anima-slow;
+
+                        span {
+                            display: none;
+                        }
+
+                        img {
+                            @include anima-fast;
+                        }
+
+                        &:hover {
+                            @include anima-slow;
+                            color: $purple;
+
+                            img {
+                                @include anima-fast;
+                                filter: invert(5%) sepia(88%) saturate(6887%) hue-rotate(251deg) brightness(81%) contrast(93%)
+                            }
+                        }
+                    }
+
+                    .disable {
+                        cursor: context-menu;
+                        color: #a9a9a9;
+
+                        img {
+                            filter: none !important;
+                            opacity: .6;
+                        }
+
+                        &:hover {
+                            color: #a9a9a9;
+                        }
+                    }
+                }
+
+                .active_dashboard {
+                    padding: 3px;
+
+                    a {
+                        color: $purple;
+                        @include anima-slow;
+
+                        img {
+                            margin: 0 auto;
+                            @include anima-fast;
+                            filter: invert(5%) sepia(88%) saturate(6887%) hue-rotate(251deg) brightness(81%) contrast(93%)
+                        }
+                    }
+                }
+            }
+        }
+
+        .more_options {
+            padding: 0;
+
+            &:before {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 5px;
+                background: #F8F8F8;
+                margin: -30px 0 10px 0;
+            }
+
+            ul {
+                padding: 10px 20px;
+            }
+        }
+    }
+
+    .nav_top_dashboard {
+        background-color: #fff !important;
+        box-shadow: 0 24px -9px -41px rgba(0, 0, 0, .2) !important;
+
+        .search_dashboard {
+            input {
+                width: 100%;
+                outline: 0;
+                border: 0;
+            }
+        }
+    }
+}
+
+
+@media (min-width: map-get($grid-breakpoints, md)) {
+    .content__dashboard {
+        .sidebar {}
+    }
+}
+
+@media (min-width: map-get($grid-breakpoints, xl)) {
+    .content__dashboard {
+        .sidebar {
+            .logo {
+                padding: 26px 45px 10px 25px;
+            }
+
+            nav {
+                ul {
+                    li {
+                        a {
+                            span {
+                                display: block;
+                            }
+
+                            img {
+                                position: relative;
+                                top: -2px;
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+
+                    .active_dashboard {
+                        background: #F6F4FF;
+                        border-left: 6px solid $purple;
+                        border-radius: 10px;
+                        padding: 14px;
+
+                        a {
+                            img {
+                                margin: 0 10px 0 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.content_middle_dashboard {
+    padding: 50px 0px;
+
+    .take__header__middle {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+        margin-bottom: 60px;
+
+        h2 {
+            letter-spacing: 2px;
+            padding: 0 10px;
+            font-size: 1.65rem;
+            font-weight: 900;
+            color: $black;
+
+            span {
+                color: $purple;
+            }
+        }
+    }
+
+    .btn_register {
+        text-align: center;
+    }
+
+    .formulario {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px 10px;
+
+        form {
+            .itemInput {
+                margin-bottom: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                small {
+                    color: $gray;
+                    margin-top: 15px;
+                }
+
+                .upload_take_input {
+                    @extend .col-11;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: center;
+
+                    &:after {
+                        content: '';
+                        display: block;
+                        background-color: #eee;
+                        border: 1px solid #dedede;
+                        border-radius: 30px;
+                        padding: 10px;
+                        width: 100%;
+                        height: 200px;
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    .label_upload {
+                        margin-top: 5px;
+                    }
+
+                    .image_upload {
+                        position: absolute;
+                        margin-top: 2rem;
+                        z-index: 2;
+                    }
+
+                    .upload_file_input {
+                        opacity: 0;
+                        cursor: pointer;
+                        position: absolute;
+                        width: 65%;
+                        height: 200px;
+                        z-index: 3;
+                    }
+                }
+
+            }
+
+            textarea {
+                width: 98%;
+            }
+
+            label {
+                @extend .col-12;
+                justify-content: flex-start;
+                margin-bottom: 5px;
+                padding: 0 18px;
+            }
+        }
+    }
+
+    .table_dashboard {
+        padding: 0;
+        margin: 0 auto;
+
+        table {
+            background-color: #fff;
+            border: 1px solid #dedede;
+            border-radius: 5px;
+            color: $gray;
+
+            thead {
+                font-weight: bold;
+                border-bottom: 2px solid #f3f3f3;
+
+                th {
+                    padding: 10px 10px !important;
+                }
+            }
+
+            tbody {
+                tr {
+                    border-bottom: 1px solid #f3f3f3;
+                }
+
+                td {
+                    padding: 10px 10px !important;
+                }
+            }
+        }
+    }
+
+    .heading_text {
+        color: $anotherBlack;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.65rem;
+        margin: 30px 0;
+    }
+
+    .album {
+        margin-top: 5rem;
+        background-color: #fff;
+
+    }
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    .content_middle_dashboard {
+        
+
+        .take__header__middle {
+            justify-content: space-between;
+        }
+
+        .formulario {
+            form {
+                .itemInput {
+                    .upload_take_input {
+                        &:after {
+                            width: 95%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .btn_register {
+            text-align: right;
+        }
+    }
+}

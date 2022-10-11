@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use App\Models\User\UserPhotos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,7 +42,6 @@ class UserPhotosController extends Controller
 
         $request->validate([
             "arquivo" => "required",
-            "user_id" => "required",
         ]);
 
         $user_photos = new UserPhotos();
