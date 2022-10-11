@@ -25,8 +25,7 @@
 
 </head>
 
-<body id="#dashboard__body {
-">
+<body id="dashboard__body">
     <div class="content__dashboard" id="app">
         <div class="col-2 col-sm-1 col-xl-2 column_sidebar">
             <div class="sidebar">

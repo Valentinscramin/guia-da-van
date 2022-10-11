@@ -10972,7 +10972,6 @@ section {
 
 body {
   line-height: 1;
-  background-color: #f2f2f2;
   font-family: "Raleway", sans-serif;
 }
 
@@ -11821,7 +11820,6 @@ form .collapse_filter .activeFilter {
   margin-bottom: 30px;
 }
 .content__dashboard .sidebar nav ul li a {
-  font-size: 1.125rem;
   color: #4E4E4E;
   font-weight: bold;
   display: flex;
@@ -11905,7 +11903,7 @@ form .collapse_filter .activeFilter {
     background: #F6F4FF;
     border-left: 6px solid #5837e7;
     border-radius: 10px;
-    padding: 14px 5px;
+    padding: 14px 5px 14px 14px;
   }
   .content__dashboard .sidebar nav ul .active_dashboard a img {
     margin: 0 10px 0 0;
@@ -11919,6 +11917,9 @@ form .collapse_filter .activeFilter {
   .content__dashboard .column_nav {
     flex: 0 0 auto;
     width: 87.5%;
+  }
+  .content__dashboard .sidebar nav ul li a {
+    font-size: 1.125rem;
   }
 }
 .content_middle_dashboard {
