@@ -11905,7 +11905,7 @@ form .collapse_filter .activeFilter {
     background: #F6F4FF;
     border-left: 6px solid #5837e7;
     border-radius: 10px;
-    padding: 14px;
+    padding: 14px 5px;
   }
   .content__dashboard .sidebar nav ul .active_dashboard a img {
     margin: 0 10px 0 0;
