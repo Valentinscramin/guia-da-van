@@ -1,7 +1,7 @@
 .content__dashboard {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: space-between;
     background: #f2f2f2;
 
@@ -116,7 +116,7 @@
 }
 
 
-@media (min-width: map-get($grid-breakpoints, lg)) {
+@media (min-width: map-get($grid-breakpoints, md)) {
     .content__dashboard {
         .sidebar {}
     }
@@ -309,7 +309,7 @@
 
 @media (min-width: map-get($grid-breakpoints, lg)) {
     .content_middle_dashboard {
-        padding: 50px 0px;
+        
 
         .take__header__middle {
             justify-content: space-between;
@@ -326,7 +326,7 @@
                 }
             }
         }
-        
+
         .btn_register {
             text-align: right;
         }

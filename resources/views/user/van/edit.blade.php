@@ -15,24 +15,29 @@
             <div class="itemInput col-12">
                 @foreach ($photos as $eachPhoto)
                 @if (in_array($eachPhoto->id, $array_photos_selected))
-                <div style="width:100px;">
+                <div class="col-12 col-sm-2 col-lg-1">
                     <img class="card-img-top" src="/storage/{{ $eachPhoto->arquivo }}" alt="Title">
                 </div>
                 @endif
                 @endforeach
             </div>
+            <div class="btn_selecionar col-12"><a href="#" id="btn_selecionar_foto">Selecionar Foto</a></div>
+            <div class="modal_album">
+                <div class="content col-12 col-md-8 col-lg-6 col-xl-5">
+                    @foreach ($photos as $eachPhoto)
 
-            <div class="itemInput col-12 col-sm-12">
-                @foreach ($photos as $eachPhoto)
-                @if (in_array($eachPhoto->id, $array_photos_selected))
-                <input type="checkbox" name="van_user_photo[]" value="{{ $eachPhoto->id }}" checked>
-                @else
-                <input type="checkbox" name="van_user_photo[]" value="{{ $eachPhoto->id }}">
-                @endif
-                <div style="width:100px;">
-                    <img class="card-img-top" src="/storage/{{ $eachPhoto->arquivo }}" alt="Title">
+                    <div class="col-12 col-sm-4 col-md-3 itemPhoto">
+                        @if (in_array($eachPhoto->id, $array_photos_selected))
+                        <input type="checkbox" name="van_user_photo[]" id="{{ $eachPhoto->id }}" value="{{ $eachPhoto->id }}" checked>
+                        @else
+                        <input type="checkbox" name="van_user_photo[]" id="{{ $eachPhoto->id }}" value="{{ $eachPhoto->id }}">
+                        @endif
+                        <label for="{{ $eachPhoto->id }}"><div style="background: url('<?php echo URL('storage/' . $eachPhoto->arquivo); ?>')no-repeat top center; background-size: cover; width: 150px; height: 150px;"></div></label>
+                    </div>
+                    @endforeach
+
+                    <div class="btn_cadastre salvar_modal_album col-12"><a href="#">Salvar</a></div>
                 </div>
-                @endforeach
             </div>
 
 
@@ -61,7 +66,7 @@
             <div class="add_tracking col-12"><button>+ Adicionar Trajeto</button></div>
 
 
-            <div class="col-12 btn_submit"><button type="submit">Editar</button></div>
+            <div class="col-12 btn_submit"><button type="submit">Atualizar</button></div>
         </form>
     </div>
 </div>

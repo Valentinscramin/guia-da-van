@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="col-10 col-sm-11 col-xl-10">
-            <nav class="nav_top_dashboard navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="nav_top_dashboard navbar navbar-expand-md navbar-light bg-white shadow-sm col-11">
                 <div class="container">
                     <div class="search_dashboard col-6">
                         <form action="">

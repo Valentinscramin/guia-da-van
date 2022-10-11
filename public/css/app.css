@@ -10972,6 +10972,7 @@ section {
 
 body {
   line-height: 1;
+  background-color: #f2f2f2;
   font-family: "Raleway", sans-serif;
 }
 
@@ -11256,6 +11257,27 @@ table {
   font-weight: bold;
   border: 0;
   color: #5837e7;
+}
+
+.btn_selecionar {
+  text-align: center;
+  margin: 10px auto 60px auto;
+}
+.btn_selecionar a {
+  background-color: transparent;
+  border: 2px solid #5837e7;
+  color: #5837e7;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 30px;
+  font-size: 0.875rem;
+  padding: 12px 25px;
+  transition: all 0.3s linear;
+}
+.btn_selecionar a:hover {
+  transition: all 0.3s linear;
+  color: #fff;
+  background-color: #5837e7;
 }
 
 .bannerTop {
@@ -11773,7 +11795,7 @@ form .collapse_filter .activeFilter {
 .content__dashboard {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: space-between;
   background: #f2f2f2;
 }
@@ -12000,9 +12022,6 @@ form .collapse_filter .activeFilter {
 }
 
 @media (min-width: 992px) {
-  .content_middle_dashboard {
-    padding: 50px 0px;
-  }
   .content_middle_dashboard .take__header__middle {
     justify-content: space-between;
   }
@@ -12011,6 +12030,43 @@ form .collapse_filter .activeFilter {
   }
   .content_middle_dashboard .btn_register {
     text-align: right;
+  }
+}
+.modal_album {
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+.modal_album .content {
+  background: #fff;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px 0;
+}
+.modal_album .content .itemPhoto {
+  padding: 0;
+}
+.modal_album .content .salvar_modal_album {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.active_modal_album {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 576px) {
+  .modal_album .content {
+    justify-content: flex-start;
   }
 }
 .footer:before {

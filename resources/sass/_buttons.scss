@@ -185,3 +185,25 @@
         color: $purple;
     }
 }
+
+.btn_selecionar {
+    text-align: center;
+    margin: 10px auto 60px auto;
+    a {
+        background-color: transparent;
+        border:  2px solid $purple;
+        color: $purple; 
+        font-size: 0.875rem;
+        font-weight: 700;
+        border-radius: 30px;
+        font-size: 0.875rem;
+        padding: 12px 25px;
+        @include anima-slow;
+
+        &:hover {
+            @include anima-slow;
+            color: #fff;
+            background-color: $purple;
+        }
+    }
+}
