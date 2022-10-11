@@ -25,9 +25,10 @@
 
 </head>
 
-<body>
+<body id="#dashboard__body {
+">
     <div class="content__dashboard" id="app">
-        <div class="col-2 col-sm-1 col-xl-2">
+        <div class="col-2 col-sm-1 col-xl-2 column_sidebar">
             <div class="sidebar">
                 <div class="logo">
                     <a href="{{ route('user_home') }}"><img src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid"></a>
@@ -56,7 +57,7 @@
                 </nav>
                 <nav class="more_options">
                     <ul>
-                        <li><a href="#"><img src="{{ URL('/images/settings_dashboard.svg') }}" alt="" class="img-fluid"> <span>Configurações</span></a></li>
+                        <li id="configuracoes"><a href="{{ route('profile.index') }}"><img src="{{ URL('/images/settings_dashboard.svg') }}" alt="" class="img-fluid"> <span>Configurações</span></a></li>
                         <li><a href="#"><img src="{{ URL('/images/anuncie_dashboard.svg') }}" alt="" class="img-fluid"> <span>Anuncie aqui</span></a></li>
                         <li><a href="#"><img src="{{ URL('/images/nos-avalie_dashboard.svg') }}" alt="" class="img-fluid"> <span>Nos avalie</span></a></li>
                         <li><a href="#"><img src="{{ URL('/images/help_dashboard.svg') }}" alt="" class="img-fluid"> <span>Ajuda</span></a></li>
@@ -64,7 +65,7 @@
                 </nav>
             </div>
         </div>
-        <div class="col-10 col-sm-11 col-xl-10">
+        <div class="col-10 col-sm-11 col-xl-10 column_nav">
             <nav class="nav_top_dashboard navbar navbar-expand-md navbar-light bg-white shadow-sm">
 
                 <div class="search_dashboard col-6">
