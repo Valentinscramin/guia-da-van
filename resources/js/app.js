@@ -4,6 +4,7 @@ import $ from 'jquery';
 window.$ = window.jQuery = $;
 
 $(function () {
+
   $(".search .formulario .item .item_input input").click(function () {
     var id = $(this).attr("id")
     $(".search .formulario .item .item_input input").attr('checked', false)
@@ -22,23 +23,30 @@ $(function () {
     $(".modal_album").removeClass("active_modal_album")
   })
 
+
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': "{{ csrf_token() }}"
     }
-  });
+  })
 
   // ADICIONA NOVO CARD EM TRAJETO
   $('a.add-trajeto').on('click', function (e) {
     e.preventDefault()
-    $.ajax({
-      method: "GET",
-      url: "/api/set-card-trajeto",
-      context: this,
-    })
-      .done(function (data) {
-        return $('#trajetos-van').append(addCard(JSON.parse(data)))
-      });
+
+    if ($('.card').length < 4) {
+
+      $.ajax({
+        method: "GET",
+        url: "/api/set-card-trajeto",
+        context: this,
+      })
+        .done(function (data) {
+          return $('#trajetos-van').append(addCard(JSON.parse(data)))
+        });
+
+    }
+
   });
 
   function addCard(data) {
@@ -56,13 +64,13 @@ $(function () {
     var card = "<div class='card itemInput col-12 col-sm-4' style='width: 18rem;'>" +
       "<div class='card-body'>" +
       "<h5 class='card-title'>Trajeto</h5>" +
-      "<select name='track' id=''>" +
+      "<select name='track' id='change_track'>" +
       optionTrack
       + "</select>" +
-      "<select name='cidade_saida' id=''>" +
+      "<select name='cidade_saida' id='cidade_saida'>" +
       optionCities
       + "</select>" +
-      "<select name='cidade_chegada' id=''>" +
+      "<select name='cidade_chegada' id='cidade_saida'>" +
       optionCities
       + "</select>" +
       "<select name='periodo'>" +
@@ -75,6 +83,11 @@ $(function () {
 
     return card;
   }
+
+  //SELECIONA O TRACK E ESCONDE O SELECIONADO
+  $("#change_track").change(function (e) {
+    alert("OI")
+  })
 
 })
 
