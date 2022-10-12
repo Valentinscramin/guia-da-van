@@ -11,15 +11,22 @@
         <form action="{{ route('van.store') }}" method="POST">
             @csrf
             @method('POST')
+            <div class="btn_selecionar col-12"><a href="#" id="btn_selecionar_foto">Selecionar Foto</a></div>
+            <div class="modal_album">
+                <div class="content col-12 col-md-8 col-lg-6 col-xl-5">
+                    @foreach ($photos as $eachPhoto)
+                    <div class="col-12 col-sm-4 col-md-3 itemPhoto">
+                        <input type="checkbox" name="van_user_photo[]" id="{{ $eachPhoto->id }}" value="{{ $eachPhoto->id }}">
+                        <label for="{{ $eachPhoto->id }}">
+                            <div style="background: url('<?php echo URL('storage/' . $eachPhoto->arquivo); ?>')no-repeat top center; background-size: cover; width: 150px; height: 150px;"></div>
+                        </label>
+                    </div>
+                    @endforeach
 
-            <div class="itemInput col-12">
-                @foreach ($photos as $eachPhoto)
-                <input type="checkbox" name="van_user_photo[]" value="{{ $eachPhoto->id }}">
-                <div class="card text-start" style="width:100px;">
-                    <img class="card-img-top" src="/storage/{{ $eachPhoto->arquivo }}" alt="Title">
+                    <div class="btn_cadastre salvar_modal_album col-12"><a href="#">Salvar</a></div>
                 </div>
-                @endforeach
             </div>
+
 
 
             <div class="itemInput col-12 col-sm-4">
@@ -44,8 +51,8 @@
             </div>
             <!-- @include('user.van.tracks')-->
             <div class="add_tracking col-12"><button>+ Adicionar Trajeto</button></div>
-            
-            <div class="col-12 btn_submit"><button type="submit">Cadastrar</button></div>
+
+            <div class="col-12 btn_submit"><button type="submit">Cadastrar Van</button></div>
         </form>
     </div>
 </div>

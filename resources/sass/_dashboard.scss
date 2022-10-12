@@ -1,3 +1,7 @@
+#dashboard__body {
+    background: #f2f2f2;
+}
+
 .content__dashboard {
     display: flex;
     flex-wrap: wrap;
@@ -25,7 +29,6 @@
                     margin-bottom: 30px;
 
                     a {
-                        font-size: 1.125rem;
                         color: $anotherGray;
                         font-weight: bold;
                         display: flex;
@@ -149,12 +152,36 @@
                         background: #F6F4FF;
                         border-left: 6px solid $purple;
                         border-radius: 10px;
-                        padding: 14px;
+                        padding: 14px 5px 14px 14px;
 
                         a {
                             img {
                                 margin: 0 10px 0 0;
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1750px) {
+    .content__dashboard {
+        .column_sidebar {
+            @include make-col(1.5);
+        }
+
+        .column_nav {
+            @include make-col(10.5);
+        }
+
+        .sidebar {
+            nav {
+                ul {
+                    li {
+                        a {
+                            font-size: 1.125rem;
                         }
                     }
                 }
@@ -301,6 +328,7 @@
     }
 
     .album {
+        margin: 0 auto;
         margin-top: 5rem;
         background-color: #fff;
 

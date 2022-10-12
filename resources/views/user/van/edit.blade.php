@@ -66,7 +66,7 @@
             <div class="add_tracking col-12"><button>+ Adicionar Trajeto</button></div>
 
 
-            <div class="col-12 btn_submit"><button type="submit">Atualizar</button></div>
+            <div class="col-12 btn_submit"><button type="submit">Atualizar Van</button></div>
         </form>
     </div>
 </div>

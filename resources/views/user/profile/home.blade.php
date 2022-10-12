@@ -1,71 +1,87 @@
 @extends('layouts.app')
 
 @section('content')
-
-<img class="card-img-top" style="width:100px;" src="/storage/{{ $profile_photo }}" alt="Profile Image">
-<form action="{{ route('profile.update', $user->id) }}" method="POST">
-    @csrf
-    @method('PUT')
-
-    <div class="mb-3">
-        @foreach ($photos as $eachPhoto)
-        @if ($profile_photo_checked == $eachPhoto->id)
-        <input type="radio" name="user_profile_photo" value="{{ $eachPhoto->id }}" checked="checked">
-        @else
-        <input type="radio" name="user_profile_photo" value="{{ $eachPhoto->id }}">
-        @endif
-        <div class="card text-start" style="width:100px;">
-            <img class="card-img-top" src="/storage/{{ $eachPhoto->arquivo }}" alt="Title">
+<div class="content_middle_dashboard">
+    <div class="col-11 take__header__middle">
+        <div class="col-12">
+            <h2>Editar <span>Perfil</span></h2>
         </div>
-        @endforeach
+    </div>
+    <div class="formulario col-11">
+
+        <form action="{{ route('profile.update', $user->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <img class="card-img-top" style="width:100px;" src="/storage/{{ $profile_photo }}" alt="Profile Image">
+            <div class="btn_selecionar col-12"><a href="#" id="btn_selecionar_foto">Selecionar Foto</a></div>
+            <div class="modal_album">
+                <div class="content col-12 col-md-8 col-lg-6 col-xl-5">
+                    @foreach ($photos as $eachPhoto)
+                    <div class="col-12 col-sm-4 col-md-3 itemPhoto">
+                        @if ($profile_photo_checked == $eachPhoto->id)
+                        <input type="checkbox" name="van_user_photo[]" id="{{ $eachPhoto->id }}" value="{{ $eachPhoto->id }}" checked>
+                        @else
+                        <input type="checkbox" name="van_user_photo[]" id="{{ $eachPhoto->id }}" value="{{ $eachPhoto->id }}">
+                        @endif
+                        <label for="{{ $eachPhoto->id }}">
+                            <div style="background: url('<?php echo URL('storage/' . $eachPhoto->arquivo); ?>')no-repeat top center; background-size: cover; width: 150px; height: 150px;"></div>
+                        </label>
+                    </div>
+                    @endforeach
+                    <div class="btn_cadastre salvar_modal_album col-12"><a href="#">Salvar</a></div>
+                </div>
+            </div>
+
+            <div class="itemInput col-12 col-sm-4">
+                <label for="name" class="form-label">Nome</label>
+                <input type="text" name="name" id="name" placeholder="" aria-describedby="helpId" value="{{ $user->name }}">
+                <small id="helpId" class="text-muted">Nome</small>
+            </div>
+
+            <div class="itemInput col-12 col-sm-4">
+                <label for="email" class="form-label">Email</label>
+                <input type="text" name="email" id="email" placeholder="" aria-describedby="helpId" value="{{ $user->email }}" readonly>
+                <small id="helpId" class="text-muted">Email</small>
+            </div>
+
+            <div class="itemInput col-12 col-sm-4">
+                <label for="cpf_cnpj" class="form-label">CPF/CNPJ</label>
+                <input type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="" aria-describedby="helpId_cpf_cnpj" value="{{ $user->cpf_cnpj }}" onkeyup="validar(this);">
+                <small id="helpId_cpf_cnpj" class="text-muted">CPF/CNPJ</small>
+            </div>
+
+            <div class="itemInput col-12 col-sm-4 col-md-3">
+                <label for="data_nascimento" class="form-label">Data Nascimento</label>
+                <input type="date" name="data_nascimento" id="data_nascimento" placeholder="" aria-describedby="helpId" value="{{ $user->data_nascimento }}">
+                <small id="helpId" class="text-muted">Data Nascimento</small>
+            </div>
+
+            <div class="itemInput col-12 col-sm-4 col-md-3">
+                <label for="celular" class="form-label">Celular</label>
+                <input type="text" name="celular" id="celular" placeholder="" aria-describedby="helpId" value="{{ $user->celular }}">
+                <small id="helpId" class="text-muted">Celular</small>
+            </div>
+
+            <div class="itemInput col-12 col-sm-4 col-md-3">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="text" name="telefone" id="telefone" placeholder="" aria-describedby="helpId" value="{{ $user->telefone }}">
+                <small id="helpId" class="text-muted">Telefone</small>
+            </div>
+
+            <div class="itemInput col-12 col-sm-4 col-md-3">
+                <label for="postcode" class="form-label">CEP</label>
+                <input type="text" name="postcode" id="postcode" placeholder="" aria-describedby="helpId" value="{{ $user->postcode }}">
+                <small id="helpId" class="text-muted">Cep</small>
+            </div>
+
+            <div class="col-12 btn_submit"><button type="submit">Atualizar Perfil</button></div>
+        </form>
     </div>
 
-    <div class="mb-3">
-        <label for="name" class="form-label">Nome</label>
-        <input type="text" name="name" id="name" class="form-control" placeholder="" aria-describedby="helpId" value="{{ $user->name }}">
-        <small id="helpId" class="text-muted">Nome</small>
-    </div>
-
-    <div class="mb-3">
-        <label for="email" class="form-label">Email</label>
-        <input type="text" name="email" id="email" class="form-control" placeholder="" aria-describedby="helpId" value="{{ $user->email }}" readonly>
-        <small id="helpId" class="text-muted">Email</small>
-    </div>
-
-    <div class="mb-3">
-        <label for="cpf_cnpj" class="form-label">CPF/CNPJ</label>
-        <input type="text" name="cpf_cnpj" id="cpf_cnpj" class="form-control" placeholder="" aria-describedby="helpId_cpf_cnpj" value="{{ $user->cpf_cnpj }}" onkeyup="validar(this);">
-        <small id="helpId_cpf_cnpj" class="text-muted">CPF/CNPJ</small>
-    </div>
-
-    <div class="mb-3">
-        <label for="data_nascimento" class="form-label">Data Nascimento</label>
-        <input type="date" name="data_nascimento" id="data_nascimento" class="form-control" placeholder="" aria-describedby="helpId" value="{{ $user->data_nascimento }}">
-        <small id="helpId" class="text-muted">Data Nascimento</small>
-    </div>
-
-    <div class="mb-3">
-        <label for="celular" class="form-label">Celular</label>
-        <input type="text" name="celular" id="celular" class="form-control" placeholder="" aria-describedby="helpId" value="{{ $user->celular }}">
-        <small id="helpId" class="text-muted">Celular</small>
-    </div>
-
-    <div class="mb-3">
-        <label for="telefone" class="form-label">Telefone</label>
-        <input type="text" name="telefone" id="telefone" class="form-control" placeholder="" aria-describedby="helpId" value="{{ $user->telefone }}">
-        <small id="helpId" class="text-muted">Telefone</small>
-    </div>
-
-    <div class="mb-3">
-        <label for="postcode" class="form-label">CEP</label>
-        <input type="text" name="postcode" id="postcode" class="form-control" placeholder="" aria-describedby="helpId" value="{{ $user->postcode }}">
-        <small id="helpId" class="text-muted">Cep</small>
-    </div>
-
-    <button type="submit" id="botao-salvar" class="btn btn-primary">Submit</button>
-</form>
-
+</div>
 <script>
+    jQuery("#configuracoes").addClass("active_dashboard");
+
     $("#postcode").mask("99.999-999");
     $("#telefone").mask("(99)9999-9999");
     $("#celular").mask("(99)99999-9999");
