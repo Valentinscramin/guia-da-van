@@ -1,4 +1,12 @@
-@foreach ($track as $eachTrack)
+<div class="itemInput col-12" id="trajetos-van">
+</div>
+
+<div class="itemInput col-12">
+    <div class="add_tracking col-12"><a type="button" class="add-trajeto">+ Adicionar Trajeto</a></div>
+</div>
+
+
+{{-- @foreach ($track as $eachTrack)
 <div class="item">
     <label for="track-{{ $eachTrack->id }}">
         {{ $eachTrack->name }}
@@ -42,9 +50,9 @@
                     <br>
 
                     <select name="periodo" id="">
-                        <option value="diurno" @if (@$track_selected[1]['periodo']=='diurno' ) selected @endif>Diurno</option>
-                        <option value="vespertino" @if (@$track_selected[1]['periodo']=='vespertino' ) selected @endif>Vespertino</option>
-                        <option value="noturno" @if (@$track_selected[1]['periodo']=='noturno' ) selected @endif>Noturno</option>
+                        <option value="diurno" @if (@$track_selected[1]['periodo'] == 'diurno') selected @endif>Diurno</option>
+                        <option value="vespertino" @if (@$track_selected[1]['periodo'] == 'vespertino') selected @endif>Vespertino</option>
+                        <option value="noturno" @if (@$track_selected[1]['periodo'] == 'noturno') selected @endif>Noturno</option>
                     </select>
                     @break
 
@@ -93,15 +101,4 @@
                 </div>
             </div>
         </div>
-        @endforeach
-        <script>
-            function collapseShow(id) {
-                var x = document.getElementById("collapse-" + id);
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
-            jQuery("#frota").addClass("active_dashboard");
-        </script>
+        @endforeach --}}

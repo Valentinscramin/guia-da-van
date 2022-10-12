@@ -49,8 +49,7 @@
                 <textarea name="comment">
                 </textarea>
             </div>
-            <!-- @include('user.van.tracks')-->
-            <div class="add_tracking col-12"><button>+ Adicionar Trajeto</button></div>
+            @include('user.van.tracks')
 
             <div class="col-12 btn_submit"><button type="submit">Cadastrar Van</button></div>
         </form>
