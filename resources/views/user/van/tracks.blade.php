@@ -4,10 +4,9 @@
             $count = 0;
         @endphp
         @foreach ($track_selected as $key => $eachTrack)
-        @dump($eachTrack)
             <div class='card itemInput col-12 col-sm-4' style='width: 18rem;'>
                 <div class='card-body'>
-                    <h5 class='card-title'>Trajeto: {{ $eachTrack['name'] }}</h5>
+                    <h5 class='card-title'>Trajeto:</h5>
                     <select name='track[]' class="track_selector" onchange='change(this)' data-card='{{ $count }}'>
                         @foreach ($track as $eachTrackChoose)
                             @if ($eachTrackChoose->id == $eachTrack['id'])

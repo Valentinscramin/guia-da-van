@@ -11,7 +11,6 @@
             <form action="{{ route('van.update', $van->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-
                 <div class="itemInput col-12">
                     @foreach ($photos as $eachPhoto)
                         @if (in_array($eachPhoto->id, $array_photos_selected))

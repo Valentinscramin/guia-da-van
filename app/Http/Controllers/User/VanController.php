@@ -142,21 +142,32 @@ class VanController extends Controller
 
         $track_selected = array();
         $count = 0;
+        $listId = array();
+
         foreach ($van->track as $eachTrack) {
+            if (!in_array($eachTrack->id, $listId, true)) {
+                array_push($listId, $eachTrack->id);
+            }
+        }
 
-            $van_track = VanTrack::where("van_id", "=", $id)->where("track_id", "=", $eachTrack->id)->get();
-            $info = VanTrackInfo::where("van_track_id", "=", $van_track[0]->id)->get();
+        foreach ($listId as $eachTrack) {
 
-            if (!empty($info[0])) {
-                $track_selected[$count]['id'] = $eachTrack->id;
-                $track_selected[$count]['name'] = $eachTrack->name;
-                $track_selected[$count]['cidade_saida'] = $info[0]->cidade_saida;
-                $track_selected[$count]['cidade_chegada'] = $info[0]->cidade_chegada;
-                $track_selected[$count]['escola'] = $info[0]->escola;
-                $track_selected[$count]['periodo'] = $info[0]->periodo;
-                $track_selected[$count]['evento'] = $info[0]->evento;
+            $van_track = VanTrack::where("van_id", "=", $id)->where("track_id", "=", $eachTrack)->get();
 
-                $count++;
+            foreach ($van_track as $eachOne) {
+
+                $info = VanTrackInfo::where("van_track_id", "=", $eachOne->id)->get()[0];
+
+                if (!empty($info)) {
+                    $track_selected[$count]['id'] = $eachOne->track_id;
+                    $track_selected[$count]['cidade_saida'] = $info->cidade_saida;
+                    $track_selected[$count]['cidade_chegada'] = $info->cidade_chegada;
+                    $track_selected[$count]['escola'] = $info->escola;
+                    $track_selected[$count]['periodo'] = $info->periodo;
+                    $track_selected[$count]['evento'] = $info->evento;
+
+                    $count++;
+                }
             }
         }
 
@@ -208,9 +219,9 @@ class VanController extends Controller
                 $array_to_push['periodo'] = $request->periodo[$track_amount];
                 $array_to_push['evento'] = $request->evento[$track_amount];
 
-                array_push($array_insert, $array_to_push);
-
                 $track_amount++;
+
+                array_push($array_insert, $array_to_push);
             }
 
             VanTrackInfo::insert($array_insert);
