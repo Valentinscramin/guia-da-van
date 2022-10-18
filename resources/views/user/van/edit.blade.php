@@ -66,9 +66,7 @@
                 </div>
                 <div class="itemInput col-12 col-sm-12">
                     <label for="">Comentario</label>
-                    <textarea name="comment" id="" cols="30" rows="10">
-                {{ $van->comment }}
-                </textarea>
+                    <textarea name="comment" id="">{{ $van->comment }}</textarea>
                 </div>
                 @include('user.van.tracks')
 
@@ -77,33 +75,66 @@
         </div>
     </div>
     <script>
+        window.onload = function() {
+
+            $(".track_selector :selected").map(function(key, element) {
+
+                switch (parseInt(this.value)) {
+                    case 1:
+                        $("#cidade_saida_" + key).show()
+                        $("#cidade_chegada_" + key).show()
+                        $("#periodo_" + key).show()
+                        $("#escola_" + key).show()
+                        $("#evento_" + key).hide()
+                        break;
+                    case 2:
+                        $("#cidade_saida_" + key).show()
+                        $("#cidade_chegada_" + key).hide()
+                        $("#periodo_" + key).hide()
+                        $("#escola_" + key).hide()
+                        $("#evento_" + key).show()
+                        break;
+                    default:
+                        $("#cidade_saida_" + key).show()
+                        $("#cidade_chegada_" + key).hide()
+                        $("#periodo_" + key).hide()
+                        $("#escola_" + key).hide()
+                        $("#evento_" + key).hide()
+                }
+
+            }).get()
+
+        }
+
         function change(element) {
 
-            console.log(element.value)
+            var cardNumber = $(element).data("card");
 
-            switch (element.value) {
+            switch (parseInt(element.value)) {
                 case 1:
-                    $("#cidade_saida").show()
-                    $("#cidade_chegada").show()
-                    $("#periodo").show()
-                    $("#escola").show()
-                    $("#evento").hide()
+                    $("#cidade_saida_" + cardNumber).show()
+                    $("#cidade_chegada_" + cardNumber).show()
+                    $("#periodo_" + cardNumber).show()
+                    $("#escola_" + cardNumber).show()
+                    $("#evento_" + cardNumber).hide()
                     break;
                 case 2:
-                    $("#cidade_saida").show()
-                    $("#cidade_chegada").hide()
-                    $("#periodo").hide()
-                    $("#escola").hide()
-                    $("#evento").show()
+                    $("#cidade_saida_" + cardNumber).show()
+                    $("#cidade_chegada_" + cardNumber).hide()
+                    $("#periodo_" + cardNumber).hide()
+                    $("#escola_" + cardNumber).hide()
+                    $("#evento_" + cardNumber).show()
                     break;
                 default:
-                    $("#cidade_saida").show()
-                    $("#cidade_chegada").hide()
-                    $("#periodo").hide()
-                    $("#escola").hide()
-                    $("#evento").hide()
+                    $("#cidade_saida_" + cardNumber).show()
+                    $("#cidade_chegada_" + cardNumber).hide()
+                    $("#periodo_" + cardNumber).hide()
+                    $("#escola_" + cardNumber).hide()
+                    $("#evento_" + cardNumber).hide()
             }
+
         }
+
         jQuery("#frota").addClass("active_dashboard");
     </script>
 @endsection
