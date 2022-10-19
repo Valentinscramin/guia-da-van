@@ -55,9 +55,29 @@
 
                 <div class="col-12 btn_submit"><button type="submit">Cadastrar Van</button></div>
             </form>
+            <form action="{{ route('remove_track') }}" id="remove_track" method="POST">
+                @csrf
+                @method('GET')
+            </form>
         </div>
     </div>
     <script>
+        function deleteTrack(element) {
+            $('<input>').attr({
+                type: 'hidden',
+                name: 'van_track_id',
+                value: $(element).data("track")
+            }).appendTo("#remove_track")
+
+            $('<input>').attr({
+                type: 'hidden',
+                name: 'van',
+                value: $(element).data("van")
+            }).appendTo("#remove_track")
+
+            $("#remove_track").submit()
+        }
+
         function change(element) {
 
             var cardNumber = $(element).data("card");

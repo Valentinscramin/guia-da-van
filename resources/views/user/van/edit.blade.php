@@ -39,7 +39,6 @@
                                 </label>
                             </div>
                         @endforeach
-
                         <div class="btn_cadastre salvar_modal_album col-12"><a href="#">Salvar</a></div>
                     </div>
                 </div>
@@ -71,9 +70,30 @@
 
                 <div class="col-12 btn_submit"><button type="submit">Atualizar Van</button></div>
             </form>
+            <form action="{{ route('remove_track') }}" id="remove_track" method="POST">
+                @csrf
+                @method('GET')
+            </form>
         </div>
     </div>
     <script>
+
+        function deleteTrack(element) {
+            $('<input>').attr({
+                type: 'hidden',
+                name: 'van_track_id',
+                value: $(element).data("track")
+            }).appendTo("#remove_track")
+
+            $('<input>').attr({
+                type: 'hidden',
+                name: 'van',
+                value: $(element).data("van")
+            }).appendTo("#remove_track")
+
+            $("#remove_track").submit()
+        }
+
         window.onload = function() {
 
             $(".track_selector :selected").map(function(key, element) {

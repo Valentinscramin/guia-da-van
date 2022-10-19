@@ -48,6 +48,9 @@
                         </option>
                     </select>
                 </div>
+                <br>
+                <a type="button" onclick="deleteTrack(this)" data-track="{{ $eachTrack['van_track_id'] }}"
+                    data-van="{{ $van->id }}">Delete</a>
             </div>
             @php
                 $count++;

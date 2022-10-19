@@ -71,7 +71,7 @@ $(function () {
     var card = "<div class='card itemInput col-12 col-sm-4' style='width: 18rem;'>" +
       "<div class='card-body'>" +
       "<h5 class='card-title'>Trajeto</h5>" +
-      "<select name='track[]' onchange='change(this)' data-card='"+$('.card').length+"'>" +
+      "<select name='track[]' onchange='change(this)' data-card='" + $('.card').length + "'>" +
       optionTrack
       + "</select><br>" +
       "<select name='cidade_saida[]' id='cidade_saida_" + $('.card').length + "'>" +

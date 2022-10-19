@@ -159,6 +159,7 @@ class VanController extends Controller
                 $info = VanTrackInfo::where("van_track_id", "=", $eachOne->id)->get()[0];
 
                 if (!empty($info)) {
+                    $track_selected[$count]['van_track_id'] = $eachOne->id;
                     $track_selected[$count]['id'] = $eachOne->track_id;
                     $track_selected[$count]['cidade_saida'] = $info->cidade_saida;
                     $track_selected[$count]['cidade_chegada'] = $info->cidade_chegada;
@@ -240,6 +241,13 @@ class VanController extends Controller
         }
 
         return redirect('user/van');
+    }
+
+
+    public function remove(Request $request)
+    {
+        VanTrack::where("id", "=", $request->van_track_id)->delete();
+        return redirect('user/van/' . $request->van . '/edit');
     }
 
     /**

@@ -52,6 +52,7 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/user', [App\Http\Controllers\User\HomeController::class, 'index'])->name('user_home');
     Route::resource('/user/profile', App\Http\Controllers\User\ProfileController::class);
+    Route::get('/user/van/remove/track', [App\Http\Controllers\User\VanController::class, 'remove'])->name('remove_track');
     Route::resource('/user/van', App\Http\Controllers\User\VanController::class);
     Route::resource('/user/photos', App\Http\Controllers\User\UserPhotosController::class, ['names' => 'user.photos']);
 });
