@@ -65,39 +65,34 @@ class VanController extends Controller
 
         $van->save();
 
-        foreach ($request->track as $eachTrack) {
+        if (!empty(is_array($request->track))) {
 
-            $van_track = new VanTrack();
-            $van_track->van_id = $van->id;
-            $van_track->track_id = $eachTrack;
-            $van_track->save();
+            VanTrack::where("van_id", "=", $van->id)->delete();
 
-            $vanTrackInfo = new VanTrackInfo();
+            $array_insert = array();
+            $track_amount = 0;
+            foreach ($request->track as $eachTrack) {
 
-            switch ($eachTrack) {
-                case 1:
-                    $vanTrackInfo->cidade_saida = $request->cidade_saida_escola;
-                    $vanTrackInfo->cidade_chegada = $request->cidade_chegada_escola;
-                    $vanTrackInfo->escola = $request->escola;
-                    $vanTrackInfo->periodo = $request->periodo;
-                    break;
+                $van_track = new VanTrack();
+                $van_track->van_id = $van->id;
+                $van_track->track_id = $eachTrack;
+                $van_track->save();
 
-                case 2:
-                    $vanTrackInfo->cidade_saida = $request->cidade_saida_evento;
-                    $vanTrackInfo->evento = $request->evento;
-                    break;
+                $array_to_push = array();
 
-                case 3:
-                    $vanTrackInfo->cidade_saida = $request->cidade_saida_executivo;
-                    break;
+                $array_to_push['van_track_id'] = $van_track->id;
+                $array_to_push['cidade_saida'] = $request->cidade_saida[$track_amount];
+                $array_to_push['cidade_chegada'] = $request->cidade_chegada[$track_amount];
+                $array_to_push['escola'] = $request->escola[$track_amount];
+                $array_to_push['periodo'] = $request->periodo[$track_amount];
+                $array_to_push['evento'] = $request->evento[$track_amount];
 
-                case 4:
-                    $vanTrackInfo->cidade_saida = $request->cidade_saida_frete;
-                    break;
+                array_push($array_insert, $array_to_push);
+
+                $track_amount++;
             }
 
-            $vanTrackInfo->van_track_id = $van_track->id;
-            $vanTrackInfo->save();
+            VanTrackInfo::insert($array_insert);
         }
 
 
@@ -146,17 +141,34 @@ class VanController extends Controller
         }
 
         $track_selected = array();
+        $count = 0;
+        $listId = array();
+
         foreach ($van->track as $eachTrack) {
+            if (!in_array($eachTrack->id, $listId, true)) {
+                array_push($listId, $eachTrack->id);
+            }
+        }
 
-            $van_track = VanTrack::where("van_id", "=", $id)->where("track_id", "=", $eachTrack->id)->get();
-            $info = VanTrackInfo::where("van_track_id", "=", $van_track[0]->id)->get();
+        foreach ($listId as $eachTrack) {
 
-            if (!empty($info[0])) {
-                $track_selected[$eachTrack->id]['cidade_saida'] = $info[0]->cidade_saida;
-                $track_selected[$eachTrack->id]['cidade_chegada'] = $info[0]->cidade_chegada;
-                $track_selected[$eachTrack->id]['escola'] = $info[0]->escola;
-                $track_selected[$eachTrack->id]['periodo'] = $info[0]->periodo;
-                $track_selected[$eachTrack->id]['evento'] = $info[0]->evento;
+            $van_track = VanTrack::where("van_id", "=", $id)->where("track_id", "=", $eachTrack)->get();
+
+            foreach ($van_track as $eachOne) {
+
+                $info = VanTrackInfo::where("van_track_id", "=", $eachOne->id)->get()[0];
+
+                if (!empty($info)) {
+                    $track_selected[$count]['van_track_id'] = $eachOne->id;
+                    $track_selected[$count]['id'] = $eachOne->track_id;
+                    $track_selected[$count]['cidade_saida'] = $info->cidade_saida;
+                    $track_selected[$count]['cidade_chegada'] = $info->cidade_chegada;
+                    $track_selected[$count]['escola'] = $info->escola;
+                    $track_selected[$count]['periodo'] = $info->periodo;
+                    $track_selected[$count]['evento'] = $info->evento;
+
+                    $count++;
+                }
             }
         }
 
@@ -186,10 +198,12 @@ class VanController extends Controller
 
         $van->save();
 
-        if (!empty($request->track)) {
+        if (!empty(is_array($request->track))) {
 
             VanTrack::where("van_id", "=", $van->id)->delete();
 
+            $array_insert = array();
+            $track_amount = 0;
             foreach ($request->track as $eachTrack) {
 
                 $van_track = new VanTrack();
@@ -197,33 +211,21 @@ class VanController extends Controller
                 $van_track->track_id = $eachTrack;
                 $van_track->save();
 
-                $vanTrackInfo = new VanTrackInfo();
+                $array_to_push = array();
 
-                switch ($eachTrack) {
-                    case 1:
-                        $vanTrackInfo->cidade_saida = $request->cidade_saida_escola;
-                        $vanTrackInfo->cidade_chegada = $request->cidade_chegada_escola;
-                        $vanTrackInfo->escola = $request->escola;
-                        $vanTrackInfo->periodo = $request->periodo;
-                        break;
+                $array_to_push['van_track_id'] = $van_track->id;
+                $array_to_push['cidade_saida'] = $request->cidade_saida[$track_amount];
+                $array_to_push['cidade_chegada'] = $request->cidade_chegada[$track_amount];
+                $array_to_push['escola'] = $request->escola[$track_amount];
+                $array_to_push['periodo'] = $request->periodo[$track_amount];
+                $array_to_push['evento'] = $request->evento[$track_amount];
 
-                    case 2:
-                        $vanTrackInfo->cidade_saida = $request->cidade_saida_evento;
-                        $vanTrackInfo->evento = $request->evento;
-                        break;
+                $track_amount++;
 
-                    case 3:
-                        $vanTrackInfo->cidade_saida = $request->cidade_saida_executivo;
-                        break;
-
-                    case 4:
-                        $vanTrackInfo->cidade_saida = $request->cidade_saida_frete;
-                        break;
-                }
-
-                $vanTrackInfo->van_track_id = $van_track->id;
-                $vanTrackInfo->save();
+                array_push($array_insert, $array_to_push);
             }
+
+            VanTrackInfo::insert($array_insert);
         } else {
             VanTrack::where("van_id", "=", $id)->delete();
         }
@@ -239,6 +241,13 @@ class VanController extends Controller
         }
 
         return redirect('user/van');
+    }
+
+
+    public function remove(Request $request)
+    {
+        VanTrack::where("id", "=", $request->van_track_id)->delete();
+        return redirect('user/van/' . $request->van . '/edit');
     }
 
     /**
