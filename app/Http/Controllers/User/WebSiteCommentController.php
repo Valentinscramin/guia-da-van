@@ -27,7 +27,7 @@ class WebSiteCommentController extends Controller
      */
     public function create()
     {
-        return view('site.websitecomentario');
+        return view('user.websitecomentario');
     }
 
     /**
@@ -48,6 +48,8 @@ class WebSiteCommentController extends Controller
         $webSiteComment->active = 0;
         $webSiteComment->user_id = Auth::id();
         $webSiteComment->save();
+
+        return redirect(route('user_home'));
     }
 
     /**

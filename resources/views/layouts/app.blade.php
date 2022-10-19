@@ -74,7 +74,8 @@
                                 <span>Configurações</span></a></li>
                         <li><a href="#"><img src="{{ URL('/images/anuncie_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Anuncie aqui</span></a></li>
-                        <li><a href="#"><img src="{{ URL('/images/nos-avalie_dashboard.svg') }}" alt=""
+                        <li><a href="{{ route('web_site_comment') }}"><img
+                                    src="{{ URL('/images/nos-avalie_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Nos avalie</span></a></li>
                         <li><a href="#"><img src="{{ URL('/images/help_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Ajuda</span></a></li>

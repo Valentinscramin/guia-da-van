@@ -42,9 +42,6 @@ Route::resource('/avaliation', App\Http\Controllers\User\AvaliationController::c
 //COMMENT
 Route::post('/comment/push', [App\Http\Controllers\User\CommentController::class, 'store'])->name('comment_push');
 
-//COMMENT WEB SITE
-Route::get('/web-site-comment', [App\Http\Controllers\User\WebSiteCommentController::class, 'create'])->name('web_site_comment');
-Route::post('/web-site-comment/push', [App\Http\Controllers\User\WebSiteCommentController::class, 'store'])->name('web_site_comment_push');
 
 Auth::routes();
 
@@ -55,6 +52,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/van/remove/track', [App\Http\Controllers\User\VanController::class, 'remove'])->name('remove_track');
     Route::resource('/user/van', App\Http\Controllers\User\VanController::class);
     Route::resource('/user/photos', App\Http\Controllers\User\UserPhotosController::class, ['names' => 'user.photos']);
+
+    //COMMENT WEB SITE
+    Route::get('/user/web-site-comment', [App\Http\Controllers\User\WebSiteCommentController::class, 'create'])->name('web_site_comment');
+    Route::post('/user/web-site-comment/push', [App\Http\Controllers\User\WebSiteCommentController::class, 'store'])->name('web_site_comment_push');
 });
 
 //ADMIN
