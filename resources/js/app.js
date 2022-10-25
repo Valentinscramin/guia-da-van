@@ -23,13 +23,10 @@ $(function () {
     $(".modal_album").removeClass("active_modal_album")
   })
 
-
   //SELECIONA O TRACK E ESCONDE O SELECIONADO
   $('#change_track option:selected').on('change', function (e) {
     alert(e)
   })
-
-
 
   $.ajaxSetup({
     headers: {
