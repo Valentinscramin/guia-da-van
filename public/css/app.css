@@ -2230,9 +2230,7 @@ textarea.form-control-lg {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  -webkit-print-color-adjust: exact;
-     color-adjust: exact;
-          print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 .form-check-input[type=checkbox] {
   border-radius: 0.25em;
@@ -11222,6 +11220,29 @@ table {
   background-color: #b06eff;
 }
 
+.btn_register_login a {
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 2px solid #5837e7;
+  border-radius: 30px;
+  padding: 17px 0;
+  margin: 0px auto;
+  letter-spacing: 1px;
+  font-size: 1.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5837e7;
+  transition: all 0.3s linear;
+}
+.btn_register_login a:hover {
+  transition: all 0.3s linear;
+  color: #fff;
+  border: 2px solid #b06eff;
+  background-color: #b06eff;
+}
+
 .btn_cancel button {
   background-color: #e73782;
   font-weight: 700;
@@ -11279,6 +11300,38 @@ table {
   transition: all 0.3s linear;
   color: #fff;
   background-color: #5837e7;
+}
+
+.button_delete {
+  text-align: center;
+}
+.button_delete a {
+  transition: all 0.3s linear;
+  font-weight: 550;
+  text-transform: uppercase;
+  color: #e73782 !important;
+}
+.button_delete a svg path {
+  transition: all 0.3s linear;
+  fill: #e73782;
+}
+.button_delete a:hover {
+  color: #5837e7 !important;
+  transition: all 0.3s linear;
+}
+.button_delete a:hover svg path {
+  transition: all 0.3s linear;
+  fill: #5837e7;
+}
+
+.add_tracking a {
+  color: #b06eff;
+  font-weight: 550;
+  transition: all 0.3s linear;
+}
+.add_tracking a:hover {
+  color: #5837e7;
+  transition: all 0.3s linear;
 }
 
 .bannerTop {
@@ -11404,18 +11457,24 @@ form textarea {
   resize: none;
   transition: all 0.3s linear;
 }
-form ::-moz-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+form ::-moz-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #858585;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
 }
-form ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+form ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #858585;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
 }
-form :-ms-input-placeholder { /* Internet Explorer 10-11 */
+form :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
   color: #858585;
 }
-form ::-ms-input-placeholder { /* Microsoft Edge */
+form ::-ms-input-placeholder {
+  /* Microsoft Edge */
   color: #858585;
 }
 form input[type=radio] {
@@ -11453,6 +11512,12 @@ form input[type=radio]:active {
   transition: all 0.3s linear;
   background-color: #5837e7;
 }
+form input[type=checkbox] {
+  width: 15px;
+  height: 12px;
+  margin-right: 5px;
+  border: 1px solid #BCBCBC;
+}
 form label {
   display: flex;
   align-items: center;
@@ -11462,10 +11527,34 @@ form label {
   color: #858585;
   cursor: pointer;
 }
+form input:-webkit-autofill,
+form input:-webkit-autofill:hover,
+form input:-webkit-autofill:focus,
+form input:-webkit-autofill:active {
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #030303 !important;
+  color: #fff !important;
+}
 form .item_input {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+form .item_card_ {
+  margin-bottom: 15px;
+}
+form .card-title {
+  color: #858585;
+  font-weight: 550;
+  text-align: center;
+  margin: 10px 0;
+}
+form .cart_item {
+  box-shadow: 0px 0 14px 1px rgba(0, 0, 0, 0.1);
+  border: 0;
+  text-align: center;
+  border-radius: 10px;
 }
 form .collapse_filter .content_filter {
   display: none;
@@ -11484,6 +11573,11 @@ form .collapse_filter .activeFilter {
 @media only screen and (min-width: 0px) and (max-width: 407px) {
   form .item {
     margin-bottom: 10px;
+  }
+}
+@media (min-width: 576px) {
+  form .cart_item {
+    margin: 0 16px;
   }
 }
 @media (min-width: 768px) {
@@ -12085,6 +12179,79 @@ form .collapse_filter .activeFilter {
 @media (min-width: 576px) {
   .modal_album .content {
     justify-content: flex-start;
+  }
+}
+.login_body {
+  background-color: #F6F8FA;
+}
+
+.login {
+  padding: 50px 0;
+}
+.login .takeCard {
+  background-color: #fff;
+  border-radius: 30px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.login .takeCard .icon_guia_van {
+  margin-bottom: 30px;
+}
+.login .takeCard .title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #5837e7;
+  margin-bottom: 10px;
+}
+.login .takeCard .subtitle {
+  color: #858585;
+  font-weight: 550;
+  margin-bottom: 30px;
+}
+.login .takeCard form .itemInput {
+  margin-bottom: 18px;
+}
+.login .takeCard form label {
+  justify-content: flex-start;
+  margin-bottom: 5px;
+  text-align: left;
+  color: #5837e7;
+  font-weight: bold;
+}
+.login .takeCard form input {
+  padding: 15px !important;
+  border-radius: 30px !important;
+}
+.login .takeCard .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.login .takeCard .forget_password {
+  text-align: right;
+}
+.login .takeCard .forget_password a {
+  transition: all 0.3s linear;
+  font-size: 0.775rem;
+  color: #5837e7;
+  font-weight: 550;
+  text-decoration: none;
+}
+.login .takeCard .forget_password a:hover {
+  transition: all 0.3s linear;
+  color: #b06eff;
+}
+
+@media (min-width: 992px) {
+  .login .takeCard {
+    padding: 50px 50px;
+  }
+}
+@media (min-width: 1200px) {
+  .login .takeCard .forget_password a {
+    font-size: 1rem;
   }
 }
 .footer:before {

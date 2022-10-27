@@ -25,23 +25,24 @@
 
 </head>
 
-<body>
+<body class="login_body">
     <div class="login">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header">{{ __('Login') }}</div>
+            <div class="row no-gutters">
+                <div class="takeCard col-md-12">
+                    <div class="col-12 col-md-6">
+                        <div class="col-md-10">
+                            <div class="icon_guia_van"><img src="{{ URL('/images/icon.png') }}" class="img-fluid" alt=""></div>
+                            <div class="title col-12">{{ __('Login') }}</div>
+                            <div class="subtitle">Entre com seu e-mail e senha.</div>
+                            <div class="formulario">
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
+                                    @method('POST')
+                                    <div class="col-12 itemInput">
+                                        <label for="email" class="col-md-4 text-md-end">{{ __('E-mail*') }}</label>
 
-                        <div class="card-body">
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
-                                @method('POST')
-                                <div class="row mb-3">
-                                    <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                                    <div class="col-md-6">
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -49,13 +50,11 @@
                                         </span>
                                         @enderror
                                     </div>
-                                </div>
 
-                                <div class="row mb-3">
-                                    <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                    <div class="col-12 itemInput">
+                                        <label for="password" class="col-md-4 text-md-end">{{ __('Senha*') }}</label>
 
-                                    <div class="col-md-6">
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                        <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -63,37 +62,34 @@
                                         </span>
                                         @enderror
                                     </div>
-                                </div>
 
-                                <div class="row mb-3">
-                                    <div class="col-md-6 offset-md-4">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                            <label class="form-check-label" for="remember">
-                                                {{ __('Remember Me') }}
+                                    <div class="col-12 itemInput flex">
+                                        <div class="col-6" style="display: flex;">
+                                            <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                            <label for="remember">
+                                                {{ __('Lembrar-me') }}
                                             </label>
                                         </div>
+                                        <div class="col-6 forget_password">
+                                            @if (Route::has('password.request'))
+                                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                {{ __('Esqueceu sua senha?') }}
+                                            </a>
+                                            @endif
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="row mb-0">
-                                    <div class="col-md-8 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
-                                            {{ __('Login') }}
-                                        </button>
-
-                                        @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                        @endif
+                                    <div class="col-12" style="justify-content: center;">
+                                        <div class="btn_submit" style="margin: 10px auto;">
+                                            <button type="submit" style="width: 100%; justify-content: center; padding: 19px 0; font-size: 1.45rem;">{{ __('Entrar') }}</button>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="col-12 btn_register_login">
+                                        <a href="/register">Registrar-se</a>
+                                    </div>
+                            </div>
                             </form>
-                            <br>
-                            <br>
-                            <div class="row md-3">
+
+                            <div class="col-12">
                                 @if (session('error'))
                                 <div class="alert alert-danger">
                                     {{ session('error') }}
@@ -102,9 +98,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-12 col-md-6">
+                        <div class="slider_login">
+                            <div class="item_login_slider"><img src="{{ URL('/images/card_1.png') }}" class="img-fluid" alt=""></div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
+    </div>
     </div>
 </body>
 

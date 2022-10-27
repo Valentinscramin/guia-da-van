@@ -1,0 +1,96 @@
+.login_body {
+    background-color: #F6F8FA;
+}
+.login {
+    padding: 50px 0;
+
+    .takeCard {
+        background-color: #fff;
+        border-radius: 30px;
+        margin: 0 auto;
+        padding: 50px 20px;
+        display: flex;
+        flex-wrap: wrap;
+
+        .icon_guia_van {
+            margin-bottom: 30px;
+        }
+        .title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: $purple;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: $gray;
+            font-weight: 550;
+            margin-bottom: 30px;
+        }
+
+        form {
+            .itemInput {
+                margin-bottom: 18px;
+            }
+
+            label {
+                justify-content: flex-start;
+                margin-bottom: 5px;
+                text-align: left;
+                color: $purple;
+                font-weight: bold;
+            }
+
+            input {
+                padding: 15px !important;
+                border-radius: 30px !important;
+            }
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .forget_password {
+            text-align: right;
+
+            a {
+                @include anima-slow;
+                font-size: 0.775rem;
+                color: $purple;
+                font-weight: 550;
+                text-decoration: none;
+
+                &:hover {
+                    @include anima-slow;
+                    color: $lightPurple;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+    .login {
+        .takeCard {
+            padding: 50px 50px;
+        }
+    }
+}
+
+
+@media (min-width: map-get($grid-breakpoints, xl)) {
+    .login {
+        .takeCard {
+            .forget_password {
+                a {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
