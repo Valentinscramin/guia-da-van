@@ -145,6 +145,32 @@
     }
 }
 
+.btn_register_login {
+    a {
+        background-color: transparent;
+        font-weight: 700;
+        font-size: 1rem;
+        border: 2px solid $purple;
+        border-radius: 30px;
+        padding: 17px 0;
+        margin: 0px auto;
+        letter-spacing: 1px;
+        font-size: 1.45rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $purple;
+        @include anima-slow;
+
+        &:hover {
+            @include anima-slow;
+            color: #fff;
+            border: 2px solid $lightPurple;
+            background-color: $lightPurple;
+        }
+    }
+}
+
 .btn_cancel {
     button {
         background-color: $pink;
@@ -178,6 +204,7 @@
 .add_tracking {
     text-align: center;
     margin: 30px 0;
+
     button {
         background: transparent;
         font-weight: bold;
@@ -189,10 +216,11 @@
 .btn_selecionar {
     text-align: center;
     margin: 10px auto 60px auto;
+
     a {
         background-color: transparent;
-        border:  2px solid $purple;
-        color: $purple; 
+        border: 2px solid $purple;
+        color: $purple;
         font-size: 0.875rem;
         font-weight: 700;
         border-radius: 30px;
@@ -204,6 +232,46 @@
             @include anima-slow;
             color: #fff;
             background-color: $purple;
+        }
+    }
+}
+
+.button_delete {
+    text-align: center;
+
+    a {
+        @include anima-slow;
+        font-weight: 550;
+        text-transform: uppercase;
+        color: $pink !important;
+        svg {
+            
+            path {
+                @include anima-slow;
+                fill: $pink;
+            }
+        }
+        &:hover {
+            color: $purple !important;
+            @include anima-slow;
+            svg {
+                path {
+                    @include anima-slow;
+                    fill: $purple;
+                }
+            }
+        }
+    }
+}
+
+.add_tracking {
+    a {
+        color: $lightPurple;
+        font-weight: 550;
+        @include anima-slow;
+        &:hover {
+            color: $purple;
+            @include anima-slow;
         }
     }
 }

@@ -20,18 +20,22 @@ form {
         @include anima-slow;
     }
 
-    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: $gray;
-        opacity: 1; /* Firefox */
-      }
-      
-      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        opacity: 1;
+        /* Firefox */
+    }
+
+    :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
         color: $gray;
-      }
-      
-      ::-ms-input-placeholder { /* Microsoft Edge */
+    }
+
+    ::-ms-input-placeholder {
+        /* Microsoft Edge */
         color: $gray;
-      }
+    }
 
     input[type=radio] {
         cursor: pointer;
@@ -72,6 +76,13 @@ form {
         }
     }
 
+    input[type=checkbox] {
+        width: 15px;
+        height: 12px;
+        margin-right: 5px;
+        border: 1px solid #BCBCBC;
+    }
+
     label {
         display: flex;
         align-items: center;
@@ -82,10 +93,38 @@ form {
         cursor: pointer;
     }
 
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+        -webkit-text-fill-color: $black !important;
+        color: #fff !important;
+    }
+
     .item_input {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+
+    .item_card_ {
+        margin-bottom: 15px;
+    }
+
+    .card-title {
+        color: $gray;
+        font-weight: 550;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .cart_item {
+        box-shadow: 0px 0 14px 1px rgba(0, 0, 0, .1);
+        border: 0;
+        text-align: center;
+        border-radius: 10px;
     }
 
     .collapse_filter {
@@ -112,6 +151,14 @@ form {
     form {
         .item {
             margin-bottom: 10px;
+        }
+    }
+}
+
+@media (min-width: map-get($grid-breakpoints, sm)) {
+    form {
+        .cart_item {
+            margin: 0 16px;
         }
     }
 }
