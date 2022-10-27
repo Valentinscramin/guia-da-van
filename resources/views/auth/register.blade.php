@@ -127,7 +127,7 @@
 
                                     <div class="col-12" style="justify-content: center;">
                                         <div class="btn_submit" style="margin: 10px auto;">
-                                            <button type="submit" style="width: 100%; justify-content: center; padding: 19px 0; font-size: 1.45rem;">{{ __('Register') }}</button>
+                                            <button type="submit" style="width: 100%; justify-content: center; padding: 19px 0; font-size: 1.45rem;">{{ __('Registre-se') }}</button>
                                         </div>
                                     </div>
                                 </form>
