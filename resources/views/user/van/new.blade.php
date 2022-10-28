@@ -33,22 +33,22 @@
 
 
                 <div class="itemInput col-12 col-sm-4">
-                    <label>Model</label>
+                    <label>Modelo</label>
                     <input type="text" name="model">
-                    <small>Model</small>
+                    <small>Modelo</small>
                 </div>
                 <div class="itemInput col-12 col-sm-4">
-                    <label>Plate</label>
+                    <label>Placa</label>
                     <input type="text" name="plate">
-                    <small>Plate</small>
+                    <small>Placa</small>
                 </div>
                 <div class="itemInput col-12 col-sm-4">
-                    <label>Seats</label>
+                    <label>Assentos</label>
                     <input type="number" name="seats">
-                    <small>Seats</small>
+                    <small>Assentos</small>
                 </div>
                 <div class="itemInput col-12">
-                    <label>Comentario</label>
+                    <label>Comentário</label>
                     <textarea name="comment"></textarea>
                 </div>
                 @include('user.van.tracks')

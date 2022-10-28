@@ -74,6 +74,7 @@ class SiteController extends Controller
                         "van.plate as placa",
                         "van.seats as acentos",
                         "van.id as van_id",
+                        "van.comment as comment",
                         "track.name as trajeto",
                         "van_track_info.periodo as periodo"
                     )
@@ -98,6 +99,7 @@ class SiteController extends Controller
                         "van.plate as placa",
                         "van.seats as acentos",
                         "van.id as van_id",
+                        "van.comment as comment",
                         "track.name as trajeto",
                         "van_track_info.periodo as periodo"
                     )
@@ -121,12 +123,39 @@ class SiteController extends Controller
                         "van.plate as placa",
                         "van.seats as acentos",
                         "van.id as van_id",
+                        "van.comment as comment",
                         "track.name as trajeto",
                         "van_track_info.periodo as periodo"
                     )
                     ->get();
                 break;
         }
+
+        return view('site.resultado', compact('vans'));
+    }
+
+
+    public function busca_index()
+    {
+        $vans = DB::table('van_track')
+            ->join('van_track_info', "van_track.id", "=", "van_track_info.van_track_id")
+            ->join('van', "van_track.van_id", "=", "van.id")
+            ->join('cities as c', "van_track_info.cidade_saida", "=", "c.id")
+            ->join('users', "van.user_id", "=", "users.id")
+            ->join('track', "van_track.track_id", "=", "track.id")
+            ->select(
+                "users.name as usuario_nome",
+                "users.celular as usuario_celular",
+                "users.id as usuario_id",
+                "van.model as van",
+                "van.plate as placa",
+                "van.seats as acentos",
+                "van.id as van_id",
+                "van.comment as comment",
+                "track.name as trajeto",
+                "van_track_info.periodo as periodo"
+            )
+            ->get();
 
         return view('site.resultado', compact('vans'));
     }

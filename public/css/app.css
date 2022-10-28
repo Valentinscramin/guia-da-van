@@ -2230,7 +2230,9 @@ textarea.form-control-lg {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+     color-adjust: exact;
+          print-color-adjust: exact;
 }
 .form-check-input[type=checkbox] {
   border-radius: 0.25em;
@@ -12152,6 +12154,7 @@ form .collapse_filter .activeFilter {
   height: 100vh;
   top: 0;
   left: 0;
+  z-index: 1 !important;
 }
 .modal_album .content {
   background: #fff;
@@ -12254,6 +12257,10 @@ form .collapse_filter .activeFilter {
     font-size: 1rem;
   }
 }
+.image-preview {
+  width: 10vw;
+}
+
 .footer:before {
   content: "";
   display: block;

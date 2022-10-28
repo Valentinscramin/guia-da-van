@@ -41,7 +41,7 @@ class UserPhotosController extends Controller
     {
 
         $request->validate([
-            "arquivo" => "required",
+            "arquivo" => "image|max:5120|required",
         ]);
 
         $user_photos = new UserPhotos();
