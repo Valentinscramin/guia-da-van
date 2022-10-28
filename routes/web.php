@@ -33,6 +33,9 @@ Route::get('/contato', [App\Http\Controllers\SiteController::class, 'contato'])-
 //FILTRO
 Route::get('/busca/resultado', [App\Http\Controllers\SiteController::class, 'busca'])->name('busca_resultado');
 
+//FILTRO PAGINA DE RESULTADO DIRETO INDEX
+Route::get('/busca/resultado/index', [App\Http\Controllers\SiteController::class, 'busca_index'])->name('busca_index');
+
 //PROFILE
 Route::get('/profile/{id}', [App\Http\Controllers\User\ProfileController::class, 'show'])->name('profile_show');
 

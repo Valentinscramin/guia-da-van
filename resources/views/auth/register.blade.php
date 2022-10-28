@@ -23,6 +23,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+
 </head>
 
 <body class="login_body">
@@ -40,7 +42,7 @@
                                     @csrf
                                     <div class="col-12 itemInput">
                                         <label for="name">{{ __('Nome') }}</label>
-                                        <input id="name" type="text" @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -74,7 +76,7 @@
                                     <div class="col-12 itemInput">
                                         <label for="celular">{{ __('Celular') }}</label>
 
-                                        <input id="celular" type="tel" @error('celular') is-invalid @enderror" name="celular" value="{{ old('celular') }}" required autocomplete="celular" autofocus>
+                                        <input id="celular" type="tel" class="@error('celular') is-invalid @enderror" name="celular" value="{{ old('celular') }}" required autocomplete="celular" autofocus onkeypress="$(this).mask('(00) 0000-00009')">
 
                                         @error('celular')
                                         <span class="invalid-feedback" role="alert">
@@ -99,7 +101,7 @@
                                         <label for="email">{{ __('Email') }}</label>
 
 
-                                        <input id="email" type="email" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -111,7 +113,7 @@
                                     <div class="col-12 itemInput">
                                         <label for="password">{{ __('Senha') }}</label>
 
-                                        <input id="password" type="password" @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                        <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">

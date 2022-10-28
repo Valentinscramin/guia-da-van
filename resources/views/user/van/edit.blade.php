@@ -26,10 +26,10 @@
                         @foreach ($photos as $eachPhoto)
                             <div class="col-12 col-sm-4 col-md-3 itemPhoto">
                                 @if (in_array($eachPhoto->id, $array_photos_selected))
-                                    <input type="checkbox" name="van_user_photo[]" id="{{ $eachPhoto->id }}"
+                                    <input type="radio" name="van_user_photo[]" id="{{ $eachPhoto->id }}"
                                         value="{{ $eachPhoto->id }}" checked>
                                 @else
-                                    <input type="checkbox" name="van_user_photo[]" id="{{ $eachPhoto->id }}"
+                                    <input type="radio" name="van_user_photo[]" id="{{ $eachPhoto->id }}"
                                         value="{{ $eachPhoto->id }}">
                                 @endif
                                 <label for="{{ $eachPhoto->id }}">
@@ -45,25 +45,25 @@
 
 
                 <div class="itemInput col-12 col-sm-4">
-                    <label for="">Model</label>
+                    <label for="">Modelo</label>
                     <input type="text" name="model" id="" placeholder="" aria-describedby="helpId"
                         value="{{ $van->model }}">
-                    <small id="helpId">Model</small>
+                    <small id="helpId">Modelo da Van</small>
                 </div>
                 <div class="itemInput col-12 col-sm-4">
-                    <label for="">Plate</label>
+                    <label for="">Placa</label>
                     <input type="text" name="plate" id="" placeholder="" aria-describedby="helpId"
                         value="{{ $van->plate }}">
-                    <small id="helpId">Plate</small>
+                    <small id="helpId">Placa</small>
                 </div>
                 <div class="itemInput col-12 col-sm-4">
-                    <label for="">Seats</label>
+                    <label for="">Assentos</label>
                     <input type="number" name="seats" id="" placeholder="" aria-describedby="helpId"
                         value="{{ $van->seats }}">
-                    <small id="helpId">Seats</small>
+                    <small id="helpId">Assentos</small>
                 </div>
                 <div class="itemInput col-12 col-sm-12">
-                    <label for="">Comentario</label>
+                    <label for="">Comentário</label>
                     <textarea name="comment" id="">{{ $van->comment }}</textarea>
                 </div>
                 @include('user.van.tracks')
