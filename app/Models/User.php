@@ -3,11 +3,10 @@
 namespace App\Models;
 
 use App\Models\User\UserPhotos;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use PhpParser\Node\Stmt\TryCatch;
 
 class User extends Authenticatable
 {
@@ -70,5 +69,10 @@ class User extends Authenticatable
     public function webSiteComment()
     {
         return $this->hasMany('App\Models\User\WebSiteComment');
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
     }
 }

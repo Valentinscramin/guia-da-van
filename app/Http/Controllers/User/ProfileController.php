@@ -9,9 +9,22 @@ use App\Models\User\Avaliation;
 use App\Models\User\UserPhotos;
 use App\Models\User\Van;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
+
+
+    //Mensagens de retorno caso insira algo errado
+    public $messages = [
+        'name.required' => 'O usuario deve conter um nome',
+        'cpf_cnpj.required' => 'O usuario deve conter um CPF/CNPJ',
+        'postcode.required' => 'O usuario deve conter um CEP',
+        'telefone.required' => 'O usuario deve conter um Telefone',
+        'celular.required' => 'O usuario deve conter um celular',
+        'data_nascimento.required' => 'O usuario deve ter mais de 18 anos',
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -91,6 +104,23 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'cpf_cnpj' => 'required',
+            'postcode' => 'required',
+            'telefone' => 'required',
+            'celular' => 'required',
+            'data_nascimento' => 'required|date|before:18 years ago',
+        ], $this->messages);
+
+        if ($validator->fails()) {
+            return redirect('user/profile')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+
         $user = User::find($id);
         $user->name = $request->name;
         $user->cpf_cnpj = $request->cpf_cnpj;
