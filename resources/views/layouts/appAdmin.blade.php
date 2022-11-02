@@ -23,114 +23,65 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body id="#dashboard__body {
-">
+{{-- route('track_home') --}}
+{{-- route('user.index') --}}
+{{-- route('admin.photos.index') --}}
+{{-- route('announcement.index') --}}
+{{-- route('faq.index') --}}
+{{-- route('web_site_comment_approve') --}}
+
+<body id="dashboard__body">
     <div class="content__dashboard" id="app">
         <div class="col-2 col-sm-1 col-xl-2 column_sidebar">
             <div class="sidebar">
                 <div class="logo">
-                    <a href="{{ route('user_home') }}"><img src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid"></a>
+                    <a href="{{ route('user_home') }}"><img src="{{ URL('/images/logo-guia-da-van.png') }}"
+                            alt="" class="img-fluid"></a>
                 </div>
                 <nav>
                     <ul>
-                        <li class="active_dashboard"><a href="#"><img src="{{ URL('/images/home_dashboard.svg') }}" alt="" class="img-fluid"> <span>Dashboard</span></a></li>
-                        <li><a href="#"><img src="{{ URL('/images/search_van_dashboard.svg') }}" alt="" class="img-fluid"> <span>Buscar Van</span></a></li>
-                        <li><a href="#"><img src="{{ URL('/images/van_dashboard.svg') }}" alt="" class="img-fluid"> <span>Minha Frota</span></a></li>
-                        <li><a href="#"><img src="{{ URL('/images/chat_dashboard.svg') }}" alt="" class="img-fluid"> <span>Chat</span></a></li>
-                        <li><a href="#"><img src="{{ URL('/images/midias_dashboard.svg') }}" alt="" class="img-fluid"> <span>Mídias</span></a></li>
-                    </ul>
-                </nav>
-                <nav class="more_options">
-                    <ul>
-                        <li id="configuracoes"><a href="{{ route('profile.index') }}"><img src="{{ URL('/images/settings_dashboard.svg') }}" alt="" class="img-fluid"> <span>Configurações</span></a></li>
-                        <li><a href="#"><img src="{{ URL('/images/anuncie_dashboard.svg') }}" alt="" class="img-fluid"> <span>Anuncie aqui</span></a></li>
-                        <li><a href="#"><img src="{{ URL('/images/nos-avalie_dashboard.svg') }}" alt="" class="img-fluid"> <span>Nos avalie</span></a></li>
-                        <li><a href="#"><img src="{{ URL('/images/help_dashboard.svg') }}" alt="" class="img-fluid"> <span>Ajuda</span></a></li>
+                        <li class="active_dashboard"><a href="{{ route('admin_home') }}"><img
+                                    src="{{ URL('/images/home_dashboard.svg') }}" alt="" class="img-fluid">
+                                <span>Dashboard</span></a></li>
+                        <li><a href="{{ route('track_home') }}"><img
+                                    src="{{ URL('/images/search_van_dashboard.svg') }}" alt=""
+                                    class="img-fluid"> <span>Trajetos</span></a></li>
+                        <li><a href="{{ route('user.index') }}"><img src="#" alt="" class="img-fluid">
+                                <span>Usuarios</span></a></li>
+                        <li><a href="{{ route('announcement.index') }}"><img
+                                    src="{{ URL('/images/anuncie_dashboard.svg') }}" alt="" class="img-fluid">
+                                <span>Anuncios</span></a></li>
+                        <li><a href="{{ route('admin.photos.index') }}"><img
+                                    src="{{ URL('/images/midias_dashboard.svg') }}" alt="" class="img-fluid">
+                                <span>Mídias</span></a></li>
+                        <li><a href="{{ route('web_site_comment_approve') }}"><img
+                                    src="{{ URL('/images/nos-avalie_dashboard.svg') }}" alt=""
+                                    class="img-fluid"> <span>Comentarios sobre o site</span></a></li>
+                        <li><a href="{{ route('faq.index') }}"><img src="{{ URL('/images/help_dashboard.svg') }}"
+                                    alt="" class="img-fluid"> <span>Ajuda</span></a></li>
                     </ul>
                 </nav>
             </div>
         </div>
         <div class="col-10 col-sm-11 col-xl-10 column_nav">
             <nav class="nav_top_dashboard navbar navbar-expand-md navbar-light bg-white shadow-sm col-11">
-                <div class="container">
-                    <div class="search_dashboard col-6">
-                        <form action="">
-                            <input type="text" placeholder="Faça sua busca aqui...">
-                        </form>
-                    </div>
-                    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                        <div class="container">
-                            <a class="navbar-brand" href="{{ route('admin_home') }}">
-                                {{ config('app.name', 'Laravel') }}
-                            </a>
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <!-- Left Side Of Navbar -->
-                                <ul class="navbar-nav me-auto">
-
-                                </ul>
-
-                                <!-- Right Side Of Navbar -->
-                                <ul class="navbar-nav ms-auto">
-                                    <!-- Authentication Links -->
-                                    @guest
-                                    @if (Route::has('login'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                    </li>
-                                    @endif
-
-                                    @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    </li>
-                                    @endif
-                                    @else
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }}
-                                        </a>
-
-                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-                                            <a class="dropdown-item" href="{{ route('track_home') }}" role="button"> Track </a>
-                                            <a class="dropdown-item" href="{{ route('user.index') }}" role="button"> Users </a>
-                                            <a class="dropdown-item" href="{{ route('admin.photos.index') }}" role="button">
-                                                Photos </a>
-                                            <a class="dropdown-item" href="{{ route('announcement.index') }}" role="button">
-                                                Anuncios </a>
-                                            <a class="dropdown-item" href="{{ route('faq.index') }}" role="button">
-                                                Cadastro Faq </a>
-
-                                            <a class="dropdown-item" href="{{ route('web_site_comment_approve') }}" role="button">
-                                                Web Site Comments </a>
-
-                                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
-
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                @csrf
-                                            </form>
-                                        </div>
-
-                                    </li>
-                                    @endguest
-                                </ul>
-                            </div>
-                        </div>
-                    </nav>
-
-                    <main>
-                        @yield('content')
-                    </main>
+                <div class="search_dashboard col-6">
+                    <form action="">
+                        <input type="text" placeholder="Faça sua busca aqui...">
+                    </form>
                 </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
             </nav>
+
+            <main>
+                @yield('content')
+            </main>
         </div>
+    </div>
 </body>
 
 </html>
