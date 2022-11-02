@@ -31,5 +31,8 @@
                 @endforeach
             </tbody>
         </table>
+        <div>
+            {{ $announcement->links() }}
+        </div>
     </div>
 @endsection

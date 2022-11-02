@@ -24,7 +24,7 @@ class VanController extends Controller
      */
     public function index()
     {
-        $vans = Van::where('user_id', '=', Auth::id())->get();
+        $vans = Van::where('user_id', '=', Auth::id())->paginate(25);
         return view('user.van.home', compact('vans'));
     }
 

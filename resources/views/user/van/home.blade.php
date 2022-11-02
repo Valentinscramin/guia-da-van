@@ -40,6 +40,9 @@
             </table>
         </div>
     </div>
+    <div>
+        {{ $vans->links() }}
+    </div>
     <script>
         jQuery("#frota").addClass("active_dashboard");
     </script>
