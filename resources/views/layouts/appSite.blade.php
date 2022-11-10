@@ -31,7 +31,7 @@
     <header>
         <h1 class="ocultar">Guia da Van</h1>
         <div class="top_header">
-            <h2>Quer fazer parte da nossa comunidade? Clique aqui para acessar @if (Auth::check())<a href="{{ route('user_home') }}">Minha conta</a>@else <a href="/register">Cadastre sua van</a>@endif</h2>
+            <h2>Quer fazer parte da nossa comunidade? Clique aqui para acessar @if (Auth::check())<a href="{{ route('van.index') }}">Minha Frota</a>@else <a href="/register">Cadastre sua van</a>@endif</h2>
         </div>
         <div class="header">
             <div class="container">
