@@ -31,17 +31,12 @@
     <header>
         <h1 class="ocultar">Guia da Van</h1>
         <div class="top_header">
-            @if (Auth::check())
-                <h2><a href="{{ route('user_home') }}">Clique aqui para acessar sua conta</a></h2>
-            @else
-                <h2>Quer fazer parte da nossa comunidade? Clique aqui e <a href="/register">Cadastre sua van</a></h2>
-            @endif
+            <h2>Quer fazer parte da nossa comunidade? Clique aqui para acessar @if (Auth::check())<a href="{{ route('user_home') }}">Minha conta</a>@else <a href="/register">Cadastre sua van</a>@endif</h2>
         </div>
         <div class="header">
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="logo col-6 col-lg-3"><a href="{{ route('home') }}"><img
-                                src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid"></a>
+                    <div class="logo col-6 col-lg-3"><a href="{{ route('home') }}"><img src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid"></a>
                     </div>
                     <div class="menu_desktop col-9">
                         <ul>
@@ -51,13 +46,11 @@
                             <li><a href="{{ route('faq') }}">FAQ</a></li>
                             <li><a href="{{ route('contato') }}">Contato</a></li>
                             @guest
-                                <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a
-                                        href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>
-                                </li>
+                            <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>
+                            </li>
                             @else
-                                <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a
-                                        href="/user"> Olá {{ Auth::user()->name }} </a>
-                                </li>
+                            <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/user"> Olá {{ Auth::user()->name }} </a>
+                            </li>
                             @endguest
                         </ul>
                     </div>
@@ -83,8 +76,7 @@
 
 
                         <div class="col-12 endFooter">
-                            <div class="logo col-8 col-md-4 col-lg-3"><img
-                                    src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid">
+                            <div class="logo col-8 col-md-4 col-lg-3"><img src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid">
                             </div>
                             <div class="menu_footer col-md-8 col-lg-9">
                                 <ul>
@@ -95,14 +87,11 @@
                                     <li><a href="{{ route('contato') }}">Contato</a></li>
 
                                     @guest
-                                        <li class="button_account"><img src="{{ URL('/images/account.svg') }}"
-                                                width=""> <a href="/login">Acessar conta</a> | <a
-                                                href="/register">Criar conta</a>
-                                        </li>
+                                    <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>
+                                    </li>
                                     @else
-                                        <li class="button_account"><img src="{{ URL('/images/account.svg') }}"
-                                                width=""> <a href="/user"> Olá {{ Auth::user()->name }} </a>
-                                        </li>
+                                    <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/user"> Olá {{ Auth::user()->name }} </a>
+                                    </li>
                                     @endguest
                                 </ul>
                             </div>
