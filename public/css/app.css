@@ -11076,6 +11076,9 @@ table {
   transition: all 0.3s linear;
   color: #5837e7;
 }
+.menu_desktop ul .activeMenu a {
+  color: #5837e7;
+}
 .menu_desktop ul .button_account a {
   transition: all 0.3s linear;
   font-size: 0.875rem;

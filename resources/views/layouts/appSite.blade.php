@@ -45,8 +45,8 @@
                     </div>
                     <div class="menu_desktop col-9">
                         <ul>
-                            <li><a href="{{ route('home') }}">Home</a></li>
-                            <li><a href="{{ route('quem_somos') }}">Quem somos</a></li>
+                            <li id="home"><a href="{{ route('home') }}">Home</a></li>
+                            <li id="quem-somos"><a href="{{ route('quem_somos') }}">Quem somos</a></li>
                             <li><a href="{{ route('anuncie_aqui') }}">Anuncie aqui</a></li>
                             <li><a href="{{ route('faq') }}">FAQ</a></li>
                             <li><a href="{{ route('contato') }}">Contato</a></li>

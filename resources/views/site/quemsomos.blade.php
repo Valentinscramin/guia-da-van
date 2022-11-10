@@ -98,24 +98,24 @@
 
                 <div class="text">
                     <p>Qualquer pessoa que selecionar o local de saída e chegada irá receber a informação das
-                    vans cadastradas para este trajeto. O Site Guia da Van tem como objetivo a divulgação
-                    dos serviços prestados por vans.</p> 
+                        vans cadastradas para este trajeto. O Site Guia da Van tem como objetivo a divulgação
+                        dos serviços prestados por vans.</p>
 
                     <p>Os proprietários de vans podem cadastrar o tipo de serviço executado (transporte para
-                    escolas e faculdades, excursões, serviços executivos, fretes) e o local onde este serviço
-                    é executado. Não se enquadra no Site Guia da Van, os serviços de Vans prestados no
-                    conceito de transporte alternativo, clandestinos ou regularizados.</p> 
+                        escolas e faculdades, excursões, serviços executivos, fretes) e o local onde este serviço
+                        é executado. Não se enquadra no Site Guia da Van, os serviços de Vans prestados no
+                        conceito de transporte alternativo, clandestinos ou regularizados.</p>
 
                     <p>Através de um sistema de filtros, os usuários irão selecionar o tipo de serviço que
-                    necessitam e o local onde o serviço será executado. O sistema irá reportar as vans
-                    cadastradas para os serviços e locais selecionados. Os cadastros dos serviços e
-                    locais onde serão executados são de responsabilidade do proprietário da van.
-                    O proprietário pode optar se quer ou não, cadastrar seus serviços no site.</p> 
+                        necessitam e o local onde o serviço será executado. O sistema irá reportar as vans
+                        cadastradas para os serviços e locais selecionados. Os cadastros dos serviços e
+                        locais onde serão executados são de responsabilidade do proprietário da van.
+                        O proprietário pode optar se quer ou não, cadastrar seus serviços no site.</p>
 
                     <p>Caso não existam vans cadastradas para o serviço ou local selecionado, o
-                    solicitante deve procurar outro recurso para localizar a van que necessita.
-                    Este recurso pode ser via internet, outros recursos de divulgação ou em
-                    contato direto com a instituição para onde deseja o serviço.</p> 
+                        solicitante deve procurar outro recurso para localizar a van que necessita.
+                        Este recurso pode ser via internet, outros recursos de divulgação ou em
+                        contato direto com a instituição para onde deseja o serviço.</p>
                 </div>
             </div>
             <div class="col-12 col-lg-6">
@@ -189,4 +189,8 @@
         </div>
     </div>
 </section>
+
+<script>
+    jQuery("#quem-somos").addClass("activeMenu");
+</script>
 @endsection
