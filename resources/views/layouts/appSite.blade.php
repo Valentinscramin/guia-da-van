@@ -42,9 +42,9 @@
                         <ul>
                             <li id="home"><a href="{{ route('home') }}">Home</a></li>
                             <li id="quem-somos"><a href="{{ route('quem_somos') }}">Quem somos</a></li>
-                            <li><a href="{{ route('anuncie_aqui') }}">Anuncie aqui</a></li>
-                            <li><a href="{{ route('faq') }}">FAQ</a></li>
-                            <li><a href="{{ route('contato') }}">Contato</a></li>
+                            <li id="anuncie"><a href="{{ route('anuncie_aqui') }}">Anuncie aqui</a></li>
+                            <li id="faq"><a href="{{ route('faq') }}">FAQ</a></li>
+                            <li id="contato"><a href="{{ route('contato') }}">Contato</a></li>
                             @guest
                             <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>
                             </li>

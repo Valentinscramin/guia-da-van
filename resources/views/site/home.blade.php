@@ -227,7 +227,6 @@
     </div>
 </section>
 
-
 <script>
     jQuery("#home").addClass("activeMenu");
 </script>
