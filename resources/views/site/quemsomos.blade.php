@@ -34,7 +34,7 @@
                     <h2>Quem somos?</h2>
                 </div>
                 <div class="title">
-                    <h3>Seu Guia <span>da van</span></h3>
+                    <h3>Seu Guia <span>da Van</span></h3>
                 </div>
                 <div class="text">
                     <p>Todos os dias, vemos uma grande quantidade de vans circulando em nossa região,
