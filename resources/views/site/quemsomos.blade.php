@@ -93,7 +93,7 @@
                     <h2>Como procurar?</h2>
                 </div>
                 <div class="title">
-                    <h3>A procura por vans se faz de <span>forma simples e eficaz</span></h3>
+                    <h3>A procura por vans de <span>forma simples e eficaz</span></h3>
                 </div>
 
                 <div class="text">
@@ -125,70 +125,6 @@
     </div>
 </div>
 
-<section>
-    <div class="social_media">
-        <div class="container">
-            <div class="row no-gutters">
-                <div class="button_tag">
-                    <h2>Redes socias</h2>
-                </div>
-
-                <div class="title">
-                    <h3>Junte-se a <span>nós</span></h3>
-                </div>
-
-                <div class="all_media col-10 col-md-7 col-lg-10">
-                    <div class="itemSocial col-12 col-lg-4">
-                        <div class="col-12 col-sm-4">
-                            <div class="icon"><a href="#" target="_blank"><img src="{{ URL('/images/facebook.svg') }}" alt="" class="img-fluid"></a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-8">
-                            <div class="title">
-                                <a href="#
-                                    " target="_blank">
-                                    <h2>Facebook</h2>
-                                </a>
-                            </div>
-                            <div class="description"><a href="#" target="_blank">Veja nossas últimas
-                                    atualizações.</a></div>
-                        </div>
-                    </div>
-                    <div class="itemSocial col-12 col-lg-4">
-                        <div class="col-12 col-sm-4">
-                            <div class="icon"><a href="#" target="_blank"><img src="{{ URL('/images/instagram.svg') }}" alt="" class="img-fluid"></a></div>
-                        </div>
-                        <div class="col-12 col-sm-8">
-                            <div class="title">
-                                <a href="#" target="_blank">
-                                    <h2>Instagram</h2>
-                                </a>
-                            </div>
-                            <div class="description"><a href="#" target="_blank">Veja nossas últimas
-                                    atualizações.</a></div>
-                        </div>
-                    </div>
-                    <div class="itemSocial col-12 col-lg-4">
-                        <div class="col-12 col-sm-4">
-                            <div class="icon"><a href="#" target="_blank"><img src="{{ URL('/images/whatsapp.svg') }}" alt="" class="img-fluid"></a>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-8">
-                            <div class="title">
-                                <a href="#" target="_blank">
-                                    <h2>Whatsapp</h2>
-                                </a>
-                            </div>
-                            <div class="description"><a href="#" target="_blank">Entre em contato conosco.</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
 
 <script>
     jQuery("#quem-somos").addClass("activeMenu");
