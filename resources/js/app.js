@@ -93,6 +93,19 @@ $(function () {
     return card;
   }
 
+  $(".estado_jqry").on("change", function () {
+    // alert($(this).data("id"))
+    var id_cidade = $(this).find(":selected").val();
+
+    $.ajax({
+      method: "GET",
+      url: "/api/get-cidades/"+id_cidade,
+    })
+      .done(function (msg) {
+        console.log("Data Saved: " + msg);
+      });
+  })
+
 })
 
 
