@@ -93,6 +93,31 @@ $(function () {
     return card;
   }
 
+  function addCitieSelect(cities) {
+
+    let optionCities
+
+    $.each(cities, function (i, item) {
+      optionCities += "<option value='" + item.id + "'>" + item.name + "</option>"
+    })
+
+    return optionCities;
+  }
+
+  $(".estado_jqry").on("change", function () {
+    var dataid = $(this).data("id");
+    var id_estado = $(this).find(":selected").val();
+
+    $.ajax({
+      method: "GET",
+      url: "/api/get-cidades/" + id_estado,
+    })
+      .done(function (cities) {
+        $("#cidade_" + dataid).empty()
+        return $("#cidade_" + dataid).append(addCitieSelect(JSON.parse(cities), dataid));
+      });
+  })
+
 })
 
 

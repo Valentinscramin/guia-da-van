@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ use App\Http\Controllers\User;
 // });
 
 Route::get('/set-card-trajeto/', [User\ApiCardVanTrajeto::class, 'setCard']);
+Route::get('/get-cidades/{id}', [Controllers\ApiCitiesController::class, 'getCities']);
