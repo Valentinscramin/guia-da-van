@@ -1,18 +1,27 @@
 .menu_desktop {
     display: none;
+
     ul {
         display: flex;
         align-items: center;
         justify-content: space-between;
+
         li {
             a {
                 font-weight: 900;
                 color: $anotherGray;
                 @include anima-slow;
+
                 &:hover {
                     @include anima-slow;
                     color: $purple;
                 }
+            }
+        }
+
+        .activeMenu {
+            a {
+                color: $purple;
             }
         }
 
@@ -21,6 +30,7 @@
                 @include anima-slow;
                 font-size: 0.875rem;
                 color: #fff;
+
                 &:hover {
                     @include anima-slow;
                     color: $lightPurple;
