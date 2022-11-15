@@ -17,21 +17,30 @@
             @switch($eachTrack->id)
                 @case(1)
                     <div class="content_filter" id="content_track-{{ $eachTrack->id }}">
-
-                        {{-- <div class="itemInput col-12 col-sm-6">
-                <select name="cidade_saida_escola" id="">
-                    @foreach ($cities as $citie)
-                    <option value="{{ $citie->id }}">{{ $citie->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="itemInput col-12 col-sm-6">
-                <select name="cidade_chegada_escola" id="">
-                    @foreach ($cities as $citie)
-                    <option value="{{ $citie->id }}">{{ $citie->name }}</option>
-                    @endforeach
-                </select>
-            </div> --}}
+                        <div class="itemInput col-12 col-sm-6">
+                            <select name="estado_saida_escola" data-id="saida_escola_1" class="estado_jqry">
+                                @foreach ($states as $state)
+                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="itemInput col-12 col-sm-6">
+                            <select name="estado_chegada_escola" data-id="chegada_escola_2" class="estado_jqry">
+                                @foreach ($states as $state)
+                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="itemInput col-12 col-sm-6">
+                            <select name="cidade_saida_escola" id="cidade_saida_escola_1">
+                                <option value="">Selecione o estado</option>
+                            </select>
+                        </div>
+                        <div class="itemInput col-12 col-sm-6">
+                            <select name="cidade_chegada_escola" id="cidade_chegada_escola_2">
+                                <option value="">Selecione o estado</option>
+                            </select>
+                        </div>
 
                         <div class="itemInput col-12 col-sm-6 col-lg-8">
                             <input type="text" name="escola" placeholder="Escola" value="">
@@ -48,14 +57,20 @@
 
                 @case(2)
                     <div class="content_filter" id="content_track-{{ $eachTrack->id }}">
-                        {{-- <div class="itemInput col-12 col-sm-6">
-                <select name="cidade_saida_evento" id="">
-                    @foreach ($cities as $citie)
-                    <option value="{{ $citie->id }}">{{ $citie->name }}</option>
-                    @endforeach
-                </select>
-            </div> --}}
-                        <div class="itemInput col-12 col-sm-6">
+
+                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                            <select name="estado_evento" data-id="saida_evento" class="estado_jqry">
+                                @foreach ($states as $state)
+                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                            <select name="cidade_saida_evento" id="cidade_saida_evento">
+                                <option value="">Selecione o estado</option>
+                            </select>
+                        </div>
+                        <div class="itemInput col-12 col-sm-6 col-lg-12">
                             <input type="text" name="evento" placeholder="Evento caso necessario" value="">
                         </div>
                     </div>
@@ -63,44 +78,35 @@
 
                 @case(3)
                     <div class="content_filter" id="content_track-{{ $eachTrack->id }}">
-
-                        <div class="itemInput col-12 col-sm-6">
-                            <select name="estado_executivo" data-id="estado_executivo" class="estado_jqry">
+                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                            <select name="estado_executivo" data-id="saida_executivo" class="estado_jqry">
                                 @foreach ($states as $state)
                                     <option value="{{ $state->id }}">{{ $state->name }}</option>
                                 @endforeach
                             </select>
                         </div>
-
-
-                        {{-- <div class="itemInput col-12 col-sm-6">
-                <select name="cidade_saida_executivo" id="">
-                    @foreach ($cities as $citie)
-                    <option value="{{ $citie->id }}">{{ $citie->name }}</option>
-                    @endforeach
-                </select>
-            </div> --}}
+                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                            <select name="cidade_saida_executivo" id="cidade_saida_executivo">
+                                <option value="">Selecione o estado</option>
+                            </select>
+                        </div>
                     </div>
                 @break
 
                 @case(4)
                     <div class="content_filter" id="content_track-{{ $eachTrack->id }}">
-
-                        <div class="itemInput col-12 col-sm-6">
-                            <select name="estado_frete" data-id="estado_frete" class="estado_jqry">
+                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                            <select name="estado_frete" data-id="saida_frete" class="estado_jqry">
                                 @foreach ($states as $state)
                                     <option value="{{ $state->id }}">{{ $state->name }}</option>
                                 @endforeach
                             </select>
                         </div>
-
-                        {{-- <div class="itemInput col-12 col-sm-6">
-                <select name="cidade_saida_frete" id="">
-                    @foreach ($cities as $citie)
-                    <option value="{{ $citie->id }}">{{ $citie->name }}</option>
-                    @endforeach
-                </select>
-            </div> --}}
+                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                            <select name="cidade_saida_frete" id="cidade_saida_frete">
+                                <option value="">Selecione o estado</option>
+                            </select>
+                        </div>
                     </div>
                 @break
 
