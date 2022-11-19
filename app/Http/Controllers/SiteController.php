@@ -137,6 +137,9 @@ class SiteController extends Controller
 
     public function busca_index()
     {
+        $track = Track::all();
+        $states = States::orderBy('name')->get();
+
         $vans = DB::table('van_track')
             ->join('van_track_info', "van_track.id", "=", "van_track_info.van_track_id")
             ->join('van', "van_track.van_id", "=", "van.id")
@@ -157,7 +160,7 @@ class SiteController extends Controller
             )
             ->get();
 
-        return view('site.resultado', compact('vans'));
+        return view('site.resultado', compact('vans', 'track', 'states'));
     }
 
     public function quemsomos()
