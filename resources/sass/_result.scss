@@ -1,0 +1,40 @@
+.result_search {
+    padding: 80px 0;
+}
+
+.card_item {
+    background-color: #fff;
+    margin-bottom: 40px;
+    .card-img-top {
+        border-radius: 30px 30px 0 0;
+    }
+
+    .card-body {
+        box-shadow: 0 8px 15px -1px rgba(0,0,0,.1);
+        padding: 30px 20px;
+        border-radius: 0 0 20px 20px;
+        .card-title {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $anotherGray;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            color: $anotherGray;
+            font-weight: 550;
+            margin-bottom: 10px;
+            span {
+                font-weight: bold;
+            }
+            a {
+                color: $purple;
+                @include anima-slow;
+                &:hover {
+                    @include anima-slow;
+                    color: $lightPurple;
+                }
+            }
+        }
+    }
+}
