@@ -24,6 +24,10 @@ class SiteController extends Controller
     public function busca(Request $request)
     {
 
+        $track = Track::all();
+        $cities = Cities::orderBy('name')->get();
+        $states = States::orderBy('name')->get();
+
         switch ($request->track) {
 
             case 1:
@@ -131,7 +135,7 @@ class SiteController extends Controller
                 break;
         }
 
-        return view('site.resultado', compact('vans'));
+        return view('site.resultado', compact('vans', 'track', 'states'));
     }
 
 
