@@ -50,7 +50,7 @@ $(function () {
 
       $.ajax({
         method: "GET",
-        url: "/api/set-card-trajeto",
+        url: "/api/set-card-trajeto", 
         context: this,
       })
         .done(function (data) {
