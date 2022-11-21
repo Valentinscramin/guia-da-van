@@ -34,7 +34,7 @@ $(function () {
     var buttonID = $(this).attr("data-id")
     $(this).toggleClass("activebtn")
     $(".faq .duvidas .content_" + buttonID).toggleClass("active_content")
-  })
+  }) 
 
   $.ajaxSetup({
     headers: {
