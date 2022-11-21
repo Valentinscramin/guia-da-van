@@ -141,7 +141,7 @@
                             <h2>Assine nossa <span>Newsletter</span></h2>
                         </div>
                         <div class="subtitle">
-                            No coding required to make customizations. The kive custinnuzerhas everything you need.
+                            Informe seu nome e e-mail e fique por dentro de todas as novidades!
                         </div>
 
 
