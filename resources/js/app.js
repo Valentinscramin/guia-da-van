@@ -34,7 +34,7 @@ $(function () {
     var buttonID = $(this).attr("data-id")
     $(this).toggleClass("activebtn")
     $(".faq .duvidas .content_" + buttonID).toggleClass("active_content")
-  })
+  }) 
 
   $.ajaxSetup({
     headers: {
@@ -49,8 +49,8 @@ $(function () {
     if ($('.card').length < 4) {
 
       $.ajax({
-        method: "GET",
-        url: "/api/set-card-trajeto",
+        method: "GET", 
+        url: "/api/set-card-trajeto", 
         context: this,
       })
         .done(function (data) {

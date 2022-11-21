@@ -11558,7 +11558,7 @@ form .collapse_filter .activeFilter {
   background: url("/images/bg_registre_van.png") no-repeat top center;
   background-size: cover;
   width: 100%;
-  height: 36vh;
+  height: 40vh;
   margin-top: -12rem;
   position: absolute;
   z-index: -1;
@@ -11624,7 +11624,7 @@ form .collapse_filter .activeFilter {
 }
 @media only screen and (min-width: 1600px) and (max-width: 4600px) {
   .cadastre_se:before {
-    margin-top: -17rem;
+    margin-top: -19rem;
   }
 }
 .depoiments .row {
@@ -11737,15 +11737,66 @@ form .collapse_filter .activeFilter {
 .faq .duvidas ul li {
   margin: 20px 0;
 }
+.faq .duvidas ul li .takeItem {
+  border-bottom: 2px solid #EBEBEB;
+}
 .faq .duvidas ul li .title {
   color: #030303;
   font-weight: 800;
   font-size: 1.125rem;
 }
+.faq .duvidas ul li .title button {
+  width: 100%;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  color: #030303;
+  outline: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 0;
+}
+.faq .duvidas ul li .title button span {
+  transition: all 0.3s linear;
+}
+.faq .duvidas ul li .title .activebtn {
+  background-color: #F2F1FB;
+  padding: 20px 10px 0 10px;
+  color: #B06EFF;
+}
+.faq .duvidas ul li .title .activebtn span {
+  transition: all 0.3s linear;
+  transform: rotate(180deg);
+}
+.faq .duvidas ul li .content {
+  display: none;
+  padding: 30px 10px;
+  color: #4E4E4E;
+  font-weight: 550;
+}
+.faq .duvidas ul li .active_content {
+  display: block;
+  background-color: #F2F1FB;
+}
 
 @media (min-width: 768px) {
   .faq .title h3, .faq .title .h3 {
     font-size: 2.8rem;
+  }
+}
+@media (min-width: 992px) {
+  .default_page {
+    padding: 80px 0 50px 0;
+  }
+  .faq .duvidas ul li .title button {
+    font-size: 1.25rem;
+  }
+}
+@media only screen and (min-width: 1500px) and (max-width: 4600px) {
+  .default_page {
+    padding: 200px 0 50px 0;
   }
 }
 .social_media {
@@ -12351,6 +12402,45 @@ form .collapse_filter .activeFilter {
     font-size: 3rem;
   }
 }
+.result_search {
+  padding: 80px 0;
+}
+
+.card_item {
+  background-color: #fff;
+  margin-bottom: 40px;
+}
+.card_item .card-img-top {
+  border-radius: 30px 30px 0 0;
+}
+.card_item .card-body {
+  box-shadow: 0 8px 15px -1px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px;
+  border-radius: 0 0 20px 20px;
+}
+.card_item .card-body .card-title {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #4E4E4E;
+  margin-bottom: 10px;
+}
+.card_item .card-body .card-text {
+  color: #4E4E4E;
+  font-weight: 550;
+  margin-bottom: 10px;
+}
+.card_item .card-body .card-text span {
+  font-weight: bold;
+}
+.card_item .card-body .card-text a {
+  color: #5837e7;
+  transition: all 0.3s linear;
+}
+.card_item .card-body .card-text a:hover {
+  transition: all 0.3s linear;
+  color: #b06eff;
+}
+
 .footer:before {
   content: "";
   display: block;
