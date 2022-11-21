@@ -15,8 +15,7 @@
                             <h2>Dê match em sua <span>carona aqui</span></h2>
                         </div>
 
-                        <div class="description col-12 col-md-10 col-lg-9">No coding required to make
-                            customizations. The kive custinnuzer has everything you need.</div>
+                        <div class="description col-12 col-md-10 col-lg-9">Selecione o tipo de serviço que você deseja. Uma busca rápida e simples pela a melhor opção para você!</div>
 
                         <div class="search">
                             <div class="titleSearch">
@@ -124,36 +123,52 @@
                 <div class="duvidas col-12 col-lg-10">
                     <ul>
                         <li class="col-12 col-md-6">
-                            <div class="title">How Benefit That I Got When Choose ?</div>
-                            <div class="content"></div>
+                            <div class="takeItem  col-12 col-md-11">
+                                <div class="title col-12"><button data-id="1">How Benefit That I Got When Choose? <span><img src="{{ URL('/images/arrow.svg') }}" alt="" class="img-fluid"></span></button></div>
+                                <div class="content content_1 col-12">teste 1</div>
+                            </div>
                         </li>
                         <li class="col-12 col-md-6">
-                            <div class="title">How Benefit That I Got When Choose ?</div>
-                            <div class="content"></div>
+                            <div class="takeItem col-12 col-md-11">
+                                <div class="title col-12"><button data-id="2">How Benefit That I Got When Choose? <span><img src="{{ URL('/images/arrow.svg') }}" alt="" class="img-fluid"></span></button></div>
+                                <div class="content content_2 col-12">teste 2</div>
+                            </div>
                         </li>
                         <li class="col-12 col-md-6">
-                            <div class="title">How Benefit That I Got When Choose ?</div>
-                            <div class="content"></div>
+                            <div class="takeItem  col-12 col-md-11">
+                                <div class="title col-12"><button data-id="3">How Benefit That I Got When Choose? <span><img src="{{ URL('/images/arrow.svg') }}" alt="" class="img-fluid"></span></button></div>
+                                <div class="content content_3 col-12">teste 3</div>
+                            </div>
                         </li>
                         <li class="col-12 col-md-6">
-                            <div class="title">How Benefit That I Got When Choose ?</div>
-                            <div class="content"></div>
+                            <div class="takeItem  col-12 col-md-11">
+                                <div class="title col-12"><button data-id="4">How Benefit That I Got When Choose? <span><img src="{{ URL('/images/arrow.svg') }}" alt="" class="img-fluid"></span></button></div>
+                                <div class="content content_4 col-12">teste 4</div>
+                            </div>
                         </li>
                         <li class="col-12 col-md-6">
-                            <div class="title">How Benefit That I Got When Choose ?</div>
-                            <div class="content"></div>
+                            <div class="takeItem  col-12 col-md-11">
+                                <div class="title col-12"><button data-id="5">How Benefit That I Got When Choose? <span><img src="{{ URL('/images/arrow.svg') }}" alt="" class="img-fluid"></span></button></div>
+                                <div class="content content_5 col-12">teste 5</div>
+                            </div>
                         </li>
                         <li class="col-12 col-md-6">
-                            <div class="title">How Benefit That I Got When Choose ?</div>
-                            <div class="content"></div>
+                            <div class="takeItem  col-12 col-md-11">
+                                <div class="title col-12"><button data-id="6">How Benefit That I Got When Choose? <span><img src="{{ URL('/images/arrow.svg') }}" alt="" class="img-fluid"></span></button></div>
+                                <div class="content content_6 col-12">teste 6</div>
+                            </div>
                         </li>
                         <li class="col-12 col-md-6">
-                            <div class="title">How Benefit That I Got When Choose ?</div>
-                            <div class="content"></div>
+                            <div class="takeItem  col-12 col-md-11">
+                                <div class="title col-12"><button data-id="7">How Benefit That I Got When Choose? <span><img src="{{ URL('/images/arrow.svg') }}" alt="" class="img-fluid"></span></button></div>
+                                <div class="content content_7 col-12">teste 7</div>
+                            </div>
                         </li>
                         <li class="col-12 col-md-6">
-                            <div class="title">How Benefit That I Got When Choose ?</div>
-                            <div class="content"></div>
+                            <div class="takeItem  col-12 col-md-11">
+                                <div class="title col-12"><button data-id="8">How Benefit That I Got When Choose? <span><img src="{{ URL('/images/arrow.svg') }}" alt="" class="img-fluid"></span></button></div>
+                                <div class="content content_8 col-12">teste 8</div>
+                            </div>
                         </li>
                     </ul>
                 </div>
