@@ -49,7 +49,7 @@ $(function () {
     if ($('.card').length < 4) {
 
       $.ajax({
-        method: "GET",
+        method: "GET", 
         url: "/api/set-card-trajeto", 
         context: this,
       })
