@@ -8,7 +8,9 @@
                 <div class="col-12 col-lg-8">
                     <div class="takeItem">
                         <div class="button_tag">
+
                             <h2>Resultado de busca</h2>
+
                         </div>
 
                         <div class="title">
@@ -23,10 +25,20 @@
                             @include('site.filtro')
                         </div>
                     </div>
+
                 </div>
-                <div class="col-12 col-lg-4">
-                    <div class="imagem" style="position: absolute; right: 0; text-align: right; z-index: 2;"></div>
+            </div>
+            <div class="search">
+                <div class="titleSearch">
+                    <h2>Busca Personalizada</h2>
                 </div>
+                <div class="formulario col-12 col-md-10">
+                    @include('site.filtro')
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <div class="imagem" style="width: 40%;"> <img src="{{ URL('/images/search_result.jpg') }}" alt="" class="img-fluid"></div>
             </div>
         </div>
     </div>
