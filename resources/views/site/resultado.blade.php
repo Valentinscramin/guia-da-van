@@ -27,18 +27,9 @@
                     </div>
 
                 </div>
-            </div>
-            <div class="search">
-                <div class="titleSearch">
-                    <h2>Busca Personalizada</h2>
+                <div class="col-12 col-lg-4">
+                    <div class="imagem" style="width: 40%;"> <img src="{{ URL('/images/search_result.jpg') }}" alt="" class="img-fluid"></div>
                 </div>
-                <div class="formulario col-12 col-md-10">
-                    @include('site.filtro')
-                </div>
-            </div>
-
-            <div class="col-12 col-lg-4">
-                <div class="imagem" style="width: 40%;"> <img src="{{ URL('/images/search_result.jpg') }}" alt="" class="img-fluid"></div>
             </div>
         </div>
     </div>
