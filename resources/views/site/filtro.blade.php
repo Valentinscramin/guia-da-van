@@ -64,7 +64,7 @@
                 @case(2)
                     <div class="content_filter" id="content_track-{{ $eachTrack->id }}">
 
-                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                        <div class="itemInput col-12 col-sm-6">
                             <label for="">Estado de saida</label>
                             <select name="estado_evento" data-id="saida_evento" class="estado_jqry">
                                 @foreach ($states as $state)
@@ -72,7 +72,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                        <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de saida</label>
                             <select name="cidade_saida_evento" id="cidade_saida_evento">
                                 <option value="">Selecione o estado</option>
@@ -87,7 +87,7 @@
 
                 @case(3)
                     <div class="content_filter" id="content_track-{{ $eachTrack->id }}">
-                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                        <div class="itemInput col-12 col-sm-6">
                             <label for="">Estado de saida</label>
                             <select name="estado_executivo" data-id="saida_executivo" class="estado_jqry">
                                 @foreach ($states as $state)
@@ -95,7 +95,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                        <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de saida</label>
                             <select name="cidade_saida_executivo" id="cidade_saida_executivo">
                                 <option value="">Selecione o estado</option>
@@ -106,7 +106,7 @@
 
                 @case(4)
                     <div class="content_filter" id="content_track-{{ $eachTrack->id }}">
-                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                        <div class="itemInput col-12 col-sm-6">
                             <label for="">Estado de saida</label>
                             <select name="estado_frete" data-id="saida_frete" class="estado_jqry">
                                 @foreach ($states as $state)
@@ -114,7 +114,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="itemInput col-12 col-sm-6 col-lg-12">
+                        <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de saida</label>
                             <select name="cidade_saida_frete" id="cidade_saida_frete">
                                 <option value="">Selecione o estado</option>
