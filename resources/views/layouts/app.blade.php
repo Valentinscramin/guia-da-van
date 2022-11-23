@@ -39,7 +39,7 @@
                     <ul>
                         <li id="dashboard"><a href="{{ route('user_home') }}"><img
                                     src="{{ URL('/images/home_dashboard.svg') }}" alt="" class="img-fluid">
-                                <span>Dashboard</span></a></li>
+                                <span>Início</span></a></li>
                         <li><a href="{{ route('busca_index') }}"><img
                                     src="{{ URL('/images/search_van_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Buscar Van</span></a></li>
@@ -75,10 +75,10 @@
                         <li id="configuracoes"><a href="{{ route('profile.index') }}"><img
                                     src="{{ URL('/images/settings_dashboard.svg') }}" alt="" class="img-fluid">
                                 <span>Configurações</span></a></li>
-                        <li><a href="{{ route('anuncie_aqui') }}"><img
+                        <li id="anuncio"><a href="{{ route('anuncie_aqui') }}"><img
                                     src="{{ URL('/images/anuncie_dashboard.svg') }}" alt="" class="img-fluid">
                                 <span>Anuncie aqui</span></a></li>
-                        <li><a href="{{ route('web_site_comment') }}"><img
+                        <li id="avalie"><a href="{{ route('web_site_comment') }}"><img
                                     src="{{ URL('/images/nos-avalie_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Nos avalie</span></a></li>
                         <li><a href="#"><img src="{{ URL('/images/help_dashboard.svg') }}" alt=""

@@ -9,9 +9,12 @@
             {{ session('status') }}
         </div>
         @endif
-        {{ 'There is ' . $totalVans . ' vans in the system.' }}
+        <!-- {{ 'Total de ' . $totalVans . ' vans cadastradas nos sistemas.' }} -->
         <br>
-        {{ __('You are logged in!') }}
+        <!-- {{ __('You are logged in!') }} -->
     </div>
 </div>
+<script>
+    jQuery("#dashboard").addClass("active_dashboard");
+</script>
 @endsection
