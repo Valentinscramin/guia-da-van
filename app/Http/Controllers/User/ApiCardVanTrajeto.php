@@ -18,7 +18,7 @@ class ApiCardVanTrajeto extends Controller
     public function __construct(int $id = Null)
     {
         if (is_null($id)) {
-            $this->cities = (new Cities())->orderBy('name')->get();
+            // $this->cities = (new Cities())->orderBy('name')->get();
             $this->states = (new States())->orderBy('name')->get();
             $this->track = (new Track())->all();
         }
@@ -32,7 +32,7 @@ class ApiCardVanTrajeto extends Controller
     public function setCard()
     {
         $cardInformation = [
-            'cities' => $this->cities,
+            //'cities' => $this->cities,
             'states' => $this->states,
             'track' => $this->track,
         ];

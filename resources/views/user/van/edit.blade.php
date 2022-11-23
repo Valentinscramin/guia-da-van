@@ -43,7 +43,6 @@
                     </div>
                 </div>
 
-
                 <div class="itemInput col-12 col-sm-4">
                     <label for="">Modelo</label>
                     <input type="text" name="model" id="" placeholder="" aria-describedby="helpId"
@@ -77,7 +76,6 @@
         </div>
     </div>
     <script>
-
         function deleteTrack(element) {
             $('<input>').attr({
                 type: 'hidden',
@@ -94,36 +92,40 @@
             $("#remove_track").submit()
         }
 
-        window.onload = function() {
+        $(".track_selector :selected").map(function(key, element) {
 
-            $(".track_selector :selected").map(function(key, element) {
+            var datashow = this.getAttribute('data-show');
 
-                switch (parseInt(this.value)) {
-                    case 1:
-                        $("#cidade_saida_" + key).show()
-                        $("#cidade_chegada_" + key).show()
-                        $("#periodo_" + key).show()
-                        $("#escola_" + key).show()
-                        $("#evento_" + key).hide()
-                        break;
-                    case 2:
-                        $("#cidade_saida_" + key).show()
-                        $("#cidade_chegada_" + key).hide()
-                        $("#periodo_" + key).hide()
-                        $("#escola_" + key).hide()
-                        $("#evento_" + key).show()
-                        break;
-                    default:
-                        $("#cidade_saida_" + key).show()
-                        $("#cidade_chegada_" + key).hide()
-                        $("#periodo_" + key).hide()
-                        $("#escola_" + key).hide()
-                        $("#evento_" + key).hide()
-                }
+            switch (parseInt(this.value)) {
+                case 1:
+                    $("#estado_saida_" + datashow).show()
+                    $("#estado_chegada_" + datashow).show()
+                    $("#cidade_saida_" + datashow).show()
+                    $("#cidade_chegada_" + datashow).show()
+                    $("#periodo_" + datashow).show()
+                    $("#escola_" + datashow).show()
+                    $("#evento_" + datashow).hide()
+                    break;
+                case 2:
+                    $("#estado_saida_" + datashow).show()
+                    $("#estado_chegada_" + datashow).hide()
+                    $("#cidade_saida_" + datashow).show()
+                    $("#cidade_chegada_" + datashow).hide()
+                    $("#periodo_" + datashow).hide()
+                    $("#escola_" + datashow).hide()
+                    $("#evento_" + datashow).show()
+                    break;
+                default:
+                    $("#estado_saida_" + datashow).show()
+                    $("#estado_chegada_" + datashow).hide()
+                    $("#cidade_saida_" + datashow).show()
+                    $("#cidade_chegada_" + datashow).hide()
+                    $("#periodo_" + datashow).hide()
+                    $("#escola_" + datashow).hide()
+                    $("#evento_" + datashow).hide()
+            }
 
-            }).get()
-
-        }
+        }).get()
 
         function change(element) {
 
@@ -131,6 +133,9 @@
 
             switch (parseInt(element.value)) {
                 case 1:
+                    console.log('entrou no 1')
+                    $("#estado_saida_" + cardNumber).show()
+                    $("#estado_chegada_" + cardNumber).show()
                     $("#cidade_saida_" + cardNumber).show()
                     $("#cidade_chegada_" + cardNumber).show()
                     $("#periodo_" + cardNumber).show()
@@ -138,6 +143,9 @@
                     $("#evento_" + cardNumber).hide()
                     break;
                 case 2:
+                    console.log('entrou no 2')
+                    $("#estado_saida_" + cardNumber).show()
+                    $("#estado_chegada_" + cardNumber).hide()
                     $("#cidade_saida_" + cardNumber).show()
                     $("#cidade_chegada_" + cardNumber).hide()
                     $("#periodo_" + cardNumber).hide()
@@ -145,13 +153,15 @@
                     $("#evento_" + cardNumber).show()
                     break;
                 default:
+                    console.log('outros')
+                    $("#estado_saida_" + cardNumber).show()
+                    $("#estado_chegada_" + cardNumber).hide()
                     $("#cidade_saida_" + cardNumber).show()
                     $("#cidade_chegada_" + cardNumber).hide()
                     $("#periodo_" + cardNumber).hide()
                     $("#escola_" + cardNumber).hide()
                     $("#evento_" + cardNumber).hide()
             }
-
         }
 
         jQuery("#frota").addClass("active_dashboard");

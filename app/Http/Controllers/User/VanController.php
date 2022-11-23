@@ -129,7 +129,6 @@ class VanController extends Controller
     {
         $van = Van::find($id);
         $track = Track::all();
-        $cities = Cities::orderBy('name')->get();
         $states = States::orderBy('name')->get();
 
         $photos = UserPhotos::where("user_id", "=", Auth::id())->get();
@@ -157,11 +156,19 @@ class VanController extends Controller
             foreach ($van_track as $eachOne) {
 
                 $info = VanTrackInfo::where("van_track_id", "=", $eachOne->id)->get()[0];
+                $cidades_saida_info = Cities::where("id", "=", $info->cidade_saida)->get()[0];
+                $cidades_chegada_info = Cities::where("id", "=", $info->cidade_chegada)->get()[0];
+                $cidades_saida = cities::where("state_id", "=", $cidades_saida_info->state_id)->get();
+                $cidades_chegada = cities::where("state_id", "=", $cidades_chegada_info->state_id)->get();
 
                 if (!empty($info)) {
                     $track_selected[$count]['van_track_id'] = $eachOne->id;
                     $track_selected[$count]['id'] = $eachOne->track_id;
+                    $track_selected[$count]['estado_saida'] = $cidades_saida_info->state_id;
+                    $track_selected[$count]['cidades_estado_saida'] = $cidades_saida;
                     $track_selected[$count]['cidade_saida'] = $info->cidade_saida;
+                    $track_selected[$count]['estado_chegada'] = $cidades_chegada_info->state_id;
+                    $track_selected[$count]['cidades_estado_chegada'] = $cidades_chegada;
                     $track_selected[$count]['cidade_chegada'] = $info->cidade_chegada;
                     $track_selected[$count]['escola'] = $info->escola;
                     $track_selected[$count]['periodo'] = $info->periodo;
@@ -172,7 +179,7 @@ class VanController extends Controller
             }
         }
 
-        return view('user.van.edit', compact('van', 'track', 'track_selected', 'cities', 'states', 'photos', 'array_photos_selected'));
+        return view('user.van.edit', compact('van', 'track', 'track_selected', 'states', 'photos', 'array_photos_selected'));
     }
 
     /**

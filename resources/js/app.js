@@ -65,26 +65,32 @@ $(function () {
 
     let optionState, optionCities, optionTrack
 
-    $.each(data['cities'], function (i, item) {
-      optionCities += "<option value='" + item.id + "'>" + item.name + "</option>"
+    $.each(data['states'], function (i, item) {
+      optionState += "<option value='" + item.id + "'>" + item.name + "</option>"
     })
 
     $.each(data['track'], function (i, item) {
       optionTrack += "<option value='" + item.id + "'>" + item.name + "</option>"
     })
 
-    var card = "<div class='card itemInput col-12 col-sm-4' style='width: 18rem;'>" +
+    var card = "<div class='card itemInput cart_item col-12 col-sm-4' style='width: 18rem;'>" +
       "<div class='card-body'>" +
       "<h5 class='card-title'>Trajeto</h5>" +
       "<select name='track[]' onchange='change(this)' data-card='" + $('.card').length + "'>" +
       optionTrack
-      + "</select><br>" +
+      "</select><br>" +
+      "<select name='estado_saida' data-id='saida_" + $('.card').length + "' class='estado_jqry'>"+
+      optionState
+      "</select>"+
       "<select name='cidade_saida[]' id='cidade_saida_" + $('.card').length + "'>" +
-      optionCities
-      + "</select>" +
+      "<option value=''>Selecione um estado</option>"+
+      "</select>" +
+      "<select name='estado_saida' data-id='chegada_" + $('.card').length + "' class='estado_jqry'>"+
+      optionState
+      "</select>"+
       "<select name='cidade_chegada[]' id='cidade_chegada_" + $('.card').length + "'>" +
-      optionCities
-      + "</select>" +
+      "<option value=''>Selecione um estado</option>"+
+      "</select>" +
       "<input type='text' name='escola[]' id='escola_" + $('.card').length + "' placeholder='Escola'>" +
       "<input type='text' name='evento[]' id='evento_" + $('.card').length + "' placeholder='Evento caso necessario' style='display:none;'>" +
       "<select name='periodo[]' id='periodo_" + $('.card').length + "'>" +

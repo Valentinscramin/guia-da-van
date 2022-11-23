@@ -85,6 +85,8 @@
             switch (parseInt(element.value)) {
                 case 1:
                     console.log('entrou no 1')
+                    $("#estado_saida_1_" + cardNumber).show()
+                    $("#estado_chegada_2_" + cardNumber).show()
                     $("#cidade_saida_" + cardNumber).show()
                     $("#cidade_chegada_" + cardNumber).show()
                     $("#periodo_" + cardNumber).show()
@@ -93,6 +95,8 @@
                     break;
                 case 2:
                     console.log('entrou no 2')
+                    $("#estado_saida_1_" + cardNumber).show()
+                    $("#estado_chegada_2_" + cardNumber).hide()
                     $("#cidade_saida_" + cardNumber).show()
                     $("#cidade_chegada_" + cardNumber).hide()
                     $("#periodo_" + cardNumber).hide()
@@ -101,6 +105,8 @@
                     break;
                 default:
                     console.log('outros')
+                    $("#estado_saida_1_" + cardNumber).show()
+                    $("#estado_chegada_2_" + cardNumber).hide()
                     $("#cidade_saida_" + cardNumber).show()
                     $("#cidade_chegada_" + cardNumber).hide()
                     $("#periodo_" + cardNumber).hide()
@@ -108,6 +114,7 @@
                     $("#evento_" + cardNumber).hide()
             }
         }
+
         jQuery("#frota").addClass("active_dashboard");
     </script>
 @endsection
