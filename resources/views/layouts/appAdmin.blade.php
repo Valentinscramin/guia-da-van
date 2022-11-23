@@ -52,7 +52,7 @@
                         <li id="anuncios"><a href="{{ route('announcement.index') }}"><img
                                     src="{{ URL('/images/anuncie_dashboard.svg') }}" alt="" class="img-fluid">
                                 <span>Anúncios</span></a></li>
-                        <li id="midias"><a href="{{ route('admin.photos.index') }}"><img
+                        <li id="midia"><a href="{{ route('admin.photos.index') }}"><img
                                     src="{{ URL('/images/midias_dashboard.svg') }}" alt="" class="img-fluid">
                                 <span>Mídias</span></a></li>
                         <li id="comentarios"><a href="{{ route('web_site_comment_approve') }}"><img

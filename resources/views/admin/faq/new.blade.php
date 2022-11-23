@@ -15,7 +15,7 @@
                 <label>Pergunta</label>
                 <input type="text" name="question" id="question">
             </div>
-            <div class="itemInput col-12">
+            <div class="itemInput col-11">
                 <label>Resposta</label>
                 <textarea name="answer"></textarea>
             </div>
