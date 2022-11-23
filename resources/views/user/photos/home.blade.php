@@ -36,7 +36,7 @@
     <div class="album col-11">
         <div class="row">
             @foreach ($photos as $eachPhoto)
-            <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+            <div class="col-6 col-md-4 col-lg-3 ">
                 <div class="card mb-4 shadow-sm">
                     <div class="imagem">
                         <div class="bg" style="background: url('<?php echo URL('storage/' . $eachPhoto->arquivo); ?>')no-repeat top center; background-size: cover; width: 100%; height: 150px;"></div>
