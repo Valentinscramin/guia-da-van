@@ -1,3 +1,13 @@
 .image-preview {
     width: 10vw;
 }
+
+.album {
+    padding: 50px 20px;
+}
+
+@media (min-width: map-get($grid-breakpoints, sm)) {
+    .album {
+        padding: 50px 40px;
+    }
+}

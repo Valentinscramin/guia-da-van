@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="formulario col-11">
-        <h1 class="jumbotron-heading">Escolha as fotos para Upload</h1>
+        <h1 class="heading_text">Escolha as fotos para Upload</h1>
         <form method="POST" action="{{ route('admin.photos.store') }}" enctype="multipart/form-data">
             @csrf
             @method('POST')
@@ -33,30 +33,34 @@
     </div>
 
 
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row">
-                @foreach ($photos as $eachPhoto)
-                <div class="col-md-4">
-                    <div class="card mb-4 shadow-sm">
-                        <img class="card-img-top figure-img img-fluid rounded" src="/storage/{{ $eachPhoto->arquivo }}">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ route('photo_download', $eachPhoto->id) }}">Download</a>
-                                    <form method="POST" action="/admin/photos/{{ $eachPhoto->id }}">
-                                        @csrf
-                                        <input type="hidden" name="_method" value="delete">
-                                        <button type="submit" class="btn btn-sm btn-outline-danger">Apagar</button>
-                                    </form>
-                                </div>
+    <div class="album col-11">
+        <div class="row">
+            @foreach ($photos as $eachPhoto)
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+
+                    <div class="imagem">
+                        <div class="bg" style="background: url('<?php echo URL('storage/' . $eachPhoto->arquivo); ?>')no-repeat top center; background-size: cover; width: 100%; height: 150px;"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ route('photo_download', $eachPhoto->id) }}">Download</a>
+                                <form method="POST" action="/admin/photos/{{ $eachPhoto->id }}">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="delete">
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Apagar</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-                @endforeach
             </div>
+            @endforeach
         </div>
     </div>
 </div>
+<script>
+    jQuery("#midia").addClass("active_dashboard");
+</script>
 @endsection
