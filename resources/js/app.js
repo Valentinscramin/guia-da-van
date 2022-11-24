@@ -82,19 +82,21 @@ $(function () {
       "</select></div>" +
       "<div class='item_card_'>" +
       "<select name='estado_saida' id='estado_saida_" + $('.card').length + "' data-id='saida_" + $('.card').length + "' onchange='changeState(this)'>" +
+      "<option value=''>Estado de saida</option>" +
       optionState +
       "</select></div>" +
       "<div class='item_card_'>" +
       "<select name='cidade_saida[]' id='cidade_saida_" + $('.card').length + "'>" +
-      "<option value=''>Selecione um estado</option>" +
+      "<option value=''>Cidade de saida</option>" +
       "</select></div>" +
       "<div class='item_card_'>" +
       "<select name='estado_chegada'  id='estado_chegada_" + $('.card').length + "' data-id='chegada_" + $('.card').length + "' onchange='changeState(this)'>" +
+      "<option value=''>Estado de chegada</option>" +
       optionState +
       "</select></div>" +
       "<div class='item_card_'>" +
       "<select name='cidade_chegada[]' id='cidade_chegada_" + $('.card').length + "'>" +
-      "<option value=''>Selecione um estado</option>" +
+      "<option value=''>Cidade de chegada</option>" +
       "</select></div>" +
       "<div class='item_card_'>" +
       "<input type='text' name='escola[]' id='escola_" + $('.card').length + "' placeholder='Escola'>" +
