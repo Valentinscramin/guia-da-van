@@ -13,6 +13,7 @@
     <link rel="icon" type="image/x-icon" href="{{ URL('/images/icon.png') }}">
 
     <!-- Scripts -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -40,31 +41,31 @@
                 </div>
                 <nav>
                     <ul>
-                        <li class="active_dashboard"><a href="{{ route('admin_home') }}"><img
+                        <li id="dashboard"><a href="{{ route('admin_home') }}"><img
                                     src="{{ URL('/images/home_dashboard.svg') }}" alt="" class="img-fluid">
-                                <span>Dashboard</span></a></li>
-                        <li><a href="{{ route('track_home') }}"><img
+                                <span>Início</span></a></li>
+                        <li id="trajetos"><a href="{{ route('track_home') }}"><img
                                     src="{{ URL('/images/search_van_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Trajetos</span></a></li>
-                        <li><a href="{{ route('user.index') }}"><img src="#" alt="" class="img-fluid">
-                                <span>Usuarios</span></a></li>
-                        <li><a href="{{ route('announcement.index') }}"><img
+                        <li id="usuarios"><a href="{{ route('user.index') }}"><img src="{{ URL('/images/user.svg') }}" alt="" class="img-fluid">
+                                <span>Usuários</span></a></li>
+                        <li id="anuncios"><a href="{{ route('announcement.index') }}"><img
                                     src="{{ URL('/images/anuncie_dashboard.svg') }}" alt="" class="img-fluid">
-                                <span>Anuncios</span></a></li>
-                        <li><a href="{{ route('admin.photos.index') }}"><img
+                                <span>Anúncios</span></a></li>
+                        <li id="midia"><a href="{{ route('admin.photos.index') }}"><img
                                     src="{{ URL('/images/midias_dashboard.svg') }}" alt="" class="img-fluid">
                                 <span>Mídias</span></a></li>
-                        <li><a href="{{ route('web_site_comment_approve') }}"><img
+                        <li id="comentarios"><a href="{{ route('web_site_comment_approve') }}"><img
                                     src="{{ URL('/images/nos-avalie_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Comentarios sobre o site</span></a></li>
-                        <li><a href="{{ route('faq.index') }}"><img src="{{ URL('/images/help_dashboard.svg') }}"
+                        <li id="ajuda"><a href="{{ route('faq.index') }}"><img src="{{ URL('/images/help_dashboard.svg') }}"
                                     alt="" class="img-fluid"> <span>Ajuda</span></a></li>
                     </ul>
                 </nav>
             </div>
         </div>
         <div class="col-10 col-sm-11 col-xl-10 column_nav">
-            <nav class="nav_top_dashboard navbar navbar-expand-md navbar-light bg-white shadow-sm col-11">
+            <nav class="nav_top_dashboard navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="search_dashboard col-6">
                     <form action="">
                         <input type="text" placeholder="Faça sua busca aqui...">

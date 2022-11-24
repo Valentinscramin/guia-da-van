@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
 {
-
-
     //Mensagens de retorno caso insira algo errado
     public $messages = [
         'name.required' => 'O usuario deve conter um nome',
@@ -33,7 +31,7 @@ class ProfileController extends Controller
     public function index()
     {
         $user = User::find(Auth::id());
-        $photos = UserPhotos::where("user_id", "=", Auth::id())->get();
+        $photos = UserPhotos::where('user_id', '=', Auth::id())->get();
         $profile_photo_checked = $user->user_photo_id;
         $profile_photo = UserPhotos::find($user->user_photo_id);
         if (isset($profile_photo)) {
@@ -104,22 +102,24 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'cpf_cnpj' => 'required',
-            'postcode' => 'required',
-            'telefone' => 'required',
-            'celular' => 'required',
-            'data_nascimento' => 'required|date|before:18 years ago',
-        ], $this->messages);
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'name' => 'required|string|max:255',
+                'cpf_cnpj' => 'required',
+                'postcode' => 'required',
+                'telefone' => 'required',
+                'celular' => 'required',
+                'data_nascimento' => 'required|date|before:18 years ago',
+            ],
+            $this->messages,
+        );
 
         if ($validator->fails()) {
             return redirect('user/profile')
                 ->withErrors($validator)
                 ->withInput();
         }
-
 
         $user = User::find($id);
         $user->name = $request->name;
@@ -128,8 +128,8 @@ class ProfileController extends Controller
         $user->postcode = $request->postcode;
         $user->celular = $request->celular;
         $user->telefone = $request->telefone;
-        $user->user_photo_id = $request->user_profile_photo;
-        $user->save();
+        $user->user_photo_id = intval($request->user_profile_photo);
+        $user->update();
 
         return redirect('user/profile');
     }

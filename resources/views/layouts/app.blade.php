@@ -39,12 +39,12 @@
                     <ul>
                         <li id="dashboard"><a href="{{ route('user_home') }}"><img
                                     src="{{ URL('/images/home_dashboard.svg') }}" alt="" class="img-fluid">
-                                <span>Dashboard</span></a></li>
+                                <span>Início</span></a></li>
                         <li><a href="{{ route('busca_index') }}"><img
                                     src="{{ URL('/images/search_van_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Buscar Van</span></a></li>
                         <li id="frota">
-                            @if (is_null(Auth::user()->cpf_cnpj) || is_null(Auth::user()->data_nascimento))
+                            @if (is_null(@Auth::user()->cpf_cnpj) || is_null(@Auth::user()->data_nascimento))
                                 <a class="disable" title="Necessário o cadastro do cpf/cnpj e data de nascimento"
                                     role="link" aria-disabled="true">
                                     <img src="{{ URL('/images/van_dashboard.svg') }}" alt="" class="img-fluid">
@@ -57,7 +57,7 @@
                         <li><a href="#"><img src="{{ URL('/images/chat_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Chat</span></a></li>
                         <li id="midia">
-                            @if (is_null(Auth::user()->cpf_cnpj) || is_null(Auth::user()->data_nascimento))
+                            @if (is_null(@Auth::user()->cpf_cnpj) || is_null(@Auth::user()->data_nascimento))
                                 <a class="disable" title="Necessário o cadastro do cpf/cnpj e data de nascimento"
                                     role="link" aria-disabled="true">
                                     <img src="{{ URL('/images/midias_dashboard.svg') }}" alt=""
@@ -75,10 +75,10 @@
                         <li id="configuracoes"><a href="{{ route('profile.index') }}"><img
                                     src="{{ URL('/images/settings_dashboard.svg') }}" alt="" class="img-fluid">
                                 <span>Configurações</span></a></li>
-                        <li><a href="{{ route('anuncie_aqui') }}"><img
+                        <li id="anuncio"><a href="{{ route('anuncie_aqui') }}"><img
                                     src="{{ URL('/images/anuncie_dashboard.svg') }}" alt="" class="img-fluid">
                                 <span>Anuncie aqui</span></a></li>
-                        <li><a href="{{ route('web_site_comment') }}"><img
+                        <li id="avalie"><a href="{{ route('web_site_comment') }}"><img
                                     src="{{ URL('/images/nos-avalie_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Nos avalie</span></a></li>
                         <li><a href="#"><img src="{{ URL('/images/help_dashboard.svg') }}" alt=""
@@ -132,7 +132,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                     <a class="dropdown-item" href="{{ route('profile.index') }}" role="button">
-                                        Profile
+                                        Perfil
                                     </a>
 
 
