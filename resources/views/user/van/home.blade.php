@@ -6,7 +6,9 @@
             <div class="col-6">
                 <h2>Minha <span>Frota</span></h2>
             </div>
-            <div class="btn_register col-6"><a href="{{ route('van.create') }}">Cadastrar nova van</a></div>
+            @if (count($vans) < env('VANS_PERMITIDAS'))
+                <div class="btn_register col-6"><a href="{{ route('van.create') }}">Cadastrar nova van</a></div>
+            @endif
         </div>
         <div class="table_dashboard col-11">
             <table class="table">

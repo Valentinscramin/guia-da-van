@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin\Announcement;
 use App\Models\Admin\Track;
 use App\Models\Cities;
+use App\Models\Faq;
 use App\Models\States;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -180,7 +181,8 @@ class SiteController extends Controller
 
     public function faq()
     {
-        return view("site.faq");
+        $faq = Faq::where("active", "1")->paginate(25);
+        return view("site.faq", compact("faq"));
     }
 
     public function contato()

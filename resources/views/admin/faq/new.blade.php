@@ -10,7 +10,7 @@
     <div class="formulario col-11">
         <form action="{{ route('faq.store') }}" method="POST">
             @csrf
-            @method('POST');
+            @method('POST')
             <div class="itemInput col-12">
                 <label>Pergunta</label>
                 <input type="text" name="question" id="question">

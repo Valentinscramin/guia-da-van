@@ -44,7 +44,7 @@
                                     src="{{ URL('/images/search_van_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Buscar Van</span></a></li>
                         <li id="frota">
-                            @if (is_null(Auth::user()->cpf_cnpj) || is_null(Auth::user()->data_nascimento))
+                            @if (is_null(@Auth::user()->cpf_cnpj) || is_null(@Auth::user()->data_nascimento))
                                 <a class="disable" title="Necessário o cadastro do cpf/cnpj e data de nascimento"
                                     role="link" aria-disabled="true">
                                     <img src="{{ URL('/images/van_dashboard.svg') }}" alt="" class="img-fluid">
@@ -57,7 +57,7 @@
                         <li><a href="#"><img src="{{ URL('/images/chat_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Chat</span></a></li>
                         <li id="midia">
-                            @if (is_null(Auth::user()->cpf_cnpj) || is_null(Auth::user()->data_nascimento))
+                            @if (is_null(@Auth::user()->cpf_cnpj) || is_null(@Auth::user()->data_nascimento))
                                 <a class="disable" title="Necessário o cadastro do cpf/cnpj e data de nascimento"
                                     role="link" aria-disabled="true">
                                     <img src="{{ URL('/images/midias_dashboard.svg') }}" alt=""

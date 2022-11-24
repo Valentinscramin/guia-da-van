@@ -8,7 +8,6 @@
             </div>
         </div>
         <div class="formulario col-11">
-
             <form action="{{ route('profile.update', $user->id) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -19,10 +18,10 @@
                         @foreach ($photos as $eachPhoto)
                             <div class="col-12 col-sm-4 col-md-3 itemPhoto">
                                 @if ($profile_photo_checked == $eachPhoto->id)
-                                    <input type="checkbox" name="van_user_photo[]" id="{{ $eachPhoto->id }}"
+                                    <input type="checkbox" name="user_profile_photo[]" id="{{ $eachPhoto->id }}"
                                         value="{{ $eachPhoto->id }}" checked>
                                 @else
-                                    <input type="checkbox" name="van_user_photo[]" id="{{ $eachPhoto->id }}"
+                                    <input type="checkbox" name="user_profile_photo[]" id="{{ $eachPhoto->id }}"
                                         value="{{ $eachPhoto->id }}">
                                 @endif
                                 <label for="{{ $eachPhoto->id }}">
