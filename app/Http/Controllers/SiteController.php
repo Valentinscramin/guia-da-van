@@ -39,6 +39,7 @@ class SiteController extends Controller
                     ->join('cities', "van_track_info.cidade_chegada", "=", "cities.id")
                     ->join('users', "van.user_id", "=", "users.id")
                     ->join('track', "van_track.track_id", "=", "track.id")
+                    ->join('avaliation', "users.id", "=", "avaliation.user_id")
                     ->where('van_track.track_id', "=", 1)
                     ->where('van_track_info.cidade_saida', "=",  $request->cidade_saida_escola)
                     ->where('van_track_info.cidade_chegada', "=", $request->cidade_chegada_escola)

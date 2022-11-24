@@ -34,7 +34,7 @@ $(function () {
     var buttonID = $(this).attr("data-id")
     $(this).toggleClass("activebtn")
     $(".faq .duvidas .content_" + buttonID).toggleClass("active_content")
-  }) 
+  })
 
   $.ajaxSetup({
     headers: {
@@ -49,8 +49,8 @@ $(function () {
     if ($('.card').length < 4) {
 
       $.ajax({
-        method: "GET", 
-        url: "/api/set-card-trajeto", 
+        method: "GET",
+        url: "/api/set-card-trajeto",
         context: this,
       })
         .done(function (data) {
@@ -63,35 +63,54 @@ $(function () {
 
   function addCard(data) {
 
-    let optionState, optionCities, optionTrack
+    let optionState, optionTrack
 
-    $.each(data['cities'], function (i, item) {
-      optionCities += "<option value='" + item.id + "'>" + item.name + "</option>"
+    $.each(data['states'], function (i, item) {
+      optionState += "<option value='" + item.id + "'>" + item.name + "</option>"
     })
 
     $.each(data['track'], function (i, item) {
       optionTrack += "<option value='" + item.id + "'>" + item.name + "</option>"
     })
 
-    var card = "<div class='card itemInput col-12 col-sm-4' style='width: 18rem;'>" +
+    var card = "<div class='card itemInput cart_item col-12 col-sm-4' style='width: 18rem;'>" +
       "<div class='card-body'>" +
       "<h5 class='card-title'>Trajeto</h5>" +
-      "<select name='track[]' onchange='change(this)' data-card='" + $('.card').length + "'>" +
-      optionTrack
-      + "</select><br>" +
+      "<div class='item_card_'>" +
+      "<select name='track[]' onchange='showHideOption(this)' data-card='" + $('.card').length + "' class='track_selector'>" +
+      optionTrack +
+      "</select></div>" +
+      "<div class='item_card_'>" +
+      "<select name='estado_saida' id='estado_saida_" + $('.card').length + "' data-id='saida_" + $('.card').length + "' onchange='changeState(this)'>" +
+      "<option value=''>Estado de saida</option>" +
+      optionState +
+      "</select></div>" +
+      "<div class='item_card_'>" +
       "<select name='cidade_saida[]' id='cidade_saida_" + $('.card').length + "'>" +
-      optionCities
-      + "</select>" +
+      "<option value=''>Cidade de saida</option>" +
+      "</select></div>" +
+      "<div class='item_card_'>" +
+      "<select name='estado_chegada'  id='estado_chegada_" + $('.card').length + "' data-id='chegada_" + $('.card').length + "' onchange='changeState(this)'>" +
+      "<option value=''>Estado de chegada</option>" +
+      optionState +
+      "</select></div>" +
+      "<div class='item_card_'>" +
       "<select name='cidade_chegada[]' id='cidade_chegada_" + $('.card').length + "'>" +
-      optionCities
-      + "</select>" +
+      "<option value=''>Cidade de chegada</option>" +
+      "</select></div>" +
+      "<div class='item_card_'>" +
       "<input type='text' name='escola[]' id='escola_" + $('.card').length + "' placeholder='Escola'>" +
+      "</div>" +
+      "<div class='item_card_'>" +
       "<input type='text' name='evento[]' id='evento_" + $('.card').length + "' placeholder='Evento caso necessario' style='display:none;'>" +
+      "</div>" +
+      "<div class='item_card_'>" +
       "<select name='periodo[]' id='periodo_" + $('.card').length + "'>" +
       "<option value='diurno'>Diurno</option>" +
       "<option value='vespertino'>Vespertino</option>" +
       "<option value='noturno'>Noturno</option>" +
       "</select>" +
+      "</div>" +
       "</div>" +
       "</div>"
 

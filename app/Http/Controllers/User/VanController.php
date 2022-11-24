@@ -82,7 +82,7 @@ class VanController extends Controller
 
                 $array_to_push['van_track_id'] = $van_track->id;
                 $array_to_push['cidade_saida'] = $request->cidade_saida[$track_amount];
-                $array_to_push['cidade_chegada'] = $request->cidade_chegada[$track_amount];
+                $array_to_push['cidade_chegada'] = @$request->cidade_chegada[$track_amount];
                 $array_to_push['escola'] = $request->escola[$track_amount];
                 $array_to_push['periodo'] = $request->periodo[$track_amount];
                 $array_to_push['evento'] = $request->evento[$track_amount];
@@ -129,7 +129,6 @@ class VanController extends Controller
     {
         $van = Van::find($id);
         $track = Track::all();
-        $cities = Cities::orderBy('name')->get();
         $states = States::orderBy('name')->get();
 
         $photos = UserPhotos::where("user_id", "=", Auth::id())->get();
@@ -156,23 +155,55 @@ class VanController extends Controller
 
             foreach ($van_track as $eachOne) {
 
-                $info = VanTrackInfo::where("van_track_id", "=", $eachOne->id)->get()[0];
+                $cidades_saida = "";
+                $cidades_chegada = "";
+
+                $info = VanTrackInfo::where("van_track_id", "=", $eachOne->id)->get();
+
+                //dump($info);
+
+                $cidades_saida_info = Cities::where("id", "=", $info[0]->cidade_saida)->get();
+                $cidades_chegada_info = Cities::where("id", "=", $info[0]->cidade_chegada)->get();
+
+                // dump($cidades_saida_info);
+                // dd($cidades_chegada_info);
+
+                if (count($cidades_saida_info) >= 1) {
+                    $cidades_saida = cities::where("state_id", "=", $cidades_saida_info[0]->state_id)->get();
+                }
+
+                if (count($cidades_chegada_info) >= 1) {
+                    $cidades_chegada = cities::where("state_id", "=", $cidades_chegada_info[0]->state_id)->get();
+                }
+
+                // $cidades_saida = cities::where("state_id", "=", $cidades_saida_info->state_id)->get();
+                // $cidades_chegada = cities::where("state_id", "=", $cidades_chegada_info->state_id)->get();
 
                 if (!empty($info)) {
+
+                    if (count($cidades_saida_info) >= 1) {
+                        $track_selected[$count]['estado_saida'] = $cidades_saida_info[0]->state_id;
+                    }
+                    if (count($cidades_chegada_info) >= 1) {
+                        $track_selected[$count]['estado_chegada'] = $cidades_chegada_info[0]->state_id;
+                    }
+
                     $track_selected[$count]['van_track_id'] = $eachOne->id;
                     $track_selected[$count]['id'] = $eachOne->track_id;
-                    $track_selected[$count]['cidade_saida'] = $info->cidade_saida;
-                    $track_selected[$count]['cidade_chegada'] = $info->cidade_chegada;
-                    $track_selected[$count]['escola'] = $info->escola;
-                    $track_selected[$count]['periodo'] = $info->periodo;
-                    $track_selected[$count]['evento'] = $info->evento;
+                    $track_selected[$count]['cidade_saida'] = $info[0]->cidade_saida;
+                    $track_selected[$count]['cidades_estado_saida'] = $cidades_saida;
+                    $track_selected[$count]['cidades_estado_chegada'] = $cidades_chegada;
+                    $track_selected[$count]['cidade_chegada'] = $info[0]->cidade_chegada;
+                    $track_selected[$count]['escola'] = $info[0]->escola;
+                    $track_selected[$count]['periodo'] = $info[0]->periodo;
+                    $track_selected[$count]['evento'] = $info[0]->evento;
 
                     $count++;
                 }
             }
         }
 
-        return view('user.van.edit', compact('van', 'track', 'track_selected', 'cities', 'states', 'photos', 'array_photos_selected'));
+        return view('user.van.edit', compact('van', 'track', 'track_selected', 'states', 'photos', 'array_photos_selected'));
     }
 
     /**
@@ -215,7 +246,7 @@ class VanController extends Controller
 
                 $array_to_push['van_track_id'] = $van_track->id;
                 $array_to_push['cidade_saida'] = $request->cidade_saida[$track_amount];
-                $array_to_push['cidade_chegada'] = $request->cidade_chegada[$track_amount];
+                $array_to_push['cidade_chegada'] = @$request->cidade_chegada[$track_amount];
                 $array_to_push['escola'] = $request->escola[$track_amount];
                 $array_to_push['periodo'] = $request->periodo[$track_amount];
                 $array_to_push['evento'] = $request->evento[$track_amount];
