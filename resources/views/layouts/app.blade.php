@@ -132,7 +132,7 @@
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
                                     <a class="dropdown-item" href="{{ route('profile.index') }}" role="button">
-                                        Profile
+                                        Perfil
                                     </a>
 
 
