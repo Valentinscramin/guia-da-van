@@ -127,9 +127,11 @@
 
         }).get()
 
-        function change(element) {
+        function showHideOption(element) {
 
             var cardNumber = $(element).data("card");
+
+            console.log("CardNumber: " + cardNumber);
 
             switch (parseInt(element.value)) {
                 case 1:
@@ -162,6 +164,31 @@
                     $("#escola_" + cardNumber).hide()
                     $("#evento_" + cardNumber).hide()
             }
+        }
+
+        function changeState(element) {
+            var dataid = $(element).data("id");
+            var id_estado = $(element).find(":selected").val();
+
+            $.ajax({
+                    method: "GET",
+                    url: "/api/get-cidades/" + id_estado,
+                })
+                .done(function(cities) {
+                    $("#cidade_" + dataid).empty()
+                    return $("#cidade_" + dataid).append(addCitieSelect(JSON.parse(cities), dataid));
+                });
+        }
+
+        function addCitieSelect(cities) {
+
+            let optionCities
+
+            $.each(cities, function(i, item) {
+                optionCities += "<option value='" + item.id + "'>" + item.name + "</option>"
+            })
+
+            return optionCities;
         }
 
         jQuery("#frota").addClass("active_dashboard");

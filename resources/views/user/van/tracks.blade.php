@@ -12,7 +12,8 @@
                             data-card='{{ $eachTrack['id'] . '_' . $count }}'>
                             @foreach ($track as $eachTrackChoose)
                                 @if ($eachTrackChoose->id == $eachTrack['id'])
-                                    <option value="{{ $eachTrackChoose->id }}" data-show="{{ $eachTrack['id'] . '_' . $count }}" selected>
+                                    <option value="{{ $eachTrackChoose->id }}"
+                                        data-show="{{ $eachTrack['id'] . '_' . $count }}" selected>
                                         {{ $eachTrackChoose->name }}
                                     </option>
                                 @else
@@ -21,7 +22,7 @@
                             @endforeach
                         </select>
                     </div>
-                    
+
                     <div class="item_card_">
                         <select id='estado_saida_{{ $eachTrack['id'] . '_' . $count }}'
                             data-id="saida_{{ $eachTrack['id'] . '_' . $count }}" class="estado_jqry">
@@ -49,7 +50,7 @@
                         <select id='estado_chegada_{{ $eachTrack['id'] . '_' . $count }}'
                             data-id="chegada_{{ $eachTrack['id'] . '_' . $count }}" class="estado_jqry">
                             @foreach ($states as $key => $value)
-                                @if ($value->id == $eachTrack['estado_chegada'])
+                                @if ($value->id == @$eachTrack['estado_chegada'])
                                     <option value="{{ $value->id }}" selected>{{ $value->name }}</option>
                                 @else
                                     <option value="{{ $value->id }}">{{ $value->name }}</option>
@@ -59,13 +60,15 @@
                     </div>
                     <div class="item_card_">
                         <select name='cidade_chegada[]' id="cidade_chegada_{{ $eachTrack['id'] . '_' . $count }}">
-                            @foreach ($eachTrack['cidades_estado_chegada'] as $citie)
-                                @if ($citie->id == @$eachTrack['cidade_chegada'])
-                                    <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
-                                @else
-                                    <option value="{{ $citie->id }}">{{ $citie->name }}</option>
-                                @endif
-                            @endforeach
+                            @if ($eachTrack['cidades_estado_chegada'])
+                                @foreach ($eachTrack['cidades_estado_chegada'] as $citie)
+                                    @if ($citie->id == @$eachTrack['cidade_chegada'])
+                                        <option value="{{ $citie->id }}" selected>{{ $citie->name }}</option>
+                                    @else
+                                        <option value="{{ $citie->id }}">{{ $citie->name }}</option>
+                                    @endif
+                                @endforeach
+                            @endif
                         </select>
                     </div>
                     <div class="item_card_">

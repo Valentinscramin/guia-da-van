@@ -78,15 +78,52 @@
             $("#remove_track").submit()
         }
 
-        function change(element) {
+        $(".track_selector :selected").map(function(key, element) {
+
+            var datashow = this.getAttribute('data-show');
+
+            switch (parseInt(this.value)) {
+                case 1:
+                    $("#estado_saida_" + datashow).show()
+                    $("#estado_chegada_" + datashow).show()
+                    $("#cidade_saida_" + datashow).show()
+                    $("#cidade_chegada_" + datashow).show()
+                    $("#periodo_" + datashow).show()
+                    $("#escola_" + datashow).show()
+                    $("#evento_" + datashow).hide()
+                    break;
+                case 2:
+                    $("#estado_saida_" + datashow).show()
+                    $("#estado_chegada_" + datashow).hide()
+                    $("#cidade_saida_" + datashow).show()
+                    $("#cidade_chegada_" + datashow).hide()
+                    $("#periodo_" + datashow).hide()
+                    $("#escola_" + datashow).hide()
+                    $("#evento_" + datashow).show()
+                    break;
+                default:
+                    $("#estado_saida_" + datashow).show()
+                    $("#estado_chegada_" + datashow).hide()
+                    $("#cidade_saida_" + datashow).show()
+                    $("#cidade_chegada_" + datashow).hide()
+                    $("#periodo_" + datashow).hide()
+                    $("#escola_" + datashow).hide()
+                    $("#evento_" + datashow).hide()
+            }
+
+        }).get()
+
+        function showHideOption(element) {
 
             var cardNumber = $(element).data("card");
+
+            console.log("CardNumber: " + cardNumber);
 
             switch (parseInt(element.value)) {
                 case 1:
                     console.log('entrou no 1')
-                    $("#estado_saida_1_" + cardNumber).show()
-                    $("#estado_chegada_2_" + cardNumber).show()
+                    $("#estado_saida_" + cardNumber).show()
+                    $("#estado_chegada_" + cardNumber).show()
                     $("#cidade_saida_" + cardNumber).show()
                     $("#cidade_chegada_" + cardNumber).show()
                     $("#periodo_" + cardNumber).show()
@@ -95,8 +132,8 @@
                     break;
                 case 2:
                     console.log('entrou no 2')
-                    $("#estado_saida_1_" + cardNumber).show()
-                    $("#estado_chegada_2_" + cardNumber).hide()
+                    $("#estado_saida_" + cardNumber).show()
+                    $("#estado_chegada_" + cardNumber).hide()
                     $("#cidade_saida_" + cardNumber).show()
                     $("#cidade_chegada_" + cardNumber).hide()
                     $("#periodo_" + cardNumber).hide()
@@ -105,14 +142,39 @@
                     break;
                 default:
                     console.log('outros')
-                    $("#estado_saida_1_" + cardNumber).show()
-                    $("#estado_chegada_2_" + cardNumber).hide()
+                    $("#estado_saida_" + cardNumber).show()
+                    $("#estado_chegada_" + cardNumber).hide()
                     $("#cidade_saida_" + cardNumber).show()
                     $("#cidade_chegada_" + cardNumber).hide()
                     $("#periodo_" + cardNumber).hide()
                     $("#escola_" + cardNumber).hide()
                     $("#evento_" + cardNumber).hide()
             }
+        }
+
+        function changeState(element) {
+            var dataid = $(element).data("id");
+            var id_estado = $(element).find(":selected").val();
+
+            $.ajax({
+                    method: "GET",
+                    url: "/api/get-cidades/" + id_estado,
+                })
+                .done(function(cities) {
+                    $("#cidade_" + dataid).empty()
+                    return $("#cidade_" + dataid).append(addCitieSelect(JSON.parse(cities), dataid));
+                });
+        }
+
+        function addCitieSelect(cities) {
+
+            let optionCities
+
+            $.each(cities, function(i, item) {
+                optionCities += "<option value='" + item.id + "'>" + item.name + "</option>"
+            })
+
+            return optionCities;
         }
 
         jQuery("#frota").addClass("active_dashboard");
