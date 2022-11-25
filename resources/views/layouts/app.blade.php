@@ -81,8 +81,8 @@
                         <li id="avalie"><a href="{{ route('web_site_comment') }}"><img
                                     src="{{ URL('/images/nos-avalie_dashboard.svg') }}" alt=""
                                     class="img-fluid"> <span>Nos avalie</span></a></li>
-                        <li><a href="#"><img src="{{ URL('/images/help_dashboard.svg') }}" alt=""
-                                    class="img-fluid"> <span>Ajuda</span></a></li>
+                        <li><a href="{{ route('faq') }}"><img src="{{ URL('/images/help_dashboard.svg') }}"
+                                    alt="" class="img-fluid"> <span>Ajuda</span></a></li>
                     </ul>
                 </nav>
             </div>
@@ -126,6 +126,10 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{-- @if ($profile_photo)
+                                        <img class="card-img-top" style="width:100px;"
+                                            src="/storage/{{ $profile_photo }}" alt="Profile Image">
+                                    @endif --}}
                                     {{ Auth::user()->name }}
                                 </a>
 

@@ -9,12 +9,11 @@ use Illuminate\Support\Facades\DB;
 class WebSiteComment extends Model
 {
     protected $primaryKey = 'id';
-    protected $table = "web_site_comments";
+    protected $table = 'web_site_comments';
     use HasFactory;
 
-    public function user($id)
+    public function user()
     {
-        return DB::table('users')->where("id", $id)->get()[0];
+        return $this->hasOne('App\Models\User', 'id', 'user_id');
     }
-    
 }

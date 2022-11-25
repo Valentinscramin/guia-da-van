@@ -33,7 +33,7 @@
                     <div class="col-12 col-md-6">
                         <div class="col-md-10">
                             <div class="icon_guia_van"><img src="{{ URL('/images/icon.png') }}" class="img-fluid" alt=""></div>
-                            <div class="title col-12">{{ __('Reset Password') }}</div>
+                            <div class="title col-12">{{ __('Redefinição de senha') }}</div>
 
                             <div class="formulario">
                                 <form method="POST" action="{{ route('password.update') }}">
@@ -42,7 +42,7 @@
                                     <input type="hidden" name="token" value="{{ $token }}">
 
                                     <div class="col-12 itemInput">
-                                        <label for="email" class="col-md-4 text-md-end">">{{ __('Email Address') }}</label>
+                                        <label for="email" class="col-md-4 text-md-end">{{ __('Email') }}</label>
 
                                         <div class="col-md-6">
                                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
