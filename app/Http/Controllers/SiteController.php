@@ -17,11 +17,12 @@ class SiteController extends Controller
         $track = Track::all();
         $cities = Cities::orderBy('name')->get();
         $states = States::orderBy('name')->get();
+        $faq = Faq::where('active', '1')->get();
         $announcement = Announcement::where('active', '=', '1')
             ->where('site_web_route', '=', '/home')
             ->get();
 
-        return view('site.home', compact('track', 'cities', 'states', 'announcement'));
+        return view('site.home', compact('track', 'cities', 'states', 'announcement', 'faq'));
     }
 
     public function busca(Request $request)
