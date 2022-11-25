@@ -128,7 +128,8 @@ class ProfileController extends Controller
         $user->postcode = $request->postcode;
         $user->celular = $request->celular;
         $user->telefone = $request->telefone;
-        $user->user_photo_id = intval($request->user_profile_photo);
+        $user->user_photo_id = intval($request->user_profile_photo[0]);
+
         $user->update();
 
         return redirect('user/profile');

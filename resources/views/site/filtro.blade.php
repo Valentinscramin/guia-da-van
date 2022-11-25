@@ -26,17 +26,17 @@
                             </select>
                         </div>
                         <div class="itemInput col-12 col-sm-6">
+                            <label for="">Cidade de saida</label>
+                            <select name="cidade_saida_escola" id="cidade_saida_escola_1">
+                                <option value="">Selecione o estado</option>
+                            </select>
+                        </div>
+                        <div class="itemInput col-12 col-sm-6">
                             <label for="">Estado de chegada</label>
                             <select name="estado_chegada_escola" data-id="chegada_escola_2" class="estado_jqry">
                                 @foreach ($states as $state)
                                     <option value="{{ $state->id }}">{{ $state->name }}</option>
                                 @endforeach
-                            </select>
-                        </div>
-                        <div class="itemInput col-12 col-sm-6">
-                            <label for="">Cidade de saida</label>
-                            <select name="cidade_saida_escola" id="cidade_saida_escola_1">
-                                <option value="">Selecione o estado</option>
                             </select>
                         </div>
                         <div class="itemInput col-12 col-sm-6">

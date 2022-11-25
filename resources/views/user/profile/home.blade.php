@@ -11,7 +11,9 @@
             <form action="{{ route('profile.update', $user->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-                <img class="card-img-top" style="width:100px;" src="/storage/{{ $profile_photo }}" alt="Profile Image">
+                @if ($profile_photo)
+                    <img class="card-img-top" style="width:100px;" src="/storage/{{ $profile_photo }}" alt="Profile Image">
+                @endif
                 <div class="btn_selecionar col-12"><a href="#" id="btn_selecionar_foto">Selecionar Foto</a></div>
                 <div class="modal_album">
                     <div class="content col-12 col-md-8 col-lg-6 col-xl-5">
