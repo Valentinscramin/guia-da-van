@@ -118,7 +118,9 @@ class SiteController extends Controller
             ->join('cities as c', 'van_track_info.cidade_saida', '=', 'c.id')
             ->join('users', 'van.user_id', '=', 'users.id')
             ->join('track', 'van_track.track_id', '=', 'track.id')
-            ->select('users.name as usuario_nome', 'users.celular as usuario_celular', 'users.id as usuario_id', 'van.model as van', 'van.plate as placa', 'van.seats as acentos', 'van.id as van_id', 'van.comment as comment', 'track.name as trajeto', 'van_track_info.periodo as periodo')
+            ->join('van_user_photo', 'van_user_photo.van_id', '=', 'van.id')
+            ->join('user_photos', 'user_photos.id', '=', 'van_user_photo.user_photo_id')
+            ->select('users.name as usuario_nome', 'users.celular as usuario_celular', 'users.id as usuario_id', 'van.model as van', 'van.plate as placa', 'van.seats as acentos', 'van.id as van_id', 'van.comment as comment', 'track.name as trajeto', 'van_track_info.periodo as periodo', 'user_photos.arquivo as van_photo')
             ->get();
 
         return view('site.resultado', compact('vans', 'track', 'states'));
