@@ -16,19 +16,19 @@ use Illuminate\Support\Facades\Route;
 //ROTAS SITE
 
 //HOME
-Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])->name("home");
+Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])->name('home');
 
 //QUEM SOMOS
-Route::get('/quem-somos', [App\Http\Controllers\SiteController::class, 'quemsomos'])->name("quem_somos");
+Route::get('/quem-somos', [App\Http\Controllers\SiteController::class, 'quemsomos'])->name('quem_somos');
 
 //ANUNCIE AQUI
-Route::get('/anuncie-aqui', [App\Http\Controllers\SiteController::class, 'anuncie'])->name("anuncie_aqui");
+Route::get('/anuncie-aqui', [App\Http\Controllers\SiteController::class, 'anuncie'])->name('anuncie_aqui');
 
 //FAQ
-Route::get('/faq', [App\Http\Controllers\SiteController::class, 'faq'])->name("faq");
+Route::get('/faq', [App\Http\Controllers\SiteController::class, 'faq'])->name('faq');
 
 // CONTATO
-Route::get('/contato', [App\Http\Controllers\SiteController::class, 'contato'])->name("contato");
+Route::get('/contato', [App\Http\Controllers\SiteController::class, 'contato'])->name('contato');
 
 //FILTRO
 Route::get('/busca/resultado', [App\Http\Controllers\SiteController::class, 'busca'])->name('busca_resultado');
@@ -45,6 +45,8 @@ Route::resource('/avaliation', App\Http\Controllers\User\AvaliationController::c
 //COMMENT
 Route::post('/comment/push', [App\Http\Controllers\User\CommentController::class, 'store'])->name('comment_push');
 
+//SEND EMAIL
+Route::post('/sendemail/send', [App\Http\Controllers\SiteController::class, 'send'])->name('send_email');
 
 Auth::routes();
 

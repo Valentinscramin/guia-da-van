@@ -51,27 +51,16 @@
                                         @enderror
                                     </div>
 
-                                    {{--
-                                    <label for="cpf_cnpj" >{{ __('CPF/CNPJ') }}</label>
+                                    <div class="col-12 itemInput">
+                                        <label for="lastname">{{ __('Sobrenome') }}</label>
+                                        <input id="lastname" type="text" class="@error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
 
-                                    <input id="cpf_cnpj" type="text" @error('cpf_cnpj') is-invalid @enderror" name="cpf_cnpj" value="{{ old('cpf_cnpj') }}" required autocomplete="cpf_cnpj" autofocus>
-
-                                    @error('cpf_cnpj')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                    --}}
-
-                                    {{--
-                                    <label for="data_nascimento">{{ __('Data nascimento') }}</label>
-                                    <input id="data_nascimento" type="date" @error('data_nascimento') is-invalid @enderror" name="data_nascimento" value="{{ old('data_nascimento') }}" required autocomplete="data_nascimento" autofocus>
-                                    @error('data_nascimento')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                    --}}
+                                        @error('lastname')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
 
                                     <div class="col-12 itemInput">
                                         <label for="celular">{{ __('Celular') }}</label>
@@ -84,18 +73,6 @@
                                         </span>
                                         @enderror
                                     </div>
-
-                                    {{--
-                                <label for="telefone">{{ __('Telefone') }}</label>
-
-                                    <input id="telefone" type="tel" @error('telefone') is-invalid @enderror" name="telefone" value="{{ old('telefone') }}" required autocomplete="telefone" autofocus>
-
-                                    @error('telefone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                    --}}
 
                                     <div class="col-12 itemInput">
                                         <label for="email">{{ __('Email') }}</label>

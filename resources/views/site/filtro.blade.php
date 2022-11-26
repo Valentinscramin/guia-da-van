@@ -3,12 +3,22 @@
     @method('GET')
     @foreach ($track as $eachTrack)
         <div class="item">
-            <div class="item_input" data-id="track-{{ $eachTrack->id }}">
-                <input type="radio" id="track-{{ $eachTrack->id }}" name="track" value="{{ $eachTrack->id }}">
-                <label for="track-{{ $eachTrack->id }}">
-                    {{ $eachTrack->name }}
-                </label>
-            </div>
+            @if ($eachTrack->id == Request::old('track'))
+                <div class="item_input" data-id="track-{{ $eachTrack->id }}">
+                    <input type="radio" id="track-{{ $eachTrack->id }}" name="track" value="{{ $eachTrack->id }}"
+                        checked>
+                    <label for="track-{{ $eachTrack->id }}">
+                        {{ $eachTrack->name }}
+                    </label>
+                </div>
+            @else
+                <div class="item_input" data-id="track-{{ $eachTrack->id }}">
+                    <input type="radio" id="track-{{ $eachTrack->id }}" name="track" value="{{ $eachTrack->id }}">
+                    <label for="track-{{ $eachTrack->id }}">
+                        {{ $eachTrack->name }}
+                    </label>
+                </div>
+            @endif
         </div>
     @endforeach
     @foreach ($track as $eachTrack)
@@ -21,7 +31,11 @@
                             <label for="">Estado de saida</label>
                             <select name="estado_saida_escola" data-id="saida_escola_1" class="estado_jqry">
                                 @foreach ($states as $state)
-                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @if ($state->id == Request::old('estado_saida_escola'))
+                                        <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
+                                    @else
+                                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -35,7 +49,11 @@
                             <label for="">Estado de chegada</label>
                             <select name="estado_chegada_escola" data-id="chegada_escola_2" class="estado_jqry">
                                 @foreach ($states as $state)
-                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @if ($state->id == Request::old('estado_chegada_escola'))
+                                        <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
+                                    @else
+                                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -48,14 +66,14 @@
 
                         <div class="itemInput col-12 col-sm-6 col-lg-8">
                             <label for="">Escola</label>
-                            <input type="text" name="escola" placeholder="Escola" value="">
+                            <input type="text" name="escola" placeholder="Escola" value="{{ Request::old('escola') }}">
                         </div>
                         <div class="itemInput col-12 col-sm-6 col-lg-4">
                             <label for="">Periodo</label>
                             <select name="periodo" id="">
-                                <option value="diurno">Diurno</option>
-                                <option value="vespertino">Vespertino</option>
-                                <option value="noturno">Noturno</option>
+                                <option value="diurno" @if (Request::old('periodo') == 'diurno') selected @endif>Diurno</option>
+                                <option value="vespertino" @if (Request::old('periodo') == 'vespertino') selected @endif>Vespertino</option>
+                                <option value="noturno" @if (Request::old('periodo') == 'noturno') selected @endif>Noturno</option>
                             </select>
                         </div>
                     </div>
@@ -68,7 +86,11 @@
                             <label for="">Estado de saida</label>
                             <select name="estado_evento" data-id="saida_evento" class="estado_jqry">
                                 @foreach ($states as $state)
-                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @if ($state->id == Request::old('estado_evento'))
+                                        <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
+                                    @else
+                                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -80,7 +102,7 @@
                         </div>
                         <div class="itemInput col-12 col-sm-6 col-lg-12">
                             <label for="">Nome do evento</label>
-                            <input type="text" name="evento" placeholder="Evento caso necessario" value="">
+                            <input type="text" name="evento" placeholder="Evento caso necessario" value="{{ Request::old('evento') }}">
                         </div>
                     </div>
                 @break
@@ -91,7 +113,11 @@
                             <label for="">Estado de saida</label>
                             <select name="estado_executivo" data-id="saida_executivo" class="estado_jqry">
                                 @foreach ($states as $state)
-                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @if ($state->id == Request::old('estado_executivo'))
+                                        <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
+                                    @else
+                                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
@@ -110,7 +136,11 @@
                             <label for="">Estado de saida</label>
                             <select name="estado_frete" data-id="saida_frete" class="estado_jqry">
                                 @foreach ($states as $state)
-                                    <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @if ($state->id == Request::old('estado_frete'))
+                                        <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
+                                    @else
+                                        <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>

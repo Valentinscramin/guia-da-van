@@ -50,6 +50,18 @@
                 </div>
 
                 <div class="itemInput col-12 col-sm-4">
+                    <label for="lastname" class="form-label">Sobrenome</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="" aria-describedby="helpId"
+                        value="{{ $user->lastname }}">
+                    <small id="helpId" class="text-muted">Sobrenome</small>
+                    @error('lastname')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="itemInput col-12 col-sm-4">
                     <label for="email" class="form-label">Email</label>
                     <input type="text" name="email" id="email" placeholder="" aria-describedby="helpId"
                         value="{{ $user->email }}" readonly>
@@ -61,7 +73,7 @@
                     @enderror
                 </div>
 
-                <div class="itemInput col-12 col-sm-4">
+                <div class="itemInput col-12 col-sm-3">
                     <label for="cpf_cnpj" class="form-label">CPF/CNPJ</label>
                     <input type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="" aria-describedby="helpId_cpf_cnpj"
                         value="{{ $user->cpf_cnpj }}" onkeyup="validar(this);">
@@ -121,7 +133,7 @@
                     @enderror
                 </div>
 
-                <div class="col-12 btn_submit"><button type="submit">Atualizar Perfil</button></div>
+                <div class="col-12 btn_submit"><button type="submit" id="botao-salvar">Atualizar Perfil</button></div>
             </form>
         </div>
 
@@ -131,7 +143,7 @@
 
         $("#postcode").mask("99.999-999");
         $("#telefone").mask("(99)9999-9999");
-        $("#celular").mask("(99)99999-9999");
+        // $("#celular").mask("(99)99999-9999");
 
         function validar(obj) {
             // recebe um objeto
