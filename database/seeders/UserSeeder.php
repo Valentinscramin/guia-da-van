@@ -14,6 +14,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert(['name' => 'Usuario Comum', 'email' => 'comercial@astorbrindes.com.br', 'password' => bcrypt('12345678')]);
+        DB::table('users')->insert(['name' => 'Usuario', 'lastname' => 'Comum', 'email' => 'comercial@astorbrindes.com.br', 'password' => bcrypt('12345678')]);
     }
 }

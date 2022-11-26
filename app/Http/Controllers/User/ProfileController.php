@@ -106,6 +106,7 @@ class ProfileController extends Controller
             $request->all(),
             [
                 'name' => 'required|string|max:255',
+                'lastname' => 'required|string|max:255',
                 'cpf_cnpj' => 'required',
                 'postcode' => 'required',
                 'telefone' => 'required',
@@ -123,6 +124,7 @@ class ProfileController extends Controller
 
         $user = User::find($id);
         $user->name = $request->name;
+        $user->lastname = $request->lastname;
         $user->cpf_cnpj = $request->cpf_cnpj;
         $user->data_nascimento = $request->data_nascimento;
         $user->postcode = $request->postcode;
