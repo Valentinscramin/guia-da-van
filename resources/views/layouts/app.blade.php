@@ -54,8 +54,8 @@
                                         alt="" class="img-fluid"> <span>Minha Frota</span></a>
                             @endif
                         </li>
-                        <li><a href="#"><img src="{{ URL('/images/chat_dashboard.svg') }}" alt=""
-                                    class="img-fluid"> <span>Chat</span></a></li>
+                        {{-- <li><a href="#"><img src="{{ URL('/images/chat_dashboard.svg') }}" alt=""
+                                    class="img-fluid"> <span>Chat</span></a></li> --}}
                         <li id="midia">
                             @if (is_null(@Auth::user()->cpf_cnpj) || is_null(@Auth::user()->data_nascimento))
                                 <a class="disable" title="Necessário o cadastro do cpf/cnpj e data de nascimento"

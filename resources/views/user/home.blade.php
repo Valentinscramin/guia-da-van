@@ -1,20 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row no-gutters">
-        <!-- {{ __('Dashboard') }} -->
-
-        @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
+    <div class="container">
+        @if (is_null(Auth::user()->cpf_cnpj))
+            <br>
+            <div class="alert alert-warning mx-auto" role="alert">
+                Deseja cadastrar sua primeira van e poder fazer upload de imagens? Preencha todos os dados do seu <a
+                    href="{{ URL('/user/profile') }}">perfil</a>.
+            </div>
         @endif
-
-        <!-- {{ __('You are logged in!') }} -->
+        @if (session('status'))
+            <br>
+            <div class="alert alert-success mx-auto" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
     </div>
-</div>
-<script>
-    jQuery("#dashboard").addClass("active_dashboard");
-</script>
+    <script>
+        jQuery("#dashboard").addClass("active_dashboard");
+    </script>
 @endsection
