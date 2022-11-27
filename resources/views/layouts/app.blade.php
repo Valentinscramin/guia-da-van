@@ -126,10 +126,11 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{-- @if ($profile_photo)
-                                        <img class="card-img-top" style="width:100px;"
-                                            src="/storage/{{ $profile_photo }}" alt="Profile Image">
-                                    @endif --}}
+                                    @if (App\Models\User::photo(Auth::user()->user_photo_id)->arquivo)
+                                        <img class="card-img-top rounded-circle"
+                                            src="/storage/{{ App\Models\User::photo(Auth::user()->user_photo_id)->arquivo }}"
+                                            alt="{{ Auth::user()->name }}" style="width:25px;">
+                                    @endif
                                     {{ Auth::user()->name }}
                                 </a>
 
