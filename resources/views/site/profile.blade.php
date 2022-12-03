@@ -15,7 +15,11 @@
                     <input type="hidden" name="avaliation" value="1">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <button type="submit" class="btn btn-primary">
-                        <span class="fa fa-star @if ($stars['one']) {{ 'checked' }} @endif"></span>
+                        @if ($stars > 0)
+                            <span class="fa fa-star @if ($stars['one']) {{ 'checked' }} @endif"></span>
+                        @else
+                            <span class="fa fa-star"></span>
+                        @endif
                     </button>
                 </form>
                 <form action="{{ route('avaliation.store') }}" method="POST">
@@ -24,7 +28,11 @@
                     <input type="hidden" name="avaliation" value="2">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <button type="submit" class="btn btn-primary">
-                        <span class="fa fa-star @if ($stars['two']) {{ 'checked' }} @endif"></span>
+                        @if ($stars > 0)
+                            <span class="fa fa-star @if ($stars['two']) {{ 'checked' }} @endif"></span>
+                        @else
+                            <span class="fa fa-star"></span>
+                        @endif
                     </button>
                 </form>
                 <form action="{{ route('avaliation.store') }}" method="POST">
@@ -33,7 +41,11 @@
                     <input type="hidden" name="avaliation" value="3">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <button type="submit" class="btn btn-primary">
-                        <span class="fa fa-star @if ($stars['three']) {{ 'checked' }} @endif"></span>
+                        @if ($stars > 0)
+                            <span class="fa fa-star @if ($stars['three']) {{ 'checked' }} @endif"></span>
+                        @else
+                            <span class="fa fa-star"></span>
+                        @endif
                     </button>
                 </form>
                 <form action="{{ route('avaliation.store') }}" method="POST">
@@ -42,7 +54,11 @@
                     <input type="hidden" name="avaliation" value="4">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <button type="submit" class="btn btn-primary">
-                        <span class="fa fa-star @if ($stars['four']) {{ 'checked' }} @endif"></span>
+                        @if ($stars > 0)
+                            <span class="fa fa-star @if ($stars['four']) {{ 'checked' }} @endif"></span>
+                        @else
+                            <span class="fa fa-star"></span>
+                        @endif
                     </button>
                 </form>
                 <form action="{{ route('avaliation.store') }}" method="POST">
@@ -51,7 +67,11 @@
                     <input type="hidden" name="avaliation" value="5">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <button type="submit" class="btn btn-primary">
-                        <span class="fa fa-star @if ($stars['five']) {{ 'checked' }} @endif"></span>
+                        @if ($stars > 0)
+                            <span class="fa fa-star @if ($stars['five']) {{ 'checked' }} @endif"></span>
+                        @else
+                            <span class="fa fa-star"></span>
+                        @endif
                     </button>
                 </form>
             </div>
@@ -81,9 +101,9 @@
         @endforeach
         @foreach ($vans as $eachVan)
             <div class="card text-start">
-                <img class="card-img-top"
-                    src="https://cdn.cloudflare.steamstatic.com/steam/apps/1548130/capsule_616x353.jpg?t=1631134025"
-                    alt="Title">
+                <div class="col-12 col-sm-2 col-lg-1">
+                    <img class="card-img-top" src="/storage/{{ $eachVan->arquivo }}" alt="Title">
+                </div>
                 <div class="card-body">
                     <h4 class="card-title">{{ $eachVan->model }}</h4>
                     <p class="card-text">Placa: {{ $eachVan->plate }}</p>

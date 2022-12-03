@@ -143,7 +143,7 @@
 
         $("#postcode").mask("99.999-999");
         $("#telefone").mask("(99)9999-9999");
-        // $("#celular").mask("(99)99999-9999");
+        // $("#celular").mask("(99)9999-99999");
 
         function validar(obj) {
             // recebe um objeto

@@ -38,9 +38,8 @@ class WebSiteCommentController extends Controller
      */
     public function store(Request $request)
     {
-
         $request->validate([
-            "comment" => "required",
+            'comment' => 'required',
         ]);
 
         $webSiteComment = new WebSiteComment();
@@ -72,7 +71,7 @@ class WebSiteCommentController extends Controller
     public function edit(WebSiteComment $webSiteComment, $id)
     {
         $webSiteCommentSelected = $webSiteComment->find($id);
-        $user = $webSiteComment->user($webSiteCommentSelected->user_id);
+        $user = $webSiteComment->userByid($webSiteCommentSelected->user_id);
         return view('admin.websitecomment.edit', compact('webSiteCommentSelected', 'user'));
     }
 

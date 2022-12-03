@@ -65,7 +65,7 @@
                                     <div class="col-12 itemInput">
                                         <label for="celular">{{ __('Celular') }}</label>
 
-                                        <input id="celular" type="tel" class="@error('celular') is-invalid @enderror" name="celular" value="{{ old('celular') }}" required autocomplete="celular" autofocus onkeypress="$(this).mask('(00) 0000-00009')">
+                                        <input id="celular" type="tel" class="@error('celular') is-invalid @enderror" name="celular" value="{{ old('celular') }}" required autocomplete="celular" autofocus onkeypress="$(this).mask('(00) 00000-0000')">
 
                                         @error('celular')
                                         <span class="invalid-feedback" role="alert">

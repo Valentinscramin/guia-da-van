@@ -6,6 +6,12 @@
             <div class="col-12">
                 <h2>Nova <span>Van</span></h2>
             </div>
+            <br>
+            <br>
+            <div class="alert alert-warning col-12" role="alert">
+                Para que sua van seja listada, deve-se obrigatoriamente selecionar uma imagem, caso não possua, faça o
+                <a href="{{ route('user.photos.index') }}">upload</a>.
+            </div>
         </div>
         <div class="formulario col-11">
             <form action="{{ route('van.store') }}" method="POST">

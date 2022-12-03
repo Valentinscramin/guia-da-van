@@ -13,8 +13,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Nome</th>
-                    <th>Url</th>
+                    <th>Pergunta</th>
                     <th>Status</th>
                     <th>&nbsp;</th>
                 </tr>
@@ -31,7 +30,7 @@
                         @endif
                     </td>
                     <td>
-                        <a type="button" href="{{ route('faq.edit', $eachFaq->id) }}">edit</a>
+                        <a type="button" href="{{ route('faq.edit', $eachFaq->id) }}">Editar</a>
                     </td>
                 </tr>
                 @endforeach

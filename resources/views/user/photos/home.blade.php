@@ -49,8 +49,8 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
-                                        <a type="button" class="btn btn-sm btn-outline-secondary"
-                                            href="{{ route('photo_download', $eachPhoto->id) }}">Download</a>
+                                        {{-- <a type="button" class="btn btn-sm btn-outline-secondary"
+                                            href="{{ route('photo_download', $eachPhoto->id) }}">Download</a> --}}
                                         <form method="POST" action="/user/photos/{{ $eachPhoto->id }}">
                                             @csrf
                                             <input type="hidden" name="_method" value="delete">
