@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\User\Avaliation;
 use App\Models\User\UserPhotos;
 use App\Models\User\Van;
+use App\Models\User\VanUserPhoto;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,6 +22,7 @@ class ProfileController extends Controller
         'telefone.required' => 'O usuario deve conter um Telefone',
         'celular.required' => 'O usuario deve conter um celular',
         'data_nascimento.required' => 'O usuario deve ter mais de 18 anos',
+        'data_nascimento.before' => 'O usuario deve ter mais de 18 anos',
     ];
 
     /**
@@ -69,13 +71,19 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        try {
-            $user = User::find($id);
-            $profile_photo = @User::photo($id)->arquivo;
-            $vans = Van::where('user_id', '=', $id)->get();
-            $stars = Avaliation::getAvaliationStarsAvg($user->avaliation);
-        } catch (\Throwable $th) {
-            return view('site.error', compact('th'));
+        $user = User::find($id);
+        $profile_photo = @User::photo($id)->arquivo;
+        $stars = Avaliation::getAvaliationStarsAvg($user->avaliation);
+        $vans_user = Van::where('user_id', '=', $id)->get();
+
+        $vans = [];
+        $count = 0;
+        foreach ($vans_user as $key => $eachVan) {
+            $photo_id = VanUserPhoto::where('van_id', '=', $eachVan->id)->get()[0]['user_photo_id'];
+            $arquivo = UserPhotos::where('id', '=', $photo_id)->get()[0]['arquivo'];
+            $vans[$count] = $eachVan;
+            $vans[$count]['arquivo'] = $arquivo;
+            $count++;
         }
 
         return view('site.profile', compact('user', 'stars', 'profile_photo', 'vans'));

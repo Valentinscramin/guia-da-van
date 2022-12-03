@@ -33,7 +33,7 @@
                                 @endforeach
                             </td>
                             <td>
-                                <div class="btn_edit"><a type="button" href="{{ route('van.edit', $eachVan->id) }}">editar</a>
+                                <div class="btn_edit"><a type="button" href="{{ route('van.edit', $eachVan->id) }}">Editar</a>
                                 </div>
                             </td>
                         </tr>

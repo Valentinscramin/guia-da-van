@@ -8,39 +8,39 @@ use Illuminate\Database\Eloquent\Model;
 class Avaliation extends Model
 {
     use HasFactory;
-    protected $table = "avaliation";
+    protected $table = 'avaliation';
 
     public static function stars($percent)
     {
-        $stars = array();
+        $stars = [];
         if ($percent >= 1) {
-            $stars['one'] = TRUE;
-        }else{
-            $stars['one'] = FALSE;
+            $stars['one'] = true;
+        } else {
+            $stars['one'] = false;
         }
 
         if ($percent >= 3) {
-            $stars['two'] = TRUE;
-        }else{
-            $stars['two'] = FALSE;
+            $stars['two'] = true;
+        } else {
+            $stars['two'] = false;
         }
 
         if ($percent >= 5) {
-            $stars['three'] = TRUE;
-        }else{
-            $stars['three'] = FALSE;
+            $stars['three'] = true;
+        } else {
+            $stars['three'] = false;
         }
 
         if ($percent >= 7) {
-            $stars['four'] = TRUE;
-        }else{
-            $stars['four'] = FALSE;
+            $stars['four'] = true;
+        } else {
+            $stars['four'] = false;
         }
 
         if ($percent >= 9) {
-            $stars['five'] = TRUE;
-        }else{
-            $stars['five'] = FALSE;
+            $stars['five'] = true;
+        } else {
+            $stars['five'] = false;
         }
 
         return $stars;
@@ -48,17 +48,20 @@ class Avaliation extends Model
 
     public static function getAvaliationStarsAvg($avaliations)
     {
-        $sum = 0;
-        $count = 0;
+        if (count($avaliations) > 0) {
+            $sum = 0;
+            $count = 0;
 
-        foreach ($avaliations as $eachAvaliation) {
-            $count++;
-            $sum += $eachAvaliation->avaliation;
+            foreach ($avaliations as $eachAvaliation) {
+                $count++;
+                $sum += $eachAvaliation->avaliation;
+            }
+
+            $avg = $count / $sum;
+            $percent = ($avg * 100) / 10;
+
+            return Avaliation::stars($percent);
         }
-
-        $avg = $count / $sum;
-        $percent = $avg * 100 / 10;
-
-        return Avaliation::stars($percent);
+        return 0;
     }
 }
