@@ -76,11 +76,11 @@
                 </form>
             </div>
         @else
-            <span class="fa fa-star @if ($stars['one']) {{ 'checked' }} @endif"></span>
-            <span class="fa fa-star @if ($stars['two']) {{ 'checked' }} @endif"></span>
-            <span class="fa fa-star @if ($stars['three']) {{ 'checked' }} @endif"></span>
-            <span class="fa fa-star @if ($stars['four']) {{ 'checked' }} @endif"></span>
-            <span class="fa fa-star @if ($stars['five']) {{ 'checked' }} @endif"></span>
+            <span class="fa fa-star @if (isset($stars['one'])) {{ 'checked' }} @endif"></span>
+            <span class="fa fa-star @if (isset($stars['two'])) {{ 'checked' }} @endif"></span>
+            <span class="fa fa-star @if (isset($stars['three'])) {{ 'checked' }} @endif"></span>
+            <span class="fa fa-star @if (isset($stars['four'])) {{ 'checked' }} @endif"></span>
+            <span class="fa fa-star @if (isset($stars['five'])) {{ 'checked' }} @endif"></span>
         @endif
         <br>
         @if (isset(Auth::user()->id))
