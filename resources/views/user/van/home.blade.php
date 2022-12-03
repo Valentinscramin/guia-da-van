@@ -14,10 +14,10 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Model</th>
-                        <th>Plate</th>
-                        <th>Seats</th>
-                        <th>Tracks</th>
+                        <th>Modelo</th>
+                        <th>Placa</th>
+                        <th>Assentos</th>
+                        <th>Trajetos</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
