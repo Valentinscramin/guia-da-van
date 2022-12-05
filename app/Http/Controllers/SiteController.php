@@ -133,6 +133,9 @@ class SiteController extends Controller
         $track = Track::all();
         $states = States::orderBy('name')->get();
 
+        $citiesOne = null;
+        $citiesTwo = null;
+
         $vans = DB::table('van_track')
             ->join('van_track_info', 'van_track.id', '=', 'van_track_info.van_track_id')
             ->join('van', 'van_track.van_id', '=', 'van.id')
@@ -144,7 +147,7 @@ class SiteController extends Controller
             ->select('users.name as usuario_nome', 'users.celular as usuario_celular', 'users.id as usuario_id', 'van.model as van', 'van.plate as placa', 'van.seats as acentos', 'van.id as van_id', 'van.comment as comment', 'track.name as trajeto', 'van_track_info.periodo as periodo', 'user_photos.arquivo as van_photo')
             ->get();
 
-        return view('site.resultado', compact('vans', 'track', 'states'));
+        return view('site.resultado', compact('vans', 'track', 'states', 'citiesOne', 'citiesTwo'));
     }
 
     public function quemsomos()
