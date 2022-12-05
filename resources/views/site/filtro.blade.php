@@ -42,7 +42,18 @@
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de saida</label>
                             <select name="cidade_saida_escola" id="cidade_saida_escola_1">
-                                <option value="">Selecione o estado</option>
+                                @if (!is_null($citiesOne))
+                                    @foreach ($citiesOne as $eachCitieOne)
+                                        @if ($eachCitieOne->id == Request::old('cidade_saida_escola'))
+                                            <option value="{{ $eachCitieOne->id }}" selected> {{ $eachCitieOne->name }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $eachCitieOne->id }}"> {{ $eachCitieOne->name }}</option>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <option value="">Selecione o estado</option>
+                                @endif
                             </select>
                         </div>
                         <div class="itemInput col-12 col-sm-6">
@@ -60,7 +71,18 @@
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de chegada</label>
                             <select name="cidade_chegada_escola" id="cidade_chegada_escola_2">
-                                <option value="">Selecione o estado</option>
+                                @if (!is_null($citiesTwo))
+                                    @foreach ($citiesTwo as $eachCitieTwo)
+                                        @if ($eachCitieTwo->id == Request::old('cidade_chegada_escola'))
+                                            <option value="{{ $eachCitieTwo->id }}" selected> {{ $eachCitieTwo->name }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $eachCitieTwo->id }}"> {{ $eachCitieTwo->name }}</option>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <option value="">Selecione o estado</option>
+                                @endif
                             </select>
                         </div>
 
@@ -97,12 +119,24 @@
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de saida</label>
                             <select name="cidade_saida_evento" id="cidade_saida_evento">
-                                <option value="">Selecione o estado</option>
+                                @if (!is_null($citiesOne))
+                                    @foreach ($citiesOne as $eachCitieOne)
+                                        @if ($eachCitieOne->id == Request::old('cidade_saida_evento'))
+                                            <option value="{{ $eachCitieOne->id }}" selected> {{ $eachCitieOne->name }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $eachCitieOne->id }}"> {{ $eachCitieOne->name }}</option>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <option value="">Selecione o estado</option>
+                                @endif
                             </select>
                         </div>
                         <div class="itemInput col-12 col-sm-6 col-lg-12">
                             <label for="">Nome do evento</label>
-                            <input type="text" name="evento" placeholder="Evento caso necessario" value="{{ Request::old('evento') }}">
+                            <input type="text" name="evento" placeholder="Evento caso necessario"
+                                value="{{ Request::old('evento') }}">
                         </div>
                     </div>
                 @break
@@ -124,7 +158,18 @@
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de saida</label>
                             <select name="cidade_saida_executivo" id="cidade_saida_executivo">
-                                <option value="">Selecione o estado</option>
+                                @if (!is_null($citiesOne))
+                                    @foreach ($citiesOne as $eachCitieOne)
+                                        @if ($eachCitieOne->id == Request::old('cidade_saida_executivo'))
+                                            <option value="{{ $eachCitieOne->id }}" selected> {{ $eachCitieOne->name }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $eachCitieOne->id }}"> {{ $eachCitieOne->name }}</option>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <option value="">Selecione o estado</option>
+                                @endif
                             </select>
                         </div>
                     </div>
@@ -147,7 +192,18 @@
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de saida</label>
                             <select name="cidade_saida_frete" id="cidade_saida_frete">
-                                <option value="">Selecione o estado</option>
+                                @if (!is_null($citiesOne))
+                                    @foreach ($citiesOne as $eachCitieOne)
+                                        @if ($eachCitieOne->id == Request::old('cidade_saida_frete'))
+                                            <option value="{{ $eachCitieOne->id }}" selected> {{ $eachCitieOne->name }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $eachCitieOne->id }}"> {{ $eachCitieOne->name }}</option>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <option value="">Selecione o estado</option>
+                                @endif
                             </select>
                         </div>
                     </div>

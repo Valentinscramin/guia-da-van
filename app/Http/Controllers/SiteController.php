@@ -27,7 +27,10 @@ class SiteController extends Controller
             ->where('site_web_route', '=', '/home')
             ->get();
 
-        return view('site.home', compact('track', 'cities', 'states', 'announcement', 'faq', 'websitecomments'));
+        $citiesOne = null;
+        $citiesTwo = null;
+
+        return view('site.home', compact('track', 'cities', 'states', 'announcement', 'faq', 'websitecomments', 'citiesOne', 'citiesTwo'));
     }
 
     public function busca(Request $request)
@@ -35,6 +38,9 @@ class SiteController extends Controller
         $track = Track::all();
         $cities = Cities::orderBy('name')->get();
         $states = States::orderBy('name')->get();
+
+        $citiesOne = null;
+        $citiesTwo = null;
 
         $vans = [];
         switch ($request->track) {
@@ -56,6 +62,9 @@ class SiteController extends Controller
                     ->select('users.name as usuario_nome', 'users.celular as usuario_celular', 'users.id as usuario_id', 'van.model as van', 'van.plate as placa', 'van.seats as acentos', 'van.id as van_id', 'van.comment as comment', 'track.name as trajeto', 'van_track_info.periodo as periodo', 'user_photos.arquivo as van_photo')
                     ->get();
 
+                $citiesOne = Cities::where('state_id', '=', $request->estado_saida_escola)->get();
+                $citiesTwo = Cities::where('state_id', '=', $request->estado_chegada_escola)->get();
+
                 break;
 
             case 2:
@@ -73,6 +82,8 @@ class SiteController extends Controller
                     ->select('users.name as usuario_nome', 'users.celular as usuario_celular', 'users.id as usuario_id', 'van.model as van', 'van.plate as placa', 'van.seats as acentos', 'van.id as van_id', 'van.comment as comment', 'track.name as trajeto', 'van_track_info.periodo as periodo', 'user_photos.arquivo as van_photo')
                     ->get();
 
+                $citiesOne = Cities::where('state_id', '=', $request->estado_evento)->get();
+
                 break;
 
             case 3:
@@ -88,6 +99,9 @@ class SiteController extends Controller
                     ->where('van_track_info.cidade_saida', '=', $request->cidade_saida_executivo)
                     ->select('users.name as usuario_nome', 'users.celular as usuario_celular', 'users.id as usuario_id', 'van.model as van', 'van.plate as placa', 'van.seats as acentos', 'van.id as van_id', 'van.comment as comment', 'track.name as trajeto', 'van_track_info.periodo as periodo', 'user_photos.arquivo as van_photo')
                     ->get();
+
+                $citiesOne = Cities::where('state_id', '=', $request->estado_executivo)->get();
+
                 break;
 
             case 4:
@@ -103,12 +117,15 @@ class SiteController extends Controller
                     ->where('van_track_info.cidade_saida', '=', $request->cidade_saida_frete)
                     ->select('users.name as usuario_nome', 'users.celular as usuario_celular', 'users.id as usuario_id', 'van.model as van', 'van.plate as placa', 'van.seats as acentos', 'van.id as van_id', 'van.comment as comment', 'track.name as trajeto', 'van_track_info.periodo as periodo', 'user_photos.arquivo as van_photo')
                     ->get();
+
+                $citiesOne = Cities::where('state_id', '=', $request->estado_frete)->get();
+
                 break;
         }
 
         session()->flashInput($request->input());
 
-        return view('site.resultado', compact('vans', 'track', 'states'));
+        return view('site.resultado', compact('vans', 'track', 'states', 'citiesOne', 'citiesTwo'));
     }
 
     public function busca_index()
