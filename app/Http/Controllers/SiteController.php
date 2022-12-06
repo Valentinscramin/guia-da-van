@@ -13,11 +13,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
+use App\Models\SiteAcessos;
 
 class SiteController extends Controller
 {
     public function index()
     {
+        $siteacessos = new SiteAcessos();
+        $siteacessos->save();
+
         $track = Track::all();
         $cities = Cities::orderBy('name')->get();
         $states = States::orderBy('name')->get();

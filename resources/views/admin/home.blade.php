@@ -1,20 +1,114 @@
 @extends('layouts.appAdmin')
 
 @section('content')
-<div class="container">
-    <div class="row no-gutters">
-        <!-- Dashboard - Administrador -->
-        @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
+    <div class="container">
+        <div class="row">
+            <canvas id="user" width="100%"></canvas>
+            <canvas id="vans" width="100%"></canvas>
+            <canvas id="acessos" width="100%"></canvas>
         </div>
-        @endif
-        <!-- {{ 'Total de ' . $totalVans . ' vans cadastradas nos sistemas.' }} -->
-        <br>
-        <!-- {{ __('You are logged in!') }} -->
     </div>
-</div>
-<script>
-    jQuery("#dashboard").addClass("active_dashboard");
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script>
+        jQuery("#dashboard").addClass("active_dashboard");
+
+        var months = <?php echo $months; ?>;
+        var user = <?php echo $user; ?>;
+        var vans = <?php echo $vans; ?>;
+        var acessos = <?php echo $acessos; ?>;
+
+        var AcessosChartData = {
+            labels: months,
+            datasets: [{
+                label: 'Acessos',
+                backgroundColor: "purple",
+                data: acessos
+            }]
+        };
+
+        var UserChartData = {
+            labels: months,
+            datasets: [{
+                label: 'Usuario',
+                backgroundColor: "blue",
+                data: user
+            }]
+        };
+
+        var VanChartData = {
+            labels: months,
+            datasets: [{
+                label: 'Vans',
+                backgroundColor: "yellow",
+                data: vans
+            }]
+        };
+
+        window.onload = function() {
+
+            // USER
+            var ctx = document.getElementById("user").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'line',
+                data: UserChartData,
+                options: {
+                    elements: {
+                        rectangle: {
+                            borderWidth: 2,
+                            borderColor: '#c1c1c1',
+                            borderSkipped: 'bottom'
+                        }
+                    },
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Usuarios Cadastrados',
+                    }
+                }
+            });
+
+            // Vans
+            var ctx = document.getElementById("vans").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'line',
+                data: VanChartData,
+                options: {
+                    elements: {
+                        rectangle: {
+                            borderWidth: 2,
+                            borderColor: '#c1c1c1',
+                            borderSkipped: 'bottom'
+                        }
+                    },
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Vans cadastradas',
+                    }
+                }
+            });
+
+            // Acessos
+            var ctx = document.getElementById("acessos").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'line',
+                data: AcessosChartData,
+                options: {
+                    elements: {
+                        rectangle: {
+                            borderWidth: 2,
+                            borderColor: '#c1c1c1',
+                            borderSkipped: 'bottom'
+                        }
+                    },
+                    responsive: true,
+                    title: {
+                        display: true,
+                        text: 'Acessos no site',
+                    }
+                }
+            });
+
+        };
+    </script>
 @endsection
