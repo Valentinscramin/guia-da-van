@@ -52,8 +52,12 @@
                     width: 60px;
                     height: 60px;
                     position: relative;
-                    left: -25px;
+                    left: 0;
                     top: 25px;
+                }
+
+                .content {
+                    padding: 20px;
                 }
             }
 
