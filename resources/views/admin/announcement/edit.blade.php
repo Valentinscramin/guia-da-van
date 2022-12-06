@@ -33,14 +33,16 @@
 
             <div class="itemInput col-12 col-sm-4">
                 <label for="name">Url</label>
-                <input type="text" name="url" id="name" aria-describedby="helpId" value="{{ $announcement->url }}">
+                <input type="text" name="url" id="url" aria-describedby="helpId" value="{{ $announcement->url }}">
                 <small id="helpId" class="text-muted">Url</small>
             </div>
 
             <div class="itemInput col-12 col-sm-4">
-                <label for="name">Rota do site</label>
-                <input type="text" name="site_web_route" id="name" aria-describedby="helpId" value="{{ $announcement->site_web_route }}">
-                <small id="helpId" class="text-muted">Rota do site</small>
+                <label for="site_web_route" class="form-label">Rota do site</label>
+                <select class="form-select" name="site_web_route" id="site_web_route">
+                    <option value="/home" @if($announcement->site_web_route == '/home') selected @endif>Home</option>
+                </select>
+                <small id="helpId" class="col-12 text-muted" style="text-align: center;">Rota do site</small>
             </div>
 
             <div class="itemInput col-12 col-sm-4">
