@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\SiteAcessos;
+use App\Models\SiteProfileAcessos;
 use App\Models\User;
 use App\Models\User\Avaliation;
 use App\Models\User\UserPhotos;
@@ -72,6 +74,13 @@ class ProfileController extends Controller
     public function show($id)
     {
         $user = User::find($id);
+
+        if (!is_null($user)) {
+            $siteacessos = new SiteProfileAcessos();
+            $siteacessos->user_id = $id;
+            $siteacessos->save();
+        }
+
         $profile_photo = @User::photo($id)->arquivo;
         $stars = Avaliation::getAvaliationStarsAvg($user->avaliation);
         $vans_user = Van::where('user_id', '=', $id)->get();
