@@ -187,7 +187,7 @@
                                     <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>
                                     </li>
                                     @else
-                                    <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/user"> Olá {{ Auth::user()->name }} </a>
+                                    <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/user"> Olá, {{ Auth::user()->name }} </a>
                                     </li>
                                     @endguest
                                 </ul>
