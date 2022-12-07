@@ -11186,7 +11186,6 @@ table {
   justify-content: space-between;
 }
 .menu_desktop ul li a {
-  letter-spacing: 1.2px;
   font-weight: 900;
   color: #4E4E4E;
   transition: all 0.3s linear;
