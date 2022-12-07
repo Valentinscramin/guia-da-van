@@ -4,6 +4,12 @@ import $ from 'jquery';
 window.$ = window.jQuery = $;
 
 $(function () {
+  $(".menu_mobile input").attr("checked", "true")
+  $(".menu_mobile .menu_hamburger").click(function(){
+    $(".content_menu").toggleClass("open_menu")
+    $(".logo").toggleClass("logo_invert")
+    $(".menu_mobile input").attr('checked', function(_, attr){ return !attr})
+  })
 
   $(".search .formulario .item .item_input input").click(function () {
     var id = $(this).attr("id")

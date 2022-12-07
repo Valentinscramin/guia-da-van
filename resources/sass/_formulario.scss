@@ -174,3 +174,18 @@ form {
         }
     }
 }
+
+.formulario_pages {
+    .itemInput {
+        margin-bottom: 30px;
+
+        label {
+            justify-content: flex-start;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            width: 97%;
+        }
+    }
+}
