@@ -93,14 +93,14 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
+        height: 100vh;        
         z-index: 500;
         display: none;
         justify-content: center;
         align-items: center;
         @include anima-slow;
         ul {
-
+            padding-top: 2rem;
             text-align: center;
 
             li {

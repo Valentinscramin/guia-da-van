@@ -11156,6 +11156,7 @@ table {
   transition: all 0.3s linear;
 }
 .menu_mobile .content_menu ul {
+  padding-top: 2rem;
   text-align: center;
 }
 .menu_mobile .content_menu ul li {
