@@ -31,7 +31,7 @@
         <div class="default_page">
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="formulario col-12 col-lg-10 col-xl-8" style="margin: 0 auto;">
+                    <div class="formulario formulario_pages col-12 col-lg-10 col-xl-8" style="margin: 0 auto;">
                         <form method="POST" action="{{ route('send_email') }}">
                             @csrf
                             @method('POST')

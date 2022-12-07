@@ -9,10 +9,10 @@
         color: #fff;
 
         a {
-            color: #fff; 
-            font-weight: bold; 
-            
-            text-decoration: underline; 
+            color: #fff;
+            font-weight: bold;
+
+            text-decoration: underline;
             @include anima-slow;
 
             &:hover {
@@ -39,5 +39,22 @@
 
     .row {
         align-items: center;
+    }
+
+    .logo {
+        img {
+            @include anima-slow;
+        }
+    }
+    .logo_invert {
+        position: fixed;
+        z-index: 502;
+        top: 3rem;
+
+        img {
+            @include anima-slow;
+            -webkit-filter:  brightness(0) invert(1);
+            filter: brightness(0) invert(1);
+        }
     }
 }

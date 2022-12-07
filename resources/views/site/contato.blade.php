@@ -32,26 +32,26 @@
         <div class="default_page">
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="formulario col-12 col-lg-10 col-xl-8" style="margin: 0 auto;">
+                    <div class="formulario formulario_pages col-12 col-lg-10 col-xl-8" style="margin: 0 auto;">
                         <form method="POST" action="#">
                             @csrf
                             @method('POST')
                             <input type="hidden" name="view" value="contato">
                             <div class="itemInput col-12 col-sm-6">
-                                <label for="name" class="form-label">Nome</label>
+                                <label for="name">Nome</label>
                                 <input type="text" name="name" id="name" placeholder="" aria-describedby="helpId"
                                     value="">
                             </div>
 
                             <div class="itemInput col-12 col-sm-6">
-                                <label for="email" class="form-label">Email</label>
+                                <label for="email">Email</label>
                                 <input type="text" name="name" id="email" placeholder="" aria-describedby="helpId"
                                     value="">
                             </div>
 
                             <div class="itemInput col-12 col-sm-12">
-                                <label for="message" class="form-label">Mensagem</label>
-                                <textarea name="message" class="form-control"></textarea>
+                                <label for="message">Mensagem</label>
+                                <textarea name="message"></textarea>
                             </div>
                             <div class="col-12 btn_submit"><button type="submit">Enviar</button></div>
                         </form>

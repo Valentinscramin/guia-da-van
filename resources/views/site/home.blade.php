@@ -159,7 +159,8 @@
         nextArrow: '<div class="arrowNext"></div>',
         infinite: true,
         speed: 300,
-        cssEase: 'ease',
+        fade: true,
+        cssEase: 'linear',
         draggable: true,
     });
     jQuery("#home").addClass("activeMenu");
