@@ -174,23 +174,4 @@ class SiteController extends Controller
     {
         return view('site.contato');
     }
-
-    public function send(Request $request)
-    {
-        // dd($request);
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email',
-            'message' => 'required',
-        ]);
-
-        $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'message' => $request->message,
-        ];
-        //sid.marchetto@gmail.com
-        Mail::to('valentinscramin@gmail.com')->send(new SendMail($data, $request->view));
-        return back()->with('success', 'Contato feito, aguarde a resposta de nossa equipe!');
-    }
 }
