@@ -32,29 +32,36 @@
         <div class="default_page">
             <div class="container">
                 <div class="row no-gutters">
+
                     <div class="formulario formulario_pages col-12 col-lg-10 col-xl-8" style="margin: 0 auto;">
-                        <form method="POST" action="#">
+                        <form method="POST" action="{{ route('send_email') }}">
                             @csrf
                             @method('POST')
                             <input type="hidden" name="view" value="contato">
                             <div class="itemInput col-12 col-sm-6">
-                                <label for="name">Nome</label>
-                                <input type="text" name="name" id="name" placeholder="" aria-describedby="helpId"
-                                    value="">
+                                <label for="name" class="form-label">Nome</label>
+                                <input type="text" name="name" id="name" placeholder="" aria-describedby="helpId">
                             </div>
 
                             <div class="itemInput col-12 col-sm-6">
-                                <label for="email">Email</label>
-                                <input type="text" name="name" id="email" placeholder="" aria-describedby="helpId"
-                                    value="">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email" id="email" placeholder="" aria-describedby="helpId">
                             </div>
 
                             <div class="itemInput col-12 col-sm-12">
-                                <label for="message">Mensagem</label>
-                                <textarea name="message"></textarea>
+                                <label for="comment" class="form-label">Mensagem</label>
+                                <textarea name="comment" class="form-control"></textarea>
                             </div>
                             <div class="col-12 btn_submit"><button type="submit">Enviar</button></div>
                         </form>
+
+                        @if (session('success'))
+                            <br>
+                            <br>
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

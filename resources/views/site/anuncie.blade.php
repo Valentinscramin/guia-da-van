@@ -38,22 +38,27 @@
                             <input type="hidden" name="view" value="anuncie_aqui">
                             <div class="itemInput col-12 col-sm-6">
                                 <label for="name" class="form-label">Nome</label>
-                                <input type="text" name="name" id="name" placeholder="" aria-describedby="helpId"
-                                    value="">
+                                <input type="text" name="name" id="name" placeholder="" aria-describedby="helpId">
                             </div>
 
                             <div class="itemInput col-12 col-sm-6">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="text" name="name" id="email" placeholder="" aria-describedby="helpId"
-                                    value="">
+                                <input type="email" name="email" id="email" placeholder="" aria-describedby="helpId">
                             </div>
 
                             <div class="itemInput col-12 col-sm-12">
-                                <label for="message" class="form-label">Mensagem</label>
-                                <textarea name="message"></textarea>
+                                <label for="comment" class="form-label">Mensagem</label>
+                                <textarea name="comment" class="form-control"></textarea>
                             </div>
                             <div class="col-12 btn_submit"><button type="submit">Enviar</button></div>
                         </form>
+                        @if (session('success'))
+                            <br>
+                            <br>
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

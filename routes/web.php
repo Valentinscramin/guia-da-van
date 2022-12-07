@@ -46,7 +46,7 @@ Route::resource('/avaliation', App\Http\Controllers\User\AvaliationController::c
 Route::post('/comment/push', [App\Http\Controllers\User\CommentController::class, 'store'])->name('comment_push');
 
 //SEND EMAIL
-Route::post('/sendemail/send', [App\Http\Controllers\SiteController::class, 'send'])->name('send_email');
+Route::post('/sendemail/send', [App\Http\Controllers\SendEmailController::class, 'contact_post'])->name('send_email');
 
 Auth::routes();
 

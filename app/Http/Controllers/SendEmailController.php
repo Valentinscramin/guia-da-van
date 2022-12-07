@@ -4,27 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\SendMail;
 
 class SendEmailController extends Controller
 {
-    public function send(Request $request)
+    public function contact_post(Request $request)
     {
-        // dd($request);
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
-            'message' => 'required',
+            'comment' => 'required',
         ]);
 
-        $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'message' => $request->message,
-            'view' => $request->view,
-        ];
-        //sid.marchetto@gmail.com
-        Mail::to('valentinscramin@gmail.com')->send(new SendMail($data));
-        return back()->with('success', 'Contato feito, aguarde a resposta de nossa equipe!');
+        Mail::send(
+            'auth.contact',
+            [
+                'name' => $request->get('name'),
+                'email' => $request->get('email'),
+                'comment' => $request->get('comment'),
+            ],
+            function ($message) {
+                $message->from(env('MAIL_USERNAME'));
+                $message->to(env('MAIL_USERNAME'), env('MAIL_FROM_NAME'))->subject('Contato Guia Da van');
+            },
+        );
+
+        return back()->with('success', 'Obrigado por entrar em contato, logo retornaremos.');
     }
 }
