@@ -50,7 +50,7 @@
 
                             <div class="itemInput col-12 col-sm-12">
                                 <label for="message" class="form-label">Mensagem</label>
-                                <textarea name="message" class="form-control"></textarea>
+                                <textarea name="message"></textarea>
                             </div>
                             <div class="col-12 btn_submit"><button type="submit">Enviar</button></div>
                         </form>
