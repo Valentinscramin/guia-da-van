@@ -32,57 +32,42 @@
         <div class="col-2 col-sm-1 col-xl-2 column_sidebar">
             <div class="sidebar">
                 <div class="logo">
-                    <a href="{{ route('user_home') }}"><img src="{{ URL('/images/logo-guia-da-van.png') }}"
-                            alt="" class="img-fluid"></a>
+                    <a href="{{ route('user_home') }}"><img src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid"></a>
                 </div>
                 <nav>
                     <ul>
-                        <li id="dashboard"><a href="{{ route('user_home') }}"><img
-                                    src="{{ URL('/images/home_dashboard.svg') }}" alt="" class="img-fluid">
+                        <li id="dashboard"><a href="{{ route('user_home') }}"><img src="{{ URL('/images/home_dashboard.svg') }}" alt="" class="img-fluid">
                                 <span>Início</span></a></li>
-                        <li><a href="{{ route('busca_index') }}"><img
-                                    src="{{ URL('/images/search_van_dashboard.svg') }}" alt=""
-                                    class="img-fluid"> <span>Buscar Van</span></a></li>
+                        <li><a href="{{ route('busca_index') }}"><img src="{{ URL('/images/search_van_dashboard.svg') }}" alt="" class="img-fluid"> <span>Buscar Van</span></a></li>
                         <li id="frota">
                             @if (is_null(@Auth::user()->cpf_cnpj) || is_null(@Auth::user()->data_nascimento))
-                                <a class="disable" title="Necessário o cadastro do cpf/cnpj e data de nascimento"
-                                    role="link" aria-disabled="true">
-                                    <img src="{{ URL('/images/van_dashboard.svg') }}" alt="" class="img-fluid">
-                                    <span>Minha Frota</span> </a>
+                            <a class="disable" title="Necessário o cadastro do cpf/cnpj e data de nascimento" role="link" aria-disabled="true">
+                                <img src="{{ URL('/images/van_dashboard.svg') }}" alt="" class="img-fluid">
+                                <span>Minha Frota</span> </a>
                             @else
-                                <a href="{{ route('van.index') }}"><img src="{{ URL('/images/van_dashboard.svg') }}"
-                                        alt="" class="img-fluid"> <span>Minha Frota</span></a>
+                            <a href="{{ route('van.index') }}"><img src="{{ URL('/images/van_dashboard.svg') }}" alt="" class="img-fluid"> <span>Minha Frota</span></a>
                             @endif
                         </li>
                         {{-- <li><a href="#"><img src="{{ URL('/images/chat_dashboard.svg') }}" alt=""
-                                    class="img-fluid"> <span>Chat</span></a></li> --}}
+                        class="img-fluid"> <span>Chat</span></a></li> --}}
                         <li id="midia">
                             @if (is_null(@Auth::user()->cpf_cnpj) || is_null(@Auth::user()->data_nascimento))
-                                <a class="disable" title="Necessário o cadastro do cpf/cnpj e data de nascimento"
-                                    role="link" aria-disabled="true">
-                                    <img src="{{ URL('/images/midias_dashboard.svg') }}" alt=""
-                                        class="img-fluid"> <span>Mídias</span> </a>
+                            <a class="disable" title="Necessário o cadastro do cpf/cnpj e data de nascimento" role="link" aria-disabled="true">
+                                <img src="{{ URL('/images/midias_dashboard.svg') }}" alt="" class="img-fluid"> <span>Mídias</span> </a>
                             @else
-                                <a href="{{ route('user.photos.index') }}"><img
-                                        src="{{ URL('/images/midias_dashboard.svg') }}" alt=""
-                                        class="img-fluid"> <span>Mídias</span></a>
+                            <a href="{{ route('user.photos.index') }}"><img src="{{ URL('/images/midias_dashboard.svg') }}" alt="" class="img-fluid"> <span>Mídias</span></a>
                             @endif
                         </li>
                     </ul>
                 </nav>
                 <nav class="more_options">
                     <ul>
-                        <li id="configuracoes"><a href="{{ route('profile.index') }}"><img
-                                    src="{{ URL('/images/settings_dashboard.svg') }}" alt="" class="img-fluid">
+                        <li id="configuracoes"><a href="{{ route('profile.index') }}"><img src="{{ URL('/images/settings_dashboard.svg') }}" alt="" class="img-fluid">
                                 <span>Configurações</span></a></li>
-                        <li id="anuncio"><a href="{{ route('anuncie_aqui') }}"><img
-                                    src="{{ URL('/images/anuncie_dashboard.svg') }}" alt="" class="img-fluid">
+                        <li id="anuncio"><a href="{{ route('anuncie_aqui') }}"><img src="{{ URL('/images/anuncie_dashboard.svg') }}" alt="" class="img-fluid">
                                 <span>Anuncie aqui</span></a></li>
-                        <li id="avalie"><a href="{{ route('web_site_comment') }}"><img
-                                    src="{{ URL('/images/nos-avalie_dashboard.svg') }}" alt=""
-                                    class="img-fluid"> <span>Nos avalie</span></a></li>
-                        <li><a href="{{ route('faq') }}"><img src="{{ URL('/images/help_dashboard.svg') }}"
-                                    alt="" class="img-fluid"> <span>Ajuda</span></a></li>
+                        <li id="avalie"><a href="{{ route('web_site_comment') }}"><img src="{{ URL('/images/nos-avalie_dashboard.svg') }}" alt="" class="img-fluid"> <span>Nos avalie</span></a></li>
+                        <li><a href="{{ route('faq') }}"><img src="{{ URL('/images/help_dashboard.svg') }}" alt="" class="img-fluid"> <span>Ajuda</span></a></li>
                     </ul>
                 </nav>
             </div>
@@ -91,13 +76,11 @@
             <nav class="nav_top_dashboard navbar navbar-expand-md navbar-light bg-white shadow-sm">
 
                 <div class="search_dashboard col-6">
-                    <form action="">
+                    <!-- <form action="">
                         <input type="text" placeholder="Faça sua busca aqui...">
-                    </form>
+                    </form> -->
                 </div>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -111,49 +94,44 @@
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('login'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endif
 
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                        @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @if (!is_null(@App\Models\User::photo(Auth::user()->user_photo_id)->arquivo))
-                                        <img class="card-img-top rounded-circle"
-                                            src="/storage/{{ App\Models\User::photo(Auth::user()->user_photo_id)->arquivo }}"
-                                            alt="{{ Auth::user()->name }}" style="width:25px;">
-                                    @endif
-                                    {{ Auth::user()->name }}
+                        <li class="nav-item dropdown" style="display: flex; padding: 0 10px;">
+                            @if (!is_null(@App\Models\User::photo(Auth::user()->user_photo_id)->arquivo))
+                            <div class="bg_image" style="background: url(/storage/{{ App\Models\User::photo(Auth::user()->user_photo_id)->arquivo }})no-repeat center center;  border-radius: 50%; width: 35px; height: 35px; background-size: cover;"></div>
+                            @endif
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                <a class="dropdown-item" href="{{ route('profile.index') }}" role="button">
+                                    Perfil
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('profile.index') }}" role="button">
-                                        Perfil
-                                    </a>
-
-
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                    {{ __('Logout') }}
+                                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                        class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
 
-                            </li>
+                        </li>
                         @endguest
                     </ul>
                 </div>

@@ -29,7 +29,7 @@
     <div class="login">
         <div class="container">
             <div class="row no-gutters">
-                <div class="takeCard col-md-12">
+                <div class="takeCard col-md-6">
                     <div class="col-12 col-md-6">
                         <div class="col-md-10">
                             <div class="icon_guia_van"><img src="{{ URL('/images/icon.png') }}" class="img-fluid" alt=""></div>
@@ -44,7 +44,7 @@
                                     <div class="col-12 itemInput">
                                         <label for="email" class="col-md-4 text-md-end">{{ __('Email') }}</label>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
 
                                             @error('email')
@@ -58,7 +58,7 @@
                                     <div class="col-12 itemInput">
                                         <label for="password" class="col-md-4 text-md-end">{{ __('Senha') }}</label>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                             @error('password')

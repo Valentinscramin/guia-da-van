@@ -24,12 +24,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-{{-- route('track_home') --}}
-{{-- route('user.index') --}}
-{{-- route('admin.photos.index') --}}
-{{-- route('announcement.index') --}}
-{{-- route('faq.index') --}}
-{{-- route('web_site_comment_approve') --}}
 
 <body id="dashboard__body">
     <div class="content__dashboard" id="app">
@@ -67,9 +61,9 @@
         <div class="col-10 col-sm-11 col-xl-10 column_nav">
             <nav class="nav_top_dashboard navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="search_dashboard col-6">
-                    <form action="">
+                    <!-- <form action="">
                         <input type="text" placeholder="Faça sua busca aqui...">
-                    </form>
+                    </form> -->
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

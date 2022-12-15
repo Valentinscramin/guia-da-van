@@ -1,5 +1,5 @@
 .modal_album {
-    background: rgba(0,0,0,.8);
+    background: rgba(0, 0, 0, .8);
     display: none;
     position: fixed;
     width: 100%;
@@ -7,6 +7,7 @@
     top: 0;
     left: 0;
     z-index: 1 !important;
+
     .content {
         background: #fff;
         border-radius: 10px;
@@ -15,6 +16,13 @@
         flex-wrap: wrap;
         justify-content: center;
         padding: 50px 0;
+
+        .closeModal {
+            cursor: pointer;
+            text-align: right;
+            position: relative;
+            top: -3rem;
+        }
 
         .itemPhoto {
             padding: 0;

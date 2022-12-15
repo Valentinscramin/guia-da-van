@@ -5,10 +5,10 @@ window.$ = window.jQuery = $;
 
 $(function () {
   $(".menu_mobile input").attr("checked", "true")
-  $(".menu_mobile .menu_hamburger").click(function(){
+  $(".menu_mobile .menu_hamburger").click(function () {
     $(".content_menu").toggleClass("open_menu")
     $(".logo").toggleClass("logo_invert")
-    $(".menu_mobile input").attr('checked', function(_, attr){ return !attr})
+    $(".menu_mobile input").attr('checked', function (_, attr) { return !attr })
   })
 
   $(".search .formulario .item .item_input input").click(function () {
@@ -26,6 +26,10 @@ $(function () {
 
 
   $(".salvar_modal_album").click(function (e) {
+    $(".modal_album").removeClass("active_modal_album")
+  })
+
+  $(".closeModal").click(function () {
     $(".modal_album").removeClass("active_modal_album")
   })
 

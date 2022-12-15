@@ -13,8 +13,8 @@
             @method('POST')
             <div class="itemInput col-12">
                 <label>Nome</label>
-                <input type="text" name="name" id="name" value="{{ $user->name }}" readonly>
-                <a href="{{ route('user.edit', $user->id) }}">editar usuario</a>
+                <input type="text" name="name" id="name" value="{{ $user->name }}" style="width: 98%" readonly>
+                <div class="btn_edit" style="margin-top: 20px;"><a href="{{ route('user.edit', $user->id) }}">editar usuario</a></div>
             </div>
             <div class="itemInput col-12">
                 <label>Comentario</label>
@@ -22,9 +22,9 @@
                 {{ $webSiteCommentSelected->comment }}
                 </textarea>
             </div>
-            <div class="itemInput col-12">
-                <label>Ativar/Desativar</label>
+            <div class="itemInput activeLabel col-12 col-md-1">
                 <input type="checkbox" name="active" id="active" value="1" @if ($webSiteCommentSelected->active == 1) {{ 'checked' }} @endif>
+                <label>Ativar/Desativar</label>
             </div>
             <div class="col-12 btn_submit">
                 <button type="submit">Salvar</button>

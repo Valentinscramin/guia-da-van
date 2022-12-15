@@ -9,6 +9,21 @@
     justify-content: space-between;
     background: #f2f2f2;
 
+    .takeCardsGraphic {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .card_graphic {
+        padding: 0 10px;
+        .takeItem {
+            background-color: #fff;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+    }
+
     .sidebar {
         z-index: 2;
         min-height: 100vh;
@@ -218,10 +233,10 @@
     }
 
     .formulario {
-        background-color: #fff; 
+        background-color: #fff;
         border-radius: 5px;
         padding: 20px 10px;
- 
+
         form {
             .itemInput {
                 margin-bottom: 20px;
@@ -288,7 +303,7 @@
         }
     }
 
-    .table_dashboard { 
+    .table_dashboard {
         padding: 0;
         margin: 0 auto;
 
@@ -337,7 +352,7 @@
 
 @media (min-width: map-get($grid-breakpoints, lg)) {
     .content_middle_dashboard {
-        
+
 
         .take__header__middle {
             justify-content: space-between;

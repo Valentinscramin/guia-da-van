@@ -16,7 +16,7 @@
                         </div>
 
                         <div class="description col-12 col-md-10 col-lg-9">Selecione o tipo de serviço que você deseja.
-                            Uma busca rápida e simples pela a melhor opção para você!</div>
+                            Uma busca rápida e simples com a melhor opção para você!</div>
 
                         <div class="search">
                             <div class="titleSearch">
@@ -101,7 +101,9 @@
                 <div class="col-12">
                     <div class="anuncio">
                         @foreach ($announcement as $eachAnnuncement)
-                        <img src="{{ URL('/storage/' . $eachAnnuncement->announcement_photos[0]->arquivo) }}" alt="" class="img-fluid">
+                        <div class="item_anuncio col-12 col-md-10">
+                            <div class="img" style="background: url({{ URL('/storage/' . $eachAnnuncement->announcement_photos[0]->arquivo) }})no-repeat center center; background-size: cover; border-radius: 30px; width: 100%; height: 200px; margin: 0 auto;"></div>
+                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -163,6 +165,21 @@
         cssEase: 'linear',
         draggable: true,
     });
+
+    jQuery('.anuncio').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: false,
+        infinite: true,
+        autoplay: "true",
+        speed: 600,
+        fade: true,
+        autoplaySpeed: 4800,
+        cssEase: 'linear',
+        draggable: false,
+    });
+
     jQuery("#home").addClass("activeMenu");
 </script>
 @endsection
