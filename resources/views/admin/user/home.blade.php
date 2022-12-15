@@ -12,6 +12,7 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>Email</th>
                         <th>Status</th>
                         <th>Perfil</th>
                         <th>&nbsp;</th>
@@ -21,6 +22,7 @@
                     @foreach ($users as $eachUser)
                         <tr>
                             <td>{{ $eachUser->name }}</td>
+                            <td>{{ $eachUser->email }}</td>
                             <td>
                                 @if ($eachUser->active == 1)
                                     {{ 'Ativado' }}
