@@ -113,6 +113,7 @@ form {
         justify-content: space-between;
     }
 
+
     .item_card_ {
         margin-bottom: 15px;
     }
@@ -148,6 +149,17 @@ form {
             justify-content: space-between;
         }
 
+    }
+
+
+    .activeLabel {
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: center !important;
+        label {
+            padding: 0 !important;
+            margin-bottom: 0 !important;
+        }
     }
 }
 

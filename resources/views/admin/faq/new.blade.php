@@ -19,9 +19,9 @@
                 <label>Resposta</label>
                 <textarea name="answer"></textarea>
             </div>
-            <div class="itemInput col-12 col-sm-4">
-                <label>Ativar/Desativar</label>
+            <div class="itemInput activeLabel col-12 col-sm-4">
                 <input type="checkbox" name="active" id="active">
+                <label>Ativar/Desativar</label>
             </div>
             <div class="col-12 btn_submit"><button type="submit">Salvar</button></div>
         </form>

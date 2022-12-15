@@ -12,7 +12,7 @@
                 @csrf
                 @method('PUT')
                 @if ($profile_photo)
-                    <img class="card-img-top" style="width:100px;" src="/storage/{{ $profile_photo }}" alt="Profile Image">
+                    <div class="bg_profile" style="background: url(/storage/{{ $profile_photo }})no-repeat center center; width: 200px; height: 200px; background-size: cover; border-radius: 30px; margin-bottom: 20px;"></div>
                 @endif
                 <div class="btn_selecionar col-12"><a href="#" id="btn_selecionar_foto">Selecionar Foto</a></div>
                 <div class="modal_album">
@@ -37,11 +37,11 @@
                     </div>
                 </div>
 
-                <div class="itemInput col-12 col-sm-4">
+                <div class="itemInput col-12 col-sm-3">
                     <label for="name" class="form-label">Nome</label>
                     <input type="text" name="name" id="name" placeholder="" aria-describedby="helpId"
                         value="{{ $user->name }}">
-                    <small id="helpId" class="text-muted">Nome</small>
+                    <!-- <small id="helpId" class="text-muted">Nome</small> -->
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -49,11 +49,11 @@
                     @enderror
                 </div>
 
-                <div class="itemInput col-12 col-sm-4">
+                <div class="itemInput col-12 col-sm-3">
                     <label for="lastname" class="form-label">Sobrenome</label>
                     <input type="text" name="lastname" id="lastname" placeholder="" aria-describedby="helpId"
                         value="{{ $user->lastname }}">
-                    <small id="helpId" class="text-muted">Sobrenome</small>
+                    <!-- <small id="helpId" class="text-muted">Sobrenome</small> -->
                     @error('lastname')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -61,11 +61,11 @@
                     @enderror
                 </div>
 
-                <div class="itemInput col-12 col-sm-4">
+                <div class="itemInput col-12 col-sm-3">
                     <label for="email" class="form-label">Email</label>
                     <input type="text" name="email" id="email" placeholder="" aria-describedby="helpId"
                         value="{{ $user->email }}" readonly>
-                    <small id="helpId" class="text-muted">Email</small>
+                    <!-- <small id="helpId" class="text-muted">Email</small> -->
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -77,7 +77,7 @@
                     <label for="cpf_cnpj" class="form-label">CPF/CNPJ</label>
                     <input type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="" aria-describedby="helpId_cpf_cnpj"
                         value="{{ $user->cpf_cnpj }}" onkeyup="validar(this);">
-                    <small id="helpId_cpf_cnpj" class="text-muted">CPF/CNPJ</small>
+                    <!-- <small id="helpId_cpf_cnpj" class="text-muted">CPF/CNPJ</small> -->
                     @error('cpf_cnpj')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -89,7 +89,7 @@
                     <label for="data_nascimento" class="form-label">Data Nascimento</label>
                     <input type="date" name="data_nascimento" id="data_nascimento" placeholder=""
                         aria-describedby="helpId" value="{{ $user->data_nascimento }}">
-                    <small id="helpId" class="text-muted">Data Nascimento</small>
+                    <!-- <small id="helpId" class="text-muted">Data Nascimento</small> -->
                     @error('data_nascimento')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -101,7 +101,7 @@
                     <label for="celular" class="form-label">Celular</label>
                     <input type="text" name="celular" id="celular" placeholder="" aria-describedby="helpId"
                         value="{{ $user->celular }}">
-                    <small id="helpId" class="text-muted">Celular</small>
+                    <!-- <small id="helpId" class="text-muted">Celular</small> -->
                     @error('celular')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -113,7 +113,7 @@
                     <label for="telefone" class="form-label">Telefone</label>
                     <input type="text" name="telefone" id="telefone" placeholder="" aria-describedby="helpId"
                         value="{{ $user->telefone }}">
-                    <small id="helpId" class="text-muted">Telefone</small>
+                    <!-- <small id="helpId" class="text-muted">Telefone</small> -->
                     @error('telefone')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -125,7 +125,7 @@
                     <label for="postcode" class="form-label">CEP</label>
                     <input type="text" name="postcode" id="postcode" placeholder="" aria-describedby="helpId"
                         value="{{ $user->postcode }}">
-                    <small id="helpId" class="text-muted">Cep</small>
+                    <!-- <small id="helpId" class="text-muted">Cep</small> -->
                     @error('postcode')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

@@ -11697,6 +11697,15 @@ form .collapse_filter .activeFilter {
   align-items: center;
   justify-content: space-between;
 }
+form .activeLabel {
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+form .activeLabel label {
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
 
 @media only screen and (min-width: 0px) and (max-width: 407px) {
   form .item {
@@ -12092,6 +12101,19 @@ form .collapse_filter .activeFilter {
   justify-content: space-between;
   background: #f2f2f2;
 }
+.content__dashboard .takeCardsGraphic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.content__dashboard .card_graphic {
+  padding: 0 10px;
+}
+.content__dashboard .card_graphic .takeItem {
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 20px;
+}
 .content__dashboard .sidebar {
   z-index: 2;
   min-height: 100vh;
@@ -12356,6 +12378,12 @@ form .collapse_filter .activeFilter {
   flex-wrap: wrap;
   justify-content: center;
   padding: 50px 0;
+}
+.modal_album .content .closeModal {
+  cursor: pointer;
+  text-align: right;
+  position: relative;
+  top: -3rem;
 }
 .modal_album .content .itemPhoto {
   padding: 0;
@@ -12635,6 +12663,92 @@ form .collapse_filter .activeFilter {
 .card_item .card-body .card-text a:hover {
   transition: all 0.3s linear;
   color: #b06eff;
+}
+
+.profile {
+  padding: 50px 0;
+}
+.profile .select_stars {
+  font-size: 0.875rem;
+  font-weight: 550;
+  color: #858585;
+  cursor: pointer;
+}
+.profile .stars {
+  display: flex;
+  margin: 10px 0 20px 0;
+}
+.profile .stars button {
+  background: transparent;
+  border: 0;
+  font-size: 1.25rem;
+  transition: all 0.3s linear;
+}
+.profile .stars button span {
+  transition: all 0.3s linear;
+  color: #ababab;
+}
+.profile .stars button:hover {
+  transition: all 0.3s linear;
+}
+.profile .stars button:hover span {
+  transition: all 0.3s linear;
+  color: #ffb100;
+}
+.profile .infos_user .name {
+  margin: 10px 0 20px 0;
+}
+.profile .infos_user .name h2, .profile .infos_user .name .h2 {
+  font-weight: bold;
+  color: #030303;
+  font-size: 1.25rem;
+}
+.profile .infos_user .celular,
+.profile .infos_user .telefone,
+.profile .infos_user .email {
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #858585;
+  font-size: 1rem;
+}
+.profile .coments .item_coment {
+  line-height: 1.5;
+  color: #858585;
+  font-weight: 550;
+}
+.profile .coments .item_coment:after {
+  content: "";
+  display: block;
+  background-color: #ededed;
+  width: 100%;
+  height: 1px;
+  margin: 20px 0;
+}
+.profile .title {
+  margin: 10px 0 30px 0;
+}
+.profile .title h2, .profile .title .h2 {
+  color: #030303;
+  font-size: 1.45rem;
+  font-weight: 900;
+  margin-top: 20px;
+}
+.profile .title h2 span, .profile .title .h2 span {
+  color: #b06eff;
+}
+
+@media (min-width: 576px) {
+  .profile .btn_submit button {
+    margin: 0;
+  }
+  .profile .title h2, .profile .title .h2 {
+    font-size: 2.2rem;
+  }
+}
+.anuncio .item_anuncio {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 /* Slider */

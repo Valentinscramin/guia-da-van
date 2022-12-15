@@ -13,15 +13,15 @@
             @method('PUT')
             <div class="itemInput col-12">
                 <label>Pergunta</label>
-                <input type="text" name="question" id="question" value="{{ $faq->question }}">
+                <input type="text" name="question" id="question" value="{{ $faq->question }}" style="width: 98%;">
             </div>
-            <div class="itemInput col-11">
+            <div class="itemInput col-12">
                 <label>Resposta</label>
                 <textarea name="answer">{{ $faq->answer }}</textarea>
             </div>
-            <div class="itemInput col-12 col-sm-4">
-                <label>Ativar/Desativar</label>
+            <div class="itemInput activeLabel col-12 col-sm-1">
                 <input type="checkbox" name="active" value="1" @if ($faq->active == 1) {{ 'checked' }} @endif>
+                <label>Ativar/Desativar</label>
             </div>
             <div class="col-12 btn_submit"><button type="submit">Salvar</button></div>
         </form>
