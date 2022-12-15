@@ -30,8 +30,8 @@
         <div class="container">
             <div class="row no-gutters">
                 <div class="takeCard col-md-6">
-                    <div class="col-12 col-md-6">
-                        <div class="col-md-10">
+                    <div class="col-12 col-md-12">
+                        <div class="col-md-12">
                             <div class="icon_guia_van"><img src="{{ URL('/images/icon.png') }}" class="img-fluid" alt=""></div>
                             <div class="title col-12">{{ __('Redefinição de senha') }}</div>
 
@@ -41,7 +41,7 @@
 
                                     <input type="hidden" name="token" value="{{ $token }}">
 
-                                    <div class="col-12 itemInput">
+                                    <div class="col-12 col-md-12 itemInput">
                                         <label for="email" class="col-md-4 text-md-end">{{ __('Email') }}</label>
 
                                         <div class="col-md-12">
@@ -55,7 +55,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12 itemInput">
+                                    <div class="col-12 col-md-12 itemInput">
                                         <label for="password" class="col-md-4 text-md-end">{{ __('Senha') }}</label>
 
                                         <div class="col-md-12">
@@ -69,10 +69,10 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12 itemInput"> 
+                                    <div class="col-12 col-md-12 itemInput"> 
                                         <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirme a senha') }}</label>
 
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                         </div>
                                     </div>
