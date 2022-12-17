@@ -12,6 +12,7 @@ use App\Models\User\UserPhotos;
 use App\Models\User\Van;
 use App\Models\User\VanUserPhoto;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
@@ -82,6 +83,21 @@ class ProfileController extends Controller
         }
 
         $profile_photo = @User::photo($id)->arquivo;
+
+        $no_avaliation = true;
+        if (Auth::check()) {
+            if (Auth::user()->id) {
+                $avaliation = DB::table('avaliation')
+                    ->where('create_user_id', Auth::user()->id)
+                    ->where('user_id', $id)
+                    ->get()
+                    ->count();
+                if ($avaliation > 0) {
+                    $no_avaliation = false;
+                }
+            }
+        }
+
         $stars = Avaliation::getAvaliationStarsAvg($user->avaliation);
         $vans_user = Van::where('user_id', '=', $id)->get();
 
@@ -95,7 +111,7 @@ class ProfileController extends Controller
             $count++;
         }
 
-        return view('site.profile', compact('user', 'stars', 'profile_photo', 'vans'));
+        return view('site.profile', compact('user', 'stars', 'profile_photo', 'vans', 'no_avaliation'));
     }
 
     /**

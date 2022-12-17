@@ -32,16 +32,18 @@
         <h1 class="ocultar">Guia da Van</h1>
         <div class="top_header">
             @if (Auth::check() && isset(Auth::user()->cpf_cnpj))
-            <h2>Deseja gerenciar ou cadastrar sua van? Clique aqui para acessar <a href="{{ route('van.index') }}">Minha Frota</a></h2>
+                <h2>Deseja gerenciar ou cadastrar sua van? Clique aqui para acessar <a
+                        href="{{ route('van.index') }}">Minha Frota</a></h2>
             @else
-            <h2>Quer fazer parte da nossa comunidade? Clique aqui para <a href="/register">Cadastrar sua van</a>
-            </h2>
+                <h2>Quer fazer parte da nossa comunidade? Clique aqui para <a href="/register">Cadastrar sua van</a>
+                </h2>
             @endif
         </div>
         <div class="header">
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="logo col-6 col-lg-3"><a href="{{ route('home') }}"><img src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid"></a>
+                    <div class="logo col-6 col-lg-3"><a href="{{ route('home') }}"><img
+                                src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid"></a>
                     </div>
                     <div class="menu_mobile">
                         <div class="menu_hamburger">
@@ -59,11 +61,13 @@
                                 <li><a href="{{ route('faq') }}">FAQ</a></li>
                                 <li><a href="{{ route('contato') }}">Contato</a></li>
                                 @guest
-                                <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>
-                                </li>
+                                    <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width="">
+                                        <a href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>
+                                    </li>
                                 @else
-                                <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/user"> Olá, {{ Auth::user()->name }} </a>
-                                </li>
+                                    <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width="">
+                                        <a href="/user"> Olá, {{ Auth::user()->name }} </a>
+                                    </li>
                                 @endguest
                             </ul>
                         </div>
@@ -76,11 +80,13 @@
                             <li id="faq"><a href="{{ route('faq') }}">FAQ</a></li>
                             <li id="contato"><a href="{{ route('contato') }}">Contato</a></li>
                             @guest
-                            <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>
-                            </li>
+                                <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a
+                                        href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>
+                                </li>
                             @else
-                            <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/user"> Olá, {{ Auth::user()->name }} </a>
-                            </li>
+                                <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a
+                                        href="/user"> Olá, {{ Auth::user()->name }} </a>
+                                </li>
                             @endguest
                         </ul>
                     </div>
@@ -107,13 +113,15 @@
                         <div class="all_media col-10 col-md-7 col-lg-10">
                             <div class="itemSocial col-12 col-lg-4">
                                 <div class="col-12 col-sm-4">
-                                    <div class="icon"><a href="#" target="_blank"><img src="{{ URL('/images/facebook.svg') }}" alt="" class="img-fluid"></a>
+                                    <div class="icon"><a href="https://www.facebook.com/guiadavan" target="_blank"><img
+                                                src="{{ URL('/images/facebook.svg') }}" alt=""
+                                                class="img-fluid"></a>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-8">
                                     <div class="title">
-                                        <a href="#
-                                    " target="_blank">
+                                        <a href="https://www.facebook.com/guiadavan"
+                                            target="_blank">
                                             <h2>Facebook</h2>
                                         </a>
                                     </div>
@@ -123,11 +131,13 @@
                             </div>
                             <div class="itemSocial col-12 col-lg-4">
                                 <div class="col-12 col-sm-4">
-                                    <div class="icon"><a href="#" target="_blank"><img src="{{ URL('/images/instagram.svg') }}" alt="" class="img-fluid"></a></div>
+                                    <div class="icon"><a href="https://www.instagram.com/guiadavan/" target="_blank"><img
+                                                src="{{ URL('/images/instagram.svg') }}" alt=""
+                                                class="img-fluid"></a></div>
                                 </div>
                                 <div class="col-12 col-sm-8">
                                     <div class="title">
-                                        <a href="#" target="_blank">
+                                        <a href="https://www.instagram.com/guiadavan/" target="_blank">
                                             <h2>Instagram</h2>
                                         </a>
                                     </div>
@@ -137,12 +147,14 @@
                             </div>
                             <div class="itemSocial col-12 col-lg-4">
                                 <div class="col-12 col-sm-4">
-                                    <div class="icon"><a href="#" target="_blank"><img src="{{ URL('/images/whatsapp.svg') }}" alt="" class="img-fluid"></a>
+                                    <div class="icon"><a href="https://wa.me/5519971263267" target="_blank"><img
+                                                src="{{ URL('/images/whatsapp.svg') }}" alt=""
+                                                class="img-fluid"></a>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-8">
                                     <div class="title">
-                                        <a href="#" target="_blank">
+                                        <a href="https://wa.me/5519971263267" target="_blank">
                                             <h2>Whatsapp</h2>
                                         </a>
                                     </div>
@@ -173,7 +185,9 @@
 
 
                         <div class="col-12 endFooter">
-                            <div class="logo col-8 col-md-4 col-lg-3"><img src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid">
+                            <div class="logo col-8 col-md-4 col-lg-3"><img
+                                    src="{{ URL('/images/logo-guia-da-van.png') }}" alt=""
+                                    class="img-fluid">
                             </div>
                             <div class="menu_footer col-md-8 col-lg-9">
                                 <ul>
@@ -184,11 +198,14 @@
                                     <li><a href="{{ route('contato') }}">Contato</a></li>
 
                                     @guest
-                                    <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/login">Acessar conta</a> | <a href="/register">Criar conta</a>
-                                    </li>
+                                        <li class="button_account"><img src="{{ URL('/images/account.svg') }}"
+                                                width=""> <a href="/login">Acessar conta</a> | <a
+                                                href="/register">Criar conta</a>
+                                        </li>
                                     @else
-                                    <li class="button_account"><img src="{{ URL('/images/account.svg') }}" width=""> <a href="/user"> Olá, {{ Auth::user()->name }} </a>
-                                    </li>
+                                        <li class="button_account"><img src="{{ URL('/images/account.svg') }}"
+                                                width=""> <a href="/user"> Olá, {{ Auth::user()->name }} </a>
+                                        </li>
                                     @endguest
                                 </ul>
                             </div>
