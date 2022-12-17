@@ -46,7 +46,7 @@
         // Acessos
         var ctx = document.getElementById("acessos").getContext("2d");
         window.myBar = new Chart(ctx, {
-            type: 'radar',
+            type: 'line',
             data: AcessosChartData,
             options: {
                 elements: {
