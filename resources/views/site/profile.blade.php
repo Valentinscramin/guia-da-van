@@ -122,15 +122,15 @@
                     @else
                         <div class="all_stars">
                             <span class="fa fa-star"
-                                @if (@$stars['one']) {{ 'style=color:yellow;' }} @endif></span>
+                                @if (is_array($stars['one'])) {{ 'style=color:yellow;' }} @endif></span>
                             <span class="fa fa-star"
-                                @if (@$stars['two']) {{ 'style=color:yellow;' }} @endif></span>
+                                @if (is_array($stars['two'])) {{ 'style=color:yellow;' }} @endif></span>
                             <span class="fa fa-star"
-                                @if (@$stars['three']) {{ 'style=color:yellow;' }} @endif></span>
+                                @if (is_array($stars['three'])) {{ 'style=color:yellow;' }} @endif></span>
                             <span class="fa fa-star"
-                                @if (@$stars['four']) {{ 'style=color:yellow;' }} @endif></span>
+                                @if (is_array($stars['four'])) {{ 'style=color:yellow;' }} @endif></span>
                             <span class="fa fa-star"
-                                @if (@$stars['five']) {{ 'style=color:yellow;' }} @endif></span>
+                                @if (is_array($stars['five'])) {{ 'style=color:yellow;' }} @endif></span>
                         </div>
                     @endif
 
