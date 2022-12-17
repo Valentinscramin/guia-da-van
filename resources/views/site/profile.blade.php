@@ -120,7 +120,7 @@
                             </form>
                         </div>
                     @else
-                        @dump($stars['one']);
+                        @dd($stars['one']);
                         <div class="all_stars">
                             <span class="fa fa-star"
                                 @if (@$stars['one']) {{ 'style=color:yellow;' }} @endif></span>
