@@ -36,11 +36,12 @@ class AvaliationController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate([
             "avaliation" => "required",
-            "create_user_id" => "required",
             "user_id" => "required",
         ]);
+
         $avaliation = new Avaliation();
         $avaliation->avaliation = $request->avaliation;
         $avaliation->create_user_id = Auth::user()->id;

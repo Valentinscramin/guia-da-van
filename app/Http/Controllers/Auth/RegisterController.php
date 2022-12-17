@@ -49,14 +49,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $message = [
-            'name.required' => 'O nome é um campo obrigatorio e deve conter no maximo 100 caracteres',
-            'lastname.required' => 'O sobrenome é um campo obrigatorio e deve conter no maximo 100 caracteres',
-            'email.required' => 'O nome é um campo obrigatorio',
-            'password.required' => 'A senha é obrigatória',
-        ];
+        // $message = [
+        //     'name.required' => 'O nome é um campo obrigatorio e deve conter no maximo 100 caracteres',
+        //     'lastname.required' => 'O sobrenome é um campo obrigatorio e deve conter no maximo 100 caracteres',
+        //     'email.required' => 'O nome é um campo obrigatorio',
+        //     'email.unique' => 'O email já esta em uso, deseja recuperar sua senha ?',
+        //     'password.required' => 'A senha é obrigatória',
+        // ];
 
-        return Validator::make($data, $message, [
+        return Validator::make($data, [
             'name' => ['required', 'string', 'max:100'],
             'lastname' => ['required', 'string', 'max:100'],
             'email' => ['required', 'string', 'email', 'max:100', 'unique:users'],
