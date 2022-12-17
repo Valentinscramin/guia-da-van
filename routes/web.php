@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 //ROTAS SITE
+
+// DEFINIÇÃO DE IMAGENS
+Route::get('/storage', function () {
+    Artisan::call('storage:link');
+});
 
 //HOME
 Route::get('/', [App\Http\Controllers\SiteController::class, 'index'])->name('home');

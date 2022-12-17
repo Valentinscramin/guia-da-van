@@ -25,7 +25,7 @@
                         @foreach ($vans as $eachVan)
                             <div class="card_item text-start col-12 col-sm-6 col-lg-4 col-xl-3">
                                 <div class="takeCard">
-                                    <img class="card-img-top" src="/storage/{{ $eachVan->arquivo }}" alt="Title">
+                                    <img class="card-img-top" src="/linkstorage/{{ $eachVan->arquivo }}" alt="Title">
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">{{ $eachVan->model }}</h4>
