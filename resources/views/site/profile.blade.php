@@ -120,18 +120,28 @@
                             </form>
                         </div>
                     @else
-                        <div class="all_stars">
-                            <span class="fa fa-star"
-                                @if (is_array($stars['one'])) {{ 'style=color:yellow;' }} @endif></span>
-                            <span class="fa fa-star"
-                                @if (is_array($stars['two'])) {{ 'style=color:yellow;' }} @endif></span>
-                            <span class="fa fa-star"
-                                @if (is_array($stars['three'])) {{ 'style=color:yellow;' }} @endif></span>
-                            <span class="fa fa-star"
-                                @if (is_array($stars['four'])) {{ 'style=color:yellow;' }} @endif></span>
-                            <span class="fa fa-star"
-                                @if (is_array($stars['five'])) {{ 'style=color:yellow;' }} @endif></span>
-                        </div>
+                        @if (is_array($stars))
+                            <div class="all_stars">
+                                <span class="fa fa-star"
+                                    @if ($stars['one']) {{ 'style=color:yellow;' }} @endif></span>
+                                <span class="fa fa-star"
+                                    @if ($stars['two']) {{ 'style=color:yellow;' }} @endif></span>
+                                <span class="fa fa-star"
+                                    @if ($stars['three']) {{ 'style=color:yellow;' }} @endif></span>
+                                <span class="fa fa-star"
+                                    @if ($stars['four']) {{ 'style=color:yellow;' }} @endif></span>
+                                <span class="fa fa-star"
+                                    @if ($stars['five']) {{ 'style=color:yellow;' }} @endif></span>
+                            </div>
+                        @else
+                            <div class="all_stars">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                        @endif
                     @endif
 
                     @if (isset(Auth::user()->id))
