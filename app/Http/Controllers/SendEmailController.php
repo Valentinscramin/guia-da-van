@@ -23,8 +23,10 @@ class SendEmailController extends Controller
                 'comment' => $request->get('comment'),
             ],
             function ($message) {
-                $message->from(env('MAIL_USERNAME'));
-                $message->to(env('MAIL_USERNAME'), env('MAIL_FROM_NAME'))->subject('Contato Guia Da van');
+                // $message->from(env('MAIL_USERNAME'));
+                // $message->to(env('MAIL_USERNAME'), env('MAIL_FROM_NAME'))->subject('Contato Guia Da van');
+                $message->from('contato@guiadavan.com');
+                $message->to('contato@guiadavan.com', env('MAIL_FROM_NAME'))->subject('Contato Guia Da van');
             },
         );
 
