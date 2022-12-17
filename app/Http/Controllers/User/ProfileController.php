@@ -111,8 +111,6 @@ class ProfileController extends Controller
             $count++;
         }
 
-        dd($stars);
-
         return view('site.profile', compact('user', 'stars', 'profile_photo', 'vans', 'no_avaliation'));
     }
 
