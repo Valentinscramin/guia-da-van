@@ -25,6 +25,14 @@ $(function () {
   })
 
 
+  $(".open_menu_mobile").click(function(){
+    $(".sidebar").toggleClass("activeSidebar")
+  })
+
+  $(".arrow_back").click(function(){
+    $(".sidebar").removeClass("activeSidebar")
+  })
+
   $(".salvar_modal_album").click(function (e) {
     $(".modal_album").removeClass("active_modal_album")
   })
