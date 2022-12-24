@@ -6,10 +6,6 @@
             <div class="col-12">
                 <h2>Editar <span>Van</span></h2>
             </div>
-            <div class="btn_selecionar col-12"><a href="#" id="btn_selecionar_foto">Selecionar Foto</a></div>
-            <div class="modal_album">
-                <div class="content col-11 col-md-8 col-lg-6 col-xl-5">
-                    <div class="closeModal col-12"><img src="{{ URL('/images/close_modal.svg') }}" alt=""></div>
             @if (count($photos) == 0)
                 <br>
                 <br>
@@ -37,7 +33,7 @@
                     <div class="content col-12 col-md-8 col-lg-6 col-xl-5">
                         <div class="closeModal col-12"><img src="{{ URL('/images/close_modal.svg') }}" alt=""></div>
                         @foreach ($photos as $eachPhoto)
-                            <div class="col-12 col-sm-4 col-md-3 itemPhoto">
+                            <div class="col-12 col-sm-4 col-md-3 itemPhoto" style="margin:5px;">
                                 @if (in_array($eachPhoto->id, $array_photos_selected))
                                     <input type="radio" name="van_user_photo[]" id="{{ $eachPhoto->id }}"
                                         value="{{ $eachPhoto->id }}" checked>
