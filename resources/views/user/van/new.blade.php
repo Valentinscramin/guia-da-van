@@ -23,7 +23,7 @@
                     <div class="closeModal col-12"><img src="{{ URL('/images/close_modal.svg') }}" alt=""></div>
                     @foreach ($photos as $eachPhoto)
                     <div class="col-12 col-sm-4 col-md-3 itemPhoto">
-                        <input type="checkbox" name="van_user_photo[]" id="{{ $eachPhoto->id }}" value="{{ $eachPhoto->id }}">
+                        <input type="radio" name="van_user_photo[]" id="{{ $eachPhoto->id }}" value="{{ $eachPhoto->id }}">
                         <label for="{{ $eachPhoto->id }}">
                             <div style="background: url('<?php echo URL('storage/' . $eachPhoto->arquivo); ?>')no-repeat top center; background-size: cover; width: 150px; height: 150px;">
                             </div>
@@ -54,7 +54,7 @@
             </div>
             <div class="itemInput col-12">
                 <label>Comentário</label>
-                <textarea name="comment"></textarea>
+                <textarea name="comment" maxlength="150"></textarea>
             </div>
             @include('user.van.tracks')
 

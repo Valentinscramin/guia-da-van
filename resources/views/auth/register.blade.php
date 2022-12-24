@@ -38,7 +38,7 @@
                             <div class="title col-12">{{ __('Registre-se') }}</div>
                             <div class="subtitle">Insira seus dados abaixo.</div>
                             <div class="formulario">
-                                <form method="POST" action="{{ route('register') }}">
+                                <form method="POST" action="{{ route('register') }}" autocomplete="off">
                                     @csrf
                                     <div class="col-12 itemInput">
                                         <label for="name">{{ __('Nome') }}</label>
