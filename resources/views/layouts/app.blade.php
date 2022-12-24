@@ -29,11 +29,13 @@
 
 <body id="dashboard__body">
     <div class="content__dashboard" id="app">
-        <div class="col-2 col-sm-1 col-xl-2 column_sidebar">
+        <div class="col-lg-1 col-xl-2 column_sidebar">
+
             <div class="sidebar">
-                <div class="logo">
+                <div class="logo col-10 col-lg-12">
                     <a href="{{ route('user_home') }}"><img src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid"></a>
                 </div>
+                <div class="arrow_back"><a href="#"><img src="{{ URL('/images/close_modal.svg') }}" alt="" class="img-fluid"> <span>Fechar menu</span> </a></div>
                 <nav>
                     <ul>
                         <li id="dashboard"><a href="{{ route('user_home') }}"><img src="{{ URL('/images/home_dashboard.svg') }}" alt="" class="img-fluid">
@@ -72,71 +74,82 @@
                 </nav>
             </div>
         </div>
-        <div class="col-10 col-sm-11 col-xl-10 column_nav">
+        <div class="col-12 col-lg-11 col-xl-10 column_nav">
             <nav class="nav_top_dashboard navbar navbar-expand-md navbar-light bg-white shadow-sm">
-
-                <div class="search_dashboard col-6">
-                    <!-- <form action="">
-                        <input type="text" placeholder="Faça sua busca aqui...">
-                    </form> -->
+                <div class="col-3 col-sm-2 logo_mobile_dashboard">
+                    <div class="logo">
+                        <a href="{{ route('user_home') }}"><img src="{{ URL('/images/logo-guia-da-van.png') }}" alt="" class="img-fluid"></a>
+                    </div>
                 </div>
+
+                <!--<div class="search_dashboard col-6">
+                     <form action="">
+                        <input type="text" placeholder="Faça sua busca aqui...">
+                    </form>
+                </div> 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button>
+                </button> <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+                <!-- Left Side Of Navbar -->
+                <!-- <ul class="navbar-nav me-auto">
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    </ul> -->
 
-                    </ul>
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ms-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                    @if (Route::has('login'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @endif
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                        @if (Route::has('login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
+                    @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                    </li>
+                    @endif
+                    @else
+                    <li class="nav-item dropdown" style="display: flex; padding: 0 10px;">
+                        @if (!is_null(@App\Models\User::photo(Auth::user()->user_photo_id)->arquivo))
+                        <div class="bg_image" style="background: url(/storage/{{ App\Models\User::photo(Auth::user()->user_photo_id)->arquivo }})no-repeat center center;  border-radius: 50%; width: 35px; height: 35px; background-size: cover;"></div>
                         @endif
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
 
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown" style="display: flex; padding: 0 10px;">
-                            @if (!is_null(@App\Models\User::photo(Auth::user()->user_photo_id)->arquivo))
-                            <div class="bg_image" style="background: url(/storage/{{ App\Models\User::photo(Auth::user()->user_photo_id)->arquivo }})no-repeat center center;  border-radius: 50%; width: 35px; height: 35px; background-size: cover;"></div>
-                            @endif
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="{{ route('profile.index') }}" role="button">
+                                Perfil
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                <a class="dropdown-item" href="{{ route('profile.index') }}" role="button">
-                                    Perfil
-                                </a>
-
-
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                                {{ __('Logout') }}
+                            </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
 
-                        </li>
-                        @endguest
-                    </ul>
-                </div>
+                    </li>
+                    @endguest
+                </ul>
+                <!-- </div> -->
+
             </nav>
-
+            <div class="open_menu_mobile col-4">
+                <div class="toggle">
+                    <div class="takeToggle">
+                        <div class="first"></div>
+                    </div>
+                </div>
+                <div class="text_menu">Menu</div>
+            </div>
             <main>
                 @yield('content')
             </main>

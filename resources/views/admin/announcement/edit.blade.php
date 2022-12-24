@@ -12,7 +12,7 @@
           
             <div class="btn_selecionar col-12"><a href="#" id="btn_selecionar_foto">Selecionar Foto</a></div>
             <div class="modal_album">
-                <div class="content col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="content col-11 col-md-8 col-lg-6 col-xl-5">
                     <div class="closeModal col-12"><img src="{{ URL('/images/close_modal.svg') }}" alt=""></div>
                     <div class="itemInput col-12">
                         @foreach ($photos as $eachPhoto)

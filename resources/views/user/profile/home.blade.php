@@ -16,9 +16,10 @@
                 @endif
                 <div class="btn_selecionar col-12"><a href="#" id="btn_selecionar_foto">Selecionar Foto</a></div>
                 <div class="modal_album">
-                    <div class="content col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="content col-11 col-md-8 col-lg-6 col-xl-5">
+                    <div class="closeModal col-12"><img src="{{ URL('/images/close_modal.svg') }}" alt=""></div>
                         @foreach ($photos as $eachPhoto)
-                            <div class="col-12 col-sm-4 col-md-3 itemPhoto">
+                            <div class="col-11 col-sm-4 col-md-3 itemPhoto">
                                 @if ($profile_photo_checked == $eachPhoto->id)
                                     <input type="radio" name="user_profile_photo[]" id="{{ $eachPhoto->id }}"
                                         value="{{ $eachPhoto->id }}" checked>
