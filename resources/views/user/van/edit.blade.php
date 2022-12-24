@@ -6,6 +6,10 @@
             <div class="col-12">
                 <h2>Editar <span>Van</span></h2>
             </div>
+            <div class="btn_selecionar col-12"><a href="#" id="btn_selecionar_foto">Selecionar Foto</a></div>
+            <div class="modal_album">
+                <div class="content col-11 col-md-8 col-lg-6 col-xl-5">
+                    <div class="closeModal col-12"><img src="{{ URL('/images/close_modal.svg') }}" alt=""></div>
             @if (count($photos) == 0)
                 <br>
                 <br>
