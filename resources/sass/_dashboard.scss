@@ -179,6 +179,7 @@
         position: fixed;
         display: block;
         z-index: 200;
+        overflow-y: auto !important;
 
         .arrow_back {
             display: flex;
