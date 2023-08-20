@@ -14,6 +14,7 @@
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -83,6 +84,9 @@
                                                 </a>
                                             @endif
                                         </div>
+                                    </div>
+                                    <div class="col-12" style="justify-content: center;">
+                                        <div class="g-recaptcha" data-sitekey="6LcRA70nAAAAAEO1ObeYFGqFVuVfPRF_bqkBwaEx"></div>
                                     </div>
                                     <div class="col-12" style="justify-content: center;">
                                         <div class="btn_submit" style="margin: 10px auto;">

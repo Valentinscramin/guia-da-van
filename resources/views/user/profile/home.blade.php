@@ -13,6 +13,8 @@
                 @method('PUT')
                 @if ($profile_photo)
                     <div class="bg_profile" style="background: url(/storage/{{ $profile_photo }})no-repeat center center; width: 200px; height: 200px; background-size: cover; border-radius: 30px; margin-bottom: 20px;"></div>
+                @else
+                    <div class="alert alert-warning" role="alert">É necessario adicionar foto de perfil para concluir cadastro!<br>Mas antes preencha os dados abaixo para liberar o upload de mídias.</div>
                 @endif
                 <div class="btn_selecionar col-12"><a href="#" id="btn_selecionar_foto">Selecionar Foto</a></div>
                 <div class="modal_album">

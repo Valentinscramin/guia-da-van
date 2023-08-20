@@ -29,7 +29,6 @@
                                 </div>
                                 <div class="card-body">
                                     <h4 class="card-title">{{ $eachVan->model }}</h4>
-                                    <p class="card-text">Placa: {{ $eachVan->plate }}</p>
                                     <p class="card-text">observacoes: {{ $eachVan->comment }}</p>
                                 </div>
                             </div>

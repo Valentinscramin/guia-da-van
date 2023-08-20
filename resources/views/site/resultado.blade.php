@@ -43,7 +43,6 @@
                         <img class="card-img-top" src="/storage/{{ $eachVan->van_photo }}" alt="Title">
                         <div class="card-body">
                             <h4 class="card-title">{{ $eachVan->van }}</h4>
-                            <p class="card-text">Placa: {{ $eachVan->placa }}</p>
                             <p class="card-text">Usuario: <a href="{{ route('profile_show', $eachVan->usuario_id) }}"
                                     target="_blank">{{ $eachVan->usuario_nome }}</a></p>
                             <p class="card-text">Celular: {{ $eachVan->usuario_celular }}</p>

@@ -38,7 +38,7 @@
 
 
             <div class="itemInput col-12 col-sm-4">
-                <label>Modelo</label>
+                <label>Nome da empresa</label>
                 <input type="text" name="model">
                 <!-- <small>Modelo</small> -->
             </div>
