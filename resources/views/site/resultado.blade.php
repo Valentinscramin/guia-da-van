@@ -40,7 +40,11 @@
             @foreach ($vans as $eachVan)
                 <div class="card_item text-start col-12 col-sm-6 col-lg-4 col-xl-3">
                     <div class="takeCard">
-                        <img class="card-img-top" src="/storage/{{ $eachVan->van_photo }}" alt="Title">
+                        @if (is_null($eachVan->van_photo))
+                            <img class="card-img-top" src="/storage/{{ $eachVan->van_photo }}" alt="{{ $eachVan->van }}">
+                        @else
+                            <img class="card-img-top" src="/images/empty.jpg" alt="{{ $eachVan->van }}">
+                        @endif
                         <div class="card-body">
                             <h4 class="card-title">{{ $eachVan->van }}</h4>
                             <p class="card-text">Usuario: <a href="{{ route('profile_show', $eachVan->usuario_id) }}"
