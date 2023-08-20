@@ -22,7 +22,6 @@ class ProfileController extends Controller
         'name.required' => 'O usuario deve conter um nome',
         'cpf_cnpj.required' => 'O usuario deve conter um CPF/CNPJ',
         'postcode.required' => 'O usuario deve conter um CEP',
-        'telefone.required' => 'O usuario deve conter um Telefone',
         'celular.required' => 'O usuario deve conter um celular',
         'data_nascimento.required' => 'O usuario deve ter mais de 18 anos',
         'data_nascimento.before' => 'O usuario deve ter mais de 18 anos',
@@ -104,8 +103,12 @@ class ProfileController extends Controller
         $vans = [];
         $count = 0;
         foreach ($vans_user as $key => $eachVan) {
-            $photo_id = VanUserPhoto::where('van_id', '=', $eachVan->id)->get()[0]['user_photo_id'];
-            $arquivo = UserPhotos::where('id', '=', $photo_id)->get()[0]['arquivo'];
+            $photo_id = null;
+            $arquivo = null;
+            if(isset(VanUserPhoto::where('van_id', '=', $eachVan->id)->get()[0]['user_photo_id'])){
+                $photo_id = VanUserPhoto::where('van_id', '=', $eachVan->id)->get()[0]['user_photo_id'];
+                $arquivo = UserPhotos::where('id', '=', $photo_id)->get()[0]['arquivo'];
+            }
             $vans[$count] = $eachVan;
             $vans[$count]['arquivo'] = $arquivo;
             $count++;
@@ -142,7 +145,6 @@ class ProfileController extends Controller
                 'lastname' => 'required|string|max:255',
                 'cpf_cnpj' => 'required',
                 'postcode' => 'required',
-                'telefone' => 'required',
                 'celular' => 'required',
                 'data_nascimento' => 'required|date|before:18 years ago',
             ],

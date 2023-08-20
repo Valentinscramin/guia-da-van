@@ -29,7 +29,7 @@
                     <div class="content_filter" id="content_track-{{ $eachTrack->id }}">
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Estado de saida</label>
-                            <select name="estado_saida_escola" data-id="saida_escola_1" class="estado_jqry">
+                            <select name="estado_saida_escola" data-id="saida_escola_1" class="estado_jqry" style="width: 90% !important;">
                                 @foreach ($states as $state)
                                     @if ($state->id == Request::old('estado_saida_escola'))
                                         <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de saida</label>
-                            <select name="cidade_saida_escola" id="cidade_saida_escola_1">
+                            <select name="cidade_saida_escola" id="cidade_saida_escola_1" style="width: 90% !important; gap:10px;">
                                 @if (!is_null($citiesOne))
                                     @foreach ($citiesOne as $eachCitieOne)
                                         @if ($eachCitieOne->id == Request::old('cidade_saida_escola'))
@@ -58,7 +58,7 @@
                         </div>
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Estado de chegada</label>
-                            <select name="estado_chegada_escola" data-id="chegada_escola_2" class="estado_jqry">
+                            <select name="estado_chegada_escola" data-id="chegada_escola_2" class="estado_jqry" style="width: 90% !important;">
                                 @foreach ($states as $state)
                                     @if ($state->id == Request::old('estado_chegada_escola'))
                                         <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de chegada</label>
-                            <select name="cidade_chegada_escola" id="cidade_chegada_escola_2">
+                            <select name="cidade_chegada_escola" id="cidade_chegada_escola_2" style="width: 90% !important;">
                                 @if (!is_null($citiesTwo))
                                     @foreach ($citiesTwo as $eachCitieTwo)
                                         @if ($eachCitieTwo->id == Request::old('cidade_chegada_escola'))
@@ -92,7 +92,7 @@
                         </div>
                         <div class="itemInput col-12 col-sm-6 col-lg-4">
                             <label for="">Periodo</label>
-                            <select name="periodo" id="">
+                            <select name="periodo" id="" style="width: 90% !important;">
                                 <option value="diurno" @if (Request::old('periodo') == 'diurno') selected @endif>Diurno</option>
                                 <option value="vespertino" @if (Request::old('periodo') == 'vespertino') selected @endif>Vespertino</option>
                                 <option value="noturno" @if (Request::old('periodo') == 'noturno') selected @endif>Noturno</option>
@@ -106,7 +106,7 @@
 
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Estado de saida</label>
-                            <select name="estado_evento" data-id="saida_evento" class="estado_jqry">
+                            <select name="estado_evento" data-id="saida_evento" class="estado_jqry" style="width: 90% !important;">
                                 @foreach ($states as $state)
                                     @if ($state->id == Request::old('estado_evento'))
                                         <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
@@ -118,7 +118,7 @@
                         </div>
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de saida</label>
-                            <select name="cidade_saida_evento" id="cidade_saida_evento">
+                            <select name="cidade_saida_evento" id="cidade_saida_evento" style="width: 90% !important;">
                                 @if (!is_null($citiesOne))
                                     @foreach ($citiesOne as $eachCitieOne)
                                         @if ($eachCitieOne->id == Request::old('cidade_saida_evento'))
@@ -145,7 +145,7 @@
                     <div class="content_filter" id="content_track-{{ $eachTrack->id }}">
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Estado de saida</label>
-                            <select name="estado_executivo" data-id="saida_executivo" class="estado_jqry">
+                            <select name="estado_executivo" data-id="saida_executivo" class="estado_jqry" style="width: 90% !important;">
                                 @foreach ($states as $state)
                                     @if ($state->id == Request::old('estado_executivo'))
                                         <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
@@ -157,7 +157,7 @@
                         </div>
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de saida</label>
-                            <select name="cidade_saida_executivo" id="cidade_saida_executivo">
+                            <select name="cidade_saida_executivo" id="cidade_saida_executivo" style="width: 90% !important;">
                                 @if (!is_null($citiesOne))
                                     @foreach ($citiesOne as $eachCitieOne)
                                         @if ($eachCitieOne->id == Request::old('cidade_saida_executivo'))
@@ -179,7 +179,7 @@
                     <div class="content_filter" id="content_track-{{ $eachTrack->id }}">
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Estado de saida</label>
-                            <select name="estado_frete" data-id="saida_frete" class="estado_jqry">
+                            <select name="estado_frete" data-id="saida_frete" class="estado_jqry" style="width: 90% !important;">
                                 @foreach ($states as $state)
                                     @if ($state->id == Request::old('estado_frete'))
                                         <option value="{{ $state->id }}" selected>{{ $state->name }}</option>
@@ -191,7 +191,7 @@
                         </div>
                         <div class="itemInput col-12 col-sm-6">
                             <label for="">Cidade de saida</label>
-                            <select name="cidade_saida_frete" id="cidade_saida_frete">
+                            <select name="cidade_saida_frete" id="cidade_saida_frete" style="width: 90% !important;">
                                 @if (!is_null($citiesOne))
                                     @foreach ($citiesOne as $eachCitieOne)
                                         @if ($eachCitieOne->id == Request::old('cidade_saida_frete'))
@@ -218,3 +218,6 @@
                 alt=""> <img src="{{ URL('/images/line.svg') }}" alt="" class="line"> Buscar
             Van</button></div>
 </form>
+<script>
+    $("select").select2();
+</script>

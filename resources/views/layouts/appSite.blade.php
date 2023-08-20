@@ -25,6 +25,11 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+    <!-- SEARCH INPUT SELECT -->
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+
 </head>
 
 <body>
@@ -113,15 +118,14 @@
                         <div class="all_media col-10 col-md-7 col-lg-10">
                             <div class="itemSocial col-12 col-lg-4">
                                 <div class="col-12 col-sm-4">
-                                    <div class="icon"><a href="https://www.facebook.com/guiadavan" target="_blank"><img
-                                                src="{{ URL('/images/facebook.svg') }}" alt=""
+                                    <div class="icon"><a href="https://www.facebook.com/guiadavan"
+                                            target="_blank"><img src="{{ URL('/images/facebook.svg') }}" alt=""
                                                 class="img-fluid"></a>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-8">
                                     <div class="title">
-                                        <a href="https://www.facebook.com/guiadavan"
-                                            target="_blank">
+                                        <a href="https://www.facebook.com/guiadavan" target="_blank">
                                             <h2>Facebook</h2>
                                         </a>
                                     </div>
@@ -131,9 +135,9 @@
                             </div>
                             <div class="itemSocial col-12 col-lg-4">
                                 <div class="col-12 col-sm-4">
-                                    <div class="icon"><a href="https://www.instagram.com/guiadavan/" target="_blank"><img
-                                                src="{{ URL('/images/instagram.svg') }}" alt=""
-                                                class="img-fluid"></a></div>
+                                    <div class="icon"><a href="https://www.instagram.com/guiadavan/"
+                                            target="_blank"><img src="{{ URL('/images/instagram.svg') }}"
+                                                alt="" class="img-fluid"></a></div>
                                 </div>
                                 <div class="col-12 col-sm-8">
                                     <div class="title">

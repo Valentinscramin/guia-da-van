@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="itemInput col-12 col-sm-4">
-                    <label for="">Modelo</label>
+                    <label for="">Nome da empresa</label>
                     <input type="text" name="model" id="" placeholder="" aria-describedby="helpId"
                         value="{{ $van->model }}">
                     <!-- <small id="helpId">Modelo da Van</small> -->

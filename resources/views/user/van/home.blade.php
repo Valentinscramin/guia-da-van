@@ -14,7 +14,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Modelo</th>
+                        <th>Nome da empresa</th>
                         <th>Placa</th>
                         <th>Assentos</th>
                         <th>Trajetos</th>
