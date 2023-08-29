@@ -42,8 +42,6 @@
                     <div class="takeCard">
                         @if (is_null($eachVan->van_photo))
                             <img class="card-img-top" src="/storage/{{ $eachVan->van_photo }}" alt="{{ $eachVan->van }}">
-                        @else
-                            <img class="card-img-top" src="/images/empty.jpg" alt="{{ $eachVan->van }}">
                         @endif
                         <div class="card-body">
                             <h4 class="card-title">{{ $eachVan->van }}</h4>
